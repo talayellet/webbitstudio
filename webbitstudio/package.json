@@ -5,16 +5,19 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "next": "~16.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "6.29.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
+    "@next/eslint-plugin-next": "^16.0.1",
     "@nx/devkit": "22.1.1",
     "@nx/eslint": "22.1.1",
     "@nx/eslint-plugin": "22.1.1",
     "@nx/js": "22.1.1",
+    "@nx/next": "22.1.1",
     "@nx/playwright": "22.1.1",
     "@nx/react": "22.1.1",
     "@nx/vite": "22.1.1",
@@ -36,6 +39,7 @@
     "@vitest/ui": "^4.0.0",
     "autoprefixer": "10.4.13",
     "eslint": "^9.8.0",
+    "eslint-config-next": "^16.0.1",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.1",

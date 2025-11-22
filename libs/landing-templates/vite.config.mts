@@ -3,10 +3,22 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import * as path from 'path';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
   cacheDir: '../../node_modules/.vite/libs/landing-templates',
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss({
+          config: path.join(import.meta.dirname, 'tailwind.config.js'),
+        }),
+        autoprefixer(),
+      ],
+    },
+  },
   plugins: [
     react(),
     dts({

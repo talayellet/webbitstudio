@@ -1,1 +1,1 @@
-export * from './lib/landing-templates';
+export * from './lib/saas-launch/saas-launch';

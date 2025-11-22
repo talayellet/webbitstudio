@@ -94,3 +94,6 @@ lerna-debug.log*
 
 # Next.js auto-generated
 next-env.d.ts
+
+
+storybook-static

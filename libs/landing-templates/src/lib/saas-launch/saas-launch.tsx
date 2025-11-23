@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
 import '../../styles.css';
+import './animations.css';
 import {
   DEFAULT_COLORS,
   DEFAULT_TEMPLATE,
   SaasLaunchProps,
   STYLES,
-  KEYFRAMES,
 } from './utils';
 import { useScrollReveal } from './hooks';
 import { Header } from './header';
@@ -82,8 +82,6 @@ export const SaasLaunch = ({
       />
 
       <Footer companyName={companyName} />
-
-      <style>{KEYFRAMES}</style>
     </div>
   );
 };

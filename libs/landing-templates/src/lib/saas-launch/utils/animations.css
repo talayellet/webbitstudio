@@ -1,0 +1,68 @@
+/* Keyframe Animations */
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.animate-gradient-shift {
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up-1 {
+  animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+.animate-fade-in-up-2 {
+  animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+.animate-fade-in-up-3 {
+  animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+.animate-fade-in-up-4 {
+  animation: fadeInUp 1s ease 0.8s backwards;
+}
+
+.animate-fade-in-up-5 {
+  animation: fadeInUp 1s ease 1s backwards;
+}
+
+.reveal.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}

@@ -17,6 +17,7 @@ interface MainProps {
   secondaryCtaHref: string;
   features: Feature[];
   stats: Stat[];
+  aboutSection?: React.ReactNode;
   finalCtaTitle: string;
   finalCtaDescription: string;
   finalCtaButton: string;
@@ -35,6 +36,7 @@ export const Main = ({
   secondaryCtaHref,
   features,
   stats,
+  aboutSection,
   finalCtaTitle,
   finalCtaDescription,
   finalCtaButton,
@@ -56,6 +58,11 @@ export const Main = ({
       />
       <FeaturesSection features={features} addToRefs={addToRefs} />
       <StatsSection stats={stats} addToRefs={addToRefs} />
+      {aboutSection && (
+        <section id="about" ref={addToRefs}>
+          {aboutSection}
+        </section>
+      )}
       <FinalCtaSection
         finalCtaTitle={finalCtaTitle}
         finalCtaDescription={finalCtaDescription}

@@ -27,6 +27,9 @@ export interface SaasLaunchProps {
     label: string;
   }>;
 
+  // About Section
+  aboutSection?: React.ReactNode;
+
   // Final CTA
   finalCtaTitle?: string;
   finalCtaDescription?: string;

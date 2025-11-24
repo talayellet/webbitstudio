@@ -27,7 +27,11 @@ export const STYLES = {
     'absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(0,102,255,0.15)_0%,transparent_50%),radial-gradient(circle_at_80%_80%,rgba(0,255,170,0.1)_0%,transparent_50%)]',
 
   // Header
-  HEADER: 'py-6 relative z-[100] animate-slide-down',
+  HEADER:
+    'fixed top-0 left-0 right-0 py-6 z-[100] animate-slide-down transition-all duration-300',
+  HEADER_SCROLLED:
+    'bg-[var(--surface)]/80 backdrop-blur-lg border-b border-white/10 shadow-lg',
+  FIXED_HEADER_SPACER: 'pt-[88px]',
   NAV: 'flex justify-between items-center',
   NAV_BRAND: [
     'flex items-center gap-2 text-2xl font-bold no-underline',

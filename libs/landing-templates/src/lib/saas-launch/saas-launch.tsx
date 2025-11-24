@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import clsx from 'clsx';
 import '../../styles.css';
-import './animations.css';
+import './utils/animations.css';
 import {
   DEFAULT_COLORS,
   DEFAULT_TEMPLATE,
@@ -56,6 +56,9 @@ export const SaasLaunch = ({
       <div className={STYLES.GRADIENT_BG_WRAPPER}>
         <div className={STYLES.GRADIENT_BG_INNER} />
       </div>
+
+      {/* Add padding to account for fixed header */}
+      <div className={STYLES.FIXED_HEADER_SPACER} />
 
       <Header
         companyName={companyName}

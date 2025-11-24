@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { STYLES } from './utils';
+import { useStickyHeader } from './hooks';
 
 export interface HeaderProps {
   companyName: string;
@@ -12,11 +13,15 @@ export const Header = ({
   logoLetter,
   productName,
 }: HeaderProps) => {
+  const { isScrolled, scrollToTop } = useStickyHeader();
+
   return (
-    <header className={STYLES.HEADER}>
+    <header
+      className={clsx(STYLES.HEADER, isScrolled && STYLES.HEADER_SCROLLED)}
+    >
       <div className={STYLES.CONTAINER}>
         <nav className={STYLES.NAV}>
-          <a href="/" className={clsx(STYLES.NAV_BRAND)}>
+          <a href="/" onClick={scrollToTop} className={clsx(STYLES.NAV_BRAND)}>
             <div className={clsx(STYLES.LOGO_CONTAINER, STYLES.ICON_GRADIENT)}>
               {logoLetter}
             </div>

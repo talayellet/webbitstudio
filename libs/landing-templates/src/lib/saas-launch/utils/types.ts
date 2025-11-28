@@ -66,6 +66,9 @@ export interface SaasLaunchProps {
     label: string;
   }>;
 
+  // Theme switcher
+  showThemeSwitcher?: boolean;
+
   // Footer
   footerLinks?: Array<{
     label: string;

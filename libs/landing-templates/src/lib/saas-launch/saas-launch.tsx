@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import '../../styles.css';
 import './utils/animations.css';
 import {
-  DEFAULT_COLORS,
   DEFAULT_TEMPLATE,
   SaasLaunchProps,
   STYLES,
@@ -13,23 +12,34 @@ import {
 } from './utils';
 import { useScrollReveal, useLocalizedContent } from './hooks';
 import { Header, Main, Footer } from './components';
-import { LanguageSwitcher } from '../shared';
+import {
+  LanguageSwitcher,
+  ThemeSwitcher,
+  useTheme,
+  THEME_POSITIONS,
+} from '../shared';
 
 export const SaasLaunch = ({
-  productName = DEFAULT_TEMPLATE.productName,
-  companyName = DEFAULT_TEMPLATE.companyName,
-  logoLetter = DEFAULT_TEMPLATE.logoLetter,
-  content,
   aboutSection = DEFAULT_TEMPLATE.aboutSection,
-  contactSection = DEFAULT_TEMPLATE.contactSection,
   colors = DEFAULT_TEMPLATE.colors,
-  showLanguageSwitcher = true,
-  locale = DEFAULT_LOCALE,
-  onLocaleChange,
-  languageOptions = DEFAULT_LANGUAGE_OPTIONS,
+  companyName = DEFAULT_TEMPLATE.companyName,
+  contactSection = DEFAULT_TEMPLATE.contactSection,
+  content,
   footerLinks,
+  languageOptions = DEFAULT_LANGUAGE_OPTIONS,
+  locale = DEFAULT_LOCALE,
+  logoLetter = DEFAULT_TEMPLATE.logoLetter,
+  onLocaleChange,
+  productName = DEFAULT_TEMPLATE.productName,
+  showLanguageSwitcher = true,
+  showThemeSwitcher = true,
 }: SaasLaunchProps) => {
   const addToRefs = useScrollReveal();
+
+  // Theme management - pass color overrides for backwards compatibility
+  const { currentTheme, setTheme, colorStyles } = useTheme({
+    colorOverrides: colors,
+  });
 
   // Manage locale internally if not provided as a non-default value (uncontrolled)
   const [internalLocale, setInternalLocale] = useState(DEFAULT_LOCALE);
@@ -57,21 +67,6 @@ export const SaasLaunch = ({
   // Get localized content with overrides
   const displayContent = useLocalizedContent(localeStrings, content);
 
-  const colorStyles = useMemo(
-    () =>
-      ({
-        '--primary': colors.primary || DEFAULT_COLORS.PRIMARY,
-        '--primary-dark': colors.primaryDark || DEFAULT_COLORS.PRIMARY_DARK,
-        '--secondary': colors.secondary || DEFAULT_COLORS.SECONDARY,
-        '--background': colors.background || DEFAULT_COLORS.BACKGROUND,
-        '--surface': colors.surface || DEFAULT_COLORS.SURFACE,
-        '--text': colors.text || DEFAULT_COLORS.TEXT,
-        '--text-muted': colors.textMuted || DEFAULT_COLORS.TEXT_MUTED,
-        '--accent': colors.accent || DEFAULT_COLORS.ACCENT,
-      } as React.CSSProperties),
-    [colors]
-  );
-
   return (
     <div className={clsx(STYLES.MAIN_CONTAINER)} style={colorStyles}>
       {/* Animated gradient background */}
@@ -85,6 +80,15 @@ export const SaasLaunch = ({
           currentLanguage={currentLocale}
           languages={languageOptions}
           onLanguageChange={handleLocaleChange}
+        />
+      )}
+
+      {/* Theme Switcher */}
+      {showThemeSwitcher && (
+        <ThemeSwitcher
+          currentTheme={currentTheme}
+          onThemeChange={setTheme}
+          position={THEME_POSITIONS.TOP_LEFT}
         />
       )}
 

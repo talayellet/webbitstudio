@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import clsx from 'clsx';
 import '../../styles.css';
 import './utils/animations.css';
@@ -19,7 +19,7 @@ import {
   THEME_POSITIONS,
 } from '../shared';
 
-export const SaasLaunch = ({
+export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   aboutSection = DEFAULT_TEMPLATE.aboutSection,
   colors = DEFAULT_TEMPLATE.colors,
   companyName = DEFAULT_TEMPLATE.companyName,
@@ -33,7 +33,7 @@ export const SaasLaunch = ({
   productName = DEFAULT_TEMPLATE.productName,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
-}: SaasLaunchProps) => {
+}) => {
   const addToRefs = useScrollReveal();
 
   // Theme management - pass color overrides for backwards compatibility

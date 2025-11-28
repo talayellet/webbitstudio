@@ -72,6 +72,9 @@ interface SaasLaunchProps {
     label: string;
   }>;
 
+  // Theme switcher
+  showThemeSwitcher?: boolean;
+
   // Footer
   footerLinks?: Array<{
     label: string;
@@ -233,6 +236,30 @@ const CustomContact = () => (
 
 <SaasLaunch productName="My Product" aboutSection={<CustomAbout />} contactSection={<CustomContact />} />;
 ```
+
+### Using the Theme Switcher
+
+The template includes a built-in theme switcher with 5 pre-configured themes:
+
+```tsx
+import { SaasLaunch } from '@webbitstudio/landing-templates';
+
+// Theme switcher is enabled by default
+<SaasLaunch productName="My Product" />
+
+// Disable theme switcher
+<SaasLaunch productName="My Product" showThemeSwitcher={false} />
+```
+
+**Available Themes:**
+
+- 🌙 **Dark** (default) - Dark slate with soft blues and purples
+- ☀️ **Light** - Bright blue and purple tones
+- 🌊 **Ocean** - Sky blue aquatic colors
+- 🌅 **Sunset** - Warm oranges and pinks
+- 🌲 **Forest** - Fresh greens and lime
+
+Themes persist across page reloads using localStorage and automatically apply CSS custom properties for seamless color transitions.
 
 ## Localization
 

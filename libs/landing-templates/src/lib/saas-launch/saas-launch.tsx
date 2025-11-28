@@ -24,6 +24,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   colors = DEFAULT_TEMPLATE.colors,
   companyName = DEFAULT_TEMPLATE.companyName,
   contactSection = DEFAULT_TEMPLATE.contactSection,
+  contactFieldsConfig,
   content,
   footerLinks,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,
@@ -114,6 +115,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
           stats={displayContent.stats}
           aboutSection={aboutSection}
           contactSection={contactSection}
+          contactFieldsConfig={contactFieldsConfig}
           finalCtaTitle={displayContent.finalCtaTitle}
           finalCtaDescription={displayContent.finalCtaDescription}
           finalCtaButton={displayContent.finalCtaButton}

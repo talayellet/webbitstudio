@@ -1,7 +1,13 @@
 import { DEFAULT_COLORS } from './styles';
-import { SaasLaunchProps, ContentOverrides, ShowSections } from './types';
+import {
+  SaasLaunchProps,
+  ContentOverrides,
+  ShowSections,
+  ContactInfo,
+  ContactFieldsConfig,
+} from './types';
 import React from 'react';
-import { AboutSection, DefaultContactSection } from '../components';
+import { AboutSection, ContactSection } from '../components';
 import { en } from './locales';
 
 export * from './locales';
@@ -10,20 +16,18 @@ export * from './locales';
 // Contact Info
 // ============================================================================
 
-export interface ContactInfo {
-  address?: {
-    line1?: string;
-    line2?: string;
-    line3?: string;
-  };
-  email?: string;
-  phone?: string;
-  social?: {
-    twitter?: string;
-    linkedin?: string;
-    github?: string;
-  };
-}
+export const DEFAULT_CONTACT_FIELDS: ContactFieldsConfig = {
+  showAddress: true,
+  showEmail: true,
+  showPhone: true,
+  showSocialMedia: true,
+  socialLinks: {
+    showTwitter: true,
+    showLinkedin: true,
+    showGithub: true,
+    showCustom: true,
+  },
+};
 
 export const DEFAULT_CONTACT_INFO: ContactInfo = {
   address: {
@@ -107,7 +111,8 @@ export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
   companyName: 'Company',
   logoLetter: 'C',
   aboutSection: React.createElement(AboutSection),
-  contactSection: React.createElement(DefaultContactSection),
+  contactSection: React.createElement(ContactSection),
+  contactFieldsConfig: DEFAULT_CONTACT_FIELDS,
   colors: {
     primary: DEFAULT_COLORS.PRIMARY,
     primaryDark: DEFAULT_COLORS.PRIMARY_DARK,

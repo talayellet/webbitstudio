@@ -11,6 +11,7 @@ import {
   LocaleStrings,
   ShowSections,
   DEFAULT_SHOW_SECTIONS,
+  ContactFieldsConfig,
 } from '../../utils';
 
 interface MainProps {
@@ -25,6 +26,7 @@ interface MainProps {
   stats: readonly Stat[];
   aboutSection?: React.ReactNode;
   contactSection?: React.ReactNode;
+  contactFieldsConfig?: ContactFieldsConfig;
   finalCtaTitle: string;
   finalCtaDescription: string;
   finalCtaButton: string;
@@ -48,6 +50,7 @@ export const Main: React.FC<MainProps> = ({
   stats,
   aboutSection,
   contactSection,
+  contactFieldsConfig,
   finalCtaTitle,
   finalCtaDescription,
   finalCtaButton,
@@ -72,11 +75,12 @@ export const Main: React.FC<MainProps> = ({
   const contactSectionWithLocale = useMemo(
     () =>
       contactSection && isValidElement(contactSection)
-        ? cloneElement(contactSection, { locale } as Partial<
-            typeof contactSection.props
-          >)
+        ? cloneElement(contactSection, {
+            locale,
+            contactFieldsConfig,
+          } as Partial<typeof contactSection.props>)
         : contactSection,
-    [contactSection, locale]
+    [contactSection, locale, contactFieldsConfig]
   );
 
   return (

@@ -1,4 +1,37 @@
 // ============================================================================
+// Contact
+// ============================================================================
+
+export interface ContactInfo {
+  address?: {
+    line1?: string;
+    line2?: string;
+    line3?: string;
+  };
+  email?: string;
+  phone?: string;
+  social?: {
+    twitter?: string;
+    linkedin?: string;
+    github?: string;
+    custom?: React.ReactElement;
+  };
+}
+
+export interface ContactFieldsConfig {
+  showAddress?: boolean;
+  showEmail?: boolean;
+  showPhone?: boolean;
+  showSocialMedia?: boolean;
+  socialLinks?: {
+    showTwitter?: boolean;
+    showLinkedin?: boolean;
+    showGithub?: boolean;
+    showCustom?: boolean;
+  };
+}
+
+// ============================================================================
 // Navigation
 // ============================================================================
 
@@ -118,6 +151,7 @@ export interface SaasLaunchProps {
 
   // Contact Section
   contactSection?: React.ReactNode;
+  contactFieldsConfig?: ContactFieldsConfig;
 
   // Color scheme
   colors?: ColorScheme;

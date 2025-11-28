@@ -1,7 +1,7 @@
 import { DEFAULT_COLORS } from './styles';
 import { SaasLaunchProps } from './types';
 import React from 'react';
-import { DefaultAboutSection } from '../main-sections';
+import { DefaultAboutSection, DefaultContactSection } from '../main-sections';
 export const DEFAULT_TEMPLATE: Required<SaasLaunchProps> = {
   productName: 'Product',
   tagline: 'Your Tagline',
@@ -39,6 +39,7 @@ export const DEFAULT_TEMPLATE: Required<SaasLaunchProps> = {
     { number: '50+', label: 'Countries' },
   ],
   aboutSection: React.createElement(DefaultAboutSection),
+  contactSection: React.createElement(DefaultContactSection),
   finalCtaTitle: 'Ready to get started?',
   finalCtaDescription: 'Join thousands of users already using our platform.',
   finalCtaButton: 'Start Free Trial',

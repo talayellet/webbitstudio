@@ -18,6 +18,7 @@ interface MainProps {
   features: Feature[];
   stats: Stat[];
   aboutSection?: React.ReactNode;
+  contactSection?: React.ReactNode;
   finalCtaTitle: string;
   finalCtaDescription: string;
   finalCtaButton: string;
@@ -37,6 +38,7 @@ export const Main = ({
   features,
   stats,
   aboutSection,
+  contactSection,
   finalCtaTitle,
   finalCtaDescription,
   finalCtaButton,
@@ -61,6 +63,11 @@ export const Main = ({
       {aboutSection && (
         <section id="about" ref={addToRefs}>
           {aboutSection}
+        </section>
+      )}
+      {contactSection && (
+        <section id="contact" ref={addToRefs}>
+          {contactSection}
         </section>
       )}
       <FinalCtaSection

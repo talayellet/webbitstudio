@@ -30,6 +30,9 @@ export interface SaasLaunchProps {
   // About Section
   aboutSection?: React.ReactNode;
 
+  // Contact Section
+  contactSection?: React.ReactNode;
+
   // Final CTA
   finalCtaTitle?: string;
   finalCtaDescription?: string;

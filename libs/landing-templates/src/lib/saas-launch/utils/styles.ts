@@ -48,28 +48,32 @@ export const STYLES = {
   ],
 
   // Hero Section
-  HERO_SECTION: 'py-[120px] pb-20 text-center animate-fade-in-up-1',
+  HERO_SECTION:
+    'py-[120px] pb-20 text-center animate-fade-in-up-1 min-h-[650px] flex flex-col justify-center',
   HERO_TITLE: [
-    'text-[clamp(40px,6vw,72px)] font-bold leading-[1.1] mb-6',
-    'animate-fade-in-up-3',
+    'text-[clamp(40px,6vw,72px)] font-bold leading-[1.2] mb-6 min-h-[100px] flex items-center justify-center',
+    'animate-fade-in-up-3 smooth-content-change',
   ],
   HERO_TAGLINE: [
-    'text-lg font-medium mb-4',
+    'text-lg font-medium mb-4 min-h-[32px] flex items-center justify-center',
     'text-[var(--secondary)]',
-    'animate-fade-in-up-3',
+    'animate-fade-in-up-3 smooth-content-change',
   ],
   HERO_DESCRIPTION: [
-    'text-xl leading-relaxed max-w-[600px] mx-auto mb-10',
+    'text-xl leading-relaxed max-w-[700px] mx-auto mb-10 min-h-[80px] flex items-center justify-center',
     'text-[var(--text-muted)]',
-    'animate-fade-in-up-4',
+    'animate-fade-in-up-4 smooth-content-change',
   ],
-  HERO_CTA_WRAPPER: 'flex gap-4 justify-center flex-wrap animate-fade-in-up-5',
+  HERO_CTA_WRAPPER:
+    'flex gap-4 justify-center flex-wrap animate-fade-in-up-5 min-h-[56px] smooth-content-change',
 
   // Features Section
   FEATURES_SECTION: 'py-20',
   FEATURES_GRID: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16',
-  FEATURE_TITLE: 'text-[22px] mb-3 text-[var(--text)]',
-  FEATURE_DESCRIPTION: 'text-[var(--text-muted)] leading-relaxed',
+  FEATURE_TITLE:
+    'text-[22px] mb-3 text-[var(--text)] min-h-[70px] flex items-center smooth-content-change',
+  FEATURE_DESCRIPTION:
+    'text-[var(--text-muted)] leading-relaxed min-h-[90px] smooth-content-change',
 
   // Stats Section
   STATS_SECTION: [
@@ -78,14 +82,18 @@ export const STYLES = {
   ],
   STATS_GRID:
     'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center',
-  STAT_NUMBER: 'text-5xl font-bold text-[var(--secondary)] mb-2 font-mono',
-  STAT_LABEL: 'text-[var(--text-muted)] text-base',
+  STAT_NUMBER:
+    'text-5xl font-bold text-[var(--secondary)] mb-2 font-mono min-h-[60px] flex items-center justify-center smooth-content-change',
+  STAT_LABEL:
+    'text-[var(--text-muted)] text-base min-h-[56px] flex items-center justify-center smooth-content-change',
 
   // Final CTA Section
-  FINAL_CTA_SECTION: 'py-[120px] text-center',
-  FINAL_CTA_TITLE: 'text-[clamp(32px,5vw,56px)] mb-6',
+  FINAL_CTA_SECTION:
+    'py-[120px] text-center min-h-[450px] flex flex-col justify-center',
+  FINAL_CTA_TITLE:
+    'text-[clamp(32px,5vw,56px)] mb-6 min-h-[80px] flex items-center justify-center smooth-content-change',
   FINAL_CTA_DESCRIPTION:
-    'text-xl text-[var(--text-muted)] mb-10 max-w-[500px] mx-auto',
+    'text-xl text-[var(--text-muted)] mb-10 max-w-[600px] mx-auto min-h-[70px] flex items-center justify-center smooth-content-change',
 
   // Footer
   FOOTER: 'py-12 border-t border-white/5',
@@ -104,7 +112,7 @@ export const STYLES = {
   // Buttons
   PRIMARY_BUTTON: [
     'px-8 py-3.5 rounded-xl text-base font-semibold no-underline',
-    'inline-flex items-center gap-2',
+    'inline-flex items-center gap-2 justify-center min-w-[160px] min-h-[52px]',
     'bg-gradient-to-br from-[var(--primary)] to-[var(--primary-dark)]',
     'text-white shadow-[0_4px_24px_rgba(0,102,255,0.3)]',
     'transition-all duration-300',
@@ -113,7 +121,7 @@ export const STYLES = {
 
   SECONDARY_BUTTON: [
     'px-8 py-3.5 rounded-xl text-base font-semibold no-underline',
-    'inline-flex items-center gap-2',
+    'inline-flex items-center gap-2 justify-center min-w-[160px] min-h-[52px]',
     'bg-[var(--surface)] text-[var(--text)]',
     'border border-white/10',
     'transition-all duration-300',
@@ -143,6 +151,7 @@ export const STYLES = {
     'transition-all duration-300',
     'hover:border-[rgba(0,102,255,0.3)] hover:-translate-y-1',
     'hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)]',
+    'min-h-[320px] flex flex-col',
   ],
 
   // Icon containers
@@ -150,6 +159,8 @@ export const STYLES = {
     'w-14 h-14 rounded-xl flex items-center justify-center',
     'text-[28px] mb-6',
   ],
+
+  ICON_TEXT: 'text-xl',
 
   LOGO_CONTAINER: [
     'w-8 h-8 rounded-lg flex items-center justify-center',
@@ -176,6 +187,16 @@ export const STYLES = {
   CONTACT_SECTION_TITLE: 'text-[clamp(32px,5vw,56px)] mb-6 font-bold',
   CONTACT_SECTION_SUBTITLE:
     'text-xl text-[var(--text-muted)] max-w-2xl mx-auto',
+
+  // About Section
+  ABOUT_SECTION: 'py-20',
+  ABOUT_SECTION_CONTENT: 'max-w-3xl mx-auto text-center',
+  ABOUT_SECTION_TITLE: 'text-[clamp(32px,5vw,56px)] mb-6 font-bold',
+  ABOUT_SECTION_PARAGRAPH_1:
+    'text-xl text-[var(--text-muted)] mb-8 leading-relaxed',
+  ABOUT_SECTION_PARAGRAPH_2: 'text-lg text-[var(--text-muted)] leading-relaxed',
+
+  // Contact Grid and Info
   CONTACT_GRID: 'grid grid-cols-1 lg:grid-cols-2 gap-12',
   CONTACT_INFO_WRAPPER: 'space-y-8',
   CONTACT_INFO_TITLE: 'text-2xl font-semibold mb-6',

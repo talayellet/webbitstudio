@@ -1,13 +1,8 @@
-export interface SaasLaunchProps {
-  // Brand/Company
-  productName?: string;
-  tagline?: string;
-  companyName?: string;
-  logoLetter?: string;
-
+export interface ContentOverrides {
   // Hero Section
   launchBadgeText?: string;
   heroTitle?: string;
+  tagline?: string;
   heroDescription?: string;
   primaryCtaText?: string;
   secondaryCtaText?: string;
@@ -27,19 +22,29 @@ export interface SaasLaunchProps {
     label: string;
   }>;
 
+  // Final CTA
+  finalCtaTitle?: string;
+  finalCtaDescription?: string;
+  finalCtaButton?: string;
+  finalCtaHref?: string;
+}
+
+export interface SaasLaunchProps {
+  // Brand/Company
+  productName?: string;
+  companyName?: string;
+  logoLetter?: string;
+
+  // Content overrides (optional - falls back to locale strings)
+  content?: ContentOverrides;
+
   // About Section
   aboutSection?: React.ReactNode;
 
   // Contact Section
   contactSection?: React.ReactNode;
 
-  // Final CTA
-  finalCtaTitle?: string;
-  finalCtaDescription?: string;
-  finalCtaButton?: string;
-  finalCtaHref?: string;
-
-  // Colors (CSS variables)
+  // Color scheme
   colors?: {
     primary?: string;
     primaryDark?: string;
@@ -50,4 +55,20 @@ export interface SaasLaunchProps {
     textMuted?: string;
     accent?: string;
   };
+
+  // Language switcher
+  showLanguageSwitcher?: boolean;
+  locale?: string;
+  onLocaleChange?: (locale: string) => void;
+  languageOptions?: Array<{
+    code: string;
+    flag: string;
+    label: string;
+  }>;
+
+  // Footer
+  footerLinks?: Array<{
+    label: string;
+    href: string;
+  }>;
 }

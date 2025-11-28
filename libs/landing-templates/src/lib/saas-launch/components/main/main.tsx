@@ -1,3 +1,4 @@
+import { cloneElement, isValidElement, useMemo } from 'react';
 import {
   HeroSection,
   FeaturesSection,
@@ -6,6 +7,7 @@ import {
   Feature,
   Stat,
 } from './sections';
+import { LocaleStrings } from '../../utils';
 
 interface MainProps {
   launchBadgeText: string;
@@ -15,8 +17,8 @@ interface MainProps {
   primaryCtaHref: string;
   secondaryCtaText: string;
   secondaryCtaHref: string;
-  features: Feature[];
-  stats: Stat[];
+  features: readonly Feature[];
+  stats: readonly Stat[];
   aboutSection?: React.ReactNode;
   contactSection?: React.ReactNode;
   finalCtaTitle: string;
@@ -25,6 +27,7 @@ interface MainProps {
   finalCtaHref: string;
   addToRefs: (el: HTMLElement | null) => void;
   tagline?: string;
+  locale: LocaleStrings;
 }
 
 export const Main = ({
@@ -45,7 +48,29 @@ export const Main = ({
   finalCtaHref,
   addToRefs,
   tagline,
+  locale,
 }: MainProps) => {
+  // Clone about and contact sections with locale prop if they are React elements
+  const aboutSectionWithLocale = useMemo(
+    () =>
+      aboutSection && isValidElement(aboutSection)
+        ? cloneElement(aboutSection, { locale } as Partial<
+            typeof aboutSection.props
+          >)
+        : aboutSection,
+    [aboutSection, locale]
+  );
+
+  const contactSectionWithLocale = useMemo(
+    () =>
+      contactSection && isValidElement(contactSection)
+        ? cloneElement(contactSection, { locale } as Partial<
+            typeof contactSection.props
+          >)
+        : contactSection,
+    [contactSection, locale]
+  );
+
   return (
     <main>
       <HeroSection
@@ -57,17 +82,18 @@ export const Main = ({
         secondaryCtaText={secondaryCtaText}
         secondaryCtaHref={secondaryCtaHref}
         tagline={tagline}
+        locale={locale}
       />
       <FeaturesSection features={features} addToRefs={addToRefs} />
       <StatsSection stats={stats} addToRefs={addToRefs} />
-      {aboutSection && (
+      {aboutSectionWithLocale && (
         <section id="about" ref={addToRefs}>
-          {aboutSection}
+          {aboutSectionWithLocale}
         </section>
       )}
-      {contactSection && (
+      {contactSectionWithLocale && (
         <section id="contact" ref={addToRefs}>
-          {contactSection}
+          {contactSectionWithLocale}
         </section>
       )}
       <FinalCtaSection

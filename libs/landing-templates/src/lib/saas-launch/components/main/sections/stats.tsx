@@ -7,7 +7,7 @@ export interface Stat {
 }
 
 interface StatsSectionProps {
-  stats: Stat[];
+  stats: readonly Stat[];
   addToRefs: (el: HTMLElement | null) => void;
 }
 

@@ -1,7 +1,10 @@
 import { DEFAULT_COLORS } from './styles';
-import { SaasLaunchProps } from './types';
+import { SaasLaunchProps, ContentOverrides } from './types';
 import React from 'react';
-import { DefaultAboutSection, DefaultContactSection } from '../components';
+import { AboutSection, DefaultContactSection } from '../components';
+import { en } from './locales';
+
+export * from './locales';
 
 export interface ContactInfo {
   address?: {
@@ -37,48 +40,38 @@ export const DEFAULT_CONTACT_SECTION_TITLE = 'Get In Touch';
 export const DEFAULT_CONTACT_SECTION_SUBTITLE =
   "Have a question or want to work together? We'd love to hear from you.";
 export const DEFAULT_CONTACT_FORM_TITLE = 'Send us a message';
-export const DEFAULT_TEMPLATE: Required<SaasLaunchProps> = {
+
+export const DEFAULT_ABOUT_SECTION_TITLE = 'About Us';
+export const DEFAULT_ABOUT_SECTION_PARAGRAPH_1 =
+  "We're on a mission to empower creators and businesses with tools that make building amazing products effortless. Our platform combines cutting-edge technology with intuitive design to help you bring your vision to life.";
+export const DEFAULT_ABOUT_SECTION_PARAGRAPH_2 =
+  'Founded by a team of passionate developers and designers, we believe that great software should be accessible to everyone. Join us in shaping the future of digital innovation.';
+
+// Default locale strings
+export const DEFAULT_LOCALE_STRINGS = en;
+
+// Footer path constants
+export const FOOTER_PATHS = {
+  PRIVACY: '/privacy',
+  TERMS: '/terms',
+  CONTACT: '/contact',
+} as const;
+
+// Default language options
+export const DEFAULT_LANGUAGE_OPTIONS = [
+  { code: 'en', flag: '🇺🇸', label: 'English' },
+  { code: 'es', flag: '🇪🇸', label: 'Español' },
+  { code: 'fr', flag: '🇫🇷', label: 'Français' },
+];
+
+export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
+  content?: ContentOverrides;
+} = {
   productName: 'Product',
-  tagline: 'Your Tagline',
   companyName: 'Company',
   logoLetter: 'C',
-  launchBadgeText: 'Coming Soon',
-  heroTitle: 'Build Something Amazing',
-  heroDescription:
-    'Transform your ideas into reality with our powerful platform.',
-  primaryCtaText: 'Get Started',
-  secondaryCtaText: 'Learn More',
-  primaryCtaHref: '#',
-  secondaryCtaHref: '#',
-  features: [
-    {
-      icon: '⚡',
-      title: 'Lightning Fast',
-      description: 'Built for speed and performance from the ground up.',
-    },
-    {
-      icon: '🔒',
-      title: 'Secure by Default',
-      description: 'Enterprise-grade security built into every layer.',
-    },
-    {
-      icon: '🎨',
-      title: 'Beautiful Design',
-      description: 'Stunning interfaces that users love to interact with.',
-    },
-  ],
-  stats: [
-    { number: '10K+', label: 'Active Users' },
-    { number: '99.9%', label: 'Uptime' },
-    { number: '24/7', label: 'Support' },
-    { number: '50+', label: 'Countries' },
-  ],
-  aboutSection: React.createElement(DefaultAboutSection),
+  aboutSection: React.createElement(AboutSection),
   contactSection: React.createElement(DefaultContactSection),
-  finalCtaTitle: 'Ready to get started?',
-  finalCtaDescription: 'Join thousands of users already using our platform.',
-  finalCtaButton: 'Start Free Trial',
-  finalCtaHref: '#',
   colors: {
     primary: DEFAULT_COLORS.PRIMARY,
     primaryDark: DEFAULT_COLORS.PRIMARY_DARK,
@@ -89,6 +82,13 @@ export const DEFAULT_TEMPLATE: Required<SaasLaunchProps> = {
     textMuted: DEFAULT_COLORS.TEXT_MUTED,
     accent: DEFAULT_COLORS.ACCENT,
   },
+  showLanguageSwitcher: true,
+  locale: 'en',
+  onLocaleChange: () => {
+    // Default no-op handler
+  },
+  languageOptions: DEFAULT_LANGUAGE_OPTIONS,
+  footerLinks: [],
 };
 
 export const DEFAULT_SCROLL_THRESHOLD = 150;

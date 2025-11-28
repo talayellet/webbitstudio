@@ -66,3 +66,20 @@
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
+
+/* Smooth content transitions for language changes */
+.smooth-content-change {
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes contentFade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

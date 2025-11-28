@@ -8,7 +8,7 @@ export interface Feature {
 }
 
 interface FeaturesSectionProps {
-  features: Feature[];
+  features: readonly Feature[];
   addToRefs: (el: HTMLElement | null) => void;
 }
 

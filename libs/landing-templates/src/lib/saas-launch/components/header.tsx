@@ -1,17 +1,19 @@
 import clsx from 'clsx';
-import { STYLES } from '../utils';
+import { STYLES, LocaleStrings, DEFAULT_LOCALE_STRINGS } from '../utils';
 import { useStickyHeader } from '../hooks';
 
 export interface HeaderProps {
   companyName: string;
   logoLetter: string;
   productName?: string;
+  locale?: LocaleStrings;
 }
 
 export const Header = ({
   companyName,
   logoLetter,
   productName,
+  locale = DEFAULT_LOCALE_STRINGS,
 }: HeaderProps) => {
   const { isScrolled, scrollToTop } = useStickyHeader();
 
@@ -34,22 +36,22 @@ export const Header = ({
                 onClick={scrollToTop}
                 className={clsx(STYLES.NAV_LINK)}
               >
-                Home
+                {locale.header.nav.home}
               </a>
             </li>
             <li>
               <a href="#features" className={clsx(STYLES.NAV_LINK)}>
-                Features
+                {locale.header.nav.features}
               </a>
             </li>
             <li>
               <a href="#about" className={clsx(STYLES.NAV_LINK)}>
-                About
+                {locale.header.nav.about}
               </a>
             </li>
             <li>
               <a href="#contact" className={clsx(STYLES.NAV_LINK)}>
-                Contact
+                {locale.header.nav.contact}
               </a>
             </li>
           </ul>

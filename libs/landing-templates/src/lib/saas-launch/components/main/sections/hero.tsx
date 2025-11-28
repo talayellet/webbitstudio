@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { STYLES } from '../../../utils';
+import { STYLES, LocaleStrings, DEFAULT_LOCALE_STRINGS } from '../../../utils';
 
 interface HeroSectionProps {
   launchBadgeText: string;
@@ -10,6 +10,7 @@ interface HeroSectionProps {
   secondaryCtaText: string;
   secondaryCtaHref: string;
   tagline?: string;
+  locale?: LocaleStrings;
 }
 
 export const HeroSection = ({
@@ -21,12 +22,13 @@ export const HeroSection = ({
   secondaryCtaText,
   secondaryCtaHref,
   tagline,
+  locale = DEFAULT_LOCALE_STRINGS,
 }: HeroSectionProps) => {
   return (
     <section className={STYLES.HERO_SECTION}>
       <div className={STYLES.CONTAINER}>
         <div className={clsx(STYLES.BADGE_WITH_ANIMATION)}>
-          <span role="img" aria-label="rocket">
+          <span role="img" aria-label={locale.aria.rocket}>
             🚀
           </span>{' '}
           {launchBadgeText}

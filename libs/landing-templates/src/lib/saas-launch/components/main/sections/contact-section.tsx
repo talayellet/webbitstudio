@@ -2,10 +2,9 @@ import { useState } from 'react';
 import {
   ContactInfo,
   DEFAULT_CONTACT_INFO,
-  DEFAULT_CONTACT_SECTION_TITLE,
-  DEFAULT_CONTACT_SECTION_SUBTITLE,
-  DEFAULT_CONTACT_FORM_TITLE,
   STYLES,
+  LocaleStrings,
+  DEFAULT_LOCALE_STRINGS,
 } from '../../../utils';
 
 const cx = (...classes: (string | readonly string[])[]) =>
@@ -16,14 +15,16 @@ export interface ContactSectionProps {
   subtitle?: string;
   contactInfo?: ContactInfo;
   formTitle?: string;
+  locale?: LocaleStrings;
   onSubmit?: (data: { name: string; email: string; message: string }) => void;
 }
 
 export const DefaultContactSection = ({
-  title = DEFAULT_CONTACT_SECTION_TITLE,
-  subtitle = DEFAULT_CONTACT_SECTION_SUBTITLE,
+  title,
+  subtitle,
   contactInfo = DEFAULT_CONTACT_INFO,
-  formTitle = DEFAULT_CONTACT_FORM_TITLE,
+  formTitle,
+  locale,
   onSubmit,
 }: ContactSectionProps = {}) => {
   const [formData, setFormData] = useState({
@@ -33,6 +34,12 @@ export const DefaultContactSection = ({
   });
 
   const info = { ...DEFAULT_CONTACT_INFO, ...contactInfo };
+  const localeStrings = locale ?? DEFAULT_LOCALE_STRINGS;
+
+  // Always use locale strings as primary source, then fall back to props
+  const displayTitle = title ?? localeStrings.contact.title;
+  const displaySubtitle = subtitle ?? localeStrings.contact.subtitle;
+  const displayFormTitle = formTitle ?? localeStrings.contact.formTitle;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,7 +48,7 @@ export const DefaultContactSection = ({
     } else {
       // Default behavior if no onSubmit handler provided
       console.log('Form submitted:', formData);
-      alert('Thank you for your message! We will get back to you soon.');
+      alert(localeStrings.contact.form.successMessage);
     }
     setFormData({ name: '', email: '', message: '' });
   };
@@ -59,15 +66,17 @@ export const DefaultContactSection = ({
     <div className={STYLES.CONTACT_SECTION}>
       <div className={STYLES.CONTAINER}>
         <div className={STYLES.CONTACT_SECTION_HEADER}>
-          <h2 className={STYLES.CONTACT_SECTION_TITLE}>{title}</h2>
-          <p className={STYLES.CONTACT_SECTION_SUBTITLE}>{subtitle}</p>
+          <h2 className={STYLES.CONTACT_SECTION_TITLE}>{displayTitle}</h2>
+          <p className={STYLES.CONTACT_SECTION_SUBTITLE}>{displaySubtitle}</p>
         </div>
 
         <div className={STYLES.CONTACT_GRID}>
           {/* Contact Information */}
           <div className={STYLES.CONTACT_INFO_WRAPPER}>
             <div>
-              <h3 className={STYLES.CONTACT_INFO_TITLE}>Contact Information</h3>
+              <h3 className={STYLES.CONTACT_INFO_TITLE}>
+                {localeStrings.contact.sectionTitle}
+              </h3>
               <div className={STYLES.CONTACT_INFO_LIST}>
                 <div className={STYLES.CONTACT_INFO_ITEM}>
                   <div
@@ -76,12 +85,18 @@ export const DefaultContactSection = ({
                       STYLES.ICON_GRADIENT
                     )}
                   >
-                    <span className="text-xl" role="img" aria-label="location">
+                    <span
+                      className={STYLES.ICON_TEXT}
+                      role="img"
+                      aria-label={localeStrings.aria.location}
+                    >
                       📍
                     </span>
                   </div>
                   <div>
-                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Address</h4>
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>
+                      {localeStrings.contact.labels.address}
+                    </h4>
                     <p className={STYLES.CONTACT_INFO_TEXT}>
                       {info.address?.line1}
                       {info.address?.line2 && (
@@ -107,12 +122,18 @@ export const DefaultContactSection = ({
                       STYLES.ICON_GRADIENT
                     )}
                   >
-                    <span className="text-xl" role="img" aria-label="email">
+                    <span
+                      className={STYLES.ICON_TEXT}
+                      role="img"
+                      aria-label={localeStrings.aria.email}
+                    >
                       📧
                     </span>
                   </div>
                   <div>
-                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Email</h4>
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>
+                      {localeStrings.contact.labels.email}
+                    </h4>
                     <a
                       href={`mailto:${info.email}`}
                       className={cx(STYLES.CONTACT_INFO_LINK)}
@@ -129,12 +150,18 @@ export const DefaultContactSection = ({
                       STYLES.ICON_GRADIENT
                     )}
                   >
-                    <span className="text-xl" role="img" aria-label="phone">
+                    <span
+                      className={STYLES.ICON_TEXT}
+                      role="img"
+                      aria-label={localeStrings.aria.phone}
+                    >
                       📞
                     </span>
                   </div>
                   <div>
-                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Phone</h4>
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>
+                      {localeStrings.contact.labels.phone}
+                    </h4>
                     <a
                       href={`tel:${info.phone?.replace(/\s/g, '')}`}
                       className={cx(STYLES.CONTACT_INFO_LINK)}
@@ -152,15 +179,17 @@ export const DefaultContactSection = ({
                     )}
                   >
                     <span
-                      className="text-xl"
+                      className={STYLES.ICON_TEXT}
                       role="img"
-                      aria-label="social media"
+                      aria-label={localeStrings.aria.socialMedia}
                     >
                       🌐
                     </span>
                   </div>
                   <div>
-                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Social Media</h4>
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>
+                      {localeStrings.contact.labels.socialMedia}
+                    </h4>
                     <div className={STYLES.CONTACT_SOCIAL_GRID}>
                       {info.social?.twitter && (
                         <a
@@ -168,7 +197,7 @@ export const DefaultContactSection = ({
                           target="_blank"
                           rel="noopener noreferrer"
                           className={cx(STYLES.CONTACT_SOCIAL_LINK)}
-                          aria-label="Twitter"
+                          aria-label={localeStrings.aria.twitter}
                         >
                           𝕏
                         </a>
@@ -179,7 +208,7 @@ export const DefaultContactSection = ({
                           target="_blank"
                           rel="noopener noreferrer"
                           className={cx(STYLES.CONTACT_SOCIAL_LINK)}
-                          aria-label="LinkedIn"
+                          aria-label={localeStrings.aria.linkedin}
                         >
                           in
                         </a>
@@ -190,9 +219,12 @@ export const DefaultContactSection = ({
                           target="_blank"
                           rel="noopener noreferrer"
                           className={cx(STYLES.CONTACT_SOCIAL_LINK)}
-                          aria-label="GitHub"
+                          aria-label={localeStrings.aria.github}
                         >
-                          <span role="img" aria-label="github">
+                          <span
+                            role="img"
+                            aria-label={localeStrings.aria.github}
+                          >
                             ⚡
                           </span>
                         </a>
@@ -206,11 +238,11 @@ export const DefaultContactSection = ({
 
           {/* Contact Form */}
           <div className={cx(STYLES.CONTACT_FORM_WRAPPER)}>
-            <h3 className={STYLES.CONTACT_FORM_TITLE}>{formTitle}</h3>
+            <h3 className={STYLES.CONTACT_FORM_TITLE}>{displayFormTitle}</h3>
             <form onSubmit={handleSubmit} className={STYLES.CONTACT_FORM}>
               <div>
                 <label htmlFor="name" className={STYLES.CONTACT_FORM_LABEL}>
-                  Name
+                  {localeStrings.contact.form.name.label}
                 </label>
                 <input
                   type="text"
@@ -220,13 +252,13 @@ export const DefaultContactSection = ({
                   onChange={handleChange}
                   required
                   className={cx(STYLES.CONTACT_FORM_INPUT)}
-                  placeholder="Your name"
+                  placeholder={localeStrings.contact.form.name.placeholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className={STYLES.CONTACT_FORM_LABEL}>
-                  Email
+                  {localeStrings.contact.form.email.label}
                 </label>
                 <input
                   type="email"
@@ -236,13 +268,13 @@ export const DefaultContactSection = ({
                   onChange={handleChange}
                   required
                   className={cx(STYLES.CONTACT_FORM_INPUT)}
-                  placeholder="your@email.com"
+                  placeholder={localeStrings.contact.form.email.placeholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className={STYLES.CONTACT_FORM_LABEL}>
-                  Message
+                  {localeStrings.contact.form.message.label}
                 </label>
                 <textarea
                   id="message"
@@ -252,12 +284,12 @@ export const DefaultContactSection = ({
                   required
                   rows={5}
                   className={cx(STYLES.CONTACT_FORM_TEXTAREA)}
-                  placeholder="Tell us about your project..."
+                  placeholder={localeStrings.contact.form.message.placeholder}
                 />
               </div>
 
               <button type="submit" className={cx(STYLES.CONTACT_FORM_BUTTON)}>
-                Send Message
+                {localeStrings.contact.form.submit}
               </button>
             </form>
           </div>

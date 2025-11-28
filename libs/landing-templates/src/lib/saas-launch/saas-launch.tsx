@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import clsx from 'clsx';
 import '../../styles.css';
 import './utils/animations.css';
@@ -7,33 +7,55 @@ import {
   DEFAULT_TEMPLATE,
   SaasLaunchProps,
   STYLES,
+  getLocaleStrings,
+  DEFAULT_LOCALE,
+  DEFAULT_LANGUAGE_OPTIONS,
 } from './utils';
-import { useScrollReveal } from './hooks';
+import { useScrollReveal, useLocalizedContent } from './hooks';
 import { Header, Main, Footer } from './components';
+import { LanguageSwitcher } from '../shared';
 
 export const SaasLaunch = ({
   productName = DEFAULT_TEMPLATE.productName,
-  tagline = DEFAULT_TEMPLATE.tagline,
   companyName = DEFAULT_TEMPLATE.companyName,
   logoLetter = DEFAULT_TEMPLATE.logoLetter,
-  launchBadgeText = DEFAULT_TEMPLATE.launchBadgeText,
-  heroTitle = DEFAULT_TEMPLATE.heroTitle,
-  heroDescription = DEFAULT_TEMPLATE.heroDescription,
-  primaryCtaText = DEFAULT_TEMPLATE.primaryCtaText,
-  secondaryCtaText = DEFAULT_TEMPLATE.secondaryCtaText,
-  primaryCtaHref = DEFAULT_TEMPLATE.primaryCtaHref,
-  secondaryCtaHref = DEFAULT_TEMPLATE.secondaryCtaHref,
-  features = DEFAULT_TEMPLATE.features,
-  stats = DEFAULT_TEMPLATE.stats,
+  content,
   aboutSection = DEFAULT_TEMPLATE.aboutSection,
   contactSection = DEFAULT_TEMPLATE.contactSection,
-  finalCtaTitle = DEFAULT_TEMPLATE.finalCtaTitle,
-  finalCtaDescription = DEFAULT_TEMPLATE.finalCtaDescription,
-  finalCtaButton = DEFAULT_TEMPLATE.finalCtaButton,
-  finalCtaHref = DEFAULT_TEMPLATE.finalCtaHref,
   colors = DEFAULT_TEMPLATE.colors,
+  showLanguageSwitcher = true,
+  locale = DEFAULT_LOCALE,
+  onLocaleChange,
+  languageOptions = DEFAULT_LANGUAGE_OPTIONS,
+  footerLinks,
 }: SaasLaunchProps) => {
   const addToRefs = useScrollReveal();
+
+  // Manage locale internally if not provided as a non-default value (uncontrolled)
+  const [internalLocale, setInternalLocale] = useState(DEFAULT_LOCALE);
+  const currentLocale = locale !== DEFAULT_LOCALE ? locale : internalLocale;
+
+  // Handle locale change - update internal state and call callback if provided
+  const handleLocaleChange = useCallback(
+    (newLocale: string) => {
+      if (locale === DEFAULT_LOCALE) {
+        // Uncontrolled mode - update internal state
+        setInternalLocale(newLocale);
+      }
+      // Always call the callback if provided
+      onLocaleChange?.(newLocale);
+    },
+    [locale, onLocaleChange]
+  );
+
+  // Get locale strings
+  const localeStrings = useMemo(
+    () => getLocaleStrings(currentLocale),
+    [currentLocale]
+  );
+
+  // Get localized content with overrides
+  const displayContent = useLocalizedContent(localeStrings, content);
 
   const colorStyles = useMemo(
     () =>
@@ -57,6 +79,15 @@ export const SaasLaunch = ({
         <div className={STYLES.GRADIENT_BG_INNER} />
       </div>
 
+      {/* Language Switcher */}
+      {showLanguageSwitcher && (
+        <LanguageSwitcher
+          currentLanguage={currentLocale}
+          languages={languageOptions}
+          onLanguageChange={handleLocaleChange}
+        />
+      )}
+
       {/* Add padding to account for fixed header */}
       <div className={STYLES.FIXED_HEADER_SPACER} />
 
@@ -64,29 +95,35 @@ export const SaasLaunch = ({
         companyName={companyName}
         logoLetter={logoLetter}
         productName={productName}
+        locale={localeStrings}
       />
 
       <Main
-        launchBadgeText={launchBadgeText}
-        heroTitle={heroTitle}
-        heroDescription={heroDescription}
-        primaryCtaText={primaryCtaText}
-        primaryCtaHref={primaryCtaHref}
-        secondaryCtaText={secondaryCtaText}
-        secondaryCtaHref={secondaryCtaHref}
-        features={features}
-        stats={stats}
+        launchBadgeText={displayContent.launchBadgeText}
+        heroTitle={displayContent.heroTitle}
+        heroDescription={displayContent.heroDescription}
+        primaryCtaText={displayContent.primaryCtaText}
+        primaryCtaHref={displayContent.primaryCtaHref}
+        secondaryCtaText={displayContent.secondaryCtaText}
+        secondaryCtaHref={displayContent.secondaryCtaHref}
+        features={displayContent.features}
+        stats={displayContent.stats}
         aboutSection={aboutSection}
         contactSection={contactSection}
-        finalCtaTitle={finalCtaTitle}
-        finalCtaDescription={finalCtaDescription}
-        finalCtaButton={finalCtaButton}
-        finalCtaHref={finalCtaHref}
+        finalCtaTitle={displayContent.finalCtaTitle}
+        finalCtaDescription={displayContent.finalCtaDescription}
+        finalCtaButton={displayContent.finalCtaButton}
+        finalCtaHref={displayContent.finalCtaHref}
         addToRefs={addToRefs}
-        tagline={tagline}
+        tagline={displayContent.tagline}
+        locale={localeStrings}
       />
 
-      <Footer companyName={companyName} />
+      <Footer
+        companyName={companyName}
+        locale={localeStrings}
+        links={footerLinks}
+      />
     </div>
   );
 };

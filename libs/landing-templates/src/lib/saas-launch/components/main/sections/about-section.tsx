@@ -1,21 +1,43 @@
-export const DefaultAboutSection = () => {
+import {
+  STYLES,
+  LocaleStrings,
+  DEFAULT_LOCALE_STRINGS,
+  DEFAULT_ABOUT_SECTION_TITLE,
+  DEFAULT_ABOUT_SECTION_PARAGRAPH_1,
+  DEFAULT_ABOUT_SECTION_PARAGRAPH_2,
+} from '../../../utils';
+
+export interface AboutSectionProps {
+  title?: string;
+  paragraph1?: string;
+  paragraph2?: string;
+  locale?: LocaleStrings;
+}
+
+export const AboutSection = ({
+  title,
+  paragraph1,
+  paragraph2,
+  locale = DEFAULT_LOCALE_STRINGS,
+}: AboutSectionProps = {}) => {
+  // Use props if provided, otherwise use locale, otherwise use defaults
+  const displayTitle =
+    title ?? locale.about.title ?? DEFAULT_ABOUT_SECTION_TITLE;
+  const displayParagraph1 =
+    paragraph1 ?? locale.about.paragraph1 ?? DEFAULT_ABOUT_SECTION_PARAGRAPH_1;
+  const displayParagraph2 =
+    paragraph2 ?? locale.about.paragraph2 ?? DEFAULT_ABOUT_SECTION_PARAGRAPH_2;
+
   return (
-    <div className="py-20">
-      <div className="container max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-[clamp(32px,5vw,56px)] mb-6 font-bold">
-            About Us
-          </h2>
-          <p className="text-xl text-[var(--text-muted)] mb-8 leading-relaxed">
-            We're on a mission to empower creators and businesses with tools
-            that make building amazing products effortless. Our platform
-            combines cutting-edge technology with intuitive design to help you
-            bring your vision to life.
+    <div className={STYLES.ABOUT_SECTION}>
+      <div className={STYLES.CONTAINER}>
+        <div className={STYLES.ABOUT_SECTION_CONTENT}>
+          <h2 className={STYLES.ABOUT_SECTION_TITLE}>{displayTitle}</h2>
+          <p className={STYLES.ABOUT_SECTION_PARAGRAPH_1}>
+            {displayParagraph1}
           </p>
-          <p className="text-lg text-[var(--text-muted)] leading-relaxed">
-            Founded by a team of passionate developers and designers, we believe
-            that great software should be accessible to everyone. Join us in
-            shaping the future of digital innovation.
+          <p className={STYLES.ABOUT_SECTION_PARAGRAPH_2}>
+            {displayParagraph2}
           </p>
         </div>
       </div>

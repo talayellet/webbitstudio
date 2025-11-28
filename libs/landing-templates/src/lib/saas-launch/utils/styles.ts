@@ -96,10 +96,15 @@ export const STYLES = {
     'text-xl text-[var(--text-muted)] mb-10 max-w-[600px] mx-auto min-h-[70px] flex items-center justify-center smooth-content-change',
 
   // Footer
-  FOOTER: 'py-12 border-t border-white/5',
-  FOOTER_CONTENT: 'flex justify-between items-center flex-wrap gap-6',
-  FOOTER_COPYRIGHT: 'text-[var(--text-muted)] text-sm',
-  FOOTER_LIST: 'flex flex-col md:flex-row gap-8 md:gap-8 list-none',
+  FOOTER:
+    'fixed bottom-0 left-0 right-0 py-4 md:py-6 z-[100] bg-[var(--surface)]/80 backdrop-blur-lg border-t border-white/10',
+  FOOTER_CONTENT:
+    'flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6',
+  FOOTER_COPYRIGHT:
+    'text-[var(--text-muted)] text-xs md:text-sm text-center md:text-left',
+  FOOTER_LIST:
+    'flex flex-wrap justify-center md:justify-end gap-4 md:gap-8 list-none',
+  FIXED_FOOTER_SPACER: 'pb-[120px] md:pb-[100px]',
 
   // Footer Links (same as nav but smaller)
   FOOTER_LINK: [

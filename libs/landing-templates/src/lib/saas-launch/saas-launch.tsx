@@ -31,6 +31,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   logoLetter = DEFAULT_TEMPLATE.logoLetter,
   onLocaleChange,
   productName = DEFAULT_TEMPLATE.productName,
+  showFooter = true,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
 }) => {
@@ -102,32 +103,36 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
         locale={localeStrings}
       />
 
-      <Main
-        launchBadgeText={displayContent.launchBadgeText}
-        heroTitle={displayContent.heroTitle}
-        heroDescription={displayContent.heroDescription}
-        primaryCtaText={displayContent.primaryCtaText}
-        primaryCtaHref={displayContent.primaryCtaHref}
-        secondaryCtaText={displayContent.secondaryCtaText}
-        secondaryCtaHref={displayContent.secondaryCtaHref}
-        features={displayContent.features}
-        stats={displayContent.stats}
-        aboutSection={aboutSection}
-        contactSection={contactSection}
-        finalCtaTitle={displayContent.finalCtaTitle}
-        finalCtaDescription={displayContent.finalCtaDescription}
-        finalCtaButton={displayContent.finalCtaButton}
-        finalCtaHref={displayContent.finalCtaHref}
-        addToRefs={addToRefs}
-        tagline={displayContent.tagline}
-        locale={localeStrings}
-      />
+      <div className={showFooter ? STYLES.FIXED_FOOTER_SPACER : ''}>
+        <Main
+          launchBadgeText={displayContent.launchBadgeText}
+          heroTitle={displayContent.heroTitle}
+          heroDescription={displayContent.heroDescription}
+          primaryCtaText={displayContent.primaryCtaText}
+          primaryCtaHref={displayContent.primaryCtaHref}
+          secondaryCtaText={displayContent.secondaryCtaText}
+          secondaryCtaHref={displayContent.secondaryCtaHref}
+          features={displayContent.features}
+          stats={displayContent.stats}
+          aboutSection={aboutSection}
+          contactSection={contactSection}
+          finalCtaTitle={displayContent.finalCtaTitle}
+          finalCtaDescription={displayContent.finalCtaDescription}
+          finalCtaButton={displayContent.finalCtaButton}
+          finalCtaHref={displayContent.finalCtaHref}
+          addToRefs={addToRefs}
+          tagline={displayContent.tagline}
+          locale={localeStrings}
+        />
+      </div>
 
-      <Footer
-        companyName={companyName}
-        locale={localeStrings}
-        links={footerLinks}
-      />
+      {showFooter && (
+        <Footer
+          companyName={companyName}
+          locale={localeStrings}
+          links={footerLinks}
+        />
+      )}
     </div>
   );
 };

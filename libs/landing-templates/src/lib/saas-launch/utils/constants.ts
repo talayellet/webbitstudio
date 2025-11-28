@@ -83,11 +83,13 @@ export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
     accent: DEFAULT_COLORS.ACCENT,
   },
   showLanguageSwitcher: true,
+  showThemeSwitcher: true,
   locale: 'en',
   onLocaleChange: () => {
     // Default no-op handler
   },
   languageOptions: DEFAULT_LANGUAGE_OPTIONS,
+  showFooter: true,
   footerLinks: [],
 };
 

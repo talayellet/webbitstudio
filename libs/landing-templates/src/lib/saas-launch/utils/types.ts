@@ -70,8 +70,14 @@ export interface SaasLaunchProps {
   showThemeSwitcher?: boolean;
 
   // Footer
+  showFooter?: boolean;
   footerLinks?: Array<{
     label: string;
     href: string;
   }>;
+}
+
+export interface FooterLink {
+  label: string;
+  href: string;
 }

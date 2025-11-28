@@ -1,17 +1,48 @@
 import { useState } from 'react';
+import {
+  ContactInfo,
+  DEFAULT_CONTACT_INFO,
+  DEFAULT_CONTACT_SECTION_TITLE,
+  DEFAULT_CONTACT_SECTION_SUBTITLE,
+  DEFAULT_CONTACT_FORM_TITLE,
+  STYLES,
+} from '../../../utils';
 
-export const DefaultContactSection = () => {
+const cx = (...classes: (string | readonly string[])[]) =>
+  classes.flat().join(' ');
+
+export interface ContactSectionProps {
+  title?: string;
+  subtitle?: string;
+  contactInfo?: ContactInfo;
+  formTitle?: string;
+  onSubmit?: (data: { name: string; email: string; message: string }) => void;
+}
+
+export const DefaultContactSection = ({
+  title = DEFAULT_CONTACT_SECTION_TITLE,
+  subtitle = DEFAULT_CONTACT_SECTION_SUBTITLE,
+  contactInfo = DEFAULT_CONTACT_INFO,
+  formTitle = DEFAULT_CONTACT_FORM_TITLE,
+  onSubmit,
+}: ContactSectionProps = {}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
+  const info = { ...DEFAULT_CONTACT_INFO, ...contactInfo };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder - no backend implementation yet
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
+    if (onSubmit) {
+      onSubmit(formData);
+    } else {
+      // Default behavior if no onSubmit handler provided
+      console.log('Form submitted:', formData);
+      alert('Thank you for your message! We will get back to you soon.');
+    }
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -25,80 +56,101 @@ export const DefaultContactSection = () => {
   };
 
   return (
-    <div className="py-20 bg-[var(--surface)]">
-      <div className="container max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-[clamp(32px,5vw,56px)] mb-6 font-bold">
-            Get In Touch
-          </h2>
-          <p className="text-xl text-[var(--text-muted)] max-w-2xl mx-auto">
-            Have a question or want to work together? We'd love to hear from
-            you.
-          </p>
+    <div className={STYLES.CONTACT_SECTION}>
+      <div className={STYLES.CONTAINER}>
+        <div className={STYLES.CONTACT_SECTION_HEADER}>
+          <h2 className={STYLES.CONTACT_SECTION_TITLE}>{title}</h2>
+          <p className={STYLES.CONTACT_SECTION_SUBTITLE}>{subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className={STYLES.CONTACT_GRID}>
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className={STYLES.CONTACT_INFO_WRAPPER}>
             <div>
-              <h3 className="text-2xl font-semibold mb-6">
-                Contact Information
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center flex-shrink-0">
+              <h3 className={STYLES.CONTACT_INFO_TITLE}>Contact Information</h3>
+              <div className={STYLES.CONTACT_INFO_LIST}>
+                <div className={STYLES.CONTACT_INFO_ITEM}>
+                  <div
+                    className={cx(
+                      STYLES.CONTACT_INFO_ICON,
+                      STYLES.ICON_GRADIENT
+                    )}
+                  >
                     <span className="text-xl" role="img" aria-label="location">
                       📍
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Address</h4>
-                    <p className="text-[var(--text-muted)]">
-                      123 Tech Street, Suite 100
-                      <br />
-                      San Francisco, CA 94105
-                      <br />
-                      United States
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Address</h4>
+                    <p className={STYLES.CONTACT_INFO_TEXT}>
+                      {info.address?.line1}
+                      {info.address?.line2 && (
+                        <>
+                          <br />
+                          {info.address.line2}
+                        </>
+                      )}
+                      {info.address?.line3 && (
+                        <>
+                          <br />
+                          {info.address.line3}
+                        </>
+                      )}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center flex-shrink-0">
+                <div className={STYLES.CONTACT_INFO_ITEM}>
+                  <div
+                    className={cx(
+                      STYLES.CONTACT_INFO_ICON,
+                      STYLES.ICON_GRADIENT
+                    )}
+                  >
                     <span className="text-xl" role="img" aria-label="email">
                       📧
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Email</h4>
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Email</h4>
                     <a
-                      href="mailto:hello@company.com"
-                      className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
+                      href={`mailto:${info.email}`}
+                      className={cx(STYLES.CONTACT_INFO_LINK)}
                     >
-                      hello@company.com
+                      {info.email}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center flex-shrink-0">
+                <div className={STYLES.CONTACT_INFO_ITEM}>
+                  <div
+                    className={cx(
+                      STYLES.CONTACT_INFO_ICON,
+                      STYLES.ICON_GRADIENT
+                    )}
+                  >
                     <span className="text-xl" role="img" aria-label="phone">
                       📞
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Phone</h4>
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Phone</h4>
                     <a
-                      href="tel:+14155551234"
-                      className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
+                      href={`tel:${info.phone?.replace(/\s/g, '')}`}
+                      className={cx(STYLES.CONTACT_INFO_LINK)}
                     >
-                      +1 (415) 555-1234
+                      {info.phone}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center flex-shrink-0">
+                <div className={STYLES.CONTACT_INFO_ITEM}>
+                  <div
+                    className={cx(
+                      STYLES.CONTACT_INFO_ICON,
+                      STYLES.ICON_GRADIENT
+                    )}
+                  >
                     <span
                       className="text-xl"
                       role="img"
@@ -108,37 +160,43 @@ export const DefaultContactSection = () => {
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Social Media</h4>
-                    <div className="flex gap-3 mt-2">
-                      <a
-                        href="https://twitter.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-lg bg-[var(--background)] flex items-center justify-center hover:bg-[var(--primary)] transition-colors"
-                        aria-label="Twitter"
-                      >
-                        𝕏
-                      </a>
-                      <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-lg bg-[var(--background)] flex items-center justify-center hover:bg-[var(--primary)] transition-colors"
-                        aria-label="LinkedIn"
-                      >
-                        in
-                      </a>
-                      <a
-                        href="https://github.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-lg bg-[var(--background)] flex items-center justify-center hover:bg-[var(--primary)] transition-colors"
-                        aria-label="GitHub"
-                      >
-                        <span role="img" aria-label="github">
-                          ⚡
-                        </span>
-                      </a>
+                    <h4 className={STYLES.CONTACT_INFO_LABEL}>Social Media</h4>
+                    <div className={STYLES.CONTACT_SOCIAL_GRID}>
+                      {info.social?.twitter && (
+                        <a
+                          href={info.social.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cx(STYLES.CONTACT_SOCIAL_LINK)}
+                          aria-label="Twitter"
+                        >
+                          𝕏
+                        </a>
+                      )}
+                      {info.social?.linkedin && (
+                        <a
+                          href={info.social.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cx(STYLES.CONTACT_SOCIAL_LINK)}
+                          aria-label="LinkedIn"
+                        >
+                          in
+                        </a>
+                      )}
+                      {info.social?.github && (
+                        <a
+                          href={info.social.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cx(STYLES.CONTACT_SOCIAL_LINK)}
+                          aria-label="GitHub"
+                        >
+                          <span role="img" aria-label="github">
+                            ⚡
+                          </span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -147,14 +205,11 @@ export const DefaultContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-[var(--background)] p-8 rounded-2xl border border-white/5">
-            <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className={cx(STYLES.CONTACT_FORM_WRAPPER)}>
+            <h3 className={STYLES.CONTACT_FORM_TITLE}>{formTitle}</h3>
+            <form onSubmit={handleSubmit} className={STYLES.CONTACT_FORM}>
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="name" className={STYLES.CONTACT_FORM_LABEL}>
                   Name
                 </label>
                 <input
@@ -164,16 +219,13 @@ export const DefaultContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--surface)] border border-white/10 focus:border-[var(--primary)] focus:outline-none transition-colors text-[var(--text)]"
+                  className={cx(STYLES.CONTACT_FORM_INPUT)}
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="email" className={STYLES.CONTACT_FORM_LABEL}>
                   Email
                 </label>
                 <input
@@ -183,16 +235,13 @@ export const DefaultContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--surface)] border border-white/10 focus:border-[var(--primary)] focus:outline-none transition-colors text-[var(--text)]"
+                  className={cx(STYLES.CONTACT_FORM_INPUT)}
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="message" className={STYLES.CONTACT_FORM_LABEL}>
                   Message
                 </label>
                 <textarea
@@ -202,15 +251,12 @@ export const DefaultContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--surface)] border border-white/10 focus:border-[var(--primary)] focus:outline-none transition-colors text-[var(--text)] resize-none"
+                  className={cx(STYLES.CONTACT_FORM_TEXTAREA)}
                   placeholder="Tell us about your project..."
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full px-8 py-3.5 rounded-xl text-base font-semibold bg-gradient-to-br from-[var(--primary)] to-[var(--primary-dark)] text-white shadow-[0_4px_24px_rgba(0,102,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_32px_rgba(0,102,255,0.4)]"
-              >
+              <button type="submit" className={cx(STYLES.CONTACT_FORM_BUTTON)}>
                 Send Message
               </button>
             </form>

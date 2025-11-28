@@ -7,7 +7,11 @@ import {
   Feature,
   Stat,
 } from './sections';
-import { LocaleStrings } from '../../utils';
+import {
+  LocaleStrings,
+  ShowSections,
+  DEFAULT_SHOW_SECTIONS,
+} from '../../utils';
 
 interface MainProps {
   launchBadgeText: string;
@@ -28,9 +32,11 @@ interface MainProps {
   addToRefs: (el: HTMLElement | null) => void;
   tagline?: string;
   locale: LocaleStrings;
+  showSections?: ShowSections;
+  customSections?: React.ReactElement[];
 }
 
-export const Main = ({
+export const Main: React.FC<MainProps> = ({
   launchBadgeText,
   heroTitle,
   heroDescription,
@@ -49,7 +55,9 @@ export const Main = ({
   addToRefs,
   tagline,
   locale,
-}: MainProps) => {
+  showSections = DEFAULT_SHOW_SECTIONS,
+  customSections,
+}) => {
   // Clone about and contact sections with locale prop if they are React elements
   const aboutSectionWithLocale = useMemo(
     () =>
@@ -73,19 +81,25 @@ export const Main = ({
 
   return (
     <main>
-      <HeroSection
-        launchBadgeText={launchBadgeText}
-        heroTitle={heroTitle}
-        heroDescription={heroDescription}
-        primaryCtaText={primaryCtaText}
-        primaryCtaHref={primaryCtaHref}
-        secondaryCtaText={secondaryCtaText}
-        secondaryCtaHref={secondaryCtaHref}
-        tagline={tagline}
-        locale={locale}
-      />
-      <FeaturesSection features={features} addToRefs={addToRefs} />
-      <StatsSection stats={stats} addToRefs={addToRefs} />
+      {showSections.hero && (
+        <HeroSection
+          launchBadgeText={launchBadgeText}
+          heroTitle={heroTitle}
+          heroDescription={heroDescription}
+          primaryCtaText={primaryCtaText}
+          primaryCtaHref={primaryCtaHref}
+          secondaryCtaText={secondaryCtaText}
+          secondaryCtaHref={secondaryCtaHref}
+          tagline={tagline}
+          locale={locale}
+        />
+      )}
+      {showSections.features && (
+        <FeaturesSection features={features} addToRefs={addToRefs} />
+      )}
+      {showSections.stats && (
+        <StatsSection stats={stats} addToRefs={addToRefs} />
+      )}
       {aboutSectionWithLocale && (
         <section id="about" ref={addToRefs}>
           {aboutSectionWithLocale}
@@ -96,13 +110,20 @@ export const Main = ({
           {contactSectionWithLocale}
         </section>
       )}
-      <FinalCtaSection
-        finalCtaTitle={finalCtaTitle}
-        finalCtaDescription={finalCtaDescription}
-        finalCtaButton={finalCtaButton}
-        finalCtaHref={finalCtaHref}
-        addToRefs={addToRefs}
-      />
+      {showSections.finalCta && (
+        <FinalCtaSection
+          finalCtaTitle={finalCtaTitle}
+          finalCtaDescription={finalCtaDescription}
+          finalCtaButton={finalCtaButton}
+          finalCtaHref={finalCtaHref}
+          addToRefs={addToRefs}
+        />
+      )}
+      {customSections?.map((section, index) => (
+        <section key={index} ref={addToRefs}>
+          {section}
+        </section>
+      ))}
     </main>
   );
 };

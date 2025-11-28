@@ -1,10 +1,14 @@
 import { DEFAULT_COLORS } from './styles';
-import { SaasLaunchProps, ContentOverrides } from './types';
+import { SaasLaunchProps, ContentOverrides, ShowSections } from './types';
 import React from 'react';
 import { AboutSection, DefaultContactSection } from '../components';
 import { en } from './locales';
 
 export * from './locales';
+
+// ============================================================================
+// Contact Info
+// ============================================================================
 
 export interface ContactInfo {
   address?: {
@@ -36,10 +40,18 @@ export const DEFAULT_CONTACT_INFO: ContactInfo = {
   },
 };
 
+// ============================================================================
+// Contact Section
+// ============================================================================
+
 export const DEFAULT_CONTACT_SECTION_TITLE = 'Get In Touch';
 export const DEFAULT_CONTACT_SECTION_SUBTITLE =
   "Have a question or want to work together? We'd love to hear from you.";
 export const DEFAULT_CONTACT_FORM_TITLE = 'Send us a message';
+
+// ============================================================================
+// About Section
+// ============================================================================
 
 export const DEFAULT_ABOUT_SECTION_TITLE = 'About Us';
 export const DEFAULT_ABOUT_SECTION_PARAGRAPH_1 =
@@ -47,22 +59,46 @@ export const DEFAULT_ABOUT_SECTION_PARAGRAPH_1 =
 export const DEFAULT_ABOUT_SECTION_PARAGRAPH_2 =
   'Founded by a team of passionate developers and designers, we believe that great software should be accessible to everyone. Join us in shaping the future of digital innovation.';
 
-// Default locale strings
+// ============================================================================
+// Locale
+// ============================================================================
+
 export const DEFAULT_LOCALE_STRINGS = en;
 
-// Footer path constants
+// ============================================================================
+// Footer
+// ============================================================================
+
 export const FOOTER_PATHS = {
   PRIVACY: '/privacy',
   TERMS: '/terms',
   CONTACT: '/contact',
 } as const;
 
-// Default language options
+// ============================================================================
+// Language
+// ============================================================================
+
 export const DEFAULT_LANGUAGE_OPTIONS = [
   { code: 'en', flag: '🇺🇸', label: 'English' },
   { code: 'es', flag: '🇪🇸', label: 'Español' },
   { code: 'fr', flag: '🇫🇷', label: 'Français' },
 ];
+
+// ============================================================================
+// Section Visibility
+// ============================================================================
+
+export const DEFAULT_SHOW_SECTIONS: ShowSections = {
+  hero: true,
+  features: true,
+  stats: true,
+  finalCta: true,
+};
+
+// ============================================================================
+// Template
+// ============================================================================
 
 export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
   content?: ContentOverrides;
@@ -92,5 +128,9 @@ export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
   showFooter: true,
   footerLinks: [],
 };
+
+// ============================================================================
+// Scroll
+// ============================================================================
 
 export const DEFAULT_SCROLL_THRESHOLD = 150;

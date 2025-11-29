@@ -1,12 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { STYLES } from '../../../utils';
-
-export interface Feature {
-  icon: string;
-  title: string;
-  description: string;
-}
+import { Feature, STYLES } from '../../../utils';
 
 interface FeaturesSectionProps {
   features: readonly Feature[];

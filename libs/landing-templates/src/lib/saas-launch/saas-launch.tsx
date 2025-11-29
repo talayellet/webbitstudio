@@ -9,6 +9,7 @@ import {
   getLocaleStrings,
   DEFAULT_LOCALE,
   DEFAULT_LANGUAGE_OPTIONS,
+  DEFAULT_CONTACT_FIELDS,
 } from './utils';
 import { useScrollReveal, useLocalizedContent } from './hooks';
 import { Header, Main, Footer } from './components';
@@ -24,7 +25,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   colors = DEFAULT_TEMPLATE.colors,
   companyName = DEFAULT_TEMPLATE.companyName,
   contactSection = DEFAULT_TEMPLATE.contactSection,
-  contactFieldsConfig,
+  contactFieldsConfig = DEFAULT_CONTACT_FIELDS,
   content,
   footerLinks,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,

@@ -11,13 +11,21 @@ import {
 import {
   DEFAULT_THEME,
   DEFAULT_THEMES,
-  ThemeSwitcherProps,
   THEME_SWITCHER_STYLES,
   ThemeName,
   THEME_POSITIONS,
   THEME_TRANSITION,
+  ThemeOption,
+  ThemePosition,
 } from './utils';
 import { ChevronDownIcon } from '../../icons';
+
+export interface ThemeSwitcherProps {
+  currentTheme?: ThemeName;
+  themes?: ThemeOption[];
+  onThemeChange?: (theme: ThemeName) => void;
+  position?: ThemePosition;
+}
 
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
   currentTheme = DEFAULT_THEME.name,

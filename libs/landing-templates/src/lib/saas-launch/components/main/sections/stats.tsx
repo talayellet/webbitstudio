@@ -1,11 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { STYLES } from '../../../utils';
-
-export interface Stat {
-  number: string;
-  label: string;
-}
+import { Stat, STYLES } from '../../../utils';
 
 interface StatsSectionProps {
   stats: readonly Stat[];

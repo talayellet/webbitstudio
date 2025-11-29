@@ -36,13 +36,6 @@ export interface ThemeOption {
   colors: ThemeColors;
 }
 
-export interface ThemeSwitcherProps {
-  currentTheme?: ThemeName;
-  themes?: ThemeOption[];
-  onThemeChange?: (theme: ThemeName) => void;
-  position?: ThemePosition;
-}
-
 export interface ColorOverrides {
   primary?: string;
   primaryDark?: string;

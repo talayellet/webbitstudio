@@ -110,7 +110,7 @@ export interface ContentOverrides {
   secondaryCtaHref?: string;
 
   // Features
-  features?: Array<Feature>;
+  features?: Feature[];
   featuresSectionTitle?: string;
 
   // Stats
@@ -161,12 +161,12 @@ export interface SaasLaunchProps {
   showLanguageSwitcher?: boolean;
   locale?: string;
   onLocaleChange?: (locale: string) => void;
-  languageOptions?: Array<LanguageOption>;
+  languageOptions?: LanguageOption[];
 
   // Theme switcher
   showThemeSwitcher?: boolean;
 
   // Footer
   showFooter?: boolean;
-  footerLinks?: Array<FooterLink>;
+  footerLinks?: FooterLink[];
 }

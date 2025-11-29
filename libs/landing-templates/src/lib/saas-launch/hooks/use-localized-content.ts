@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { ContentOverrides } from '../utils/types';
+import { ContentOverrides, Feature, Stat } from '../utils/types';
 import { LocaleStrings } from '../utils/locales';
 
 interface UseLocalizedContentProps {
@@ -11,16 +11,9 @@ interface UseLocalizedContentProps {
   secondaryCtaText: string;
   primaryCtaHref: string;
   secondaryCtaHref: string;
-  features: ReadonlyArray<{
-    icon: string;
-    title: string;
-    description: string;
-  }>;
+  features: ReadonlyArray<Feature>;
   featuresSectionTitle: string;
-  stats: ReadonlyArray<{
-    number: string;
-    label: string;
-  }>;
+  stats: ReadonlyArray<Stat>;
   finalCtaTitle: string;
   finalCtaDescription: string;
   finalCtaButton: string;

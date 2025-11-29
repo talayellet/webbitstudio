@@ -5,6 +5,7 @@ import {
   ShowSections,
   ContactInfo,
   ContactFieldsConfig,
+  LanguageOption,
 } from './types';
 import React from 'react';
 import { AboutSection, ContactSection } from '../components';
@@ -27,7 +28,7 @@ export const DEFAULT_CONTACT_FIELDS: ContactFieldsConfig = {
     showGithub: true,
     showCustom: true,
   },
-};
+} as const;
 
 export const DEFAULT_CONTACT_INFO: ContactInfo = {
   address: {
@@ -42,7 +43,7 @@ export const DEFAULT_CONTACT_INFO: ContactInfo = {
     linkedin: 'https://linkedin.com',
     github: 'https://github.com',
   },
-};
+} as const;
 
 // ============================================================================
 // Contact Section
@@ -83,7 +84,7 @@ export const FOOTER_PATHS = {
 // Language
 // ============================================================================
 
-export const DEFAULT_LANGUAGE_OPTIONS = [
+export const DEFAULT_LANGUAGE_OPTIONS: LanguageOption[] = [
   { code: 'en', flag: '🇺🇸', label: 'English' },
   { code: 'es', flag: '🇪🇸', label: 'Español' },
   { code: 'fr', flag: '🇫🇷', label: 'Français' },
@@ -98,7 +99,7 @@ export const DEFAULT_SHOW_SECTIONS: ShowSections = {
   features: true,
   stats: true,
   finalCta: true,
-};
+} as const;
 
 // ============================================================================
 // Template

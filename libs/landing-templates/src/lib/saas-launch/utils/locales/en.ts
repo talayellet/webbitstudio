@@ -31,6 +31,7 @@ export const en = {
         placeholder: 'Tell us about your project...',
       },
       submit: 'Send Message',
+      submitting: 'Sending...',
       successMessage:
         'Thank you for your message! We will get back to you soon.',
       errors: {
@@ -39,6 +40,9 @@ export const en = {
         emailInvalid: 'Invalid email address',
         messageRequired: 'Message is required',
         messageTooLong: 'Message must be 1000 characters or less',
+        serverError: 'Server error. Please try again later.',
+        rateLimitError: 'Too many requests. Please try again later.',
+        submissionFailed: 'Failed to send message. Please try again.',
       },
     },
   },
@@ -222,6 +226,7 @@ export interface LocaleStrings {
         placeholder: string;
       };
       submit: string;
+      submitting: string;
       successMessage: string;
       errors: {
         nameRequired: string;
@@ -229,6 +234,9 @@ export interface LocaleStrings {
         emailInvalid: string;
         messageRequired: string;
         messageTooLong: string;
+        serverError: string;
+        rateLimitError: string;
+        submissionFailed: string;
       };
     };
   };

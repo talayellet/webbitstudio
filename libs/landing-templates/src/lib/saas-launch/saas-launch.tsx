@@ -36,6 +36,11 @@ export interface SaasLaunchProps {
   // Contact Section
   contactSection?: ReactNode;
   contactFieldsConfig?: ContactFieldsConfig;
+  /**
+   * Web3Forms access key for contact form email delivery
+   * Get free key at https://web3forms.com
+   */
+  web3formsAccessKey?: string;
 
   // Theme
   theme?: ThemeName;
@@ -79,6 +84,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
   theme = THEME_NAMES.DARK,
+  web3formsAccessKey,
 }) => {
   const addToRefs = useScrollReveal();
 
@@ -152,6 +158,7 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
           tagline={displayContent.tagline}
           locale={localeStrings}
           onFeatureClick={onFeatureClick}
+          web3formsAccessKey={web3formsAccessKey}
         />
       )}
     </SaasLayout>

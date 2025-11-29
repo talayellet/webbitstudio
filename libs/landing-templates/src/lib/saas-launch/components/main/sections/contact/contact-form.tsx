@@ -1,25 +1,32 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { STYLES, LocaleStrings } from '../../../../utils';
-import { EMAIL_REG } from '../../../../../shared';
-import { cx } from '../../../../../shared/utils/functions';
-
-export interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
+import { STYLES, LocaleStrings, ContactFormData } from '../../../../utils';
+import { cx, EMAIL_REG } from '../../../../../shared';
+import { API_ENDPOINTS } from '@webbitstudio/shared';
+import { useContactFormSubmit } from '../../../../hooks';
 
 export interface ContactFormProps {
   formTitle: string;
   localeStrings: LocaleStrings;
   onSubmit?: (data: ContactFormData) => void;
+  /**
+   * Web3Forms access key (get free key at https://web3forms.com)
+   * If not provided, falls back to apiEndpoint for custom backend
+   */
+  web3formsAccessKey?: string;
+  /**
+   * Custom API endpoint (only used if web3formsAccessKey is not provided)
+   * @default API_ENDPOINTS.CONTACT
+   */
+  apiEndpoint?: string;
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({
   formTitle,
   localeStrings,
   onSubmit,
+  web3formsAccessKey,
+  apiEndpoint = API_ENDPOINTS.CONTACT,
 }) => {
   const {
     register,
@@ -30,15 +37,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     mode: 'all',
   });
 
+  const { mutate, isSubmitting, submitError } = useContactFormSubmit({
+    web3formsAccessKey,
+    apiEndpoint,
+    onSubmit,
+    successMessage: localeStrings.contact.form.successMessage,
+    onSuccess: reset,
+    errorMessages: {
+      serverError: localeStrings.contact.form.errors.serverError,
+      rateLimitError: localeStrings.contact.form.errors.rateLimitError,
+      submissionFailed: localeStrings.contact.form.errors.submissionFailed,
+    },
+  });
+
   const onFormSubmit = (data: ContactFormData) => {
-    if (onSubmit) {
-      onSubmit(data);
-    } else {
-      // Default behavior if no onSubmit handler provided
-      console.log('Form submitted:', data);
-      alert(localeStrings.contact.form.successMessage);
-    }
-    reset();
+    mutate(data);
   };
 
   return (
@@ -118,13 +131,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           </div>
         </div>
 
+        {submitError && (
+          <div className={STYLES.CONTACT_FORM_ERROR_ALERT}>{submitError}</div>
+        )}
+
         <button
           type="submit"
-          disabled={!isDirty || !isValid}
+          disabled={!isDirty || !isValid || isSubmitting}
           tabIndex={0}
           className={cx(STYLES.CONTACT_FORM_BUTTON)}
         >
-          {localeStrings.contact.form.submit}
+          {isSubmitting
+            ? localeStrings.contact.form.submitting
+            : localeStrings.contact.form.submit}
         </button>
       </form>
     </div>

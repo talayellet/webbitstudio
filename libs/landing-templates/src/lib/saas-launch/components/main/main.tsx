@@ -37,6 +37,7 @@ interface MainProps {
   aboutSection?: React.ReactNode;
   contactSection?: React.ReactNode;
   contactFieldsConfig?: ContactFieldsConfig;
+  web3formsAccessKey?: string;
 
   // Final CTA Section
   finalCtaTitle: string;
@@ -75,6 +76,7 @@ export const Main: React.FC<MainProps> = ({
   locale,
   showSections = DEFAULT_SHOW_SECTIONS,
   customSections,
+  web3formsAccessKey,
 }) => {
   // Clone about and contact sections with locale prop if they are React elements
   const aboutSectionWithLocale = useMemo(
@@ -93,9 +95,10 @@ export const Main: React.FC<MainProps> = ({
         ? cloneElement(contactSection, {
             locale,
             contactFieldsConfig,
+            web3formsAccessKey,
           } as Partial<typeof contactSection.props>)
         : contactSection,
-    [contactSection, locale, contactFieldsConfig]
+    [contactSection, locale, contactFieldsConfig, web3formsAccessKey]
   );
 
   return (

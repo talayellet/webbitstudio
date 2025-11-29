@@ -19,6 +19,11 @@ export interface ContactSectionProps {
   formTitle?: string;
   locale?: LocaleStrings;
   onSubmit?: (data: { name: string; email: string; message: string }) => void;
+  /**
+   * Web3Forms access key for easy email delivery (no backend required)
+   * Get free key at https://web3forms.com
+   */
+  web3formsAccessKey?: string;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
@@ -29,6 +34,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   formTitle,
   locale,
   onSubmit,
+  web3formsAccessKey,
 }) => {
   const info = { ...DEFAULT_CONTACT_INFO, ...contactInfo };
   const localeStrings = locale ?? DEFAULT_LOCALE_STRINGS;
@@ -56,6 +62,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             formTitle={displayFormTitle}
             localeStrings={localeStrings}
             onSubmit={onSubmit}
+            web3formsAccessKey={web3formsAccessKey}
           />
         </div>
       </div>

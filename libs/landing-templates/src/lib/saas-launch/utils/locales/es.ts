@@ -32,6 +32,7 @@ export const es: LocaleStrings = {
         placeholder: 'Cuéntanos sobre tu proyecto...',
       },
       submit: 'Enviar Mensaje',
+      submitting: 'Enviando...',
       successMessage: '¡Gracias por tu mensaje! Te responderemos pronto.',
       errors: {
         nameRequired: 'El nombre es obligatorio',
@@ -39,6 +40,12 @@ export const es: LocaleStrings = {
         emailInvalid: 'Dirección de correo electrónico no válida',
         messageRequired: 'El mensaje es obligatorio',
         messageTooLong: 'El mensaje debe tener 1000 caracteres o menos',
+        serverError:
+          'Error del servidor. Por favor, inténtalo de nuevo más tarde.',
+        rateLimitError:
+          'Demasiadas solicitudes. Por favor, inténtalo de nuevo más tarde.',
+        submissionFailed:
+          'Error al enviar el mensaje. Por favor, inténtalo de nuevo.',
       },
     },
   },

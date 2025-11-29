@@ -1,3 +1,4 @@
+export * from './use-contact-form-submit';
 export * from './use-scroll-reveal';
 export * from './use-sticky-header';
 export * from './use-localized-content';

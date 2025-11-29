@@ -6,6 +6,11 @@ import { Locale, LOCALES } from '../shared/utils/types';
 
 interface SaasLaunchRouterProps {
   initialLocale?: Locale;
+  /**
+   * Web3Forms access key for contact form email delivery
+   * Get free key at https://web3forms.com
+   */
+  web3formsAccessKey?: string;
 }
 
 /**
@@ -15,6 +20,7 @@ interface SaasLaunchRouterProps {
  */
 export function SaasLaunchRouter({
   initialLocale = LOCALES.EN,
+  web3formsAccessKey,
 }: SaasLaunchRouterProps) {
   // Handle scroll behavior on route changes
   useRouteScroll();
@@ -33,6 +39,7 @@ export function SaasLaunchRouter({
             onFeatureClick={handleFeatureClick}
             locale={currentLocale}
             onLocaleChange={handleLocaleChange}
+            web3formsAccessKey={web3formsAccessKey}
           />
         }
       />

@@ -265,6 +265,7 @@ export const STYLES = {
   ],
   CONTACT_FORM_ERROR: 'text-red-500 text-sm',
   CONTACT_FORM_ERROR_CONTAINER: 'min-h-[20px] mt-1',
+  CONTACT_FORM_ERROR_ALERT: 'text-red-600 text-sm mb-4 p-3 bg-red-50 rounded',
   CONTACT_FORM_REQUIRED: 'text-red-500',
 
   // Feature Page

@@ -4,6 +4,18 @@ import type { Locale } from '../../shared';
 // Contact
 // ============================================================================
 
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface ContactFormErrorMessages {
+  serverError: string;
+  rateLimitError: string;
+  submissionFailed: string;
+}
+
 export interface ContactInfo {
   address?: {
     line1?: string;

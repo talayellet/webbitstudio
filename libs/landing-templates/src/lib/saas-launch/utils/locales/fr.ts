@@ -33,6 +33,7 @@ export const fr: LocaleStrings = {
         placeholder: 'Parlez-nous de votre projet...',
       },
       submit: 'Envoyer le Message',
+      submitting: 'Envoi en cours...',
       successMessage:
         'Merci pour votre message ! Nous vous répondrons bientôt.',
       errors: {
@@ -41,6 +42,9 @@ export const fr: LocaleStrings = {
         emailInvalid: 'Adresse email invalide',
         messageRequired: 'Le message est requis',
         messageTooLong: 'Le message doit contenir 1000 caractères ou moins',
+        serverError: 'Erreur du serveur. Veuillez réessayer plus tard.',
+        rateLimitError: 'Trop de requêtes. Veuillez réessayer plus tard.',
+        submissionFailed: "Échec de l'envoi du message. Veuillez réessayer.",
       },
     },
   },

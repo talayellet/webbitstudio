@@ -11,9 +11,7 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '../../../../../shared/icons';
-
-const cx = (...classes: (string | readonly string[])[]) =>
-  classes.flat().join(' ');
+import { cx } from '../../../../../shared/utils/functions';
 
 export interface ContactInfoProps {
   contactInfo: ContactInfoType;
@@ -131,17 +129,6 @@ export const ContactInfo: React.FC<ContactInfoProps> = ({
 
           {config.showSocialMedia && contactInfo.social && (
             <div className={STYLES.CONTACT_INFO_ITEM}>
-              <div
-                className={cx(STYLES.CONTACT_INFO_ICON, STYLES.ICON_GRADIENT)}
-              >
-                <span
-                  className={STYLES.ICON_TEXT}
-                  role="img"
-                  aria-label={localeStrings.aria.socialMedia}
-                >
-                  🌐
-                </span>
-              </div>
               <div className={STYLES.CONTACT_SOCIAL_GRID}>
                 {socialConfig.showTwitter && contactInfo.social?.twitter && (
                   <a

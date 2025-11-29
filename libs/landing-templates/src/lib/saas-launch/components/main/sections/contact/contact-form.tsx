@@ -2,9 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { STYLES, LocaleStrings } from '../../../../utils';
 import { EMAIL_REG } from '../../../../../shared';
-
-const cx = (...classes: (string | readonly string[])[]) =>
-  classes.flat().join(' ');
+import { cx } from '../../../../../shared/utils/functions';
 
 export interface ContactFormData {
   name: string;

@@ -31,6 +31,13 @@ export const en = {
       submit: 'Send Message',
       successMessage:
         'Thank you for your message! We will get back to you soon.',
+      errors: {
+        nameRequired: 'Name is required',
+        emailRequired: 'Email is required',
+        emailInvalid: 'Invalid email address',
+        messageRequired: 'Message is required',
+        messageTooLong: 'Message must be 1000 characters or less',
+      },
     },
   },
 
@@ -152,6 +159,13 @@ export interface LocaleStrings {
       };
       submit: string;
       successMessage: string;
+      errors: {
+        nameRequired: string;
+        emailRequired: string;
+        emailInvalid: string;
+        messageRequired: string;
+        messageTooLong: string;
+      };
     };
   };
   about: {

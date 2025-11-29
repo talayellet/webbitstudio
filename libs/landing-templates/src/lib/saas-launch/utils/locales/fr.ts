@@ -34,6 +34,13 @@ export const fr: LocaleStrings = {
       submit: 'Envoyer le Message',
       successMessage:
         'Merci pour votre message ! Nous vous répondrons bientôt.',
+      errors: {
+        nameRequired: 'Le nom est requis',
+        emailRequired: "L'email est requis",
+        emailInvalid: 'Adresse email invalide',
+        messageRequired: 'Le message est requis',
+        messageTooLong: 'Le message doit contenir 1000 caractères ou moins',
+      },
     },
   },
 

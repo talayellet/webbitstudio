@@ -32,6 +32,13 @@ export const es: LocaleStrings = {
       },
       submit: 'Enviar Mensaje',
       successMessage: '¡Gracias por tu mensaje! Te responderemos pronto.',
+      errors: {
+        nameRequired: 'El nombre es obligatorio',
+        emailRequired: 'El correo electrónico es obligatorio',
+        emailInvalid: 'Dirección de correo electrónico no válida',
+        messageRequired: 'El mensaje es obligatorio',
+        messageTooLong: 'El mensaje debe tener 1000 caracteres o menos',
+      },
     },
   },
 

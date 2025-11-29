@@ -229,7 +229,7 @@ export const STYLES = {
     'border border-white/5',
   ],
   CONTACT_FORM_TITLE: 'text-2xl font-semibold mb-6',
-  CONTACT_FORM: 'space-y-6',
+  CONTACT_FORM: 'space-y-3',
   CONTACT_FORM_LABEL: 'block text-sm font-medium mb-2',
   CONTACT_FORM_INPUT: [
     'w-full px-4 py-3 rounded-lg',
@@ -254,5 +254,10 @@ export const STYLES = {
     'text-white shadow-[0_4px_24px_rgba(0,102,255,0.3)]',
     'transition-all duration-300',
     'hover:-translate-y-0.5 hover:shadow-[0_6px_32px_rgba(0,102,255,0.4)]',
+    'disabled:opacity-50 disabled:cursor-not-allowed',
+    'disabled:hover:translate-y-0 disabled:hover:shadow-[0_4px_24px_rgba(0,102,255,0.3)]',
   ],
+  CONTACT_FORM_ERROR: 'text-red-500 text-sm',
+  CONTACT_FORM_ERROR_CONTAINER: 'min-h-[20px] mt-1',
+  CONTACT_FORM_REQUIRED: 'text-red-500',
 } as const;

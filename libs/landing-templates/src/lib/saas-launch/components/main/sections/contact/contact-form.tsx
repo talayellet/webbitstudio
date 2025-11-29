@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { STYLES, LocaleStrings } from '../../../../utils';
+import { EMAIL_REG } from '../../../../../shared';
 
 const cx = (...classes: (string | readonly string[])[]) =>
   classes.flat().join(' ');
 
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export interface ContactFormProps {
   formTitle: string;
   localeStrings: LocaleStrings;
-  onSubmit?: (data: { name: string; email: string; message: string }) => void;
+  onSubmit?: (data: ContactFormData) => void;
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({
@@ -15,86 +23,109 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   localeStrings,
   onSubmit,
 }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid, isDirty },
+  } = useForm<ContactFormData>({
+    mode: 'all',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onFormSubmit = (data: ContactFormData) => {
     if (onSubmit) {
-      onSubmit(formData);
+      onSubmit(data);
     } else {
       // Default behavior if no onSubmit handler provided
-      console.log('Form submitted:', formData);
+      console.log('Form submitted:', data);
       alert(localeStrings.contact.form.successMessage);
     }
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    reset();
   };
 
   return (
     <div className={cx(STYLES.CONTACT_FORM_WRAPPER)}>
       <h3 className={STYLES.CONTACT_FORM_TITLE}>{formTitle}</h3>
-      <form onSubmit={handleSubmit} className={STYLES.CONTACT_FORM}>
+      <form
+        onSubmit={handleSubmit(onFormSubmit)}
+        className={STYLES.CONTACT_FORM}
+      >
         <div>
           <label htmlFor="name" className={STYLES.CONTACT_FORM_LABEL}>
-            {localeStrings.contact.form.name.label}
+            {localeStrings.contact.form.name.label}{' '}
+            <span className={STYLES.CONTACT_FORM_REQUIRED}>*</span>
           </label>
           <input
             type="text"
             id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
+            {...register('name', { required: true })}
             className={cx(STYLES.CONTACT_FORM_INPUT)}
             placeholder={localeStrings.contact.form.name.placeholder}
           />
+          <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
+            {errors.name && (
+              <span className={STYLES.CONTACT_FORM_ERROR}>
+                {localeStrings.contact.form.errors.nameRequired}
+              </span>
+            )}
+          </div>
         </div>
 
         <div>
           <label htmlFor="email" className={STYLES.CONTACT_FORM_LABEL}>
-            {localeStrings.contact.form.email.label}
+            {localeStrings.contact.form.email.label}{' '}
+            <span className={STYLES.CONTACT_FORM_REQUIRED}>*</span>
           </label>
           <input
             type="email"
             id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
+            {...register('email', {
+              required: true,
+              pattern: EMAIL_REG,
+            })}
             className={cx(STYLES.CONTACT_FORM_INPUT)}
             placeholder={localeStrings.contact.form.email.placeholder}
           />
+          <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
+            {errors.email && (
+              <span className={STYLES.CONTACT_FORM_ERROR}>
+                {errors.email.type === 'required'
+                  ? localeStrings.contact.form.errors.emailRequired
+                  : localeStrings.contact.form.errors.emailInvalid}
+              </span>
+            )}
+          </div>
         </div>
 
         <div>
           <label htmlFor="message" className={STYLES.CONTACT_FORM_LABEL}>
-            {localeStrings.contact.form.message.label}
+            {localeStrings.contact.form.message.label}{' '}
+            <span className={STYLES.CONTACT_FORM_REQUIRED}>*</span>
           </label>
           <textarea
             id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
+            {...register('message', { required: true, maxLength: 1000 })}
             rows={5}
             className={cx(STYLES.CONTACT_FORM_TEXTAREA)}
             placeholder={localeStrings.contact.form.message.placeholder}
           />
+          <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
+            {errors.message && (
+              <span className={STYLES.CONTACT_FORM_ERROR}>
+                {errors.message.type === 'maxLength'
+                  ? localeStrings.contact.form.errors.messageTooLong
+                  : localeStrings.contact.form.errors.messageRequired}
+              </span>
+            )}
+          </div>
         </div>
 
-        <button type="submit" className={cx(STYLES.CONTACT_FORM_BUTTON)}>
+        <button
+          type="submit"
+          disabled={!isDirty || !isValid}
+          tabIndex={0}
+          className={cx(STYLES.CONTACT_FORM_BUTTON)}
+        >
           {localeStrings.contact.form.submit}
         </button>
       </form>

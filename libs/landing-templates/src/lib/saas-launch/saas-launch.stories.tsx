@@ -1,11 +1,76 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SaasLaunch } from './saas-launch';
 import { LOCALES } from '../shared/utils/types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+// Wrapper to sync Storybook controls with component state
+const StorybookWrapper = ({ children, ...props }: any) => {
+  const [key, setKey] = useState(0);
+
+  // Force re-render when theme or locale changes from controls
+  useEffect(() => {
+    setKey((prev) => prev + 1);
+  }, [props.theme, props.locale]);
+
+  return <div key={key}>{children}</div>;
+};
+
+// Storybook decorator to handle hash navigation and home link
+const HashNavigationDecorator = (Story: React.ComponentType) => {
+  useEffect(() => {
+    // Handle navigation in Storybook
+    const handleNavigation = (e: Event) => {
+      const target = e.target as any;
+      // Find parent anchor element if clicked on a child element
+      const anchor = target?.tagName === 'A' ? target : target?.closest?.('a');
+
+      if (anchor) {
+        const href = anchor.getAttribute?.('href');
+
+        // Handle home link - scroll to top
+        if (href === '/') {
+          e.preventDefault();
+          (globalThis as any).window?.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
+        // Handle hash links
+        if (href?.startsWith('#') || href?.includes('/#')) {
+          e.preventDefault();
+          const hash = href.includes('/#')
+            ? href.split('/#')[1]
+            : href.substring(1);
+          const element = (globalThis as any).document?.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    };
+
+    (globalThis as any).document?.addEventListener('click', handleNavigation);
+    return () =>
+      (globalThis as any).document?.removeEventListener(
+        'click',
+        handleNavigation
+      );
+  }, []);
+
+  return <Story />;
+};
 
 const meta = {
   component: SaasLaunch,
   title: 'Landing Templates/SaasLaunch',
+  decorators: [
+    (Story, context) => (
+      <StorybookWrapper {...context.args}>
+        <Story />
+      </StorybookWrapper>
+    ),
+    HashNavigationDecorator,
+  ],
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -13,6 +78,15 @@ const meta = {
         component:
           'A comprehensive, production-ready SaaS landing page template with multi-language support, theming, and extensive customization options.',
       },
+    },
+  },
+  args: {
+    // Default handler for feature clicks in Storybook
+    onFeatureClick: (feature: any) => {
+      // @ts-expect-error - alert is available in browser environment
+      alert(
+        `Feature clicked: ${feature.title}\n\nRoute: ${feature.routePath}\n\nIn a real app, this would navigate to the feature detail page.`
+      );
     },
   },
   tags: ['autodocs'],
@@ -95,17 +169,6 @@ export const Default: Story = {
 };
 
 /**
- * A minimal example with custom branding.
- * Demonstrates basic customization of company name and logo.
- */
-export const BasicCustomization: Story = {
-  args: {
-    companyName: 'Acme Corp',
-    logo: 'A',
-  },
-};
-
-/**
  * Default footer link behavior.
  * When footer links (Privacy, Terms) are clicked, an "Under Construction" page is shown
  * while keeping the header and footer visible. Click "Back to Home" to return.
@@ -114,24 +177,6 @@ export const FooterLinksDefault: Story = {
   args: {
     companyName: 'Default Behavior',
     logo: 'D',
-  },
-};
-
-/**
- * Example with custom footer link handler.
- * Demonstrates how to handle footer link clicks with custom logic.
- * Override the default behavior by providing an onFooterLinkClick callback.
- */
-export const WithCustomFooterHandler: Story = {
-  args: {
-    companyName: 'Custom Handler',
-    logo: 'C',
-    onFooterLinkClick: (href: string, label: string) => {
-      // @ts-expect-error - alert is available in browser environment
-      alert(
-        `Custom handler: ${label} clicked (${href})\n\nYou can implement your own routing logic here.`
-      );
-    },
   },
 };
 
@@ -337,6 +382,14 @@ export const NoSwitchers: Story = {
  * Custom about section with rich content.
  */
 export const CustomAboutSection: Story = {
+  play: async () => {
+    // Scroll to the about section when the story loads
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const aboutSection = (globalThis as any).document?.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  },
   args: {
     companyName: 'StoryTech',
     logo: 'S',
@@ -398,6 +451,16 @@ export const CustomAboutSection: Story = {
  * Custom contact section with different layout.
  */
 export const CustomContactSection: Story = {
+  play: async () => {
+    // Scroll to the contact section when the story loads
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const contactSection = (globalThis as any).document?.getElementById(
+      'contact'
+    );
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  },
   args: {
     companyName: 'Reach Us',
     logo: 'R',

@@ -58,7 +58,22 @@ export const useTheme = (options: UseThemeProps = {}): UseThemeResponse => {
 
   // Apply theme colors to CSS variables
   useEffect(() => {
-    const colors = currentThemeOption.colors;
+    // Merge theme colors with overrides (overrides take precedence)
+    const colors = {
+      primary: colorOverrides?.primary || currentThemeOption.colors.primary,
+      primaryDark:
+        colorOverrides?.primaryDark || currentThemeOption.colors.primaryDark,
+      secondary:
+        colorOverrides?.secondary || currentThemeOption.colors.secondary,
+      background:
+        colorOverrides?.background || currentThemeOption.colors.background,
+      surface: colorOverrides?.surface || currentThemeOption.colors.surface,
+      text: colorOverrides?.text || currentThemeOption.colors.text,
+      textMuted:
+        colorOverrides?.textMuted || currentThemeOption.colors.textMuted,
+      accent: colorOverrides?.accent || currentThemeOption.colors.accent,
+    };
+
     const root = document.documentElement;
 
     root.style.setProperty('--primary', colors.primary);
@@ -69,26 +84,26 @@ export const useTheme = (options: UseThemeProps = {}): UseThemeResponse => {
     root.style.setProperty('--text', colors.text);
     root.style.setProperty('--text-muted', colors.textMuted);
     root.style.setProperty('--accent', colors.accent);
-  }, [currentThemeOption]);
+  }, [currentThemeOption, colorOverrides]);
 
-  // Compute color styles with fallback chain: theme colors -> overrides -> defaults
+  // Compute color styles with fallback chain: overrides -> theme colors -> defaults
   const colorStyles = useMemo(
     () =>
       ({
         '--primary':
-          currentThemeOption.colors.primary || colorOverrides?.primary,
+          colorOverrides?.primary || currentThemeOption.colors.primary,
         '--primary-dark':
-          currentThemeOption.colors.primaryDark || colorOverrides?.primaryDark,
+          colorOverrides?.primaryDark || currentThemeOption.colors.primaryDark,
         '--secondary':
-          currentThemeOption.colors.secondary || colorOverrides?.secondary,
+          colorOverrides?.secondary || currentThemeOption.colors.secondary,
         '--background':
-          currentThemeOption.colors.background || colorOverrides?.background,
+          colorOverrides?.background || currentThemeOption.colors.background,
         '--surface':
-          currentThemeOption.colors.surface || colorOverrides?.surface,
-        '--text': currentThemeOption.colors.text || colorOverrides?.text,
+          colorOverrides?.surface || currentThemeOption.colors.surface,
+        '--text': colorOverrides?.text || currentThemeOption.colors.text,
         '--text-muted':
-          currentThemeOption.colors.textMuted || colorOverrides?.textMuted,
-        '--accent': currentThemeOption.colors.accent || colorOverrides?.accent,
+          colorOverrides?.textMuted || currentThemeOption.colors.textMuted,
+        '--accent': colorOverrides?.accent || currentThemeOption.colors.accent,
       } as React.CSSProperties),
     [currentThemeOption.colors, colorOverrides]
   );

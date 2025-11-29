@@ -1,3 +1,5 @@
+import type { ThemeName } from '../../shared';
+
 // ============================================================================
 // Contact
 // ============================================================================
@@ -154,7 +156,10 @@ export interface SaasLaunchProps {
   contactSection?: React.ReactNode;
   contactFieldsConfig?: ContactFieldsConfig;
 
-  // Color scheme
+  // Theme
+  theme?: ThemeName;
+
+  // Color scheme (overrides theme colors)
   colors?: ColorScheme;
 
   // Language switcher

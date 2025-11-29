@@ -407,6 +407,18 @@ export const getLocaleStrings = (locale: string): LocaleStrings => {
 };
 ```
 
-## Running unit tests
+## Development
 
-Run `nx test @webbitstudio/landing-templates` to execute the unit tests via [Vitest](https://vitest.dev/).
+### Running Storybook
+
+To view and interact with the component examples in Storybook:
+
+```bash
+nx storybook landing-templates
+```
+
+This will start Storybook on `http://localhost:4400` where you can browse all the component stories and variations.
+
+### Running unit tests
+
+Run `nx test landing-templates` to execute the unit tests via [Vitest](https://vitest.dev/).

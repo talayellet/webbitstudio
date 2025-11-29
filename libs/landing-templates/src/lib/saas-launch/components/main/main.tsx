@@ -4,14 +4,14 @@ import {
   FeaturesSection,
   StatsSection,
   FinalCtaSection,
-  Feature,
-  Stat,
 } from './sections';
 import {
   LocaleStrings,
   ShowSections,
   DEFAULT_SHOW_SECTIONS,
   ContactFieldsConfig,
+  Feature,
+  Stat,
 } from '../../utils';
 
 interface MainProps {

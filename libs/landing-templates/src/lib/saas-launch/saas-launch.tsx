@@ -22,7 +22,7 @@ import {
 
 export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   aboutSection = DEFAULT_TEMPLATE.aboutSection,
-  colors = DEFAULT_TEMPLATE.colors,
+  colors,
   companyName = DEFAULT_TEMPLATE.companyName,
   contactSection = DEFAULT_TEMPLATE.contactSection,
   contactFieldsConfig = DEFAULT_CONTACT_FIELDS,
@@ -35,11 +35,13 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
   showFooter = true,
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
+  theme = 'dark',
 }) => {
   const addToRefs = useScrollReveal();
 
-  // Theme management - pass color overrides for backwards compatibility
+  // Theme management - use initialTheme if provided, color overrides for granular control
   const { currentTheme, setTheme, colorStyles } = useTheme({
+    initialTheme: theme,
     colorOverrides: colors,
   });
 

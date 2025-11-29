@@ -1,3 +1,5 @@
+import { saasLaunchImages } from '../../../../assets';
+
 /**
  * English (US) locale strings for SaaS Launch template
  */
@@ -83,8 +85,7 @@ export const en = {
         routePath: '/features/lightning-fast',
         featureDetails: {
           price: '$29/mo',
-          image:
-            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+          image: saasLaunchImages.lightningFast,
           altImage: 'Lightning fast performance dashboard',
           fullDescription:
             "Experience blazing-fast performance with our cutting-edge technology stack. We've optimized every layer of our platform to deliver sub-second response times, ensuring your users never have to wait.",
@@ -104,8 +105,7 @@ export const en = {
         routePath: '/features/secure-by-default',
         featureDetails: {
           price: '$49/mo',
-          image:
-            'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=600&fit=crop',
+          image: saasLaunchImages.secureByDefault,
           altImage: 'Security and encryption protection',
           fullDescription:
             "Security is not an afterthought - it's built into every aspect of our platform. From end-to-end encryption to regular security audits, we ensure your data is always protected.",
@@ -125,8 +125,7 @@ export const en = {
         routePath: '/features/beautiful-design',
         featureDetails: {
           price: '$39/mo',
-          image:
-            'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop',
+          image: saasLaunchImages.beautifulDesign,
           altImage: 'Beautiful and modern interface design',
           fullDescription:
             'Every pixel matters. Our design team has crafted beautiful, intuitive interfaces that delight users and make complex tasks feel simple.',

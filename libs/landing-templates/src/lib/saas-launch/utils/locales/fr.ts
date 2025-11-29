@@ -1,4 +1,5 @@
 import { LocaleStrings } from './en';
+import { saasLaunchImages } from '../../../../assets';
 
 /**
  * French locale strings for SaaS Launch template
@@ -86,8 +87,7 @@ export const fr: LocaleStrings = {
         routePath: '/features/lightning-fast',
         featureDetails: {
           price: '29€/mois',
-          image:
-            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
+          image: saasLaunchImages.lightningFast,
           altImage: 'Tableau de bord de performances ultra rapides',
           fullDescription:
             "Profitez de performances ultra-rapides avec notre pile technologique de pointe. Nous avons optimisé chaque couche de notre plateforme pour offrir des temps de réponse inférieurs à une seconde, garantissant que vos utilisateurs n'ont jamais à attendre.",
@@ -107,8 +107,7 @@ export const fr: LocaleStrings = {
         routePath: '/features/secure-by-default',
         featureDetails: {
           price: '49€/mois',
-          image:
-            'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=600&fit=crop',
+          image: saasLaunchImages.secureByDefault,
           altImage: 'Protection de sécurité et chiffrement',
           fullDescription:
             "La sécurité n'est pas une réflexion après coup - elle est intégrée dans chaque aspect de notre plateforme. Du chiffrement de bout en bout aux audits de sécurité réguliers, nous garantissons que vos données sont toujours protégées.",
@@ -128,8 +127,7 @@ export const fr: LocaleStrings = {
         routePath: '/features/beautiful-design',
         featureDetails: {
           price: '39€/mois',
-          image:
-            'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop',
+          image: saasLaunchImages.beautifulDesign,
           altImage: "Design d'interface magnifique et moderne",
           fullDescription:
             'Chaque pixel compte. Notre équipe de conception a créé de superbes interfaces intuitives qui ravissent les utilisateurs et rendent les tâches complexes simples.',

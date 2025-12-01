@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { LocaleStrings } from '../utils/locales';
-import { en, es, fr } from '../utils/locales';
+import { en, es, fr, de } from '../utils/locales';
 
-export type Locale = 'en' | 'es' | 'fr';
+export type Locale = 'en' | 'es' | 'fr' | 'de';
 
 const LOCALE_STORAGE_KEY = 'webbit-locale';
 
@@ -10,6 +10,7 @@ const localeMap: Record<Locale, LocaleStrings> = {
   en,
   es,
   fr,
+  de,
 };
 
 const isBrowser = typeof window !== 'undefined';
@@ -24,7 +25,13 @@ export const useLocalizedContent = () => {
       const stored = window.localStorage.getItem(
         LOCALE_STORAGE_KEY
       ) as Locale | null;
-      if (stored && (stored === 'en' || stored === 'es' || stored === 'fr')) {
+      if (
+        stored &&
+        (stored === 'en' ||
+          stored === 'es' ||
+          stored === 'fr' ||
+          stored === 'de')
+      ) {
         return stored;
       }
     }

@@ -19,6 +19,7 @@ const LANGUAGE_OPTIONS = [
   { code: 'en' as const, flag: '🇺🇸', label: 'English' },
   { code: 'es' as const, flag: '🇪🇸', label: 'Español' },
   { code: 'fr' as const, flag: '🇫🇷', label: 'Français' },
+  { code: 'de' as const, flag: '🇩🇪', label: 'Deutsch' },
 ];
 
 export const WebbitStudioHomePage: React.FC = () => {

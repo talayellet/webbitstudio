@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as styles from '../utils/styles';
 import type { LocaleStrings } from '../utils/locales';
+import { CustomSelect } from './custom-select';
 
 interface ContactSectionProps {
   content: LocaleStrings['contactSection'];
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ content }) => {
+  const [selectedPackage, setSelectedPackage] = useState('');
+
   return (
     <section
       id="contact"
@@ -62,19 +65,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ content }) => {
               />
             </div>
 
-            <div className={styles.form.fieldContainer}>
-              <label className={styles.typography.label}>
-                {content.form.package.label}
-              </label>
-              <select className={styles.form.select} defaultValue="">
-                <option value="" disabled>
-                  {content.form.package.placeholder}
-                </option>
-                {content.form.package.options.map((option) => (
-                  <option key={option}>{option}</option>
-                ))}
-              </select>
-            </div>
+            <CustomSelect
+              value={selectedPackage}
+              onChange={setSelectedPackage}
+              placeholder={content.form.package.placeholder}
+              options={content.form.package.options}
+              label={content.form.package.label}
+            />
 
             <div className={styles.form.fieldContainer}>
               <label className={styles.typography.label}>

@@ -143,8 +143,23 @@ export const form = {
   textarea:
     'w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500',
   select:
-    'w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500',
+    'w-full appearance-none rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 pr-10 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500 [&::-ms-expand]:hidden',
+  selectWrapper: 'relative',
+  selectIcon:
+    'pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400',
   note: 'mt-1 text-[11px] text-slate-200',
+} as const;
+
+// Custom Select Styles
+export const customSelect = {
+  wrapper: 'relative',
+  trigger:
+    'flex w-full items-center justify-between rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 transition-colors hover:border-slate-600 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500',
+  icon: 'ml-2 h-4 w-4 flex-shrink-0 text-slate-400',
+  menu: 'absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-xl border border-slate-700 bg-slate-900 py-1 shadow-xl shadow-black/20',
+  option:
+    'flex cursor-pointer items-center px-3 py-2.5 text-xs text-slate-200 transition-colors hover:bg-slate-800 hover:text-slate-50',
+  optionSelected: 'bg-sky-500/10 text-sky-200 hover:bg-sky-500/20',
 } as const;
 
 // Package Card Styles

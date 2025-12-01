@@ -1,12 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import * as styles from '../utils/styles';
 
-interface CustomSelectProps {
+export interface CustomSelectProps {
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
   options: string[];
-  label: string;
+  label?: string;
+  labelClassName?: string;
+  fieldContainerClassName?: string;
+  wrapperClassName?: string;
+  triggerClassName?: string;
+  iconClassName?: string;
+  menuClassName?: string;
+  optionClassName?: string;
+  optionSelectedClassName?: string;
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -15,6 +22,14 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   placeholder,
   options,
   label,
+  labelClassName = '',
+  fieldContainerClassName = '',
+  wrapperClassName = 'relative',
+  triggerClassName = '',
+  iconClassName = '',
+  menuClassName = '',
+  optionClassName = '',
+  optionSelectedClassName = '',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,13 +54,13 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   };
 
   return (
-    <div className={styles.form.fieldContainer}>
-      <label className={styles.typography.label}>{label}</label>
-      <div ref={containerRef} className={styles.customSelect.wrapper}>
+    <div className={fieldContainerClassName}>
+      {label && <label className={labelClassName}>{label}</label>}
+      <div ref={containerRef} className={wrapperClassName}>
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className={styles.customSelect.trigger}
+          className={triggerClassName}
           aria-haspopup="listbox"
           aria-expanded={isOpen}
         >
@@ -53,7 +68,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
             {value || placeholder}
           </span>
           <svg
-            className={`${styles.customSelect.icon} ${
+            className={`${iconClassName} ${
               isOpen ? 'rotate-180' : ''
             } transition-transform`}
             width="16"
@@ -72,13 +87,13 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
           </svg>
         </button>
         {isOpen && (
-          <ul className={styles.customSelect.menu} role="listbox">
+          <ul className={menuClassName} role="listbox">
             {options.map((option, index) => (
               <li
                 key={index}
                 onClick={() => handleSelect(option)}
-                className={`${styles.customSelect.option} ${
-                  value === option ? styles.customSelect.optionSelected : ''
+                className={`${optionClassName} ${
+                  value === option ? optionSelectedClassName : ''
                 }`}
                 role="option"
                 aria-selected={value === option}

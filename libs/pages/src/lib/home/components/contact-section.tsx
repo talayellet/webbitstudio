@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as styles from '../utils/styles';
 import type { LocaleStrings } from '../utils/locales';
-import { CustomSelect } from './custom-select';
+import { CustomSelect } from '@webbitstudio/ui-components';
 
 interface ContactSectionProps {
   content: LocaleStrings['contactSection'];
@@ -71,6 +71,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ content }) => {
               placeholder={content.form.package.placeholder}
               options={content.form.package.options}
               label={content.form.package.label}
+              fieldContainerClassName={styles.form.fieldContainer}
+              labelClassName={styles.typography.label}
+              wrapperClassName={styles.customSelect.wrapper}
+              triggerClassName={styles.customSelect.trigger}
+              iconClassName={styles.customSelect.icon}
+              menuClassName={styles.customSelect.menu}
+              optionClassName={styles.customSelect.option}
+              optionSelectedClassName={styles.customSelect.optionSelected}
             />
 
             <div className={styles.form.fieldContainer}>

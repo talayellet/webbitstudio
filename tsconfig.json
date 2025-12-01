@@ -20,6 +20,9 @@
     },
     {
       "path": "./shared"
+    },
+    {
+      "path": "./libs/pages"
     }
   ]
 }

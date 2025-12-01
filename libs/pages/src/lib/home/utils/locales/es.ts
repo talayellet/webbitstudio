@@ -7,6 +7,10 @@ import type { Package, FAQ } from '../types';
 export const es: LocaleStrings = {
   // Header
   header: {
+    logo: {
+      title: 'Webbit Studio',
+      subtitle: 'Sitios web para negocios modernos',
+    },
     nav: {
       packages: 'Paquetes',
       process: 'Proceso',

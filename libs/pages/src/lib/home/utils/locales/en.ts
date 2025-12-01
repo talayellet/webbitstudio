@@ -6,6 +6,10 @@ import type { Package, FAQ } from '../types';
 export const en = {
   // Header
   header: {
+    logo: {
+      title: 'Webbit Studio',
+      subtitle: 'Websites for modern businesses',
+    },
     nav: {
       packages: 'Packages',
       process: 'Process',

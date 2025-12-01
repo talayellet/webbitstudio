@@ -18,9 +18,9 @@ export const Header: React.FC<HeaderProps> = ({
           <span className={styles.header.logo.iconText}>W</span>
         </div>
         <div className={styles.header.logo.textContainer}>
-          <span className={styles.header.logo.title}>Webbit Studio</span>
+          <span className={styles.header.logo.title}>{content.logo.title}</span>
           <span className={styles.header.logo.subtitle}>
-            Websites for modern businesses
+            {content.logo.subtitle}
           </span>
         </div>
       </div>

@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "options": {},
+      "options": {
+        "configFile": "apps/web/vite.config.mts"
+      },
       "defaultConfiguration": "production",
       "configurations": {
         "production": {

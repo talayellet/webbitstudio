@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npx nx run-many -t build -p @webbitstudio/shared @webbitstudio/landing-templates && cd apps/web && npx vite build",
+  "outputDirectory": "apps/web/dist",
+  "installCommand": "yarn install"
+}

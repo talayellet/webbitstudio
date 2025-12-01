@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { packages, faqs } from './utils/constants';
 import * as styles from './utils/styles';
 
@@ -54,11 +55,7 @@ export const WebbitStudioHomePage: React.FC = () => {
               Websites that make your business look great — delivered fast.
             </h1>
 
-            <p
-              className={
-                styles.layout.maxWidthXl + ' ' + styles.typography.bodyBase
-              }
-            >
+            <p className={styles.combined.bodyWithMaxWidth}>
               Webbit Studio builds landing pages, business websites, hosting
               setups, deployments, and custom admin panels so you can manage
               your content with ease. Designed for small businesses worldwide.
@@ -86,55 +83,58 @@ export const WebbitStudioHomePage: React.FC = () => {
               {/* Browser mock */}
               <div className={styles.hero.browserHeader}>
                 <span
-                  className={
-                    styles.hero.browserDot + ' ' + styles.colors.rose500
-                  }
+                  className={clsx(
+                    styles.hero.browserDot,
+                    styles.colors.rose500
+                  )}
                 />
                 <span
-                  className={
-                    styles.hero.browserDot + ' ' + styles.colors.amber400
-                  }
+                  className={clsx(
+                    styles.hero.browserDot,
+                    styles.colors.amber400
+                  )}
                 />
                 <span
-                  className={
-                    styles.hero.browserDot + ' ' + styles.colors.emerald400
-                  }
+                  className={clsx(
+                    styles.hero.browserDot,
+                    styles.colors.emerald400
+                  )}
                 />
                 <span className={styles.hero.browserUrl}>webbitstudio.com</span>
               </div>
 
-              <div className="space-y-4 pt-4">
+              <div className={styles.hero.mockContainer}>
                 <div className={styles.hero.mockElement} />
-                <div className="h-3 w-5/6 rounded-md bg-slate-800/90" />
-                <div className="grid grid-cols-3 gap-3 pt-1">
+                <div className={styles.hero.mockElement2} />
+                <div className={styles.hero.mockGrid}>
                   <div className={styles.hero.mockCard} />
-                  <div className="space-y-2">
-                    <div className="h-4 w-3/4 rounded bg-slate-800" />
-                    <div className="h-3 w-5/6 rounded bg-slate-800/90" />
-                    <div className="h-3 w-2/3 rounded bg-slate-800/70" />
+                  <div className={styles.hero.mockColumn}>
+                    <div className={styles.hero.mockBar1} />
+                    <div className={styles.hero.mockBar2} />
+                    <div className={styles.hero.mockBar3} />
                   </div>
-                  <div className="space-y-2">
-                    <div className="h-3 w-4/5 rounded bg-slate-800/90" />
-                    <div className="h-3 w-1/2 rounded bg-slate-800/80" />
-                    <div className="h-8 w-full rounded-lg bg-sky-500/90" />
+                  <div className={styles.hero.mockColumn}>
+                    <div className={styles.hero.mockBar4} />
+                    <div className={styles.hero.mockBar5} />
+                    <div className={styles.hero.mockButton} />
                   </div>
                 </div>
-                <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] text-slate-300">
+                <div className={styles.hero.mockCardsGrid}>
                   <div className={styles.card.heroBrowserMock}>
-                    <p className="font-medium">Landing</p>
-                    <p className="text-[11px] text-slate-400">
+                    <p className={styles.hero.mockCardText}>Landing</p>
+                    <p className={styles.hero.mockCardSubtext}>
                       Fast, simple, effective.
                     </p>
                   </div>
                   <div className={styles.card.heroBrowserMock}>
-                    <p className="font-medium">Pro Site</p>
-                    <p className="text-[11px] text-slate-400">
+                    <p className={styles.hero.mockCardText}>Pro Site</p>
+                    <p className={styles.hero.mockCardSubtext}>
                       Multi-page & hosted.
                     </p>
                   </div>
                   <div className={styles.card.heroBrowserMock}>
-                    <p className="font-medium">Premium CMS</p>
-                    <p className="text-[11px] text-slate-400">
+                    <p className={styles.hero.mockCardText}>Premium CMS</p>
+                    <p className={styles.hero.mockCardSubtext}>
                       Edit content yourself.
                     </p>
                   </div>
@@ -166,25 +166,12 @@ export const WebbitStudioHomePage: React.FC = () => {
           aria-labelledby="packages-heading"
           className={styles.section.default}
         >
-          <div
-            className={
-              styles.spacing.mb8 +
-              ' flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'
-            }
-          >
+          <div className={styles.layout.sectionHeader}>
             <div>
               <h2 id="packages-heading" className={styles.typography.h2}>
                 Packages for every stage of your business
               </h2>
-              <p
-                className={
-                  styles.spacing.mt2 +
-                  ' ' +
-                  styles.layout.maxWidthXl +
-                  ' ' +
-                  styles.typography.bodyBase
-                }
-              >
+              <p className={styles.combined.bodyWithMaxWidth}>
                 From simple landing pages to full websites with a self-managed
                 admin panel, choose the option that fits your current needs.
               </p>
@@ -250,14 +237,12 @@ export const WebbitStudioHomePage: React.FC = () => {
           aria-labelledby="process-heading"
           className={styles.section.withBorder}
         >
-          <div className={styles.spacing.mb8 + ' ' + styles.layout.maxWidth}>
+          <div className={styles.combined.sectionIntro}>
             <h2 id="process-heading" className={styles.typography.h2}>
               A simple process from idea to live website
             </h2>
-            <p
-              className={styles.spacing.mt2 + ' ' + styles.typography.bodyBase}
-            >
-              We keep things straightforward so you always know what’s next.
+            <p className={styles.combined.bodyWithSpacing}>
+              We keep things straightforward so you always know what's next.
               Most projects follow this four-step flow.
             </p>
           </div>
@@ -301,13 +286,11 @@ export const WebbitStudioHomePage: React.FC = () => {
           aria-labelledby="why-heading"
           className={styles.section.default}
         >
-          <div className={styles.spacing.mb8 + ' ' + styles.layout.maxWidth}>
+          <div className={styles.combined.sectionIntro}>
             <h2 id="why-heading" className={styles.typography.h2}>
               Why Webbit Studio?
             </h2>
-            <p
-              className={styles.spacing.mt2 + ' ' + styles.typography.bodyBase}
-            >
+            <p className={styles.combined.bodyWithSpacing}>
               We focus on modern technology, clean design, and timelines that
               actually work for busy business owners.
             </p>
@@ -342,11 +325,7 @@ export const WebbitStudioHomePage: React.FC = () => {
             ].map((item) => (
               <div key={item.title} className={styles.card.default}>
                 <h3 className={styles.typography.h3Small}>{item.title}</h3>
-                <p
-                  className={
-                    styles.spacing.mt2 + ' ' + styles.typography.bodySmall
-                  }
-                >
+                <p className={styles.combined.cardTextWithSpacing}>
                   {item.text}
                 </p>
               </div>
@@ -365,16 +344,8 @@ export const WebbitStudioHomePage: React.FC = () => {
               <h2 id="pricing-heading" className={styles.typography.h2}>
                 Simple, fair, global pricing
               </h2>
-              <p
-                className={
-                  styles.spacing.mt2 +
-                  ' ' +
-                  styles.layout.maxWidthXl +
-                  ' ' +
-                  styles.typography.bodyBase
-                }
-              >
-                We show USD “starting from” prices so expectations are clear,
+              <p className={styles.combined.pricingIntro}>
+                We show USD "starting from" prices so expectations are clear,
                 then adjust final quotes based on your region and project
                 complexity.
               </p>
@@ -462,15 +433,13 @@ export const WebbitStudioHomePage: React.FC = () => {
           aria-labelledby="faq-heading"
           className={styles.section.default}
         >
-          <div className={styles.spacing.mb8 + ' ' + styles.layout.maxWidth}>
+          <div className={styles.combined.sectionIntro}>
             <h2 id="faq-heading" className={styles.typography.h2}>
               Frequently asked questions
             </h2>
-            <p
-              className={styles.spacing.mt2 + ' ' + styles.typography.bodyBase}
-            >
-              If you don’t see your question here, you can always reach out
-              directly and we’ll be happy to help.
+            <p className={styles.combined.bodyWithSpacing}>
+              If you don't see your question here, you can always reach out
+              directly and we'll be happy to help.
             </p>
           </div>
 

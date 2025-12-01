@@ -7,6 +7,8 @@ export const layout = {
   grid2Cols: 'grid gap-10 py-10 md:grid-cols-2 md:py-16 lg:py-20',
   grid3Cols: 'grid gap-6 md:grid-cols-3',
   grid4Cols: 'grid gap-6 md:grid-cols-4',
+  sectionHeader:
+    'mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between',
 } as const;
 
 // Header & Navigation Styles
@@ -94,8 +96,21 @@ export const hero = {
   browserDot: 'h-2.5 w-2.5 rounded-full',
   browserUrl:
     'ml-auto rounded-full bg-slate-800 px-2 py-1 text-[10px] text-slate-400',
+  mockContainer: 'space-y-4 pt-4',
   mockElement: 'h-6 w-3/4 rounded-md bg-slate-800',
+  mockElement2: 'h-3 w-5/6 rounded-md bg-slate-800/90',
+  mockGrid: 'grid grid-cols-3 gap-3 pt-1',
   mockCard: 'h-24 rounded-xl bg-gradient-to-br from-sky-500/60 to-sky-400/80',
+  mockColumn: 'space-y-2',
+  mockBar1: 'h-4 w-3/4 rounded bg-slate-800',
+  mockBar2: 'h-3 w-5/6 rounded bg-slate-800/90',
+  mockBar3: 'h-3 w-2/3 rounded bg-slate-800/70',
+  mockBar4: 'h-3 w-4/5 rounded bg-slate-800/90',
+  mockBar5: 'h-3 w-1/2 rounded bg-slate-800/80',
+  mockButton: 'h-8 w-full rounded-lg bg-sky-500/90',
+  mockCardsGrid: 'grid grid-cols-3 gap-2 pt-2 text-[10px] text-slate-300',
+  mockCardText: 'font-medium',
+  mockCardSubtext: 'text-[11px] text-slate-400',
   badge: 'inline-block h-1.5 w-1.5 rounded-full bg-emerald-400',
   actions: 'flex flex-wrap items-center gap-3',
   trust: 'mt-2 text-xs text-slate-400 sm:text-sm',
@@ -201,6 +216,14 @@ export const spacing = {
   mt4: 'mt-4',
   mb3: 'mb-3',
   mb8: 'mb-8',
+} as const;
+
+export const combined = {
+  sectionIntro: 'mb-8 max-w-2xl',
+  bodyWithMaxWidth: 'mt-2 max-w-xl text-sm text-slate-300 sm:text-base',
+  bodyWithSpacing: 'mt-2 text-sm text-slate-300 sm:text-base',
+  cardTextWithSpacing: 'mt-2 text-xs text-slate-300 sm:text-sm',
+  pricingIntro: 'mt-2 max-w-xl text-sm text-slate-300 sm:text-base',
 } as const;
 
 export const colors = {

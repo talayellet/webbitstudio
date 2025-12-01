@@ -50,6 +50,7 @@ export const en = {
   // Tech Strip
   techStrip: {
     title: 'Built with modern technology',
+    badges: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Modern hosting'],
   },
 
   // Packages Section

@@ -12,11 +12,11 @@ export const TechStrip: React.FC<TechStripProps> = ({ content }) => {
       <div className={styles.techStrip.container}>
         <p>{content.title}</p>
         <div className={styles.techStrip.badges}>
-          <span className={styles.typography.techBadge}>React</span>
-          <span className={styles.typography.techBadge}>TypeScript</span>
-          <span className={styles.typography.techBadge}>Tailwind</span>
-          <span className={styles.typography.techBadge}>Vite</span>
-          <span className={styles.typography.techBadge}>Modern hosting</span>
+          {content.badges.map((badge) => (
+            <span key={badge} className={styles.typography.techBadge}>
+              {badge}
+            </span>
+          ))}
         </div>
       </div>
     </section>

@@ -51,6 +51,7 @@ export const fr: LocaleStrings = {
   // Tech Strip
   techStrip: {
     title: 'Construit avec une technologie moderne',
+    badges: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Hébergement moderne'],
   },
 
   // Packages Section

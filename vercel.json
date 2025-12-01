@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npx nx reset && NX_DAEMON=false npx nx build @webbitstudio/web --verbose",
+  "buildCommand": "npx nx build web --verbose",
   "outputDirectory": "apps/web/dist",
   "installCommand": "yarn install"
 }

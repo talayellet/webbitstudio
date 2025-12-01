@@ -176,6 +176,10 @@ export const SaasLaunch: React.FC<SaasLaunchProps> = ({
           finalCtaDescription={displayContent.finalCtaDescription}
           finalCtaButton={displayContent.finalCtaButton}
           finalCtaHref={displayContent.finalCtaHref}
+          finalCtaOnClick={(e) => {
+            e.preventDefault();
+            setCurrentPage(displayContent.finalCtaButton);
+          }}
           addToRefs={addToRefs}
           tagline={displayContent.tagline}
           locale={localeStrings}

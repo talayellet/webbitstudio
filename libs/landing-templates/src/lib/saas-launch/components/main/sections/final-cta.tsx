@@ -7,6 +7,7 @@ interface FinalCtaSectionProps {
   finalCtaDescription: string;
   finalCtaButton: string;
   finalCtaHref: string;
+  finalCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   addToRefs: (el: HTMLElement | null) => void;
 }
 
@@ -15,6 +16,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({
   finalCtaDescription,
   finalCtaButton,
   finalCtaHref,
+  finalCtaOnClick,
   addToRefs,
 }) => {
   return (
@@ -27,7 +29,11 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({
           {finalCtaTitle}
         </h2>
         <p className={STYLES.FINAL_CTA_DESCRIPTION}>{finalCtaDescription}</p>
-        <a href={finalCtaHref} className={clsx(STYLES.PRIMARY_BUTTON)}>
+        <a
+          href={finalCtaHref}
+          onClick={finalCtaOnClick}
+          className={clsx(STYLES.PRIMARY_BUTTON)}
+        >
           {finalCtaButton}
         </a>
       </div>

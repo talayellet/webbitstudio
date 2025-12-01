@@ -46,6 +46,7 @@ interface MainProps {
   finalCtaDescription: string;
   finalCtaButton: string;
   finalCtaHref: string;
+  finalCtaOnClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 
   // Infrastructure
   addToRefs: (el: HTMLElement | null) => void;
@@ -75,6 +76,7 @@ export const Main: React.FC<MainProps> = ({
   finalCtaDescription,
   finalCtaButton,
   finalCtaHref,
+  finalCtaOnClick,
   addToRefs,
   tagline,
   locale,
@@ -150,6 +152,7 @@ export const Main: React.FC<MainProps> = ({
           finalCtaDescription={finalCtaDescription}
           finalCtaButton={finalCtaButton}
           finalCtaHref={finalCtaHref}
+          finalCtaOnClick={finalCtaOnClick}
           addToRefs={addToRefs}
         />
       )}

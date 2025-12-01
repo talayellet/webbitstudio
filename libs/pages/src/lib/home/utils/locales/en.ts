@@ -186,6 +186,10 @@ export const en = {
     title: 'Simple, fair, global pricing',
     intro:
       'We show USD "starting from" prices so expectations are clear, then adjust final quotes based on your project complexity.',
+    labels: {
+      startingFrom: 'Starting from',
+      typicalRange: 'typical range:',
+    },
     packages: [
       {
         name: 'Landing Page Package',

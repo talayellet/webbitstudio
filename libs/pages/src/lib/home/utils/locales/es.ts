@@ -189,6 +189,10 @@ export const es: LocaleStrings = {
     title: 'Precios simples, justos y globales',
     intro:
       'Mostramos precios en USD "desde" para que las expectativas sean claras, luego ajustamos las cotizaciones finales según la complejidad de tu proyecto.',
+    labels: {
+      startingFrom: 'Desde',
+      typicalRange: 'rango típico:',
+    },
     packages: [
       {
         name: 'Paquete Página de Aterrizaje',

@@ -27,12 +27,12 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ content }) => {
           <div key={pkg.name}>
             <h3 className={styles.typography.h3Pricing}>{pkg.name}</h3>
             <p className={styles.pricing.item}>
-              <span className={styles.pricing.label}>Starting from </span>
-              <span className={styles.pricing.amount}>
-                {pkg.startingPrice}
-              </span>{' '}
+              <span className={styles.pricing.label}>
+                {content.labels.startingFrom}{' '}
+              </span>
+              <span className={styles.pricing.amount}>{pkg.startingPrice}</span>{' '}
               <span className={styles.typography.bodyExtraSmall}>
-                (typical range: {pkg.typicalRange})
+                ({content.labels.typicalRange} {pkg.typicalRange})
               </span>
             </p>
             <p className={styles.pricing.note}>{pkg.note}</p>

@@ -189,6 +189,10 @@ export const fr: LocaleStrings = {
     title: 'Tarifs simples, équitables et globaux',
     intro:
       'Nous affichons des prix en USD "à partir de" pour que les attentes soient claires, puis ajustons les devis finaux en fonction de la complexité de votre projet.',
+    labels: {
+      startingFrom: 'À partir de',
+      typicalRange: 'fourchette typique :',
+    },
     packages: [
       {
         name: "Forfait Page d'Atterrissage",

@@ -1,34 +1,34 @@
 import React from 'react';
 import clsx from 'clsx';
 import * as styles from '../utils/styles';
+import type { LocaleStrings } from '../utils/locales';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  content: LocaleStrings['hero'];
+}
+
+export const Hero: React.FC<HeroProps> = ({ content }) => {
   return (
     <section aria-labelledby="hero-heading" className={styles.layout.grid2Cols}>
       <div className={styles.hero.content}>
         <h1 id="hero-heading" className={styles.typography.h1}>
-          Websites that make your business look great - delivered fast.
+          {content.title}
         </h1>
 
         <p className={styles.combined.bodyWithMaxWidth}>
-          Webbit Studio builds landing pages, business websites, hosting setups,
-          deployments, and custom admin panels so you can manage your content
-          with ease. Designed for small businesses worldwide.
+          {content.description}
         </p>
 
         <div className={styles.hero.actions}>
           <a href="#contact" className={styles.button.primary}>
-            Start your project
+            {content.primaryCta}
           </a>
           <a href="#packages" className={styles.button.secondary}>
-            See packages
+            {content.secondaryCta}
           </a>
         </div>
 
-        <p className={styles.hero.trust}>
-          Trusted by small businesses and startups worldwide. Most projects
-          completed in under 7 days.
-        </p>
+        <p className={styles.hero.trust}>{content.trust}</p>
       </div>
 
       {/* Hero visual */}

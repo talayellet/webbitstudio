@@ -1,8 +1,14 @@
 import React from 'react';
-import { packages } from '../utils';
 import * as styles from '../utils/styles';
+import type { LocaleStrings } from '../utils/locales';
 
-export const PackagesSection: React.FC = () => {
+interface PackagesSectionProps {
+  content: LocaleStrings['packagesSection'];
+}
+
+export const PackagesSection: React.FC<PackagesSectionProps> = ({
+  content,
+}) => {
   return (
     <section
       id="packages"
@@ -12,20 +18,14 @@ export const PackagesSection: React.FC = () => {
       <div className={styles.layout.sectionHeader}>
         <div>
           <h2 id="packages-heading" className={styles.typography.h2}>
-            Packages for every stage of your business
+            {content.title}
           </h2>
-          <p className={styles.combined.bodyWithMaxWidth}>
-            From simple landing pages to full websites with a self-managed admin
-            panel, choose the option that fits your current needs.
-          </p>
+          <p className={styles.combined.bodyWithMaxWidth}>{content.subtitle}</p>
         </div>
-        <p className={styles.typography.bodyExtraSmall}>
-          Most projects completed in 3–7 days.
-        </p>
       </div>
 
       <div className={styles.layout.grid3Cols}>
-        {packages.map((pkg) => (
+        {content.packages.map((pkg) => (
           <article key={pkg.name} className={styles.card.package}>
             <div className={styles.packageCard.header}>
               <h3 className={styles.typography.h3Base}>{pkg.name}</h3>

@@ -1,6 +1,9 @@
 {
   "files": [],
   "include": [],
+  "compilerOptions": {
+    "lib": ["es2022", "DOM", "DOM.Iterable"]
+  },
   "references": [
     {
       "path": "./tsconfig.lib.json"

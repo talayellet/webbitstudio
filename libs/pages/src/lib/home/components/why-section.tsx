@@ -1,48 +1,23 @@
 import React from 'react';
 import * as styles from '../utils/styles';
+import type { LocaleStrings } from '../utils/locales';
 
-export const WhySection: React.FC = () => {
-  const benefits = [
-    {
-      title: 'Fast delivery',
-      text: 'Most landing pages are finished in 2–4 days. Pro and Premium websites typically ship within a week.',
-    },
-    {
-      title: 'Fair pricing',
-      text: 'We adjust final quotes based on project complexity and business size to keep our services accessible.',
-    },
-    {
-      title: 'Modern technology',
-      text: 'React, TypeScript, Tailwind, and modern hosting platforms keep your site fast and reliable.',
-    },
-    {
-      title: 'Designed for conversion',
-      text: 'Each page is structured to guide visitors toward contacting you or using your service.',
-    },
-    {
-      title: 'Flexible content management',
-      text: 'Choose simple one-time build packages, or go Premium and manage your own content through a custom admin panel.',
-    },
-    {
-      title: 'Clear communication',
-      text: 'Reach us via email, WhatsApp, or video call. We keep you updated from start to launch.',
-    },
-  ];
+interface WhySectionProps {
+  content: LocaleStrings['whySection'];
+}
 
+export const WhySection: React.FC<WhySectionProps> = ({ content }) => {
   return (
     <section aria-labelledby="why-heading" className={styles.section.default}>
       <div className={styles.combined.sectionIntro}>
         <h2 id="why-heading" className={styles.typography.h2}>
-          Why Webbit Studio?
+          {content.title}
         </h2>
-        <p className={styles.combined.bodyWithSpacing}>
-          We focus on modern technology, clean design, and timelines that
-          actually work for busy business owners.
-        </p>
+        <p className={styles.combined.bodyWithSpacing}>{content.subtitle}</p>
       </div>
 
       <div className={styles.layout.grid3Cols}>
-        {benefits.map((item) => (
+        {content.benefits.map((item) => (
           <div key={item.title} className={styles.card.default}>
             <h3 className={styles.typography.h3Small}>{item.title}</h3>
             <p className={styles.combined.cardTextWithSpacing}>{item.text}</p>

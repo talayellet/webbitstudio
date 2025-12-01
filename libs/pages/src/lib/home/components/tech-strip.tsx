@@ -1,11 +1,16 @@
 import React from 'react';
 import * as styles from '../utils/styles';
+import type { LocaleStrings } from '../utils/locales';
 
-export const TechStrip: React.FC = () => {
+interface TechStripProps {
+  content: LocaleStrings['techStrip'];
+}
+
+export const TechStrip: React.FC<TechStripProps> = ({ content }) => {
   return (
     <section className={styles.techStrip.root}>
       <div className={styles.techStrip.container}>
-        <p>Built with modern, reliable technology.</p>
+        <p>{content.title}</p>
         <div className={styles.techStrip.badges}>
           <span className={styles.typography.techBadge}>React</span>
           <span className={styles.typography.techBadge}>TypeScript</span>

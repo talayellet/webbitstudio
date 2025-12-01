@@ -1,7 +1,12 @@
 import React from 'react';
 import * as styles from '../utils/styles';
+import type { LocaleStrings } from '../utils/locales';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  content: LocaleStrings['contactSection'];
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ content }) => {
   return (
     <section
       id="contact"
@@ -12,34 +17,35 @@ export const ContactSection: React.FC = () => {
         <div className={styles.contact.grid}>
           <div>
             <h2 id="contact-heading" className={styles.typography.h2}>
-              Ready to start your website?
+              {content.title}
             </h2>
-            <p className={styles.contact.intro}>
-              Tell us a bit about your business, your location, and what kind of
-              website you need. We'll get back with a tailored quote and
-              suggested package.
-            </p>
+            <p className={styles.contact.intro}>{content.intro}</p>
             <ul className={styles.list.contactPoints}>
-              <li>• Landing page, business website, or Premium CMS</li>
-              <li>• Most projects completed within 3–7 days</li>
+              {content.contactPoints.map((point, index) => (
+                <li key={index}>• {point}</li>
+              ))}
             </ul>
           </div>
 
           <form className={styles.form.root}>
             <div className={styles.form.grid}>
               <div className={styles.form.fieldContainer}>
-                <label className={styles.typography.label}>Name</label>
+                <label className={styles.typography.label}>
+                  {content.form.name.label}
+                </label>
                 <input
                   type="text"
-                  placeholder="Your name"
+                  placeholder={content.form.name.placeholder}
                   className={styles.form.input}
                 />
               </div>
               <div className={styles.form.fieldContainer}>
-                <label className={styles.typography.label}>Email</label>
+                <label className={styles.typography.label}>
+                  {content.form.email.label}
+                </label>
                 <input
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder={content.form.email.placeholder}
                   className={styles.form.input}
                 />
               </div>
@@ -47,47 +53,45 @@ export const ContactSection: React.FC = () => {
 
             <div className={styles.form.fieldContainer}>
               <label className={styles.typography.label}>
-                Country / Region
+                {content.form.country.label}
               </label>
               <input
                 type="text"
-                placeholder="Your country or region"
+                placeholder={content.form.country.placeholder}
                 className={styles.form.input}
               />
             </div>
 
             <div className={styles.form.fieldContainer}>
               <label className={styles.typography.label}>
-                What are you looking for?
+                {content.form.package.label}
               </label>
               <select className={styles.form.select} defaultValue="">
                 <option value="" disabled>
-                  Select a package
+                  {content.form.package.placeholder}
                 </option>
-                <option>Landing Page Package</option>
-                <option>Pro Business Website</option>
-                <option>Premium Website + Admin Panel (CMS)</option>
-                <option>Not sure yet / need help deciding</option>
+                {content.form.package.options.map((option) => (
+                  <option key={option}>{option}</option>
+                ))}
               </select>
             </div>
 
             <div className={styles.form.fieldContainer}>
-              <label className={styles.typography.label}>Project details</label>
+              <label className={styles.typography.label}>
+                {content.form.details.label}
+              </label>
               <textarea
-                placeholder="Tell us about your business, pages you need, and any deadlines or special requirements."
+                placeholder={content.form.details.placeholder}
                 rows={4}
                 className={styles.form.textarea}
               />
             </div>
 
             <button type="button" className={styles.button.lightLarge}>
-              Submit inquiry
+              {content.form.submit}
             </button>
 
-            <p className={styles.form.note}>
-              Prefer WhatsApp or a quick call? We can share direct contact
-              details in our reply.
-            </p>
+            <p className={styles.form.note}>{content.form.note}</p>
           </form>
         </div>
       </div>

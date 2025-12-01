@@ -1,7 +1,16 @@
 import React from 'react';
 import * as styles from '../utils/styles';
+import type { LocaleStrings } from '../utils/locales';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  content: LocaleStrings['header'];
+  languageSwitcher: React.ReactNode;
+}
+
+export const Header: React.FC<HeaderProps> = ({
+  content,
+  languageSwitcher,
+}) => {
   return (
     <header className={styles.header.root}>
       <div className={styles.header.logo.container}>
@@ -17,19 +26,20 @@ export const Header: React.FC = () => {
       </div>
       <nav className={styles.header.nav.root}>
         <a href="#packages" className={styles.header.nav.link}>
-          Packages
+          {content.nav.packages}
         </a>
         <a href="#process" className={styles.header.nav.link}>
-          How it works
+          {content.nav.process}
         </a>
         <a href="#pricing" className={styles.header.nav.link}>
-          Pricing
+          {content.nav.pricing}
         </a>
         <a href="#faq" className={styles.header.nav.link}>
-          FAQ
+          {content.nav.faq}
         </a>
+        {languageSwitcher}
         <a href="#contact" className={styles.button.primarySmall}>
-          Start your project
+          {content.nav.contact}
         </a>
       </nav>
     </header>

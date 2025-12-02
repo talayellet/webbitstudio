@@ -19,6 +19,7 @@
     "target": "es2022",
     "customConditions": ["@webbitstudio/source"],
     "paths": {
+      "@webbit/ui-components": ["libs/ui-components/src/index.ts"],
       "@webbitstudio/shared": ["shared/src/index.ts"],
       "@webbitstudio/shared/*": ["shared/src/*"]
     }

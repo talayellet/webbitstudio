@@ -68,9 +68,6 @@ dist-ssr/
 temp/
 tmp/
 
-# Old files to ignore
-index.html
-
 # Editor backups
 *.swp
 *.swo

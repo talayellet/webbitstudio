@@ -1,12 +1,7 @@
-import { SaasLaunchRouter, LOCALES } from '@webbitstudio/landing-templates';
+import { WebbitStudioHomePage } from '@webbitstudio/pages';
 
 export function App() {
-  return (
-    <SaasLaunchRouter
-      initialLocale={LOCALES.EN}
-      web3formsAccessKey={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY}
-    />
-  );
+  return <WebbitStudioHomePage />;
 }
 
 export default App;

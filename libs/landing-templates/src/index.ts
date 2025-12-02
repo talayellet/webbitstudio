@@ -14,4 +14,5 @@ export {
   useSaasLaunchRouting,
 } from './lib/saas-launch/hooks';
 export { LOCALES, type Locale } from './lib/shared/utils/types';
+export type { LanguageOption } from '@webbit/ui-components';
 export * from './assets';

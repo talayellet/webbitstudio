@@ -20,6 +20,12 @@
     },
     {
       "path": "./shared"
+    },
+    {
+      "path": "./libs/pages"
+    },
+    {
+      "path": "./libs/ui-components"
     }
   ]
 }

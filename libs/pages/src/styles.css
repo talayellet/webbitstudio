@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  select option {
+    @apply bg-slate-900 py-2.5 px-3 text-xs text-slate-100;
+  }
+
+  select option:hover,
+  select option:focus {
+    @apply bg-slate-800;
+  }
+
+  select option:checked {
+    @apply bg-sky-500/20 text-sky-200;
+  }
+
+  select option:disabled {
+    @apply text-slate-500 bg-slate-900;
+  }
+}

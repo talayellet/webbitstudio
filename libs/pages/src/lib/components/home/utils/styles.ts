@@ -60,6 +60,8 @@ export const header = {
   languageSwitcherStyles: {
     CONTAINER: 'relative',
     WRAPPER: 'w-auto',
+    MENU_ITEMS:
+      'absolute right-0 mt-2 w-48 origin-top-right bg-slate-900 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1000]',
   },
   mobileLanguageSwitcherStyles: {
     CONTAINER: 'flex gap-2',

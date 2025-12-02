@@ -12,12 +12,17 @@ import {
   ContactSection,
   Footer,
 } from './components';
-import { useLocalizedContent, type Locale } from './hooks';
-import { LanguageSwitcher } from '@webbitstudio/ui-components';
+import { useLocalizedContent, useCurrency, type Locale } from './hooks';
+import {
+  LanguageSwitcher,
+  CurrencySwitcher,
+} from '@webbitstudio/ui-components';
 import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
+import { WEBBIT_STUDIO_CURRENCY_OPTIONS } from '@webbitstudio/shared-utils';
 
 export const WebbitStudioHomePage: React.FC = () => {
   const { locale, setLocale, content } = useLocalizedContent();
+  const { currency, setCurrency } = useCurrency();
 
   return (
     <div className={styles.layout.page}>
@@ -30,6 +35,13 @@ export const WebbitStudioHomePage: React.FC = () => {
               languages={WEBBIT_STUDIO_LANG_OPTIONS}
               onLanguageChange={setLocale}
               styles={styles.header.languageSwitcherStyles}
+            />
+          }
+          currencySwitcher={
+            <CurrencySwitcher
+              currentCurrency={currency}
+              currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
+              onCurrencyChange={setCurrency}
             />
           }
           currentLanguage={locale}

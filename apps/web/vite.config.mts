@@ -1,6 +1,7 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig(() => ({
   cacheDir: '../../node_modules/.vite/apps/web',
@@ -21,6 +22,12 @@ export default defineConfig(() => ({
   },
   resolve: {
     conditions: ['@webbitstudio/source'],
+    alias: {
+      '@webbitstudio/shared-utils': path.resolve(
+        __dirname,
+        '../../libs/shared-utils/src/index.ts'
+      ),
+    },
   },
   plugins: [react()],
   // Uncomment this if you are using workers.

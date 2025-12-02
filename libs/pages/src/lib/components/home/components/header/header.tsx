@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import * as styles from '../../utils/styles';
 import type { LocaleStrings } from '../../utils/locales';
 import { Logo } from './components/logo';
@@ -8,7 +8,8 @@ import { MobileMenu } from './components/mobile-menu';
 
 interface HeaderProps {
   content: LocaleStrings['header'];
-  languageSwitcher: React.ReactNode;
+  languageSwitcher: ReactNode;
+  currencySwitcher: ReactNode;
   currentLanguage: string;
   languages: Array<{ code: string; flag: string; label: string }>;
   onLanguageChange: (language: string) => void;
@@ -17,6 +18,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   content,
   languageSwitcher,
+  currencySwitcher,
   currentLanguage,
   languages,
   onLanguageChange,
@@ -37,6 +39,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
+      {currencySwitcher}
       <header className={styles.header.root}>
         <Logo title={content.logo.title} subtitle={content.logo.subtitle} />
 

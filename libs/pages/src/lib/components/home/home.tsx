@@ -11,8 +11,10 @@ import {
   FAQSection,
   ContactSection,
   Footer,
+  PriceConversionNotice,
 } from './components';
-import { useLocalizedContent, useCurrency, type Locale } from './hooks';
+import { useLocalizedContent, usePriceConverter, type Locale } from './hooks';
+import { CurrencyProvider, useCurrencyContext } from './contexts';
 import {
   LanguageSwitcher,
   CurrencySwitcher,
@@ -20,9 +22,10 @@ import {
 import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
 import { WEBBIT_STUDIO_CURRENCY_OPTIONS } from '@webbitstudio/shared-utils';
 
-export const WebbitStudioHomePage: React.FC = () => {
+const HomePageContent: React.FC = () => {
   const { locale, setLocale, content } = useLocalizedContent();
-  const { currency, setCurrency } = useCurrency();
+  const { currency, setCurrency } = useCurrencyContext();
+  const { isLoading, error } = usePriceConverter();
 
   return (
     <div className={styles.layout.page}>
@@ -48,6 +51,11 @@ export const WebbitStudioHomePage: React.FC = () => {
           languages={WEBBIT_STUDIO_LANG_OPTIONS}
           onLanguageChange={(lang) => setLocale(lang as Locale)}
         />
+        <PriceConversionNotice
+          isLoading={isLoading}
+          error={error}
+          currency={currency}
+        />
         <Hero content={content.hero} />
         <TechStrip content={content.techStrip} />
         <PackagesSection content={content.packagesSection} />
@@ -59,5 +67,13 @@ export const WebbitStudioHomePage: React.FC = () => {
         <Footer content={content.footer} />
       </div>
     </div>
+  );
+};
+
+export const WebbitStudioHomePage: React.FC = () => {
+  return (
+    <CurrencyProvider>
+      <HomePageContent />
+    </CurrencyProvider>
   );
 };

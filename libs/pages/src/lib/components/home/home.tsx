@@ -29,6 +29,7 @@ export const WebbitStudioHomePage: React.FC = () => {
               currentLanguage={locale}
               languages={WEBBIT_STUDIO_LANG_OPTIONS}
               onLanguageChange={setLocale}
+              styles={styles.header.languageSwitcherStyles}
             />
           }
         />

@@ -25,22 +25,26 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
       <nav className={styles.header.nav.root}>
-        <a href="#packages" className={styles.header.nav.link}>
-          {content.nav.packages}
-        </a>
-        <a href="#process" className={styles.header.nav.link}>
-          {content.nav.process}
-        </a>
-        <a href="#pricing" className={styles.header.nav.link}>
-          {content.nav.pricing}
-        </a>
-        <a href="#faq" className={styles.header.nav.link}>
-          {content.nav.faq}
-        </a>
-        {languageSwitcher}
-        <a href="#contact" className={styles.button.primarySmall}>
-          {content.nav.contact}
-        </a>
+        <div className={styles.header.nav.linksContainer}>
+          <a href="#packages" className={styles.header.nav.link}>
+            {content.nav.packages}
+          </a>
+          <a href="#process" className={styles.header.nav.link}>
+            {content.nav.process}
+          </a>
+          <a href="#pricing" className={styles.header.nav.link}>
+            {content.nav.pricing}
+          </a>
+          <a href="#faq" className={styles.header.nav.link}>
+            {content.nav.faq}
+          </a>
+          <a href="#contact" className={styles.button.primarySmall}>
+            {content.nav.contact}
+          </a>
+        </div>
+        <div className={styles.header.nav.languageSwitcher}>
+          {languageSwitcher}
+        </div>
       </nav>
     </header>
   );

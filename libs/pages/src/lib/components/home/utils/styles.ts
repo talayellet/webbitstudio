@@ -13,7 +13,7 @@ export const layout = {
 
 // Header & Navigation Styles
 export const header = {
-  root: 'flex items-center justify-between py-6',
+  root: 'sticky top-0 z-[999] flex items-center justify-between bg-slate-950/95 py-6 backdrop-blur-sm',
   logo: {
     container: 'flex items-center gap-2',
     icon: 'flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/90 shadow-lg shadow-sky-500/40',
@@ -24,7 +24,13 @@ export const header = {
   },
   nav: {
     root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',
+    linksContainer: 'flex items-center gap-8',
     link: 'hover:text-sky-400',
+    languageSwitcher: 'ml-4',
+  },
+  languageSwitcherStyles: {
+    CONTAINER: 'relative',
+    WRAPPER: 'w-auto',
   },
 } as const;
 

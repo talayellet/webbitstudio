@@ -302,10 +302,16 @@ export const de: LocaleStrings = {
     tagline: 'Moderne Websites für kleine Unternehmen weltweit.',
     companyName: 'Webbit Studio',
     website: 'webbitstudio.com',
-    backToTop: 'Zurück nach oben',
+    backToTop: 'Nach oben',
     links: {
-      privacy: 'Datenschutzrichtlinie',
+      privacy: 'Datenschutz',
       terms: 'Nutzungsbedingungen',
     },
+  },
+
+  // Price Conversion Notice
+  priceConversionNotice: {
+    error: 'Währungsumrechnung nicht verfügbar. Preise in USD angezeigt.',
+    loading: 'Preise werden in {currency} umgerechnet...',
   },
 };

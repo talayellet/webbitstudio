@@ -308,4 +308,10 @@ export const es: LocaleStrings = {
       terms: 'Términos de Servicio',
     },
   },
+
+  // Price Conversion Notice
+  priceConversionNotice: {
+    error: 'Conversión de moneda no disponible. Precios mostrados en USD.',
+    loading: 'Convirtiendo precios a {currency}...',
+  },
 };

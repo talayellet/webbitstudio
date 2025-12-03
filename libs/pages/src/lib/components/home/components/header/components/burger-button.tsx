@@ -1,4 +1,3 @@
-import React from 'react';
 import * as styles from '../../../utils/styles';
 
 interface BurgerButtonProps {
@@ -7,11 +6,11 @@ interface BurgerButtonProps {
   ariaLabel: string;
 }
 
-export const BurgerButton: React.FC<BurgerButtonProps> = ({
+export const BurgerButton = ({
   isOpen,
   onClick,
   ariaLabel,
-}) => {
+}: BurgerButtonProps) => {
   return (
     <button
       className={styles.header.mobileMenu.burgerButton}

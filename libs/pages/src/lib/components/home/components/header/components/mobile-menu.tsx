@@ -5,11 +5,12 @@ import { MobileMenuOverlay } from './mobile-menu-overlay';
 import { MobileMenuHeader } from './mobile-menu-header';
 import { MobileMenuLanguageSwitcher } from './mobile-menu-language-switcher';
 import { MobileMenuNav } from './mobile-menu-nav';
+import { LanguageOption } from '@webbitstudio/shared-utils';
 
 interface MobileMenuProps {
   isOpen: boolean;
   content: LocaleStrings['header'];
-  languages: Array<{ code: string; flag: string; label: string }>;
+  languages: LanguageOption[];
   currentLanguage: string;
   currencySwitcher: React.ReactNode;
   onClose: () => void;

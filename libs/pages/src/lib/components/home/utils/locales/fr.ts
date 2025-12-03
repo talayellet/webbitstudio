@@ -299,13 +299,20 @@ export const fr: LocaleStrings = {
   // Footer
   footer: {
     copyright: '© {year} {companyName}. Tous droits réservés.',
-    tagline: 'Sites web modernes pour petites entreprises du monde entier.',
+    tagline:
+      'Sites web modernes pour petites entreprises dans le monde entier.',
     companyName: 'Webbit Studio',
     website: 'webbitstudio.com',
     backToTop: 'Retour en haut',
     links: {
       privacy: 'Politique de Confidentialité',
-      terms: 'Conditions de Service',
+      terms: "Conditions d'Utilisation",
     },
+  },
+
+  // Price Conversion Notice
+  priceConversionNotice: {
+    error: 'Conversion de devise indisponible. Prix affichés en USD.',
+    loading: 'Conversion des prix en {currency}...',
   },
 };

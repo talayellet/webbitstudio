@@ -1,5 +1,4 @@
-import { useMemo, useState, useRef } from 'react';
-import React from 'react';
+import { useMemo, useState, useRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import { CURRENCY_SWITCHER_STYLES } from './utils';
 import { DefaultChevronIcon } from '../svg-icons';
@@ -9,7 +8,7 @@ export interface CurrencySwitcherProps<T = string> {
   currentCurrency: T;
   currencies: CurrencyOption<T>[];
   onCurrencyChange: (currency: T) => void;
-  chevronIcon?: React.ReactNode;
+  chevronIcon?: ReactNode;
   styles?: Partial<typeof CURRENCY_SWITCHER_STYLES>;
 }
 

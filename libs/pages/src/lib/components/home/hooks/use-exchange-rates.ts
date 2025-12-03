@@ -4,12 +4,13 @@ import {
   type ExchangeRateResponse,
 } from '@webbitstudio/data-access';
 import { WEBBIT_CURRENCY } from '@webbitstudio/shared-utils';
-
-const EXCHANGE_RATE_STALE_TIME = 1000 * 60 * 60; // 1 hour
-const EXCHANGE_RATE_CACHE_TIME = 1000 * 60 * 60 * 24; // 24 hours
-const RETRY_BASE_DELAY = 1000; // 1 second
-const RETRY_MAX_DELAY = 30000; // 30 seconds
-const RETRY_BACKOFF_MULTIPLIER = 2;
+import {
+  EXCHANGE_RATE_STALE_TIME,
+  EXCHANGE_RATE_CACHE_TIME,
+  RETRY_BASE_DELAY,
+  RETRY_MAX_DELAY,
+  RETRY_BACKOFF_MULTIPLIER,
+} from '../../../utils';
 
 /**
  * Hook to fetch exchange rates with caching

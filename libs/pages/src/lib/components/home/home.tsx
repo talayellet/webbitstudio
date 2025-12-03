@@ -67,6 +67,7 @@ const HomePageContent = () => {
           isLoading={isLoading}
           error={error}
           currency={currency}
+          content={content.priceConversionNotice}
         />
         <Hero content={content.hero} />
         <TechStrip content={content.techStrip} />

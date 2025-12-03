@@ -1,13 +1,12 @@
-import React from 'react';
 import * as styles from '../utils/styles';
-import type { LocaleStrings } from '../utils/locales';
+import { LocaleStrings, convertPriceRange } from '../utils';
 import { usePriceConverter } from '../hooks';
 
 interface PricingSectionProps {
   content: LocaleStrings['pricingSection'];
 }
 
-export const PricingSection: React.FC<PricingSectionProps> = ({ content }) => {
+export const PricingSection = ({ content }: PricingSectionProps) => {
   const { convertPrice } = usePriceConverter();
 
   return (
@@ -28,10 +27,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ content }) => {
       <div className={styles.pricing.list}>
         {content.packages.map((pkg) => {
           const startingPrice = convertPrice(pkg.startingPrice);
-          const typicalRange = pkg.typicalRange
-            .split('–')
-            .map((price) => convertPrice(price.trim()).converted)
-            .join('–');
+          const typicalRange = convertPriceRange(
+            pkg.typicalRange,
+            convertPrice
+          );
 
           return (
             <div key={pkg.name}>

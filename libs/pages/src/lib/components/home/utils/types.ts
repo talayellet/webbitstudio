@@ -12,3 +12,11 @@ export interface FAQ {
   question: string;
   answer: string;
 }
+
+export interface ConvertedPrice {
+  original: string;
+  converted: string;
+  isConverted: boolean;
+  isLoading: boolean;
+  error: Error | null;
+}

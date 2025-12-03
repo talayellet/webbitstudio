@@ -359,3 +359,10 @@ export const colors = {
   amber400: 'bg-amber-400',
   emerald400: 'bg-emerald-400',
 } as const;
+
+// Price Conversion Notice Styles
+export const priceConversionNotice = {
+  base: 'px-4 py-2 text-center text-xs',
+  error: 'text-yellow-400/80',
+  loading: 'text-slate-400/80',
+} as const;

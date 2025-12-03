@@ -1,7 +1,8 @@
+import { LanguageOption } from '@webbitstudio/shared-utils';
 import * as styles from '../../../utils/styles';
 
 interface MobileMenuLanguageSwitcherProps {
-  languages: Array<{ code: string; flag: string; label: string }>;
+  languages: LanguageOption[];
   currentLanguage: string;
   onLanguageChange: (language: string) => void;
 }

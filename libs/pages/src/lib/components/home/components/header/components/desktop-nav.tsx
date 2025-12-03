@@ -8,11 +8,11 @@ interface DesktopNavProps {
   currencySwitcher: React.ReactNode;
 }
 
-export const DesktopNav: React.FC<DesktopNavProps> = ({
+export const DesktopNav = ({
   content,
   languageSwitcher,
   currencySwitcher,
-}) => {
+}: DesktopNavProps) => {
   return (
     <nav className={styles.header.nav.root}>
       <div className={styles.header.nav.linksContainer}>

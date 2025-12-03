@@ -5,6 +5,7 @@ import { Logo } from './components/logo';
 import { DesktopNav } from './components/desktop-nav';
 import { BurgerButton } from './components/burger-button';
 import { MobileMenu } from './components/mobile-menu';
+import { LanguageOption } from '@webbitstudio/shared-utils';
 
 interface HeaderProps {
   content: LocaleStrings['header'];
@@ -12,7 +13,7 @@ interface HeaderProps {
   currencySwitcher: ReactNode;
   mobileCurrencySwitcher: ReactNode;
   currentLanguage: string;
-  languages: Array<{ code: string; flag: string; label: string }>;
+  languages: LanguageOption[];
   onLanguageChange: (language: string) => void;
 }
 

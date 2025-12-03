@@ -305,6 +305,12 @@ export const en = {
       terms: 'Terms of Service',
     },
   },
+
+  // Price Conversion Notice
+  priceConversionNotice: {
+    error: 'Currency conversion unavailable. Prices shown in USD.',
+    loading: 'Converting prices to {currency}...',
+  },
 };
 
 export type LocaleStrings = typeof en;

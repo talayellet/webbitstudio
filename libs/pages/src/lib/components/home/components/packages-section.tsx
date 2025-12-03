@@ -1,15 +1,13 @@
-import React from 'react';
 import * as styles from '../utils/styles';
 import type { LocaleStrings } from '../utils/locales';
+import { convertPriceRange } from '../utils/functions/price-utils';
 import { usePriceConverter } from '../hooks';
 
 interface PackagesSectionProps {
   content: LocaleStrings['packagesSection'];
 }
 
-export const PackagesSection: React.FC<PackagesSectionProps> = ({
-  content,
-}) => {
+export const PackagesSection = ({ content }: PackagesSectionProps) => {
   const { convertPrice } = usePriceConverter();
 
   return (
@@ -30,10 +28,10 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({
       <div className={styles.layout.grid3Cols}>
         {content.packages.map((pkg) => {
           const startingPrice = convertPrice(pkg.startingPrice);
-          const typicalRange = pkg.typicalRange
-            .split('–')
-            .map((price) => convertPrice(price.trim()).converted)
-            .join('–');
+          const typicalRange = convertPriceRange(
+            pkg.typicalRange,
+            convertPrice
+          );
 
           return (
             <article key={pkg.name} className={styles.card.package}>

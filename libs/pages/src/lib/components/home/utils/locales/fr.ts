@@ -23,6 +23,7 @@ export const fr: LocaleStrings = {
       toggleMenu: 'Basculer le menu',
       closeMenu: 'Fermer le menu',
       scrollToTop: 'Retour en haut',
+      mobileMenu: 'Menu de navigation mobile',
     },
   },
 
@@ -315,5 +316,8 @@ export const fr: LocaleStrings = {
   priceConversionNotice: {
     error: 'Conversion de devise indisponible. Prix affichés en USD.',
     loading: 'Conversion des prix en {currency}...',
+    ariaLabels: {
+      warning: 'Avertissement',
+    },
   },
 };

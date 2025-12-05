@@ -33,33 +33,52 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ content }) => {
           <form className={styles.form.root}>
             <div className={styles.form.grid}>
               <div className={styles.form.fieldContainer}>
-                <label className={styles.typography.label}>
+                <label
+                  htmlFor="contact-name"
+                  className={styles.typography.label}
+                >
                   {content.form.name.label}
                 </label>
                 <input
                   type="text"
+                  id="contact-name"
+                  name="name"
                   placeholder={content.form.name.placeholder}
                   className={styles.form.input}
+                  required
+                  aria-required="true"
                 />
               </div>
               <div className={styles.form.fieldContainer}>
-                <label className={styles.typography.label}>
+                <label
+                  htmlFor="contact-email"
+                  className={styles.typography.label}
+                >
                   {content.form.email.label}
                 </label>
                 <input
                   type="email"
+                  id="contact-email"
+                  name="email"
                   placeholder={content.form.email.placeholder}
                   className={styles.form.input}
+                  required
+                  aria-required="true"
                 />
               </div>
             </div>
 
             <div className={styles.form.fieldContainer}>
-              <label className={styles.typography.label}>
+              <label
+                htmlFor="contact-country"
+                className={styles.typography.label}
+              >
                 {content.form.country.label}
               </label>
               <input
                 type="text"
+                id="contact-country"
+                name="country"
                 placeholder={content.form.country.placeholder}
                 className={styles.form.input}
               />
@@ -82,17 +101,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ content }) => {
             />
 
             <div className={styles.form.fieldContainer}>
-              <label className={styles.typography.label}>
+              <label
+                htmlFor="contact-details"
+                className={styles.typography.label}
+              >
                 {content.form.details.label}
               </label>
               <textarea
+                id="contact-details"
+                name="details"
                 placeholder={content.form.details.placeholder}
                 rows={4}
                 className={styles.form.textarea}
               />
             </div>
 
-            <button type="button" className={styles.button.lightLarge}>
+            <button type="submit" className={styles.button.lightLarge}>
               {content.form.submit}
             </button>
 

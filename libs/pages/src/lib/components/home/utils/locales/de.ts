@@ -20,9 +20,10 @@ export const de: LocaleStrings = {
       contact: 'Kontakt',
     },
     ariaLabels: {
-      toggleMenu: 'Menü öffnen',
+      toggleMenu: 'Menü umschalten',
       closeMenu: 'Menü schließen',
       scrollToTop: 'Nach oben scrollen',
+      mobileMenu: 'Mobile Navigationsmenü',
     },
   },
 
@@ -314,5 +315,8 @@ export const de: LocaleStrings = {
   priceConversionNotice: {
     error: 'Währungsumrechnung nicht verfügbar. Preise in USD angezeigt.',
     loading: 'Preise werden in {currency} umgerechnet...',
+    ariaLabels: {
+      warning: 'Warnung',
+    },
   },
 };

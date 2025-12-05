@@ -68,6 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
         languages={languages}
         currentLanguage={currentLanguage}
         currencySwitcher={mobileCurrencySwitcher}
+        mobileMenuAriaLabel={content.ariaLabels.mobileMenu}
         onClose={closeMobileMenu}
         onLanguageChange={onLanguageChange}
         onLinkClick={handleLinkClick}

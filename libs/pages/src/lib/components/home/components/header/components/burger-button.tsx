@@ -16,6 +16,7 @@ export const BurgerButton = ({
       className={styles.header.mobileMenu.burgerButton}
       onClick={onClick}
       aria-label={ariaLabel}
+      aria-expanded={isOpen}
     >
       <span
         className={`${styles.header.mobileMenu.burgerLine} ${

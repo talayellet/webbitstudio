@@ -13,6 +13,7 @@ interface MobileMenuProps {
   languages: LanguageOption[];
   currentLanguage: string;
   currencySwitcher: React.ReactNode;
+  mobileMenuAriaLabel: string;
   onClose: () => void;
   onLanguageChange: (language: string) => void;
   onLinkClick: () => void;
@@ -24,6 +25,7 @@ export const MobileMenu = ({
   languages,
   currentLanguage,
   currencySwitcher,
+  mobileMenuAriaLabel,
   onClose,
   onLanguageChange,
   onLinkClick,
@@ -34,6 +36,9 @@ export const MobileMenu = ({
 
       {/* Mobile Menu */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={mobileMenuAriaLabel}
         className={`${styles.header.mobileMenu.menu} ${
           isOpen
             ? styles.header.mobileMenu.menuVisible

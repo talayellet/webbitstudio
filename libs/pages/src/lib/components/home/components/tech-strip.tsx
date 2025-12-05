@@ -8,7 +8,7 @@ interface TechStripProps {
 
 export const TechStrip: React.FC<TechStripProps> = ({ content }) => {
   return (
-    <section className={styles.techStrip.root}>
+    <section className={styles.techStrip.root} aria-label={content.title}>
       <div className={styles.techStrip.container}>
         <p>{content.title}</p>
         <div className={styles.techStrip.badges}>

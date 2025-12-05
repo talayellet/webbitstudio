@@ -33,7 +33,7 @@ export const PriceConversionNotice = ({
         )}
         role="alert"
       >
-        <span role="img" aria-label="Warning">
+        <span role="img" aria-label={content.ariaLabels.warning}>
           ⚠️
         </span>{' '}
         {content.error}

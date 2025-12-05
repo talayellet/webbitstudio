@@ -32,11 +32,11 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
       </div>
 
       {/* Hero visual */}
-      <div className={styles.hero.visual}>
+      <div className={styles.hero.visual} aria-hidden="true">
         <div className={styles.hero.gradient} />
         <div className={styles.card.hero}>
           {/* Browser mock */}
-          <div className={styles.hero.browserHeader}>
+          <div className={styles.hero.browserHeader} aria-hidden="true">
             <span
               className={clsx(styles.hero.browserDot, styles.colors.rose500)}
             />
@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
             <span className={styles.hero.browserUrl}>webbitstudio.com</span>
           </div>
 
-          <div className={styles.hero.mockContainer}>
+          <div className={styles.hero.mockContainer} aria-hidden="true">
             <div className={styles.hero.mockElement} />
             <div className={styles.hero.mockElement2} />
             <div className={styles.hero.mockGrid}>

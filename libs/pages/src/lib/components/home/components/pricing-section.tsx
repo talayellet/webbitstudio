@@ -39,9 +39,12 @@ export const PricingSection = ({ content }: PricingSectionProps) => {
                 <span className={styles.pricing.label}>
                   {content.labels.startingFrom}{' '}
                 </span>
-                <span className={styles.pricing.amount}>
+                <data
+                  value={startingPrice.original}
+                  className={styles.pricing.amount}
+                >
                   {startingPrice.converted}
-                </span>{' '}
+                </data>{' '}
                 <span className={styles.typography.bodyExtraSmall}>
                   ({content.labels.typicalRange} {typicalRange})
                 </span>

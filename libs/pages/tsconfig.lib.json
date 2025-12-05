@@ -49,6 +49,9 @@
     },
     {
       "path": "../ui-components/tsconfig.lib.json"
+    },
+    {
+      "path": "../../shared/tsconfig.lib.json"
     }
   ]
 }

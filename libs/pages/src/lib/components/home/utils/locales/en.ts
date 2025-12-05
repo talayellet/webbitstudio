@@ -22,6 +22,7 @@ export const en = {
       toggleMenu: 'Toggle menu',
       closeMenu: 'Close menu',
       scrollToTop: 'Scroll to top',
+      mobileMenu: 'Mobile navigation menu',
     },
   },
 
@@ -311,6 +312,9 @@ export const en = {
   priceConversionNotice: {
     error: 'Currency conversion unavailable. Prices shown in USD.',
     loading: 'Converting prices to {currency}...',
+    ariaLabels: {
+      warning: 'Warning',
+    },
   },
 };
 

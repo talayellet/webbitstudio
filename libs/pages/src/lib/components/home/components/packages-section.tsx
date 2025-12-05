@@ -62,9 +62,12 @@ export const PackagesSection = ({ content }: PackagesSectionProps) => {
                   <span className={styles.packageCard.priceLabel}>
                     {content.pricing.startingFrom}{' '}
                   </span>
-                  <span className={styles.packageCard.priceAmount}>
+                  <data
+                    value={startingPrice.original}
+                    className={styles.packageCard.priceAmount}
+                  >
                     {startingPrice.converted}
-                  </span>
+                  </data>
                 </p>
                 <p className={styles.packageCard.priceRange}>
                   {content.pricing.typicalRange} {typicalRange}

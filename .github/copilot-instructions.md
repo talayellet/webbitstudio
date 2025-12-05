@@ -47,6 +47,7 @@ export type MyThing = (typeof MY_THING)[keyof typeof MY_THING];
 
 - Use async/await instead of `.then()` chains
 - Never disable ESLint rules
+- Address & fix any lint errors & warnings in the code you generate
 - We use **yarn** (not npm) in this repo
 
 ## Before Taking Action

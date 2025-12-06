@@ -1,4 +1,3 @@
-import React from 'react';
 import * as styles from './utils/styles';
 import {
   Header,
@@ -39,37 +38,37 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
 
   return (
     <div className={styles.layout.page}>
+      <Header
+        content={content.header}
+        languageSwitcher={
+          <LanguageSwitcher
+            currentLanguage={locale}
+            languages={WEBBIT_STUDIO_LANG_OPTIONS}
+            onLanguageChange={setLocale}
+            styles={styles.header.languageSwitcherStyles}
+          />
+        }
+        currencySwitcher={
+          <CurrencySwitcher
+            currentCurrency={currency}
+            currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
+            onCurrencyChange={setCurrency}
+            styles={styles.header.desktopCurrencySwitcherStyles}
+          />
+        }
+        mobileCurrencySwitcher={
+          <CurrencySwitcher
+            currentCurrency={currency}
+            currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
+            onCurrencyChange={setCurrency}
+            styles={styles.header.mobileCurrencySwitcherStyles}
+          />
+        }
+        currentLanguage={locale}
+        languages={WEBBIT_STUDIO_LANG_OPTIONS}
+        onLanguageChange={(lang) => setLocale(lang as Locale)}
+      />
       <div className={styles.layout.container}>
-        <Header
-          content={content.header}
-          languageSwitcher={
-            <LanguageSwitcher
-              currentLanguage={locale}
-              languages={WEBBIT_STUDIO_LANG_OPTIONS}
-              onLanguageChange={setLocale}
-              styles={styles.header.languageSwitcherStyles}
-            />
-          }
-          currencySwitcher={
-            <CurrencySwitcher
-              currentCurrency={currency}
-              currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
-              onCurrencyChange={setCurrency}
-              styles={styles.header.desktopCurrencySwitcherStyles}
-            />
-          }
-          mobileCurrencySwitcher={
-            <CurrencySwitcher
-              currentCurrency={currency}
-              currencies={WEBBIT_STUDIO_CURRENCY_OPTIONS}
-              onCurrencyChange={setCurrency}
-              styles={styles.header.mobileCurrencySwitcherStyles}
-            />
-          }
-          currentLanguage={locale}
-          languages={WEBBIT_STUDIO_LANG_OPTIONS}
-          onLanguageChange={(lang) => setLocale(lang as Locale)}
-        />
         <PriceConversionNotice
           isLoading={isLoading}
           error={error}

@@ -1,6 +1,6 @@
 // Layout & Container Styles
 export const layout = {
-  page: 'min-h-screen overflow-x-hidden bg-slate-950 text-slate-50',
+  page: 'min-h-screen bg-slate-950 text-slate-50',
   container: 'mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8',
   maxWidth: 'max-w-2xl',
   maxWidthXl: 'max-w-xl',
@@ -13,15 +13,17 @@ export const layout = {
 
 // Header & Navigation Styles
 export const header = {
-  root: 'sticky top-0 z-[999] flex items-center justify-between bg-slate-950/95 py-6 backdrop-blur-sm',
+  root: 'md:sticky md:top-0 z-[999] bg-slate-950/95 py-6 backdrop-blur-sm',
+  container:
+    'mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8 flex items-start justify-between',
   logo: {
     container:
-      'flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0 transition-opacity hover:opacity-80',
+      'flex cursor-pointer bg-transparent border-0 p-0 transition-opacity hover:opacity-80',
     icon: 'flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500/90 shadow-lg shadow-sky-500/40',
     iconText: 'text-lg font-bold tracking-tight',
-    textContainer: 'flex flex-col',
-    title: 'text-base font-semibold tracking-tight',
-    subtitle: 'text-xs text-slate-400',
+    textContainer: 'flex flex-col items-start ml-2',
+    title: 'text-base font-semibold tracking-tight leading-tight text-left',
+    subtitle: 'text-xs text-slate-400 leading-tight text-left',
   },
   nav: {
     root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',

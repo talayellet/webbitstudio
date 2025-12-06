@@ -43,23 +43,25 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <>
       <header className={styles.header.root}>
-        <Logo
-          title={content.logo.title}
-          subtitle={content.logo.subtitle}
-          ariaLabel={content.ariaLabels.scrollToTop}
-        />
+        <div className={styles.header.container}>
+          <Logo
+            title={content.logo.title}
+            subtitle={content.logo.subtitle}
+            ariaLabel={content.ariaLabels.scrollToTop}
+          />
 
-        <DesktopNav
-          content={content.nav}
-          languageSwitcher={languageSwitcher}
-          currencySwitcher={currencySwitcher}
-        />
+          <DesktopNav
+            content={content.nav}
+            languageSwitcher={languageSwitcher}
+            currencySwitcher={currencySwitcher}
+          />
 
-        <BurgerButton
-          isOpen={isMobileMenuOpen}
-          onClick={toggleMobileMenu}
-          ariaLabel={content.ariaLabels.toggleMenu}
-        />
+          <BurgerButton
+            isOpen={isMobileMenuOpen}
+            onClick={toggleMobileMenu}
+            ariaLabel={content.ariaLabels.toggleMenu}
+          />
+        </div>
       </header>
 
       <MobileMenu

@@ -236,7 +236,7 @@ export const techStrip = {
 export const list = {
   features: 'mt-4 space-y-2 text-xs text-slate-300 sm:text-sm',
   featureItem: 'flex gap-2',
-  bullet: 'mt-0.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-400',
+  bullet: 'mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-400',
   contactPoints: 'mt-4 space-y-2 text-xs text-slate-200 sm:text-sm',
   spacing: 'space-y-4',
 } as const;
@@ -279,7 +279,7 @@ export const customSelect = {
 // Package Card Styles
 export const packageCard = {
   contentWrapper: 'md:min-h-[420px]',
-  header: 'mb-3 flex items-center justify-between gap-2',
+  header: 'mb-3 flex items-start justify-between gap-2',
   tagline: 'text-xs font-medium text-slate-300 sm:text-sm',
   description: 'mt-2 text-xs text-slate-400 sm:text-sm',
   pricing: 'mt-5 border-t border-slate-800 pt-4 text-sm',

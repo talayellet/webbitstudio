@@ -33,8 +33,6 @@ export const en = {
       'Webbit Studio builds landing pages, business websites, hosting setups, deployments, and custom admin panels so you can manage your content with ease. Designed for small businesses worldwide.',
     primaryCta: 'Start your project',
     secondaryCta: 'See packages',
-    trust:
-      'Trusted by small businesses and startups worldwide. Most projects completed in under 7 days.',
     visual: {
       mockCards: [
         {
@@ -56,7 +54,15 @@ export const en = {
   // Tech Strip
   techStrip: {
     title: 'Built with modern technology',
-    badges: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Modern hosting'],
+    badges: [
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'Prisma',
+      'TanStack Query',
+      'Zod',
+      'Zustand',
+    ],
   },
 
   // Packages Section
@@ -67,20 +73,20 @@ export const en = {
     pricing: {
       startingFrom: 'Starting from',
       typicalRange: 'Typical range:',
-      priceNote: 'Final quote depends on region & project complexity.',
-      cta: 'Get a tailored quote',
+      priceNote: 'Final quote depends on project scope and complexity.',
+      cta: 'Get a quote',
     },
     packages: [
       {
         name: 'Landing Page Package',
         tagline: 'Perfect for freelancers and small businesses.',
         description:
-          'A custom-designed landing page focused on clarity and conversions, fully responsive and fast.',
+          'An effective landing page that makes a great first impression and encourages potential customers to reach out.',
         features: [
           'Custom-designed landing page',
           'Mobile responsive layout',
           'Basic SEO setup',
-          'Fast delivery (2–4 days)',
+          'Fast delivery (5–7 business days)',
           'Optional changes billed per request',
         ],
         startingPrice: '$249',
@@ -91,7 +97,7 @@ export const en = {
         name: 'Pro Business Website',
         tagline: 'For growing businesses that need more pages.',
         description:
-          'A multi-page business website with hosting and deployment handled for you.',
+          'A business website with up to 5 pages, including hosting and deployment.',
         features: [
           'Up to 5 pages (Home, About, Services, Contact, Custom)',
           'Hosting & deployment setup',
@@ -105,19 +111,19 @@ export const en = {
       },
       {
         name: 'Premium Website + Admin Panel (CMS)',
-        tagline: 'Edit your website content anytime.',
+        tagline: 'Complete control over your website content.',
         description:
-          'Everything in Pro, plus a custom admin panel so you can manage your own content.',
+          'Full business website with a custom content management system. Update text, images, and pages yourself anytime - no technical skills or developer needed. Save time and reduce costs.',
         features: [
           'All Pro Business Website features',
           'Custom content management (CMS)',
+          'Training & onboarding included',
           'Self-service text & image editing',
-          'Unlimited content updates (you edit)',
-          'Ongoing support available',
+          'Unlimited content updates',
         ],
         startingPrice: '$899',
         typicalRange: '$899–$1,599',
-        highlight: 'Ideal for long-term content management',
+        highlight: 'Best for businesses that want independence and flexibility',
       },
     ] as Package[],
   },
@@ -132,13 +138,13 @@ export const en = {
         number: '01',
         title: 'Share your requirements',
         description:
-          'Fill out our contact form or reach out via WhatsApp or email. Tell us about your business, pages you need, and your timeline.',
+          'Fill out our contact form or reach out via phone or email. Tell us about your business, pages you need, and your timeline.',
       },
       {
         number: '02',
         title: 'Get your quote',
         description:
-          "We'll review your request and send a tailored quote within 24 hours, along with a suggested package and timeline.",
+          "We'll review your request and send a tailored quote within 3 business days, along with a suggested package and timeline.",
       },
       {
         number: '03',
@@ -159,22 +165,22 @@ export const en = {
   whySection: {
     title: 'Why Webbit Studio?',
     subtitle:
-      'We focus on modern technology, clean design, and timelines that actually work for busy business owners.',
+      'We focus on modern technologies, clean design, and timelines that actually work for busy business owners.',
     benefits: [
       {
         title: 'Fast delivery',
-        text: 'Most landing pages are finished in 2–4 days. Pro and Premium websites typically ship within a week.',
+        text: 'Most landing pages are finished in 5–7 business days. Pro and Premium websites typically completed within 2–3 weeks.',
       },
       {
         title: 'Fair pricing',
         text: 'We adjust final quotes based on project complexity and business size to keep our services accessible.',
       },
       {
-        title: 'Modern technology',
+        title: 'Modern technologies',
         text: 'React, TypeScript, Tailwind, and modern hosting platforms keep your site fast and reliable.',
       },
       {
-        title: 'Designed for conversion',
+        title: 'Effective design',
         text: 'Each page is structured to guide visitors toward contacting you or using your service.',
       },
       {
@@ -183,7 +189,7 @@ export const en = {
       },
       {
         title: 'Clear communication',
-        text: 'Reach us via email, WhatsApp, or video call. We keep you updated from start to launch.',
+        text: 'Reach us via email, phone, or video call. We keep you updated from start to launch.',
       },
     ],
   },
@@ -192,7 +198,7 @@ export const en = {
   pricingSection: {
     title: 'Simple, fair, global pricing',
     intro:
-      'We show USD "starting from" prices so expectations are clear, then adjust final quotes based on your project complexity.',
+      'We show "starting from" prices so expectations are clear, then adjust final quotes based on your project complexity.',
     labels: {
       startingFrom: 'Starting from',
       typicalRange: 'typical range:',
@@ -228,7 +234,7 @@ export const en = {
       {
         question: 'How fast can I get my website?',
         answer:
-          'Most landing pages take around 2–4 days. Pro and Premium packages typically take 5–7 days, depending on scope and feedback rounds.',
+          'Most landing pages take around 5–7 business days. Pro and Premium packages typically take 2–3 weeks, depending on scope and feedback rounds.',
       },
       {
         question: 'Do you offer changes after delivery?',
@@ -260,7 +266,7 @@ export const en = {
       "Tell us a bit about your business, your location, and what kind of website you need. We'll get back with a tailored quote and suggested package.",
     contactPoints: [
       'Landing page, business website, or Premium CMS',
-      'Most projects completed within 3–7 days',
+      'Most landing pages finished in 5–7 business days. Pro and Premium websites typically completed within 2–3 weeks.',
     ],
     form: {
       name: {
@@ -292,7 +298,7 @@ export const en = {
       },
       submit: 'Submit inquiry',
       submitting: 'Submitting...',
-      note: 'Prefer WhatsApp or a quick call? We can share direct contact details in our reply.',
+      note: 'Prefer a quick phone call? We can share direct contact details in our reply.',
       emailFallback: 'Or email us directly at',
       phoneFallback: 'or call',
       errors: {

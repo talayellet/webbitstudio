@@ -32,11 +32,9 @@ export const es: LocaleStrings = {
     title:
       'Sitios web que hacen que tu negocio luzca genial - entregados rápido.',
     description:
-      'Webbit Studio crea páginas de aterrizaje, sitios web empresariales, configuración de hosting, implementaciones y paneles de administración personalizados para que puedas gestionar tu contenido con facilidad. Diseñado para pequeñas empresas en todo el mundo.',
+      'Webbit Studio construye páginas de destino, sitios web empresariales, configuraciones de alojamiento, implementaciones y paneles de administración personalizados para que puedas gestionar tu contenido con facilidad. Diseñado para pequeñas empresas en todo el mundo.',
     primaryCta: 'Comienza tu proyecto',
     secondaryCta: 'Ver paquetes',
-    trust:
-      'Confiado por pequeñas empresas y startups en todo el mundo. La mayoría de los proyectos completados en menos de 7 días.',
     visual: {
       mockCards: [
         {
@@ -58,7 +56,15 @@ export const es: LocaleStrings = {
   // Tech Strip
   techStrip: {
     title: 'Construido con tecnología moderna',
-    badges: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Hosting moderno'],
+    badges: [
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'Prisma',
+      'TanStack Query',
+      'Zod',
+      'Zustand',
+    ],
   },
 
   // Packages Section
@@ -70,20 +76,20 @@ export const es: LocaleStrings = {
       startingFrom: 'Desde',
       typicalRange: 'Rango típico:',
       priceNote:
-        'La cotización final depende de la región y la complejidad del proyecto.',
-      cta: 'Obtener una cotización personalizada',
+        'La cotización final depende del alcance y la complejidad del proyecto.',
+      cta: 'Obtener una cotización',
     },
     packages: [
       {
         name: 'Paquete Página de Aterrizaje',
         tagline: 'Perfecto para freelancers y pequeñas empresas.',
         description:
-          'Una página de aterrizaje diseñada a medida enfocada en claridad y conversiones, totalmente responsive y rápida.',
+          'Una página de aterrizaje efectiva que causa una excelente primera impresión y anima a los clientes potenciales a ponerse en contacto.',
         features: [
           'Página de aterrizaje diseñada a medida',
           'Diseño responsive para móviles',
           'Configuración básica de SEO',
-          'Entrega rápida (2–4 días)',
+          'Entrega rápida (5–7 días hábiles)',
           'Cambios opcionales facturados por solicitud',
         ],
         startingPrice: '$249',
@@ -94,7 +100,7 @@ export const es: LocaleStrings = {
         name: 'Sitio Web Empresarial Pro',
         tagline: 'Para empresas en crecimiento que necesitan más páginas.',
         description:
-          'Un sitio web empresarial de varias páginas con hosting e implementación gestionados por nosotros.',
+          'Un sitio web empresarial con hasta 5 páginas, incluidos hosting e implementación.',
         features: [
           'Hasta 5 páginas (Inicio, Acerca de, Servicios, Contacto, Personalizado)',
           'Configuración de hosting e implementación',
@@ -108,19 +114,20 @@ export const es: LocaleStrings = {
       },
       {
         name: 'Sitio Web Premium + Panel de Administración (CMS)',
-        tagline: 'Edita el contenido de tu sitio web en cualquier momento.',
+        tagline: 'Control completo sobre el contenido de tu sitio web.',
         description:
-          'Todo lo de Pro, más un panel de administración personalizado para que puedas gestionar tu propio contenido.',
+          'Sitio web empresarial completo con sistema de gestión de contenido personalizado. Actualiza textos, imágenes y páginas tú mismo en cualquier momento, sin habilidades técnicas ni desarrollador. Ahorra tiempo y reduce costos.',
         features: [
           'Todas las características del Sitio Web Empresarial Pro',
           'Gestión de contenido personalizada (CMS)',
+          'Capacitación e integración incluidas',
           'Edición de texto e imágenes de autoservicio',
-          'Actualizaciones de contenido ilimitadas (tú editas)',
-          'Soporte continuo disponible',
+          'Actualizaciones de contenido ilimitadas',
         ],
         startingPrice: '$899',
         typicalRange: '$899–$1,599',
-        highlight: 'Ideal para gestión de contenido a largo plazo',
+        highlight:
+          'Ideal para empresas que desean independencia y flexibilidad',
       },
     ] as Package[],
   },
@@ -135,13 +142,13 @@ export const es: LocaleStrings = {
         number: '01',
         title: 'Comparte tus requisitos',
         description:
-          'Completa nuestro formulario de contacto o comunícate vía WhatsApp o email. Cuéntanos sobre tu negocio, las páginas que necesitas y tu cronograma.',
+          'Completa nuestro formulario de contacto o comunícate por teléfono o email. Cuéntanos sobre tu negocio, las páginas que necesitas y tu cronograma.',
       },
       {
         number: '02',
         title: 'Obtén tu cotización',
         description:
-          'Revisaremos tu solicitud y enviaremos una cotización personalizada dentro de 24 horas, junto con un paquete sugerido y cronograma.',
+          'Revisaremos tu solicitud y enviaremos una cotización personalizada dentro de 3 días hábiles, junto con un paquete sugerido y cronograma.',
       },
       {
         number: '03',
@@ -162,22 +169,22 @@ export const es: LocaleStrings = {
   whySection: {
     title: '¿Por qué Webbit Studio?',
     subtitle:
-      'Nos enfocamos en tecnología moderna, diseño limpio y cronogramas que realmente funcionan para dueños de negocios ocupados.',
+      'Nos enfocamos en tecnologías modernas, diseño limpio y cronogramas que realmente funcionan para dueños de negocios ocupados.',
     benefits: [
       {
         title: 'Entrega rápida',
-        text: 'La mayoría de las páginas de aterrizaje se terminan en 2–4 días. Los sitios web Pro y Premium normalmente se entregan en una semana.',
+        text: 'La mayoría de las páginas de aterrizaje se completan en 5–7 días hábiles. Los sitios web Pro y Premium generalmente se completan en 2–3 semanas.',
       },
       {
         title: 'Precios justos',
         text: 'Ajustamos las cotizaciones finales según la complejidad del proyecto y el tamaño del negocio para mantener nuestros servicios accesibles.',
       },
       {
-        title: 'Tecnología moderna',
+        title: 'Tecnologías modernas',
         text: 'React, TypeScript, Tailwind y plataformas de hosting modernas mantienen tu sitio rápido y confiable.',
       },
       {
-        title: 'Diseñado para conversión',
+        title: 'Diseño efectivo',
         text: 'Cada página está estructurada para guiar a los visitantes hacia contactarte o usar tu servicio.',
       },
       {
@@ -186,7 +193,7 @@ export const es: LocaleStrings = {
       },
       {
         title: 'Comunicación clara',
-        text: 'Contáctanos por email, WhatsApp o videollamada. Te mantenemos actualizado desde el inicio hasta el lanzamiento.',
+        text: 'Contáctanos por email, teléfono o videollamada. Te mantenemos actualizado desde el inicio hasta el lanzamiento.',
       },
     ],
   },
@@ -195,7 +202,7 @@ export const es: LocaleStrings = {
   pricingSection: {
     title: 'Precios simples, justos y globales',
     intro:
-      'Mostramos precios en USD "desde" para que las expectativas sean claras, luego ajustamos las cotizaciones finales según la complejidad de tu proyecto.',
+      'Mostramos precios "desde" para que las expectativas sean claras, luego ajustamos las cotizaciones finales según la complejidad de tu proyecto.',
     labels: {
       startingFrom: 'Desde',
       typicalRange: 'rango típico:',
@@ -231,7 +238,7 @@ export const es: LocaleStrings = {
       {
         question: '¿Qué tan rápido puedo obtener mi sitio web?',
         answer:
-          'La mayoría de las páginas de aterrizaje toman alrededor de 2–4 días. Los paquetes Pro y Premium normalmente toman 5–7 días, dependiendo del alcance y rondas de retroalimentación.',
+          'La mayoría de las páginas de aterrizaje toman alrededor de 5–7 días hábiles. Los paquetes Pro y Premium normalmente toman 2–3 semanas, dependiendo del alcance y rondas de retroalimentación.',
       },
       {
         question: '¿Ofrecen cambios después de la entrega?',
@@ -263,7 +270,7 @@ export const es: LocaleStrings = {
       'Cuéntanos un poco sobre tu negocio, tu ubicación y qué tipo de sitio web necesitas. Te responderemos con una cotización personalizada y un paquete sugerido.',
     contactPoints: [
       'Página de aterrizaje, sitio web empresarial o CMS Premium',
-      'La mayoría de los proyectos completados en 3–7 días',
+      'La mayoría de las páginas de aterrizaje completadas en 5–7 días hábiles. Los sitios web Pro y Premium generalmente se completan en 2–3 semanas.',
     ],
     form: {
       name: {
@@ -295,7 +302,7 @@ export const es: LocaleStrings = {
       },
       submit: 'Enviar consulta',
       submitting: 'Enviando...',
-      note: '¿Prefieres WhatsApp o una llamada rápida? Podemos compartir los datos de contacto directos en nuestra respuesta.',
+      note: '¿Prefieres una llamada rápida? Podemos compartir los datos de contacto directos en nuestra respuesta.',
       emailFallback: 'O envíanos un correo directamente a',
       phoneFallback: 'o llámanos',
       errors: {

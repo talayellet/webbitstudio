@@ -35,8 +35,6 @@ export const de: LocaleStrings = {
       'Webbit Studio erstellt Landing Pages, Unternehmenswebsites, Hosting-Setups, Deployments und maßgeschneiderte Admin-Panels, damit Sie Ihre Inhalte einfach verwalten können. Entwickelt für kleine Unternehmen weltweit.',
     primaryCta: 'Projekt starten',
     secondaryCta: 'Pakete ansehen',
-    trust:
-      'Vertraut von kleinen Unternehmen und Startups weltweit. Die meisten Projekte in unter 7 Tagen abgeschlossen.',
     visual: {
       mockCards: [
         {
@@ -58,7 +56,15 @@ export const de: LocaleStrings = {
   // Tech Strip
   techStrip: {
     title: 'Mit moderner Technologie gebaut',
-    badges: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Modernes Hosting'],
+    badges: [
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'Prisma',
+      'TanStack Query',
+      'Zod',
+      'Zustand',
+    ],
   },
 
   // Packages Section
@@ -70,20 +76,20 @@ export const de: LocaleStrings = {
       startingFrom: 'Ab',
       typicalRange: 'Typische Spanne:',
       priceNote:
-        'Endgültiges Angebot hängt von Region und Projektkomplexität ab.',
-      cta: 'Individuelles Angebot erhalten',
+        'Endgültiges Angebot hängt vom Projektumfang und der Komplexität ab.',
+      cta: 'Angebot erhalten',
     },
     packages: [
       {
         name: 'Landing Page Paket',
         tagline: 'Perfekt für Freelancer und kleine Unternehmen.',
         description:
-          'Eine maßgeschneiderte Landing Page mit Fokus auf Klarheit und Conversions, vollständig responsive und schnell.',
+          'Eine effektive Landing Page, die einen hervorragenden ersten Eindruck macht und potenzielle Kunden ermutigt, Kontakt aufzunehmen.',
         features: [
           'Maßgeschneiderte Landing Page',
           'Mobil-responsives Layout',
           'Grundlegende SEO-Einrichtung',
-          'Schnelle Lieferung (2–4 Tage)',
+          'Schnelle Lieferung (5–7 Werktage)',
           'Optionale Änderungen werden pro Anfrage berechnet',
         ],
         startingPrice: '$249',
@@ -94,7 +100,7 @@ export const de: LocaleStrings = {
         name: 'Pro Business Website',
         tagline: 'Für wachsende Unternehmen, die mehr Seiten benötigen.',
         description:
-          'Eine mehrseitige Unternehmenswebsite mit Hosting und Deployment, um das wir uns kümmern.',
+          'Eine Business-Website mit bis zu 5 Seiten, einschließlich Hosting und Deployment.',
         features: [
           'Bis zu 5 Seiten (Startseite, Über uns, Dienstleistungen, Kontakt, Individuell)',
           'Hosting & Deployment-Einrichtung',
@@ -108,19 +114,20 @@ export const de: LocaleStrings = {
       },
       {
         name: 'Premium Website + Admin-Panel (CMS)',
-        tagline: 'Bearbeiten Sie Ihre Website-Inhalte jederzeit.',
+        tagline: 'Vollständige Kontrolle über Ihre Website-Inhalte.',
         description:
-          'Alles von Pro, plus ein maßgeschneidertes Admin-Panel, damit Sie Ihre eigenen Inhalte verwalten können.',
+          'Vollständige Business-Website mit maßgeschneidertem Content-Management-System. Aktualisieren Sie Texte, Bilder und Seiten selbst jederzeit, ohne technische Kenntnisse oder Entwickler. Sparen Sie Zeit und reduzieren Sie Kosten.',
         features: [
-          'Alle Pro Business Website-Funktionen',
+          'Alle Funktionen der Pro Business Website',
           'Maßgeschneidertes Content-Management (CMS)',
+          'Schulung und Onboarding inbegriffen',
           'Selbstbedienung für Text- und Bildbearbeitung',
-          'Unbegrenzte Inhaltsaktualisierungen (Sie bearbeiten)',
-          'Laufender Support verfügbar',
+          'Unbegrenzte Inhaltsaktualisierungen',
         ],
         startingPrice: '$899',
         typicalRange: '$899–$1,599',
-        highlight: 'Ideal für langfristiges Content-Management',
+        highlight:
+          'Ideal für Unternehmen, die Unabhängigkeit und Flexibilität wünschen',
       },
     ] as Package[],
   },
@@ -135,13 +142,13 @@ export const de: LocaleStrings = {
         number: '01',
         title: 'Teilen Sie Ihre Anforderungen',
         description:
-          'Füllen Sie unser Kontaktformular aus oder kontaktieren Sie uns per WhatsApp oder E-Mail. Erzählen Sie uns von Ihrem Unternehmen, den benötigten Seiten und Ihrem Zeitplan.',
+          'Füllen Sie unser Kontaktformular aus oder kontaktieren Sie uns per Telefon oder E-Mail. Erzählen Sie uns von Ihrem Unternehmen, den benötigten Seiten und Ihrem Zeitplan.',
       },
       {
         number: '02',
         title: 'Erhalten Sie Ihr Angebot',
         description:
-          'Wir prüfen Ihre Anfrage und senden innerhalb von 24 Stunden ein maßgeschneidertes Angebot zusammen mit einem vorgeschlagenen Paket und Zeitplan.',
+          'Wir prüfen Ihre Anfrage und senden innerhalb von 3 Werktagen ein maßgeschneidertes Angebot zusammen mit einem vorgeschlagenen Paket und Zeitplan.',
       },
       {
         number: '03',
@@ -162,22 +169,22 @@ export const de: LocaleStrings = {
   whySection: {
     title: 'Warum Webbit Studio?',
     subtitle:
-      'Wir konzentrieren uns auf moderne Technologie, klares Design und Zeitpläne, die für beschäftigte Geschäftsinhaber wirklich funktionieren.',
+      'Wir konzentrieren uns auf moderne Technologien, klares Design und Zeitpläne, die für beschäftigte Geschäftsinhaber wirklich funktionieren.',
     benefits: [
       {
         title: 'Schnelle Lieferung',
-        text: 'Die meisten Landing Pages sind in 2–4 Tagen fertig. Pro- und Premium-Websites werden typischerweise innerhalb einer Woche ausgeliefert.',
+        text: 'Die meisten Landing Pages sind in 5–7 Werktagen fertig. Pro- und Premium-Websites werden in der Regel innerhalb von 2–3 Wochen fertiggestellt.',
       },
       {
         title: 'Faire Preise',
         text: 'Wir passen endgültige Angebote basierend auf Projektkomplexität und Unternehmensgröße an, um unsere Dienstleistungen zugänglich zu halten.',
       },
       {
-        title: 'Moderne Technologie',
+        title: 'Moderne Technologien',
         text: 'React, TypeScript, Tailwind und moderne Hosting-Plattformen halten Ihre Website schnell und zuverlässig.',
       },
       {
-        title: 'Für Conversion entwickelt',
+        title: 'Effektives Design',
         text: 'Jede Seite ist so strukturiert, dass sie Besucher dazu führt, Sie zu kontaktieren oder Ihren Service zu nutzen.',
       },
       {
@@ -186,7 +193,7 @@ export const de: LocaleStrings = {
       },
       {
         title: 'Klare Kommunikation',
-        text: 'Erreichen Sie uns per E-Mail, WhatsApp oder Videoanruf. Wir halten Sie vom Start bis zum Launch auf dem Laufenden.',
+        text: 'Erreichen Sie uns per E-Mail, Telefon oder Videoanruf. Wir halten Sie vom Start bis zum Launch auf dem Laufenden.',
       },
     ],
   },
@@ -195,7 +202,7 @@ export const de: LocaleStrings = {
   pricingSection: {
     title: 'Einfache, faire, globale Preise',
     intro:
-      'Wir zeigen USD-Preise „ab", damit die Erwartungen klar sind, und passen dann endgültige Angebote basierend auf Ihrer Projektkomplexität an.',
+      'Wir zeigen Preise „ab“, damit die Erwartungen klar sind, und passen dann endgültige Angebote basierend auf Ihrer Projektkomplexität an.',
     labels: {
       startingFrom: 'Ab',
       typicalRange: 'typische Spanne:',
@@ -231,7 +238,7 @@ export const de: LocaleStrings = {
       {
         question: 'Wie schnell kann ich meine Website bekommen?',
         answer:
-          'Die meisten Landing Pages dauern etwa 2–4 Tage. Pro- und Premium-Pakete dauern typischerweise 5–7 Tage, abhängig vom Umfang und den Feedback-Runden.',
+          'Die meisten Landing Pages dauern etwa 5–7 Werktage. Pro- und Premium-Pakete dauern typischerweise 2–3 Wochen, abhängig vom Umfang und den Feedback-Runden.',
       },
       {
         question: 'Bieten Sie Änderungen nach der Lieferung an?',
@@ -262,8 +269,8 @@ export const de: LocaleStrings = {
     intro:
       'Erzählen Sie uns ein wenig über Ihr Unternehmen, Ihren Standort und welche Art von Website Sie benötigen. Wir melden uns mit einem maßgeschneiderten Angebot und einem vorgeschlagenen Paket zurück.',
     contactPoints: [
-      'Landing Page, Business Website oder Premium CMS',
-      'Die meisten Projekte innerhalb von 3–7 Tagen abgeschlossen',
+      'Landing Page, Unternehmenswebsite oder Premium CMS',
+      'Die meisten Landing Pages innerhalb von 5–7 Werktagen fertig. Pro- und Premium-Websites werden in der Regel innerhalb von 2–3 Wochen fertiggestellt.',
     ],
     form: {
       name: {
@@ -293,9 +300,9 @@ export const de: LocaleStrings = {
         placeholder:
           'Erzählen Sie uns von Ihrem Unternehmen, den benötigten Seiten und etwaigen Fristen oder besonderen Anforderungen.',
       },
-      submit: 'Anfrage absenden',
+      submit: 'Anfrage senden',
       submitting: 'Wird gesendet...',
-      note: 'Bevorzugen Sie WhatsApp oder einen kurzen Anruf? Wir können direkte Kontaktdaten in unserer Antwort teilen.',
+      note: 'Bevorzugen Sie einen kurzen Anruf? Wir können direkte Kontaktdaten in unserer Antwort teilen.',
       emailFallback: 'Oder senden Sie uns direkt eine E-Mail an',
       phoneFallback: 'oder rufen Sie an',
       errors: {

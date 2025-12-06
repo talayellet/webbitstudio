@@ -31,11 +31,9 @@ export const fr: LocaleStrings = {
   hero: {
     title: 'Des sites web qui valorisent votre entreprise - livrés rapidement.',
     description:
-      "Webbit Studio crée des pages d'atterrissage, des sites web d'entreprise, des configurations d'hébergement, des déploiements et des panneaux d'administration personnalisés pour que vous puissiez gérer votre contenu facilement. Conçu pour les petites entreprises du monde entier.",
-    primaryCta: 'Démarrer votre projet',
+      "Webbit Studio crée des pages de destination, des sites Web d'entreprise, des configurations d'hébergement, des déploiements et des panneaux d'administration personnalisés afin que vous puissiez gérer votre contenu facilement. Conçu pour les petites entreprises du monde entier.",
+    primaryCta: 'Commencez votre projet',
     secondaryCta: 'Voir les forfaits',
-    trust:
-      'Approuvé par des petites entreprises et des startups du monde entier. La plupart des projets terminés en moins de 7 jours.',
     visual: {
       mockCards: [
         {
@@ -57,7 +55,15 @@ export const fr: LocaleStrings = {
   // Tech Strip
   techStrip: {
     title: 'Construit avec une technologie moderne',
-    badges: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Hébergement moderne'],
+    badges: [
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'Prisma',
+      'TanStack Query',
+      'Zod',
+      'Zustand',
+    ],
   },
 
   // Packages Section
@@ -69,20 +75,20 @@ export const fr: LocaleStrings = {
       startingFrom: 'À partir de',
       typicalRange: 'Fourchette typique :',
       priceNote:
-        'Le devis final dépend de la région et de la complexité du projet.',
-      cta: 'Obtenir un devis personnalisé',
+        'Le devis final dépend de la portée et de la complexité du projet.',
+      cta: 'Obtenir un devis',
     },
     packages: [
       {
         name: "Forfait Page d'Atterrissage",
         tagline: 'Parfait pour les freelancers et les petites entreprises.',
         description:
-          "Une page d'atterrissage conçue sur mesure, axée sur la clarté et les conversions, entièrement responsive et rapide.",
+          "Une page d'atterrissage efficace qui fait une excellente première impression et encourage les clients potentiels à prendre contact.",
         features: [
           "Page d'atterrissage conçue sur mesure",
           'Mise en page responsive pour mobiles',
           'Configuration SEO de base',
-          'Livraison rapide (2–4 jours)',
+          'Livraison rapide (5–7 jours ouvrables)',
           'Modifications optionnelles facturées par demande',
         ],
         startingPrice: '$249',
@@ -90,11 +96,11 @@ export const fr: LocaleStrings = {
         highlight: 'Idéal pour une présence en ligne rapide',
       },
       {
-        name: "Site Web d'Entreprise Pro",
+        name: 'Site Web d’Entreprise Pro',
         tagline:
           'Pour les entreprises en croissance qui ont besoin de plus de pages.',
         description:
-          "Un site web d'entreprise multi-pages avec hébergement et déploiement gérés pour vous.",
+          "Un site Web d'entreprise comprenant jusqu'à 5 pages, avec hébergement et déploiement.",
         features: [
           "Jusqu'à 5 pages (Accueil, À propos, Services, Contact, Personnalisé)",
           'Configuration hébergement et déploiement',
@@ -108,19 +114,20 @@ export const fr: LocaleStrings = {
       },
       {
         name: "Site Web Premium + Panneau d'Administration (CMS)",
-        tagline: 'Modifiez le contenu de votre site web à tout moment.',
+        tagline: 'Contrôle total sur le contenu de votre site web.',
         description:
-          "Tout ce qui est inclus dans Pro, plus un panneau d'administration personnalisé pour que vous puissiez gérer votre propre contenu.",
+          "Site web d'entreprise complet avec système de gestion de contenu personnalisé. Mettez à jour textes, images et pages vous-même à tout moment, sans compétences techniques ni développeur. Gagnez du temps et réduisez les coûts.",
         features: [
           "Toutes les fonctionnalités du Site Web d'Entreprise Pro",
           'Gestion de contenu personnalisée (CMS)',
-          "Édition de texte et d'images en libre-service",
-          'Mises à jour de contenu illimitées (vous éditez)',
-          'Support continu disponible',
+          'Formation et intégration incluses',
+          "\u00c9dition de texte et d'images en libre-service",
+          'Mises à jour de contenu illimitées',
         ],
         startingPrice: '$899',
         typicalRange: '$899–$1,599',
-        highlight: 'Idéal pour la gestion de contenu à long terme',
+        highlight:
+          'Idéal pour les entreprises qui veulent indépendance et flexibilité',
       },
     ] as Package[],
   },
@@ -135,13 +142,13 @@ export const fr: LocaleStrings = {
         number: '01',
         title: 'Partagez vos besoins',
         description:
-          'Remplissez notre formulaire de contact ou contactez-nous via WhatsApp ou email. Parlez-nous de votre entreprise, des pages dont vous avez besoin et de votre calendrier.',
+          'Remplissez notre formulaire de contact ou contactez-nous par téléphone ou email. Parlez-nous de votre entreprise, des pages dont vous avez besoin et de votre calendrier.',
       },
       {
         number: '02',
         title: 'Obtenez votre devis',
         description:
-          "Nous examinerons votre demande et enverrons un devis personnalisé dans les 24 heures, ainsi qu'un forfait suggéré et un calendrier.",
+          "Nous examinerons votre demande et enverrons un devis personnalisé dans les 3 jours ouvrables, ainsi qu'un forfait suggéré et un calendrier.",
       },
       {
         number: '03',
@@ -162,22 +169,22 @@ export const fr: LocaleStrings = {
   whySection: {
     title: 'Pourquoi Webbit Studio ?',
     subtitle:
-      "Nous nous concentrons sur la technologie moderne, un design épuré et des délais qui fonctionnent réellement pour les propriétaires d'entreprises occupés.",
+      "Nous nous concentrons sur les technologies modernes, un design épuré et des délais qui fonctionnent réellement pour les propriétaires d'entreprises occupés.",
     benefits: [
       {
         title: 'Livraison rapide',
-        text: "La plupart des pages d'atterrissage sont terminées en 2–4 jours. Les sites web Pro et Premium sont généralement livrés en une semaine.",
+        text: 'La plupart des pages de destination sont terminées en 5–7 jours ouvrables. Les sites Web Pro et Premium sont généralement achevés en 2–3 semaines.',
       },
       {
         title: 'Tarifs équitables',
         text: "Nous ajustons les devis finaux en fonction de la complexité du projet et de la taille de l'entreprise pour garder nos services accessibles.",
       },
       {
-        title: 'Technologie moderne',
+        title: 'Technologies modernes',
         text: "React, TypeScript, Tailwind et des plateformes d'hébergement modernes maintiennent votre site rapide et fiable.",
       },
       {
-        title: 'Conçu pour la conversion',
+        title: 'Design efficace',
         text: 'Chaque page est structurée pour guider les visiteurs vers vous contacter ou utiliser votre service.',
       },
       {
@@ -186,7 +193,7 @@ export const fr: LocaleStrings = {
       },
       {
         title: 'Communication claire',
-        text: 'Contactez-nous par email, WhatsApp ou appel vidéo. Nous vous tenons informé du début au lancement.',
+        text: 'Contactez-nous par email, téléphone ou appel vidéo. Nous vous tenons informé du début au lancement.',
       },
     ],
   },
@@ -195,7 +202,7 @@ export const fr: LocaleStrings = {
   pricingSection: {
     title: 'Tarifs simples, équitables et globaux',
     intro:
-      'Nous affichons des prix en USD "à partir de" pour que les attentes soient claires, puis ajustons les devis finaux en fonction de la complexité de votre projet.',
+      'Nous affichons des prix "à partir de" pour que les attentes soient claires, puis ajustons les devis finaux en fonction de la complexité de votre projet.',
     labels: {
       startingFrom: 'À partir de',
       typicalRange: 'fourchette typique :',
@@ -231,7 +238,7 @@ export const fr: LocaleStrings = {
       {
         question: 'À quelle vitesse puis-je obtenir mon site web ?',
         answer:
-          "La plupart des pages d'atterrissage prennent environ 2–4 jours. Les forfaits Pro et Premium prennent généralement 5–7 jours, selon la portée et les cycles de retours.",
+          "La plupart des pages d'atterrissage prennent environ 5–7 jours ouvrables. Les forfaits Pro et Premium prennent généralement 2–3 semaines, selon la portée et les cycles de retours.",
       },
       {
         question: 'Proposez-vous des modifications après la livraison ?',
@@ -260,10 +267,10 @@ export const fr: LocaleStrings = {
   contactSection: {
     title: 'Prêt à démarrer votre site web ?',
     intro:
-      'Parlez-nous un peu de votre entreprise, de votre emplacement et du type de site web dont vous avez besoin. Nous vous répondrons avec un devis personnalisé et un forfait suggéré.',
+      'Parlez-nous un peu de votre entreprise, de votre emplacement et du type de site Web dont vous avez besoin. Nous reviendrons vers vous avec un devis personnalisé et un forfait suggéré.',
     contactPoints: [
-      "Page d'atterrissage, site web d'entreprise ou CMS Premium",
-      'La plupart des projets terminés en 3–7 jours',
+      "Page d'atterrissage, site Web d'entreprise ou CMS Premium",
+      "La plupart des pages d'atterrissage terminées en 5–7 jours ouvrables. Les sites Web Pro et Premium sont généralement achevés en 2–3 semaines.",
     ],
     form: {
       name: {
@@ -295,7 +302,7 @@ export const fr: LocaleStrings = {
       },
       submit: 'Envoyer la demande',
       submitting: 'Envoi en cours...',
-      note: 'Vous préférez WhatsApp ou un appel rapide ? Nous pouvons partager les coordonnées directes dans notre réponse.',
+      note: 'Vous préférez un appel rapide ? Nous pouvons partager les coordonnées directes dans notre réponse.',
       emailFallback: 'Ou envoyez-nous un email directement à',
       phoneFallback: 'ou appelez',
       errors: {

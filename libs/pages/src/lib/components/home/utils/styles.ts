@@ -13,7 +13,7 @@ export const layout = {
 
 // Header & Navigation Styles
 export const header = {
-  root: 'md:sticky md:top-0 z-[999] bg-slate-950/95 py-6 backdrop-blur-sm',
+  root: 'sticky top-0 z-[999] bg-slate-950/95 py-6 backdrop-blur-sm',
   container:
     'mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8 flex items-start justify-between',
   logo: {

@@ -1,6 +1,6 @@
 import { WEBBIT_CURRENCY } from '@webbitstudio/shared-utils';
-import * as styles from '../utils/styles';
-import type { LocaleStrings } from '../utils/locales';
+import * as priceConversionNoticeStyles from '../utils/styles';
+import type { LocaleStrings } from '../../../shared';
 import clsx from 'clsx';
 
 interface PriceConversionNoticeProps {
@@ -28,8 +28,8 @@ export const PriceConversionNotice = ({
     return (
       <div
         className={clsx(
-          styles.priceConversionNotice.base,
-          styles.priceConversionNotice.error
+          priceConversionNoticeStyles.priceConversionNotice.base,
+          priceConversionNoticeStyles.priceConversionNotice.error
         )}
         role="alert"
       >
@@ -45,8 +45,8 @@ export const PriceConversionNotice = ({
     return (
       <div
         className={clsx(
-          styles.priceConversionNotice.base,
-          styles.priceConversionNotice.loading
+          priceConversionNoticeStyles.priceConversionNotice.base,
+          priceConversionNoticeStyles.priceConversionNotice.loading
         )}
         aria-live="polite"
       >

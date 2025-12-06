@@ -1,6 +1,6 @@
 import React from 'react';
-import * as styles from '../utils/styles';
-import type { LocaleStrings } from '../utils/locales';
+import * as techStripStyles from '../utils/styles';
+import type { LocaleStrings } from '../../../shared';
 
 interface TechStripProps {
   content: LocaleStrings['techStrip'];
@@ -8,12 +8,15 @@ interface TechStripProps {
 
 export const TechStrip: React.FC<TechStripProps> = ({ content }) => {
   return (
-    <section className={styles.techStrip.root} aria-label={content.title}>
-      <div className={styles.techStrip.container}>
+    <section
+      className={techStripStyles.techStrip.root}
+      aria-label={content.title}
+    >
+      <div className={techStripStyles.techStrip.container}>
         <p>{content.title}</p>
-        <div className={styles.techStrip.badges}>
+        <div className={techStripStyles.techStrip.badges}>
           {content.badges.map((badge) => (
-            <span key={badge} className={styles.typography.techBadge}>
+            <span key={badge} className={techStripStyles.typography.techBadge}>
               {badge}
             </span>
           ))}

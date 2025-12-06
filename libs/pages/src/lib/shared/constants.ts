@@ -1,4 +1,5 @@
-import { LanguageOption } from '@webbitstudio/shared-utils';
+import { LanguageOption, type CountryCode } from '@webbitstudio/shared-utils';
+import { en, es, fr, de, he, type LocaleStrings } from './locales';
 
 export const WEBBIT_STUDIO_EMAIL = 'info@webbitstudio.com';
 export const WEBBIT_STUDIO_PHONE = '+44 (0)7414 902208';
@@ -46,3 +47,19 @@ export const EXCHANGE_RATE_CACHE_TIME = 1000 * 60 * 60 * 24; // 24 hours
 export const RETRY_BASE_DELAY = 1000; // 1 second
 export const RETRY_MAX_DELAY = 30000; // 30 seconds
 export const RETRY_BACKOFF_MULTIPLIER = 2;
+
+// Route Constants
+export const ROUTES = {
+  PRIVACY_POLICY: '/privacy-policy',
+  TERMS_OF_SERVICE: '/terms-of-service',
+  COOKIE_POLICY: '/cookie-policy',
+} as const;
+
+// Locale mapping
+export const LOCALE_MAP: Record<CountryCode, LocaleStrings> = {
+  en,
+  es,
+  fr,
+  de,
+  he,
+};

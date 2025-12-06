@@ -7,7 +7,7 @@ import {
   DEFAULT_LANGUAGE,
   type CountryCode,
 } from '@webbitstudio/shared-utils';
-import { LOCALE_MAP } from '../utils';
+import { LOCALE_MAP } from '../constants';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -17,7 +17,8 @@ const isBrowser = typeof window !== 'undefined';
  * Also manages RTL (right-to-left) direction for applicable languages
  */
 export const useLocalizedContent = () => {
-  const { data: userCountry } = useGeoLocation();
+  const { data: userCountry, isLoading: isGeoLoading } = useGeoLocation();
+  const [isLocaleReady, setIsLocaleReady] = useState(false);
 
   const [locale, setLocaleState] = useState<CountryCode>(() => {
     if (isBrowser) {
@@ -41,7 +42,18 @@ export const useLocalizedContent = () => {
         setLocaleState(defaultLanguage);
       }
     }
-  }, [userCountry]);
+  }, [userCountry, isGeoLoading]);
+
+  // Mark as ready after geolocation check completes or if locale is already stored
+  useEffect(() => {
+    if (isBrowser) {
+      const storedLocale = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+      // Ready if we have a stored locale OR geolocation has finished loading
+      if (storedLocale || !isGeoLoading) {
+        setIsLocaleReady(true);
+      }
+    }
+  }, [isGeoLoading]);
 
   const setLocale = (newLocale: CountryCode) => {
     setLocaleState(newLocale);
@@ -64,5 +76,6 @@ export const useLocalizedContent = () => {
     setLocale,
     content: LOCALE_MAP[locale],
     isRTL: RTL_LOCALES.includes(locale),
+    isLocaleReady,
   };
 };

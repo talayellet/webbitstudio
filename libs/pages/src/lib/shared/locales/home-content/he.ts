@@ -1,5 +1,5 @@
 import type { LocaleStrings } from './en';
-import type { Package, FAQ } from '../types';
+import type { Package, FAQ } from '../../types';
 
 /**
  * Hebrew locale strings for Webbit Studio home page
@@ -294,6 +294,10 @@ export const he: LocaleStrings = {
         placeholder:
           'ספרו לנו על העסק, העמודים הנדרשים וכל לוחות זמנים או דרישות מיוחדות.',
       },
+      consent: {
+        label: 'אני מסכים לעיבוד המידע האישי שלי בהתאם ל',
+        privacyPolicy: 'מדיניות הפרטיות',
+      },
       submit: 'שליחת בקשה',
       submitting: 'שולח...',
       note: 'מעדיפים שיחת טלפון? נוכל לשתף פרטי קשר ישירים בתשובה.',
@@ -306,6 +310,7 @@ export const he: LocaleStrings = {
         serverError: 'שגיאת שרת. נא לנסות שוב מאוחר יותר.',
         rateLimitError: 'יותר מדי בקשות. נא לנסות שוב מאוחר יותר.',
         submissionFailed: 'שליחת הטופס נכשלה. נא לנסות שוב.',
+        consentRequired: 'עליך להסכים למדיניות הפרטיות כדי להמשיך',
       },
       successMessage: 'תודה על הפנייה! נחזור אליכם בהקדם.',
     },
@@ -320,7 +325,8 @@ export const he: LocaleStrings = {
     backToTop: 'חזור למעלה',
     links: {
       privacy: 'מדיניות פרטיות',
-      terms: 'תנאי שירות',
+      terms: 'תנאי שימוש',
+      cookies: 'מדיניות עוגיות',
     },
   },
 
@@ -338,5 +344,14 @@ export const he: LocaleStrings = {
     skipToContent: 'דלג לתוכן הראשי',
     languageSwitcher: 'בחר שפה. שפה נוכחית:',
     currencySwitcher: 'בחר מטבע. מטבע נוכחי:',
+  },
+
+  // Cookie Consent
+  cookieConsent: {
+    message:
+      'אנו משתמשים בעוגיות כדי לשפר את החוויה שלך ולנתח את תנועת האתר. בלחיצה על "אישור", אתה מסכים לשימוש שלנו בעוגיות.',
+    acceptButton: 'אישור',
+    rejectButton: 'סירוב',
+    privacyPolicyLink: 'מידע נוסף',
   },
 };

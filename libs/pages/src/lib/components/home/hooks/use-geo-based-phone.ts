@@ -4,7 +4,7 @@ import {
   WEBBIT_STUDIO_PHONE,
   WEBBIT_STUDIO_PHONE_IL,
   WEBBIT_STUDIO_PHONE_IL_DIALABLE,
-} from '../../../utils/constants';
+} from '../../../shared';
 
 export interface PhoneNumberData {
   /**

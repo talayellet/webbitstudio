@@ -262,6 +262,10 @@ export const form = {
   emailFallbackIcon: 'h-4 w-4 flex-shrink-0 text-slate-300',
   emailFallbackLink:
     'text-sky-400 hover:text-sky-300 transition-colors underline decoration-sky-400/30 hover:decoration-sky-300',
+  consentLabel: 'flex items-start gap-2 text-sm text-slate-300 cursor-pointer',
+  consentCheckbox:
+    'mt-1 h-4 w-4 rounded border-slate-700 bg-slate-800 text-sky-500 focus:ring-2 focus:ring-sky-400 focus:ring-offset-0',
+  consentLink: 'text-sky-400 hover:text-sky-300 underline',
 } as const;
 
 // Custom Select Styles

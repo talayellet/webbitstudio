@@ -10,7 +10,7 @@ import {
   RETRY_BASE_DELAY,
   RETRY_MAX_DELAY,
   RETRY_BACKOFF_MULTIPLIER,
-} from '../../../utils';
+} from '../../../shared';
 
 /**
  * Hook to fetch exchange rates with caching

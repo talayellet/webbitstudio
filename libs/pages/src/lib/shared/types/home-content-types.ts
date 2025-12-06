@@ -21,12 +21,13 @@ export interface ConvertedPrice {
   error: Error | null;
 }
 
-export interface ContactFormData extends Record<string, string | undefined> {
+export interface ContactFormData {
   name: string;
   email: string;
   country?: string;
   package?: string;
   details?: string;
+  consent?: string;
 }
 
 export interface ContactFormErrorMessages {

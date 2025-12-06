@@ -1,5 +1,5 @@
 import type { LocaleStrings } from './en';
-import type { Package, FAQ } from '../types';
+import type { Package, FAQ } from '../../types';
 
 /**
  * German locale strings for Webbit Studio home page

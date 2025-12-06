@@ -1,4 +1,4 @@
-import * as styles from './utils/styles';
+import * as homeStyles from './utils/styles';
 import {
   Header,
   Hero,
@@ -12,7 +12,12 @@ import {
   Footer,
   PriceConversionNotice,
 } from './components';
-import { useLocalizedContent, usePriceConverter, type Locale } from './hooks';
+import {
+  useLocalizedContent,
+  WEBBIT_STUDIO_LANG_OPTIONS,
+  ROUTES,
+} from '../../shared';
+import { usePriceConverter } from './hooks';
 import {
   CurrencyProvider,
   useCurrencyContext,
@@ -26,19 +31,28 @@ import {
   SENTRY_TAGS,
   DEFAULT_LANGUAGE_FILTERS,
   DEFAULT_CURRENCY_FILTERS,
+  type CountryCode,
 } from '@webbitstudio/shared-utils';
 import {
   LanguageSwitcher,
   CurrencySwitcher,
+  CookieConsentBanner,
 } from '@webbitstudio/ui-components';
-import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
-import { MAIN_CONTENT_ID } from './utils/constants';
+import { MAIN_CONTENT_ID } from './utils';
 
 export interface WebbitStudioHomePageProps {
   /**
    * Web3Forms access key for contact form submissions (get free key at https://web3forms.com)
    */
   web3formsAccessKey?: string;
+  /**
+   * Optional callback when language changes (for syncing with global state)
+   */
+  onLanguageChange?: (locale: string) => void;
+  /**
+   * Optional initial locale to use
+   */
+  initialLocale?: string;
 }
 
 const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
@@ -67,9 +81,12 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
   useHashNavigation();
 
   return (
-    <div className={styles.layout.page} dir={isRTL ? 'rtl' : 'ltr'}>
+    <div className={homeStyles.layout.page} dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Skip to main content link for accessibility */}
-      <a href={`#${MAIN_CONTENT_ID}`} className={styles.accessibility.skipLink}>
+      <a
+        href={`#${MAIN_CONTENT_ID}`}
+        className={homeStyles.accessibility.skipLink}
+      >
         {content.accessibility.skipToContent}
       </a>
       <Header
@@ -79,7 +96,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
             currentLanguage={locale}
             languages={filteredLanguages}
             onLanguageChange={setLocale}
-            styles={styles.header.languageSwitcherStyles}
+            styles={homeStyles.header.languageSwitcherStyles}
             ariaLabel={`${content.accessibility.languageSwitcher} ${
               filteredLanguages.find((l) => l.code === locale)?.label
             }`}
@@ -90,7 +107,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
             currentCurrency={currency}
             currencies={filteredCurrencies}
             onCurrencyChange={(curr) => setCurrency(curr, true)}
-            styles={styles.header.desktopCurrencySwitcherStyles}
+            styles={homeStyles.header.desktopCurrencySwitcherStyles}
             ariaLabel={`${content.accessibility.currencySwitcher} ${
               filteredCurrencies.find((c) => c.code === currency)?.label
             }`}
@@ -101,7 +118,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
             currentCurrency={currency}
             currencies={filteredCurrencies}
             onCurrencyChange={(curr) => setCurrency(curr, true)}
-            styles={styles.header.mobileCurrencySwitcherStyles}
+            styles={homeStyles.header.mobileCurrencySwitcherStyles}
             ariaLabel={`${content.accessibility.currencySwitcher} ${
               filteredCurrencies.find((c) => c.code === currency)?.label
             }`}
@@ -109,9 +126,9 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         }
         currentLanguage={locale}
         languages={filteredLanguages}
-        onLanguageChange={(lang) => setLocale(lang as Locale)}
+        onLanguageChange={(lang) => setLocale(lang as CountryCode)}
       />
-      <div id={MAIN_CONTENT_ID} className={styles.layout.container}>
+      <div id={MAIN_CONTENT_ID} className={homeStyles.layout.container}>
         <PriceConversionNotice
           isLoading={isLoading}
           error={error}
@@ -131,6 +148,13 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         />
         <Footer content={content.footer} />
       </div>
+      <CookieConsentBanner
+        message={content.cookieConsent.message}
+        acceptButtonText={content.cookieConsent.acceptButton}
+        rejectButtonText={content.cookieConsent.rejectButton}
+        privacyPolicyText={content.cookieConsent.privacyPolicyLink}
+        privacyPolicyLink={ROUTES.PRIVACY_POLICY}
+      />
     </div>
   );
 };

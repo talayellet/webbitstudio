@@ -1,6 +1,6 @@
-import * as styles from '../utils/styles';
-import type { LocaleStrings } from '../utils/locales';
-import { convertPriceRange } from '../utils/functions/price-utils';
+import * as packagesSectionStyles from '../utils/styles';
+import type { LocaleStrings } from '../../../shared';
+import { convertPriceRange, PACKAGES_SECTION } from '../utils';
 import { usePriceConverter } from '../hooks';
 
 interface PackagesSectionProps {
@@ -12,20 +12,25 @@ export const PackagesSection = ({ content }: PackagesSectionProps) => {
 
   return (
     <section
-      id="packages"
-      aria-labelledby="packages-heading"
-      className={styles.section.default}
+      id={PACKAGES_SECTION.ID}
+      aria-labelledby={PACKAGES_SECTION.HEADING_ID}
+      className={packagesSectionStyles.section.default}
     >
-      <div className={styles.layout.sectionHeader}>
+      <div className={packagesSectionStyles.layout.sectionHeader}>
         <div>
-          <h2 id="packages-heading" className={styles.typography.h2}>
+          <h2
+            id={PACKAGES_SECTION.HEADING_ID}
+            className={packagesSectionStyles.typography.h2}
+          >
             {content.title}
           </h2>
-          <p className={styles.combined.bodyWithMaxWidth}>{content.subtitle}</p>
+          <p className={packagesSectionStyles.combined.bodyWithMaxWidth}>
+            {content.subtitle}
+          </p>
         </div>
       </div>
 
-      <div className={styles.layout.grid3Cols}>
+      <div className={packagesSectionStyles.layout.grid3Cols}>
         {content.packages.map((pkg) => {
           const startingPrice = convertPrice(pkg.startingPrice);
           const typicalRange = convertPriceRange(
@@ -34,51 +39,66 @@ export const PackagesSection = ({ content }: PackagesSectionProps) => {
           );
 
           return (
-            <article key={pkg.name} className={styles.card.package}>
-              <div className={styles.packageCard.contentWrapper}>
-                <div className={styles.packageCard.header}>
-                  <h3 className={styles.typography.h3Base}>{pkg.name}</h3>
-                  <span className={styles.typography.tagSmall}>
+            <article
+              key={pkg.name}
+              className={packagesSectionStyles.card.package}
+            >
+              <div className={packagesSectionStyles.packageCard.contentWrapper}>
+                <div className={packagesSectionStyles.packageCard.header}>
+                  <h3 className={packagesSectionStyles.typography.h3Base}>
+                    {pkg.name}
+                  </h3>
+                  <span className={packagesSectionStyles.typography.tagSmall}>
                     {pkg.highlight}
                   </span>
                 </div>
-                <p className={styles.packageCard.tagline}>{pkg.tagline}</p>
-                <p className={styles.packageCard.description}>
+                <p className={packagesSectionStyles.packageCard.tagline}>
+                  {pkg.tagline}
+                </p>
+                <p className={packagesSectionStyles.packageCard.description}>
                   {pkg.description}
                 </p>
 
-                <ul className={styles.list.features}>
+                <ul className={packagesSectionStyles.list.features}>
                   {pkg.features.map((feature) => (
-                    <li key={feature} className={styles.list.featureItem}>
-                      <span className={styles.list.bullet} />
+                    <li
+                      key={feature}
+                      className={packagesSectionStyles.list.featureItem}
+                    >
+                      <span className={packagesSectionStyles.list.bullet} />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className={styles.packageCard.pricing}>
-                <p className={styles.colors.slate[200]}>
-                  <span className={styles.packageCard.priceLabel}>
+              <div className={packagesSectionStyles.packageCard.pricing}>
+                <p className={packagesSectionStyles.colors.slate[200]}>
+                  <span
+                    className={packagesSectionStyles.packageCard.priceLabel}
+                  >
                     {content.pricing.startingFrom}{' '}
                   </span>
                   <data
                     value={startingPrice.original}
-                    className={styles.packageCard.priceAmount}
+                    className={packagesSectionStyles.packageCard.priceAmount}
                   >
                     {startingPrice.converted}
                   </data>
                 </p>
-                <p className={styles.packageCard.priceRange}>
+                <p className={packagesSectionStyles.packageCard.priceRange}>
                   {content.pricing.typicalRange} {typicalRange}
                 </p>
-                <p className={styles.packageCard.priceNote}>
+                <p className={packagesSectionStyles.packageCard.priceNote}>
                   {content.pricing.priceNote}
                 </p>
               </div>
 
-              <div className={styles.packageCard.cta}>
-                <a href="#contact" className={styles.button.light}>
+              <div className={packagesSectionStyles.packageCard.cta}>
+                <a
+                  href={PACKAGES_SECTION.CONTACT_HREF}
+                  className={packagesSectionStyles.button.light}
+                >
                   {content.pricing.cta}
                 </a>
               </div>

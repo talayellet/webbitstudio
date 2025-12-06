@@ -1,6 +1,4 @@
-import type { CountryCode } from '@webbitstudio/shared-utils';
-import { en, es, fr, de, he } from './locales';
-import type { LocaleStrings } from './locales';
+import { ROUTES } from '../../../shared';
 
 export const MAIN_CONTENT_ID = 'main-content';
 
@@ -14,10 +12,48 @@ export const NAV_ITEMS = [
 
 export type NavItemId = (typeof NAV_ITEMS)[number]['id'];
 
-export const LOCALE_MAP: Record<CountryCode, LocaleStrings> = {
-  en,
-  es,
-  fr,
-  de,
-  he,
-};
+export const WHY_SECTION = {
+  HEADING_ID: 'why-heading',
+} as const;
+
+export const PROCESS_SECTION = {
+  ID: 'process',
+  HEADING_ID: 'process-heading',
+} as const;
+
+export const PRICING_SECTION = {
+  ID: 'pricing',
+  HEADING_ID: 'pricing-heading',
+} as const;
+
+export const PACKAGES_SECTION = {
+  ID: 'packages',
+  HEADING_ID: 'packages-heading',
+  CONTACT_HREF: '#contact',
+} as const;
+
+export const HERO_SECTION = {
+  HEADING_ID: 'hero-heading',
+  CONTACT_HREF: '#contact',
+  PACKAGES_HREF: '#packages',
+  BROWSER_URL: 'webbitstudio.com',
+} as const;
+
+export const FOOTER = {
+  PRIVACY_POLICY_HREF: ROUTES.PRIVACY_POLICY,
+  TERMS_OF_SERVICE_HREF: ROUTES.TERMS_OF_SERVICE,
+  COOKIE_POLICY_HREF: ROUTES.COOKIE_POLICY,
+} as const;
+
+export const FAQ_SECTION = {
+  ID: 'faq',
+  HEADING_ID: 'faq-heading',
+  ICON_COLLAPSED: '+',
+  ICON_EXPANDED: '–',
+} as const;
+
+export const CONTACT_SECTION = {
+  ID: 'contact',
+  HEADING_ID: 'contact-heading',
+  PRIVACY_POLICY_HREF: ROUTES.PRIVACY_POLICY,
+} as const;

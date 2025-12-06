@@ -1,4 +1,4 @@
-import type { Package, FAQ } from '../types';
+import type { Package, FAQ } from '../../types';
 
 /**
  * English (US) locale strings for Webbit Studio home page
@@ -296,6 +296,11 @@ export const en = {
         placeholder:
           'Tell us about your business, pages you need, and any deadlines or special requirements.',
       },
+      consent: {
+        label:
+          'I agree to the processing of my personal data in accordance with the',
+        privacyPolicy: 'Privacy Policy',
+      },
       submit: 'Submit inquiry',
       submitting: 'Submitting...',
       note: 'Prefer a quick phone call? We can share direct contact details in our reply.',
@@ -305,6 +310,7 @@ export const en = {
         nameRequired: 'Name is required',
         emailRequired: 'Email is required',
         emailInvalid: 'Please enter a valid email address',
+        consentRequired: 'You must agree to the privacy policy to continue',
         serverError: 'Server error. Please try again later.',
         rateLimitError: 'Too many requests. Please try again later.',
         submissionFailed: 'Failed to submit form. Please try again.',
@@ -323,6 +329,7 @@ export const en = {
     links: {
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
+      cookies: 'Cookie Policy',
     },
   },
 
@@ -340,6 +347,15 @@ export const en = {
     skipToContent: 'Skip to main content',
     languageSwitcher: 'Select language. Current language:',
     currencySwitcher: 'Select currency. Current currency:',
+  },
+
+  // Cookie Consent
+  cookieConsent: {
+    message:
+      'We use cookies to improve your experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies.',
+    acceptButton: 'Accept',
+    rejectButton: 'Reject',
+    privacyPolicyLink: 'Learn more',
   },
 };
 

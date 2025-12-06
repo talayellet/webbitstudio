@@ -1,5 +1,5 @@
 import type { LocaleStrings } from './en';
-import type { Package, FAQ } from '../types';
+import type { Package, FAQ } from '../../types';
 
 /**
  * French locale strings for Webbit Studio home page
@@ -298,7 +298,12 @@ export const fr: LocaleStrings = {
       details: {
         label: 'Détails du projet',
         placeholder:
-          'Parlez-nous de votre entreprise, des pages dont vous avez besoin et de toute échéance ou exigence particulière.',
+          'Parlez-nous de votre entreprise, des pages dont vous avez besoin et de tout délai ou exigence spéciale.',
+      },
+      consent: {
+        label:
+          'J’accepte le traitement de mes données personnelles conformément à la',
+        privacyPolicy: 'Politique de Confidentialité',
       },
       submit: 'Envoyer la demande',
       submitting: 'Envoi en cours...',
@@ -307,8 +312,10 @@ export const fr: LocaleStrings = {
       phoneFallback: 'ou appelez',
       errors: {
         nameRequired: 'Le nom est requis',
-        emailRequired: "L'e-mail est requis",
-        emailInvalid: 'Veuillez saisir une adresse e-mail valide',
+        emailRequired: 'L’email est requis',
+        emailInvalid: 'Veuillez saisir une adresse email valide',
+        consentRequired:
+          'Vous devez accepter la politique de confidentialité pour continuer',
         serverError: 'Erreur du serveur. Veuillez réessayer plus tard.',
         rateLimitError: 'Trop de requêtes. Veuillez réessayer plus tard.',
         submissionFailed: "Échec de l'envoi du formulaire. Veuillez réessayer.",
@@ -328,7 +335,8 @@ export const fr: LocaleStrings = {
     backToTop: 'Retour en haut',
     links: {
       privacy: 'Politique de Confidentialité',
-      terms: "Conditions d'Utilisation",
+      terms: 'Conditions d’Utilisation',
+      cookies: 'Politique des Cookies',
     },
   },
 
@@ -346,5 +354,14 @@ export const fr: LocaleStrings = {
     skipToContent: 'Passer au contenu principal',
     languageSwitcher: 'Sélectionner la langue. Langue actuelle:',
     currencySwitcher: 'Sélectionner la devise. Devise actuelle:',
+  },
+
+  // Cookie Consent
+  cookieConsent: {
+    message:
+      'Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic du site. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.',
+    acceptButton: 'Accepter',
+    rejectButton: 'Refuser',
+    privacyPolicyLink: 'En savoir plus',
   },
 };

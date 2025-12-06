@@ -35,8 +35,7 @@ export const useGeoLocation = () => {
   return useQuery({
     queryKey: ['geolocation'],
     queryFn: async (): Promise<string> => {
-      // Using ipapi.co free API - no API key required for basic usage
-      const response = await fetch(API_ENDPOINTS.IPAPI_GEOLOCATION, {
+      const response = await fetch(API_ENDPOINTS.GEO_JS, {
         method: HTTP_METHODS.GET,
         headers: {
           Accept: CONTENT_TYPES.JSON,
@@ -48,7 +47,7 @@ export const useGeoLocation = () => {
       }
 
       const data = await response.json();
-      return data.country_code || UNKNOWN_COUNTRY;
+      return data.country || UNKNOWN_COUNTRY;
     },
     staleTime: GEOLOCATION_CACHE_DURATION, // 24 hours - data stays fresh
     gcTime: Infinity, // Keep in cache indefinitely

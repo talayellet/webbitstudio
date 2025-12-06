@@ -1,5 +1,6 @@
-import * as styles from '../utils/styles';
-import { LocaleStrings, convertPriceRange } from '../utils';
+import * as pricingSectionStyles from '../utils/styles';
+import type { LocaleStrings } from '../../../shared';
+import { convertPriceRange, PRICING_SECTION } from '../utils';
 import { usePriceConverter } from '../hooks';
 
 interface PricingSectionProps {
@@ -11,20 +12,25 @@ export const PricingSection = ({ content }: PricingSectionProps) => {
 
   return (
     <section
-      id="pricing"
-      aria-labelledby="pricing-heading"
-      className={styles.section.withBorderLarge}
+      id={PRICING_SECTION.ID}
+      aria-labelledby={PRICING_SECTION.HEADING_ID}
+      className={pricingSectionStyles.section.withBorderLarge}
     >
-      <div className={styles.pricing.container}>
+      <div className={pricingSectionStyles.pricing.container}>
         <div>
-          <h2 id="pricing-heading" className={styles.typography.h2}>
+          <h2
+            id={PRICING_SECTION.HEADING_ID}
+            className={pricingSectionStyles.typography.h2}
+          >
             {content.title}
           </h2>
-          <p className={styles.combined.pricingIntro}>{content.intro}</p>
+          <p className={pricingSectionStyles.combined.pricingIntro}>
+            {content.intro}
+          </p>
         </div>
       </div>
 
-      <div className={styles.pricing.list}>
+      <div className={pricingSectionStyles.pricing.list}>
         {content.packages.map((pkg) => {
           const startingPrice = convertPrice(pkg.startingPrice);
           const typicalRange = convertPriceRange(
@@ -34,22 +40,26 @@ export const PricingSection = ({ content }: PricingSectionProps) => {
 
           return (
             <div key={pkg.name}>
-              <h3 className={styles.typography.h3Pricing}>{pkg.name}</h3>
-              <p className={styles.pricing.item}>
-                <span className={styles.pricing.label}>
+              <h3 className={pricingSectionStyles.typography.h3Pricing}>
+                {pkg.name}
+              </h3>
+              <p className={pricingSectionStyles.pricing.item}>
+                <span className={pricingSectionStyles.pricing.label}>
                   {content.labels.startingFrom}{' '}
                 </span>
                 <data
                   value={startingPrice.original}
-                  className={styles.pricing.amount}
+                  className={pricingSectionStyles.pricing.amount}
                 >
                   {startingPrice.converted}
                 </data>{' '}
-                <span className={styles.typography.bodyExtraSmall}>
+                <span
+                  className={pricingSectionStyles.typography.bodyExtraSmall}
+                >
                   ({content.labels.typicalRange} {typicalRange})
                 </span>
               </p>
-              <p className={styles.pricing.note}>{pkg.note}</p>
+              <p className={pricingSectionStyles.pricing.note}>{pkg.note}</p>
             </div>
           );
         })}

@@ -4,5 +4,5 @@
 export const API_ENDPOINTS = {
   CONTACT: '/api/contact',
   WEB3FORMS: 'https://api.web3forms.com/submit',
-  IPAPI_GEOLOCATION: 'https://ipapi.co/json/',
+  GEO_JS: 'https://get.geojs.io/v1/ip/country.json',
 } as const;

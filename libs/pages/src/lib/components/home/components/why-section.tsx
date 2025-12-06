@@ -1,6 +1,7 @@
 import React from 'react';
-import * as styles from '../utils/styles';
-import type { LocaleStrings } from '../utils/locales';
+import * as whySectionStyles from '../utils/styles';
+import type { LocaleStrings } from '../../../shared';
+import { WHY_SECTION } from '../utils';
 
 interface WhySectionProps {
   content: LocaleStrings['whySection'];
@@ -8,19 +9,31 @@ interface WhySectionProps {
 
 export const WhySection: React.FC<WhySectionProps> = ({ content }) => {
   return (
-    <section aria-labelledby="why-heading" className={styles.section.default}>
-      <div className={styles.combined.sectionIntro}>
-        <h2 id="why-heading" className={styles.typography.h2}>
+    <section
+      aria-labelledby={WHY_SECTION.HEADING_ID}
+      className={whySectionStyles.section.default}
+    >
+      <div className={whySectionStyles.combined.sectionIntro}>
+        <h2
+          id={WHY_SECTION.HEADING_ID}
+          className={whySectionStyles.typography.h2}
+        >
           {content.title}
         </h2>
-        <p className={styles.combined.bodyWithSpacing}>{content.subtitle}</p>
+        <p className={whySectionStyles.combined.bodyWithSpacing}>
+          {content.subtitle}
+        </p>
       </div>
 
-      <div className={styles.layout.grid3Cols}>
+      <div className={whySectionStyles.layout.grid3Cols}>
         {content.benefits.map((item) => (
-          <div key={item.title} className={styles.card.default}>
-            <h3 className={styles.typography.h3Small}>{item.title}</h3>
-            <p className={styles.combined.cardTextWithSpacing}>{item.text}</p>
+          <div key={item.title} className={whySectionStyles.card.default}>
+            <h3 className={whySectionStyles.typography.h3Small}>
+              {item.title}
+            </h3>
+            <p className={whySectionStyles.combined.cardTextWithSpacing}>
+              {item.text}
+            </p>
           </div>
         ))}
       </div>

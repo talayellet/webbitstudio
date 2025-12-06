@@ -1,7 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import * as styles from '../utils/styles';
-import type { LocaleStrings } from '../utils/locales';
+import * as heroStyles from '../utils/styles';
+import type { LocaleStrings } from '../../../shared';
+import { HERO_SECTION } from '../utils';
 
 interface HeroProps {
   content: LocaleStrings['hero'];
@@ -9,67 +10,87 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ content }) => {
   return (
-    <section aria-labelledby="hero-heading" className={styles.layout.grid2Cols}>
-      <div className={styles.hero.content}>
-        <h1 id="hero-heading" className={styles.typography.h1}>
+    <section
+      aria-labelledby={HERO_SECTION.HEADING_ID}
+      className={heroStyles.layout.grid2Cols}
+    >
+      <div className={heroStyles.hero.content}>
+        <h1 id={HERO_SECTION.HEADING_ID} className={heroStyles.typography.h1}>
           {content.title}
         </h1>
 
-        <p className={styles.combined.bodyWithMaxWidth}>
+        <p className={heroStyles.combined.bodyWithMaxWidth}>
           {content.description}
         </p>
 
-        <div className={styles.hero.actions}>
-          <a href="#contact" className={styles.button.primary}>
+        <div className={heroStyles.hero.actions}>
+          <a
+            href={HERO_SECTION.CONTACT_HREF}
+            className={heroStyles.button.primary}
+          >
             {content.primaryCta}
           </a>
-          <a href="#packages" className={styles.button.secondary}>
+          <a
+            href={HERO_SECTION.PACKAGES_HREF}
+            className={heroStyles.button.secondary}
+          >
             {content.secondaryCta}
           </a>
         </div>
-
-        <p className={styles.hero.trust}>{content.trust}</p>
       </div>
 
       {/* Hero visual */}
-      <div className={styles.hero.visual} aria-hidden="true">
-        <div className={styles.hero.gradient} />
-        <div className={styles.card.hero}>
+      <div className={heroStyles.hero.visual} aria-hidden="true">
+        <div className={heroStyles.hero.gradient} />
+        <div className={heroStyles.card.hero}>
           {/* Browser mock */}
-          <div className={styles.hero.browserHeader} aria-hidden="true">
+          <div className={heroStyles.hero.browserHeader} aria-hidden="true">
             <span
-              className={clsx(styles.hero.browserDot, styles.colors.rose500)}
+              className={clsx(
+                heroStyles.hero.browserDot,
+                heroStyles.colors.rose500
+              )}
             />
             <span
-              className={clsx(styles.hero.browserDot, styles.colors.amber400)}
+              className={clsx(
+                heroStyles.hero.browserDot,
+                heroStyles.colors.amber400
+              )}
             />
             <span
-              className={clsx(styles.hero.browserDot, styles.colors.emerald400)}
+              className={clsx(
+                heroStyles.hero.browserDot,
+                heroStyles.colors.emerald400
+              )}
             />
-            <span className={styles.hero.browserUrl}>webbitstudio.com</span>
+            <span className={heroStyles.hero.browserUrl}>
+              {HERO_SECTION.BROWSER_URL}
+            </span>
           </div>
 
-          <div className={styles.hero.mockContainer} aria-hidden="true">
-            <div className={styles.hero.mockElement} />
-            <div className={styles.hero.mockElement2} />
-            <div className={styles.hero.mockGrid}>
-              <div className={styles.hero.mockCard} />
-              <div className={styles.hero.mockColumn}>
-                <div className={styles.hero.mockBar1} />
-                <div className={styles.hero.mockBar2} />
-                <div className={styles.hero.mockBar3} />
+          <div className={heroStyles.hero.mockContainer} aria-hidden="true">
+            <div className={heroStyles.hero.mockElement} />
+            <div className={heroStyles.hero.mockElement2} />
+            <div className={heroStyles.hero.mockGrid}>
+              <div className={heroStyles.hero.mockCard} />
+              <div className={heroStyles.hero.mockColumn}>
+                <div className={heroStyles.hero.mockBar1} />
+                <div className={heroStyles.hero.mockBar2} />
+                <div className={heroStyles.hero.mockBar3} />
               </div>
-              <div className={styles.hero.mockColumn}>
-                <div className={styles.hero.mockBar4} />
-                <div className={styles.hero.mockBar5} />
-                <div className={styles.hero.mockButton} />
+              <div className={heroStyles.hero.mockColumn}>
+                <div className={heroStyles.hero.mockBar4} />
+                <div className={heroStyles.hero.mockBar5} />
+                <div className={heroStyles.hero.mockButton} />
               </div>
             </div>
-            <div className={styles.hero.mockCardsGrid}>
+            <div className={heroStyles.hero.mockCardsGrid}>
               {content.visual.mockCards.map((card, index) => (
-                <div key={index} className={styles.card.heroBrowserMock}>
-                  <p className={styles.hero.mockCardText}>{card.title}</p>
-                  <p className={styles.hero.mockCardSubtext}>{card.subtitle}</p>
+                <div key={index} className={heroStyles.card.heroBrowserMock}>
+                  <p className={heroStyles.hero.mockCardText}>{card.title}</p>
+                  <p className={heroStyles.hero.mockCardSubtext}>
+                    {card.subtitle}
+                  </p>
                 </div>
               ))}
             </div>

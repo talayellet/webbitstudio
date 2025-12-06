@@ -1,5 +1,5 @@
 import type { LocaleStrings } from './en';
-import type { Package, FAQ } from '../types';
+import type { Package, FAQ } from '../../types';
 
 /**
  * Spanish locale strings for Webbit Studio home page
@@ -300,6 +300,11 @@ export const es: LocaleStrings = {
         placeholder:
           'Cuéntanos sobre tu negocio, las páginas que necesitas y cualquier plazo o requisito especial.',
       },
+      consent: {
+        label:
+          'Acepto el procesamiento de mis datos personales de acuerdo con la',
+        privacyPolicy: 'Política de Privacidad',
+      },
       submit: 'Enviar consulta',
       submitting: 'Enviando...',
       note: '¿Prefieres una llamada rápida? Podemos compartir los datos de contacto directos en nuestra respuesta.',
@@ -309,6 +314,8 @@ export const es: LocaleStrings = {
         nameRequired: 'El nombre es obligatorio',
         emailRequired: 'El correo electrónico es obligatorio',
         emailInvalid: 'Por favor, introduce una dirección de correo válida',
+        consentRequired:
+          'Debes aceptar la política de privacidad para continuar',
         serverError: 'Error del servidor. Por favor, inténtalo más tarde.',
         rateLimitError:
           'Demasiadas solicitudes. Por favor, inténtalo más tarde.',
@@ -329,6 +336,7 @@ export const es: LocaleStrings = {
     links: {
       privacy: 'Política de Privacidad',
       terms: 'Términos de Servicio',
+      cookies: 'Política de Cookies',
     },
   },
 
@@ -346,5 +354,14 @@ export const es: LocaleStrings = {
     skipToContent: 'Saltar al contenido principal',
     languageSwitcher: 'Seleccionar idioma. Idioma actual:',
     currencySwitcher: 'Seleccionar moneda. Moneda actual:',
+  },
+
+  // Cookie Consent
+  cookieConsent: {
+    message:
+      'Utilizamos cookies para mejorar su experiencia y analizar el tráfico del sitio. Al hacer clic en "Aceptar", usted acepta nuestro uso de cookies.',
+    acceptButton: 'Aceptar',
+    rejectButton: 'Rechazar',
+    privacyPolicyLink: 'Más información',
   },
 };

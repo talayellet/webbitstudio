@@ -1,8 +1,12 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import * as styles from '../utils/styles';
-import type { LocaleStrings } from '../utils/locales';
-import type { ContactFormData } from '../utils/types';
+import * as contactSectionStyles from '../utils/styles';
+import {
+  LocaleStrings,
+  ContactFormData,
+  CONTACT_FORM_IDS,
+  WEBBIT_STUDIO_EMAIL,
+} from '../../../shared';
 import {
   CustomSelect,
   EnvelopeIcon,
@@ -14,10 +18,7 @@ import {
   DEFAULT_INPUT_MAX_LENGTH,
   EMAIL_REG,
 } from '@webbitstudio/shared-utils';
-import {
-  CONTACT_FORM_IDS,
-  WEBBIT_STUDIO_EMAIL,
-} from '../../../utils/constants';
+import { CONTACT_SECTION } from '../utils';
 
 interface ContactSectionProps {
   content: LocaleStrings['contactSection'];
@@ -77,18 +78,23 @@ export const ContactSection = ({
 
   return (
     <section
-      id="contact"
-      aria-labelledby="contact-heading"
-      className={styles.section.contact}
+      id={CONTACT_SECTION.ID}
+      aria-labelledby={CONTACT_SECTION.HEADING_ID}
+      className={contactSectionStyles.section.contact}
     >
-      <div className={styles.card.contact}>
-        <div className={styles.contact.grid}>
+      <div className={contactSectionStyles.card.contact}>
+        <div className={contactSectionStyles.contact.grid}>
           <div>
-            <h2 id="contact-heading" className={styles.typography.h2}>
+            <h2
+              id={CONTACT_SECTION.HEADING_ID}
+              className={contactSectionStyles.typography.h2}
+            >
               {content.title}
             </h2>
-            <p className={styles.contact.intro}>{content.intro}</p>
-            <ul className={styles.list.contactPoints}>
+            <p className={contactSectionStyles.contact.intro}>
+              {content.intro}
+            </p>
+            <ul className={contactSectionStyles.list.contactPoints}>
               {content.contactPoints.map((point, index) => (
                 <li key={index}>• {point}</li>
               ))}
@@ -97,13 +103,13 @@ export const ContactSection = ({
 
           <form
             onSubmit={handleSubmit(onFormSubmit)}
-            className={styles.form.root}
+            className={contactSectionStyles.form.root}
           >
-            <div className={styles.form.grid}>
-              <div className={styles.form.fieldContainer}>
+            <div className={contactSectionStyles.form.grid}>
+              <div className={contactSectionStyles.form.fieldContainer}>
                 <label
                   htmlFor={CONTACT_FORM_IDS.NAME}
-                  className={styles.typography.label}
+                  className={contactSectionStyles.typography.label}
                 >
                   {content.form.name.label}
                 </label>
@@ -112,20 +118,20 @@ export const ContactSection = ({
                   id={CONTACT_FORM_IDS.NAME}
                   {...register('name', { required: true })}
                   placeholder={content.form.name.placeholder}
-                  className={styles.form.input}
+                  className={contactSectionStyles.form.input}
                   aria-required="true"
                   aria-invalid={errors.name ? 'true' : 'false'}
                 />
                 {errors.name && (
-                  <p className={styles.form.error}>
+                  <p className={contactSectionStyles.form.error}>
                     {content.form.errors.nameRequired}
                   </p>
                 )}
               </div>
-              <div className={styles.form.fieldContainer}>
+              <div className={contactSectionStyles.form.fieldContainer}>
                 <label
                   htmlFor={CONTACT_FORM_IDS.EMAIL}
-                  className={styles.typography.label}
+                  className={contactSectionStyles.typography.label}
                 >
                   {content.form.email.label}
                 </label>
@@ -137,12 +143,12 @@ export const ContactSection = ({
                     pattern: EMAIL_REG,
                   })}
                   placeholder={content.form.email.placeholder}
-                  className={styles.form.input}
+                  className={contactSectionStyles.form.input}
                   aria-required="true"
                   aria-invalid={errors.email ? 'true' : 'false'}
                 />
                 {errors.email && (
-                  <p className={styles.form.error}>
+                  <p className={contactSectionStyles.form.error}>
                     {errors.email.type === 'required'
                       ? content.form.errors.emailRequired
                       : content.form.errors.emailInvalid}
@@ -151,10 +157,10 @@ export const ContactSection = ({
               </div>
             </div>
 
-            <div className={styles.form.fieldContainer}>
+            <div className={contactSectionStyles.form.fieldContainer}>
               <label
                 htmlFor={CONTACT_FORM_IDS.COUNTRY}
-                className={styles.typography.label}
+                className={contactSectionStyles.typography.label}
               >
                 {content.form.country.label}
               </label>
@@ -163,7 +169,7 @@ export const ContactSection = ({
                 id={CONTACT_FORM_IDS.COUNTRY}
                 {...register('country')}
                 placeholder={content.form.country.placeholder}
-                className={styles.form.input}
+                className={contactSectionStyles.form.input}
               />
             </div>
 
@@ -173,20 +179,22 @@ export const ContactSection = ({
               placeholder={content.form.package.placeholder}
               options={content.form.package.options}
               label={content.form.package.label}
-              fieldContainerClassName={styles.form.fieldContainer}
-              labelClassName={styles.typography.label}
-              wrapperClassName={styles.customSelect.wrapper}
-              triggerClassName={styles.customSelect.trigger}
-              iconClassName={styles.customSelect.icon}
-              menuClassName={styles.customSelect.menu}
-              optionClassName={styles.customSelect.option}
-              optionSelectedClassName={styles.customSelect.optionSelected}
+              fieldContainerClassName={contactSectionStyles.form.fieldContainer}
+              labelClassName={contactSectionStyles.typography.label}
+              wrapperClassName={contactSectionStyles.customSelect.wrapper}
+              triggerClassName={contactSectionStyles.customSelect.trigger}
+              iconClassName={contactSectionStyles.customSelect.icon}
+              menuClassName={contactSectionStyles.customSelect.menu}
+              optionClassName={contactSectionStyles.customSelect.option}
+              optionSelectedClassName={
+                contactSectionStyles.customSelect.optionSelected
+              }
             />
 
-            <div className={styles.form.fieldContainer}>
+            <div className={contactSectionStyles.form.fieldContainer}>
               <label
                 htmlFor={CONTACT_FORM_IDS.DETAILS}
-                className={styles.typography.label}
+                className={contactSectionStyles.typography.label}
               >
                 {content.form.details.label}
               </label>
@@ -196,42 +204,78 @@ export const ContactSection = ({
                 placeholder={content.form.details.placeholder}
                 rows={4}
                 maxLength={DEFAULT_INPUT_MAX_LENGTH}
-                className={styles.form.textarea}
+                className={contactSectionStyles.form.textarea}
               />
             </div>
 
+            <div className={contactSectionStyles.form.fieldContainer}>
+              <label className={contactSectionStyles.form.consentLabel}>
+                <input
+                  type="checkbox"
+                  {...register('consent', { required: true })}
+                  className={contactSectionStyles.form.consentCheckbox}
+                  aria-required="true"
+                  aria-invalid={errors.consent ? 'true' : 'false'}
+                />
+                <span>
+                  {content.form.consent.label}{' '}
+                  <a
+                    href={CONTACT_SECTION.PRIVACY_POLICY_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={contactSectionStyles.form.consentLink}
+                  >
+                    {content.form.consent.privacyPolicy}
+                  </a>
+                </span>
+              </label>
+              {errors.consent && (
+                <p className={contactSectionStyles.form.error}>
+                  {content.form.errors.consentRequired}
+                </p>
+              )}
+            </div>
+
             {submitError && (
-              <div className={styles.form.error}>{submitError}</div>
+              <div className={contactSectionStyles.form.error}>
+                {submitError}
+              </div>
             )}
 
             <button
               type="submit"
               disabled={!isDirty || !isValid || isSubmitting}
-              className={styles.button.lightLarge}
+              className={contactSectionStyles.button.lightLarge}
             >
               {isSubmitting ? content.form.submitting : content.form.submit}
             </button>
 
-            <p className={styles.form.note}>{content.form.note}</p>
-            <div className={styles.form.emailFallback}>
-              <EnvelopeIcon className={styles.form.emailFallbackIcon} />
+            <p className={contactSectionStyles.form.note}>
+              {content.form.note}
+            </p>
+            <div className={contactSectionStyles.form.emailFallback}>
+              <EnvelopeIcon
+                className={contactSectionStyles.form.emailFallbackIcon}
+              />
               <span>
                 {content.form.emailFallback}{' '}
                 <a
                   href={`mailto:${WEBBIT_STUDIO_EMAIL}`}
-                  className={styles.form.emailFallbackLink}
+                  className={contactSectionStyles.form.emailFallbackLink}
                 >
                   {WEBBIT_STUDIO_EMAIL}
                 </a>
               </span>
             </div>
-            <div className={styles.form.emailFallback}>
-              <PhoneIcon className={styles.form.emailFallbackIcon} />
+            <div className={contactSectionStyles.form.emailFallback}>
+              <PhoneIcon
+                className={contactSectionStyles.form.emailFallbackIcon}
+              />
               <span>
                 {content.form.phoneFallback}{' '}
                 <a
                   href={`tel:${phoneNumber.dialable}`}
-                  className={styles.form.emailFallbackLink}
+                  className={contactSectionStyles.form.emailFallbackLink}
                 >
                   {phoneNumber.display}
                 </a>

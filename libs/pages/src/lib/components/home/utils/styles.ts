@@ -154,10 +154,10 @@ export const button = {
 
 // Section Styles
 export const section = {
-  default: 'py-12 sm:py-16',
-  withBorder: 'border-y border-slate-800 py-8 sm:py-14',
-  withBorderLarge: 'border-y border-slate-800 py-12 sm:py-16',
-  contact: 'pb-14 sm:pb-16',
+  default: 'py-12 sm:py-16 scroll-mt-24',
+  withBorder: 'border-y border-slate-800 py-8 sm:py-14 scroll-mt-24',
+  withBorderLarge: 'border-y border-slate-800 py-12 sm:py-16 scroll-mt-24',
+  contact: 'pb-14 sm:pb-16 scroll-mt-24',
 } as const;
 
 // Typography Styles

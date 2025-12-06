@@ -9,7 +9,7 @@ import {
   PhoneIcon,
   Toast,
 } from '@webbitstudio/ui-components';
-import { useContactFormSubmit } from '../hooks';
+import { useContactFormSubmit, useGeoBasedPhone } from '../hooks';
 import {
   DEFAULT_INPUT_MAX_LENGTH,
   EMAIL_REG,
@@ -17,7 +17,6 @@ import {
 import {
   CONTACT_FORM_IDS,
   WEBBIT_STUDIO_EMAIL,
-  WEBBIT_STUDIO_PHONE,
 } from '../../../utils/constants';
 
 interface ContactSectionProps {
@@ -44,6 +43,7 @@ export const ContactSection = ({
   onSubmit,
 }: ContactSectionProps) => {
   const [showToast, setShowToast] = useState(false);
+  const phoneNumber = useGeoBasedPhone();
 
   const {
     register,
@@ -230,10 +230,10 @@ export const ContactSection = ({
               <span>
                 {content.form.phoneFallback}{' '}
                 <a
-                  href={`tel:${WEBBIT_STUDIO_PHONE}`}
+                  href={`tel:${phoneNumber.dialable}`}
                   className={styles.form.emailFallbackLink}
                 >
-                  {WEBBIT_STUDIO_PHONE}
+                  {phoneNumber.display}
                 </a>
               </span>
             </div>

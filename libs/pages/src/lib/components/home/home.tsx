@@ -18,6 +18,12 @@ import {
   useCurrencyContext,
   WEBBIT_STUDIO_CURRENCY_OPTIONS,
   useHashNavigation,
+  useGeoFilteredLanguages,
+  captureException,
+  LOG_LEVELS,
+  GEOLOCATION_ERROR_MESSAGES,
+  SENTRY_TAGS,
+  DEFAULT_LANGUAGE_FILTERS,
 } from '@webbitstudio/shared-utils';
 import {
   LanguageSwitcher,
@@ -36,6 +42,21 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
   const { locale, setLocale, content, isRTL } = useLocalizedContent();
   const { currency, setCurrency } = useCurrencyContext();
   const { isLoading, error } = usePriceConverter();
+  const { languages: filteredLanguages, error: geoError } =
+    useGeoFilteredLanguages({
+      languages: WEBBIT_STUDIO_LANG_OPTIONS,
+      filters: DEFAULT_LANGUAGE_FILTERS,
+    });
+
+  // Log geolocation errors to Sentry
+  if (geoError) {
+    captureException(geoError, {
+      message: GEOLOCATION_ERROR_MESSAGES.DETECTION_FAILED,
+      level: LOG_LEVELS.WARNING,
+      tags: { feature: SENTRY_TAGS.FEATURE.GEOLOCATION },
+    });
+  }
+
   useHashNavigation();
 
   return (
@@ -45,7 +66,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         languageSwitcher={
           <LanguageSwitcher
             currentLanguage={locale}
-            languages={WEBBIT_STUDIO_LANG_OPTIONS}
+            languages={filteredLanguages}
             onLanguageChange={setLocale}
             styles={styles.header.languageSwitcherStyles}
           />
@@ -67,7 +88,7 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
           />
         }
         currentLanguage={locale}
-        languages={WEBBIT_STUDIO_LANG_OPTIONS}
+        languages={filteredLanguages}
         onLanguageChange={(lang) => setLocale(lang as Locale)}
       />
       <div className={styles.layout.container}>

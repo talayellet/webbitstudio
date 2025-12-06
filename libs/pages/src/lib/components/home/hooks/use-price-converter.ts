@@ -6,7 +6,7 @@ import {
   CURRENCY_SYMBOLS,
   WEBBIT_CURRENCY,
 } from '@webbitstudio/shared-utils';
-import { ConvertedPrice } from '../utils';
+import type { ConvertedPrice } from '../../../shared';
 
 /**
  * Convert unknown error to Error instance

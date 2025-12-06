@@ -3,7 +3,7 @@ import { CurrencyOption, CurrencyFilter, ISOCountryCode } from '../types';
 import { UNKNOWN_COUNTRY } from '../constants';
 import { useGeoLocation } from './use-geo-location';
 
-export interface UseGeoFilteredCurrenciesProps<T = string> {
+export interface UseGeoFilteredCurrenciesProps<T extends string = string> {
   /**
    * All available currency options
    */
@@ -15,7 +15,7 @@ export interface UseGeoFilteredCurrenciesProps<T = string> {
   filters?: CurrencyFilter[];
 }
 
-export interface UseGeoFilteredCurrenciesResponse<T = string> {
+export interface UseGeoFilteredCurrenciesResponse<T extends string = string> {
   /**
    * Filtered currency options based on user's country
    */
@@ -48,7 +48,7 @@ export interface UseGeoFilteredCurrenciesResponse<T = string> {
  * }
  * ```
  */
-export const useGeoFilteredCurrencies = <T = string>({
+export const useGeoFilteredCurrencies = <T extends string = string>({
   currencies,
   filters = [],
 }: UseGeoFilteredCurrenciesProps<T>): UseGeoFilteredCurrenciesResponse<T> => {

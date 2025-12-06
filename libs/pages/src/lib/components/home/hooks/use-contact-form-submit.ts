@@ -1,6 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 import { API_ENDPOINTS } from '@webbitstudio/shared';
-import type { ContactFormData, ContactFormErrorMessages } from '../utils';
+import type {
+  ContactFormData,
+  ContactFormErrorMessages,
+} from '../../../shared';
 import { submitContactFormDataAccess } from '../data-access';
 
 export interface UseContactFormSubmitProps {

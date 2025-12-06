@@ -3,7 +3,20 @@ import {
   getCookiePolicyContent,
   CookiePolicyContent,
 } from '../../shared';
-import * as cookiePolicyStyles from './utils/styles';
+import {
+  cookiePolicyPage,
+  cookiePolicyContainer,
+  cookiePolicyTitle,
+  cookiePolicyLastUpdated,
+  cookiePolicySection,
+  cookiePolicySectionTitle,
+  cookiePolicyParagraph,
+  cookiePolicySubsection,
+  cookiePolicySubsectionTitle,
+  cookiePolicySubsectionDescription,
+  cookiePolicyList,
+  cookiePolicyEmailLink,
+} from './utils';
 
 export type { CookiePolicyContent };
 
@@ -21,62 +34,62 @@ export const CookiePolicyPage = ({
   const { sections } = content;
 
   return (
-    <div className={cookiePolicyStyles.page}>
-      <div className={cookiePolicyStyles.container}>
-        <h1 className={cookiePolicyStyles.title}>{content.title}</h1>
-        <p className={cookiePolicyStyles.lastUpdated}>{content.lastUpdated}</p>
+    <div className={cookiePolicyPage}>
+      <div className={cookiePolicyContainer}>
+        <h1 className={cookiePolicyTitle}>{content.title}</h1>
+        <p className={cookiePolicyLastUpdated}>{content.lastUpdated}</p>
 
         {/* Introduction */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>
             {sections.introduction.title}
           </h2>
           {sections.introduction.content.map((paragraph, index) => (
-            <p key={index} className={cookiePolicyStyles.paragraph}>
+            <p key={index} className={cookiePolicyParagraph}>
               {paragraph}
             </p>
           ))}
         </section>
 
         {/* What Are Cookies */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>
             {sections.whatAreCookies.title}
           </h2>
           {sections.whatAreCookies.content.map((paragraph, index) => (
-            <p key={index} className={cookiePolicyStyles.paragraph}>
+            <p key={index} className={cookiePolicyParagraph}>
               {paragraph}
             </p>
           ))}
         </section>
 
         {/* How We Use Cookies */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>
             {sections.howWeUseCookies.title}
           </h2>
           {sections.howWeUseCookies.content.map((paragraph, index) => (
-            <p key={index} className={cookiePolicyStyles.paragraph}>
+            <p key={index} className={cookiePolicyParagraph}>
               {paragraph}
             </p>
           ))}
         </section>
 
         {/* Types of Cookies */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>
             {sections.typesOfCookies.title}
           </h2>
 
           {/* Essential Cookies */}
-          <div className={cookiePolicyStyles.subsection}>
-            <h3 className={cookiePolicyStyles.subsectionTitle}>
+          <div className={cookiePolicySubsection}>
+            <h3 className={cookiePolicySubsectionTitle}>
               {sections.typesOfCookies.essential.title}
             </h3>
-            <p className={cookiePolicyStyles.subsectionDescription}>
+            <p className={cookiePolicySubsectionDescription}>
               {sections.typesOfCookies.essential.description}
             </p>
-            <ul className={cookiePolicyStyles.list}>
+            <ul className={cookiePolicyList}>
               {sections.typesOfCookies.essential.examples.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
@@ -84,14 +97,14 @@ export const CookiePolicyPage = ({
           </div>
 
           {/* Analytics Cookies */}
-          <div className={cookiePolicyStyles.subsection}>
-            <h3 className={cookiePolicyStyles.subsectionTitle}>
+          <div className={cookiePolicySubsection}>
+            <h3 className={cookiePolicySubsectionTitle}>
               {sections.typesOfCookies.analytics.title}
             </h3>
-            <p className={cookiePolicyStyles.subsectionDescription}>
+            <p className={cookiePolicySubsectionDescription}>
               {sections.typesOfCookies.analytics.description}
             </p>
-            <ul className={cookiePolicyStyles.list}>
+            <ul className={cookiePolicyList}>
               {sections.typesOfCookies.analytics.examples.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
@@ -99,14 +112,14 @@ export const CookiePolicyPage = ({
           </div>
 
           {/* Functional Cookies */}
-          <div className={cookiePolicyStyles.subsection}>
-            <h3 className={cookiePolicyStyles.subsectionTitle}>
+          <div className={cookiePolicySubsection}>
+            <h3 className={cookiePolicySubsectionTitle}>
               {sections.typesOfCookies.functional.title}
             </h3>
-            <p className={cookiePolicyStyles.subsectionDescription}>
+            <p className={cookiePolicySubsectionDescription}>
               {sections.typesOfCookies.functional.description}
             </p>
-            <ul className={cookiePolicyStyles.list}>
+            <ul className={cookiePolicyList}>
               {sections.typesOfCookies.functional.examples.map(
                 (item, index) => (
                   <li key={index}>{item}</li>
@@ -117,16 +130,16 @@ export const CookiePolicyPage = ({
         </section>
 
         {/* Managing Cookies */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>
             {sections.managingCookies.title}
           </h2>
           {sections.managingCookies.content.map((paragraph, index) => (
-            <p key={index} className={cookiePolicyStyles.paragraph}>
+            <p key={index} className={cookiePolicyParagraph}>
               {paragraph}
             </p>
           ))}
-          <ul className={cookiePolicyStyles.list}>
+          <ul className={cookiePolicyList}>
             {sections.managingCookies.browsers.map((browser, index) => (
               <li key={index}>{browser}</li>
             ))}
@@ -134,46 +147,42 @@ export const CookiePolicyPage = ({
         </section>
 
         {/* Third Party Cookies */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>
             {sections.thirdPartyCookies.title}
           </h2>
           {sections.thirdPartyCookies.content.map((paragraph, index) => (
-            <p key={index} className={cookiePolicyStyles.paragraph}>
+            <p key={index} className={cookiePolicyParagraph}>
               {paragraph}
             </p>
           ))}
         </section>
 
         {/* Updates */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
-            {sections.updates.title}
-          </h2>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>{sections.updates.title}</h2>
           {sections.updates.content.map((paragraph, index) => (
-            <p key={index} className={cookiePolicyStyles.paragraph}>
+            <p key={index} className={cookiePolicyParagraph}>
               {paragraph}
             </p>
           ))}
         </section>
 
         {/* Contact */}
-        <section className={cookiePolicyStyles.section}>
-          <h2 className={cookiePolicyStyles.sectionTitle}>
-            {sections.contact.title}
-          </h2>
+        <section className={cookiePolicySection}>
+          <h2 className={cookiePolicySectionTitle}>{sections.contact.title}</h2>
           {sections.contact.content.map((paragraph, index) => (
-            <p key={index} className={cookiePolicyStyles.paragraph}>
+            <p key={index} className={cookiePolicyParagraph}>
               {paragraph}
             </p>
           ))}
-          <p className={cookiePolicyStyles.paragraph}>
+          <p className={cookiePolicyParagraph}>
             <strong>{companyName}</strong>
             <br />
             {sections.contact.emailLabel}{' '}
             <a
               href={`mailto:${companyEmail}`}
-              className={cookiePolicyStyles.emailLink}
+              className={cookiePolicyEmailLink}
             >
               {companyEmail}
             </a>

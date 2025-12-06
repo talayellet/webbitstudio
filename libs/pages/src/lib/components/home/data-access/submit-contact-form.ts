@@ -5,7 +5,10 @@ import {
   CONTENT_TYPES,
 } from '@webbitstudio/shared';
 import { sanitizeFormData } from '@webbitstudio/shared-utils';
-import type { ContactFormData, ContactFormErrorMessages } from '../utils/types';
+import type {
+  ContactFormData,
+  ContactFormErrorMessages,
+} from '../../../shared';
 
 export interface SubmitContactFormDataAccessProps {
   data: ContactFormData;

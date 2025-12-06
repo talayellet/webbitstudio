@@ -17,7 +17,7 @@ export const MobileMenuHeader = ({
 }: MobileMenuHeaderProps) => {
   return (
     <div className={styles.header.mobileMenu.menuHeader}>
-      <Logo title={logoTitle} subtitle={logoSubtitle} />
+      <Logo title={logoTitle} subtitle={logoSubtitle} ariaLabel={logoTitle} />
       <button
         className={styles.header.mobileMenu.closeButton}
         onClick={onClose}

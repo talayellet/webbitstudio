@@ -1,6 +1,6 @@
 import React from 'react';
 import * as styles from '../../../utils/styles';
-import type { LocaleStrings } from '../../../utils';
+import type { LocaleStrings } from '../../../../../shared';
 import { MobileMenuOverlay } from './mobile-menu-overlay';
 import { MobileMenuHeader } from './mobile-menu-header';
 import { MobileMenuLanguageSwitcher } from './mobile-menu-language-switcher';

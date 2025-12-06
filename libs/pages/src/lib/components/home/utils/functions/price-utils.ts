@@ -1,4 +1,4 @@
-import { ConvertedPrice } from '../types';
+import type { ConvertedPrice } from '../../../../shared';
 
 /**
  * Converts a price range string (e.g., "$249–$399") to the target currency

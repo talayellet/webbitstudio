@@ -300,6 +300,11 @@ export const de: LocaleStrings = {
         placeholder:
           'Erzählen Sie uns von Ihrem Unternehmen, den benötigten Seiten und etwaigen Fristen oder besonderen Anforderungen.',
       },
+      consent: {
+        label:
+          'Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der',
+        privacyPolicy: 'Datenschutzerklärung',
+      },
       submit: 'Anfrage senden',
       submitting: 'Wird gesendet...',
       note: 'Bevorzugen Sie einen kurzen Anruf? Wir können direkte Kontaktdaten in unserer Antwort teilen.',
@@ -309,6 +314,8 @@ export const de: LocaleStrings = {
         nameRequired: 'Name ist erforderlich',
         emailRequired: 'E-Mail ist erforderlich',
         emailInvalid: 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
+        consentRequired:
+          'Sie müssen der Datenschutzerklärung zustimmen, um fortzufahren',
         serverError: 'Serverfehler. Bitte versuchen Sie es später erneut.',
         rateLimitError:
           'Zu viele Anfragen. Bitte versuchen Sie es später erneut.',
@@ -330,6 +337,7 @@ export const de: LocaleStrings = {
     links: {
       privacy: 'Datenschutz',
       terms: 'Nutzungsbedingungen',
+      cookies: 'Cookie-Richtlinie',
     },
   },
 
@@ -340,5 +348,21 @@ export const de: LocaleStrings = {
     ariaLabels: {
       warning: 'Warnung',
     },
+  },
+
+  // Accessibility
+  accessibility: {
+    skipToContent: 'Zum Hauptinhalt springen',
+    languageSwitcher: 'Sprache auswählen. Aktuelle Sprache:',
+    currencySwitcher: 'Währung auswählen. Aktuelle Währung:',
+  },
+
+  // Cookie Consent
+  cookieConsent: {
+    message:
+      'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und den Website-Verkehr zu analysieren. Durch Klicken auf "Akzeptieren" stimmen Sie der Verwendung von Cookies zu.',
+    acceptButton: 'Akzeptieren',
+    rejectButton: 'Ablehnen',
+    privacyPolicyLink: 'Mehr erfahren',
   },
 };

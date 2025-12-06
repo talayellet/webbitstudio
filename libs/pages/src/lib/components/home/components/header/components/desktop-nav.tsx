@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styles from '../../../utils/styles';
-import { LocaleStrings, NAV_ITEMS } from '../../../utils';
+import { NAV_ITEMS } from '../../../utils';
+import type { LocaleStrings } from '../../../../../shared';
 
 interface DesktopNavProps {
   content: LocaleStrings['header']['nav'];

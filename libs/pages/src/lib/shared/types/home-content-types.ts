@@ -21,7 +21,7 @@ export interface ConvertedPrice {
   error: Error | null;
 }
 
-export interface ContactFormData {
+export interface ContactFormData extends Record<string, string | undefined> {
   name: string;
   email: string;
   country?: string;

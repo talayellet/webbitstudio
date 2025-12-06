@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import * as styles from '../../utils/styles';
-import type { LocaleStrings } from '../../utils/locales';
+import type { LocaleStrings } from '../../../../shared';
 import { Logo } from './components/logo';
 import { DesktopNav } from './components/desktop-nav';
 import { BurgerButton } from './components/burger-button';

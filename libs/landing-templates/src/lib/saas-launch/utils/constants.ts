@@ -106,8 +106,12 @@ export const DEFAULT_SHOW_SECTIONS: ShowSections = {
 // Template
 // ============================================================================
 
-export const DEFAULT_TEMPLATE: Required<Omit<SaasLaunchProps, 'content'>> & {
+export const DEFAULT_TEMPLATE: Omit<
+  Required<Omit<SaasLaunchProps, 'content'>>,
+  'web3formsAccessKey'
+> & {
   content?: ContentOverrides;
+  web3formsAccessKey?: string;
 } = {
   productName: 'Product',
   companyName: 'Company',

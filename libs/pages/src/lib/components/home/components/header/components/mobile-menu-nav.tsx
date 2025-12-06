@@ -1,5 +1,6 @@
 import * as styles from '../../../utils/styles';
-import { NAV_ITEMS, LocaleStrings } from '../../../utils';
+import { NAV_ITEMS } from '../../../utils';
+import type { LocaleStrings } from '../../../../../shared';
 
 interface MobileMenuNavProps {
   content: LocaleStrings['header']['nav'];

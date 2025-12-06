@@ -10,15 +10,15 @@ import {
   DEFAULT_LANGUAGE_OPTIONS,
 } from '../utils';
 import { Header, Footer } from './';
+import { LanguageSwitcher } from '@webbitstudio/ui-components';
 import {
-  LanguageSwitcher,
   ThemeSwitcher,
   useTheme,
   THEME_POSITIONS,
   type ThemeName,
   type ColorOverrides,
-  Locale,
   THEME_NAMES,
+  Locale,
 } from '../../shared';
 import type { LanguageOption, FooterLink } from '../utils';
 

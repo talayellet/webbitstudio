@@ -30,11 +30,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Sync Nx workspace
-        run: yarn nx sync
-
       - name: Build web app
-        run: yarn nx build @webbitstudio/web
+        run: yarn nx build @webbitstudio/web --skip-nx-cache
 
       - name: Copy CNAME to dist
         run: cp apps/web/public/CNAME apps/web/dist/CNAME

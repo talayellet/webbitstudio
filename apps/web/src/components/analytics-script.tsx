@@ -19,11 +19,14 @@ const AnalyticsScript = ({
       return;
     }
 
+    console.log('Umami analytics: Initializing with website ID:', websiteId);
+
     // Check if script already exists
     const existingScript = document.querySelector(
       `script[data-website-id="${websiteId}"]`
     );
     if (existingScript) {
+      console.log('Umami analytics: Script already loaded');
       return;
     }
 
@@ -31,6 +34,13 @@ const AnalyticsScript = ({
     script.defer = true;
     script.src = src;
     script.setAttribute('data-website-id', websiteId);
+
+    script.onload = () => {
+      console.log('Umami analytics: Script loaded successfully');
+    };
+    script.onerror = () => {
+      console.error('Umami analytics: Failed to load script');
+    };
 
     document.head.appendChild(script);
 

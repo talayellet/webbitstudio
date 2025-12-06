@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { API_ENDPOINTS } from '@webbitstudio/shared';
-import type { ContactFormData, ContactFormErrorMessages } from '../utils/types';
-import { submitContactFormDataAccess } from '../data-access/submit-contact-form';
+import type { ContactFormData, ContactFormErrorMessages } from '../utils';
+import { submitContactFormDataAccess } from '../data-access';
 
 export interface UseContactFormSubmitProps {
   /**
@@ -32,6 +32,25 @@ export interface UseContactFormSubmitProps {
   errorMessages: ContactFormErrorMessages;
 }
 
+export interface UseContactFormSubmitResponse {
+  /**
+   * Function to trigger form submission
+   */
+  mutate: (data: ContactFormData) => void;
+  /**
+   * Whether the form is currently being submitted
+   */
+  isSubmitting: boolean;
+  /**
+   * Error message from submission failure, or null if no error
+   */
+  submitError: string | null;
+  /**
+   * Full error object from submission failure
+   */
+  error: Error | null;
+}
+
 export const useContactFormSubmit = ({
   web3formsAccessKey,
   apiEndpoint = API_ENDPOINTS.CONTACT,
@@ -39,7 +58,7 @@ export const useContactFormSubmit = ({
   onShowToast,
   onSuccess,
   errorMessages,
-}: UseContactFormSubmitProps) => {
+}: UseContactFormSubmitProps): UseContactFormSubmitResponse => {
   const mutation = useMutation({
     mutationFn: (data: ContactFormData) => {
       if (onSubmit) {

@@ -4,6 +4,7 @@ import type { LocaleStrings } from '../utils/locales';
 import type { ContactFormData } from '../utils/types';
 import { CustomSelect } from '@webbitstudio/ui-components';
 import { useContactFormSubmit } from '../hooks';
+import { CONTACT_DETAILS_MAX_LENGTH } from '../utils';
 
 interface ContactSectionProps {
   content: LocaleStrings['contactSection'];
@@ -180,6 +181,7 @@ export const ContactSection = ({
                 {...register('details')}
                 placeholder={content.form.details.placeholder}
                 rows={4}
+                maxLength={CONTACT_DETAILS_MAX_LENGTH}
                 className={styles.form.textarea}
               />
             </div>

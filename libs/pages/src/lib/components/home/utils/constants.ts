@@ -7,3 +7,5 @@ export const NAV_ITEMS = [
 ] as const;
 
 export type NavItemId = (typeof NAV_ITEMS)[number]['id'];
+
+export const CONTACT_DETAILS_MAX_LENGTH = 1000;

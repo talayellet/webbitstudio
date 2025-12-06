@@ -30,10 +30,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build web app
-        run: NX_DAEMON=false yarn nx build @webbitstudio/web --skip-nx-cache
+      - name: Build web app directly with Vite
+        run: cd apps/web && yarn vite build
         env:
-          NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
+          NODE_ENV: production
 
       - name: Copy CNAME to dist
         run: cp apps/web/public/CNAME apps/web/dist/CNAME

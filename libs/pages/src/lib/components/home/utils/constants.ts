@@ -2,6 +2,8 @@ import type { CountryCode } from '@webbitstudio/shared-utils';
 import { en, es, fr, de, he } from './locales';
 import type { LocaleStrings } from './locales';
 
+export const MAIN_CONTENT_ID = 'main-content';
+
 export const NAV_ITEMS = [
   { id: 'packages', href: '#packages', isButton: false },
   { id: 'process', href: '#process', isButton: false },

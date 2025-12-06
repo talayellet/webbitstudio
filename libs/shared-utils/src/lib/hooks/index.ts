@@ -6,3 +6,4 @@ export * from './use-geo-filtered-currencies';
 export * from './use-currency-storage';
 export * from './use-geo-based-currency';
 export * from './use-scroll-to-top';
+export * from './use-scroll-into-view';

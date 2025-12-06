@@ -32,6 +32,7 @@ import {
   CurrencySwitcher,
 } from '@webbitstudio/ui-components';
 import { WEBBIT_STUDIO_LANG_OPTIONS } from '../../utils';
+import { MAIN_CONTENT_ID } from './utils/constants';
 
 export interface WebbitStudioHomePageProps {
   /**
@@ -67,6 +68,10 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
 
   return (
     <div className={styles.layout.page} dir={isRTL ? 'rtl' : 'ltr'}>
+      {/* Skip to main content link for accessibility */}
+      <a href={`#${MAIN_CONTENT_ID}`} className={styles.accessibility.skipLink}>
+        {content.accessibility.skipToContent}
+      </a>
       <Header
         content={content.header}
         languageSwitcher={
@@ -75,6 +80,9 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
             languages={filteredLanguages}
             onLanguageChange={setLocale}
             styles={styles.header.languageSwitcherStyles}
+            ariaLabel={`${content.accessibility.languageSwitcher} ${
+              filteredLanguages.find((l) => l.code === locale)?.label
+            }`}
           />
         }
         currencySwitcher={
@@ -83,6 +91,9 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
             currencies={filteredCurrencies}
             onCurrencyChange={(curr) => setCurrency(curr, true)}
             styles={styles.header.desktopCurrencySwitcherStyles}
+            ariaLabel={`${content.accessibility.currencySwitcher} ${
+              filteredCurrencies.find((c) => c.code === currency)?.label
+            }`}
           />
         }
         mobileCurrencySwitcher={
@@ -91,13 +102,16 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
             currencies={filteredCurrencies}
             onCurrencyChange={(curr) => setCurrency(curr, true)}
             styles={styles.header.mobileCurrencySwitcherStyles}
+            ariaLabel={`${content.accessibility.currencySwitcher} ${
+              filteredCurrencies.find((c) => c.code === currency)?.label
+            }`}
           />
         }
         currentLanguage={locale}
         languages={filteredLanguages}
         onLanguageChange={(lang) => setLocale(lang as Locale)}
       />
-      <div className={styles.layout.container}>
+      <div id={MAIN_CONTENT_ID} className={styles.layout.container}>
         <PriceConversionNotice
           isLoading={isLoading}
           error={error}

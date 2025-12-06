@@ -1,6 +1,6 @@
 import { useMemo, useState, useRef, ReactNode } from 'react';
 import clsx from 'clsx';
-import { CURRENCY_SWITCHER_STYLES } from './utils';
+import { CURRENCY_SWITCHER_STYLES, CURRENCY_SWITCHER_DEFAULTS } from './utils';
 import { DefaultChevronIcon } from '../svg-icons';
 import { CurrencyOption, useClickOutside } from '@webbitstudio/shared-utils';
 
@@ -10,6 +10,11 @@ export interface CurrencySwitcherProps<T = string> {
   onCurrencyChange: (currency: T) => void;
   chevronIcon?: ReactNode;
   styles?: Partial<typeof CURRENCY_SWITCHER_STYLES>;
+  /**
+   * Optional aria-label for the button. If not provided, falls back to a default English label.
+   * For proper localization, this should be provided by the parent component.
+   */
+  ariaLabel?: string;
 }
 
 export const CurrencySwitcher = <T extends string = string>({
@@ -18,6 +23,7 @@ export const CurrencySwitcher = <T extends string = string>({
   onCurrencyChange,
   chevronIcon,
   styles = {},
+  ariaLabel,
 }: CurrencySwitcherProps<T>) => {
   const mergedStyles = { ...CURRENCY_SWITCHER_STYLES, ...styles };
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +48,10 @@ export const CurrencySwitcher = <T extends string = string>({
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-haspopup="true"
+          aria-label={
+            ariaLabel ||
+            `${CURRENCY_SWITCHER_DEFAULTS.ARIA_LABEL} ${currentOption.label}`
+          }
         >
           <span className={mergedStyles.SYMBOL}>{currentOption.symbol}</span>
           <span className={mergedStyles.LABEL}>{currentOption.code}</span>

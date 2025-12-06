@@ -23,7 +23,7 @@ export const header = {
     iconText: 'text-lg font-bold tracking-tight',
     textContainer: 'flex flex-col items-start ms-2',
     title: 'text-base font-semibold tracking-tight leading-tight text-start',
-    subtitle: 'text-xs text-slate-400 leading-tight text-start',
+    subtitle: 'text-xs text-slate-300 leading-tight text-start',
   },
   nav: {
     root: 'hidden items-center gap-8 text-sm text-slate-300 md:flex',
@@ -95,7 +95,7 @@ export const header = {
       'flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-800/50 px-3 py-2 text-sm transition-all hover:border-sky-500 hover:bg-slate-800',
     LABEL: 'text-sm text-slate-300',
     SYMBOL: 'text-base',
-    CHEVRON_ICON: 'w-4 h-4 text-slate-400',
+    CHEVRON_ICON: 'w-4 h-4 text-slate-300',
     MENU_ITEMS:
       'absolute right-0 mt-2 w-24 origin-top-right bg-slate-900/95 border border-slate-700 rounded-xl backdrop-blur-xl shadow-xl focus:outline-none overflow-hidden z-[1001] transform-gpu',
     MENU_ITEM_BUTTON:
@@ -226,7 +226,7 @@ export const hero = {
 
 // Tech Strip Styles
 export const techStrip = {
-  root: 'border-y border-slate-800 py-6 text-xs text-slate-400 sm:text-sm',
+  root: 'border-y border-slate-800 py-6 text-xs text-slate-300 sm:text-sm',
   container: 'flex flex-wrap items-center justify-between gap-3',
   badges:
     'flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-wide text-slate-500',
@@ -247,9 +247,9 @@ export const form = {
   grid: 'grid gap-3 sm:grid-cols-2',
   fieldContainer: 'space-y-1',
   input:
-    'w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500',
+    'w-full rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400',
   textarea:
-    'w-full resize-none rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500',
+    'w-full resize-none rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400',
   select:
     'w-full appearance-none rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 pr-10 text-xs text-slate-100 placeholder:text-slate-500 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500 [&::-ms-expand]:hidden',
   selectWrapper: 'relative',
@@ -259,7 +259,7 @@ export const form = {
   error: 'mt-1 text-xs text-red-400',
   emailFallback:
     'mt-4 flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-800/30 px-3 py-2.5 text-[11px] text-slate-300',
-  emailFallbackIcon: 'h-4 w-4 flex-shrink-0 text-slate-400',
+  emailFallbackIcon: 'h-4 w-4 flex-shrink-0 text-slate-300',
   emailFallbackLink:
     'text-sky-400 hover:text-sky-300 transition-colors underline decoration-sky-400/30 hover:decoration-sky-300',
 } as const;
@@ -268,8 +268,8 @@ export const form = {
 export const customSelect = {
   wrapper: 'relative',
   trigger:
-    'flex w-full items-center justify-between rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 transition-colors hover:border-slate-600 focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-500',
-  icon: 'ml-2 h-4 w-4 flex-shrink-0 text-slate-400',
+    'flex w-full items-center justify-between rounded-xl border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs text-slate-100 transition-colors hover:border-slate-600 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400',
+  icon: 'ml-2 h-4 w-4 flex-shrink-0 text-slate-300',
   menu: 'absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-xl border border-slate-700 bg-slate-900 py-1 shadow-xl shadow-black/20',
   option:
     'flex cursor-pointer items-center px-3 py-2.5 text-xs text-slate-200 transition-colors hover:bg-slate-800 hover:text-slate-50',
@@ -281,12 +281,12 @@ export const packageCard = {
   contentWrapper: 'md:min-h-[420px]',
   header: 'mb-3 flex items-start justify-between gap-2',
   tagline: 'text-xs font-medium text-slate-300 sm:text-sm',
-  description: 'mt-2 text-xs text-slate-400 sm:text-sm',
+  description: 'mt-2 text-xs text-slate-300 sm:text-sm',
   pricing: 'mt-5 border-t border-slate-800 pt-4 text-sm',
-  priceLabel: 'text-xs uppercase tracking-wide text-slate-400',
+  priceLabel: 'text-xs uppercase tracking-wide text-slate-300',
   priceAmount: 'text-base font-semibold',
-  priceRange: 'mt-1 text-xs text-slate-400',
-  priceNote: 'mt-1 text-[11px] text-slate-500',
+  priceRange: 'mt-1 text-xs text-slate-300',
+  priceNote: 'mt-1 text-[11px] text-slate-400',
   cta: 'mt-4 flex flex-1 items-end',
 } as const;
 
@@ -303,20 +303,20 @@ export const faq = {
   summary:
     'flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-medium text-slate-100',
   answer: 'mt-2 text-xs text-slate-300 sm:text-sm',
-  icon: 'text-xs text-slate-400 group-open:hidden',
-  iconOpen: 'hidden text-xs text-slate-400 group-open:inline',
+  icon: 'text-xs text-slate-300 group-open:hidden',
+  iconOpen: 'hidden text-xs text-slate-300 group-open:inline',
 } as const;
 
 // Pricing Styles
 export const pricing = {
   container:
     'mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between',
-  sideNote: 'text-xs text-slate-400 sm:text-sm',
+  sideNote: 'text-xs text-slate-300 sm:text-sm',
   list: 'space-y-4 text-sm text-slate-200',
   item: 'mt-1',
-  label: 'text-xs uppercase tracking-wide text-slate-400',
+  label: 'text-xs uppercase tracking-wide text-slate-300',
   amount: 'font-semibold',
-  note: 'mt-1 text-xs text-slate-400',
+  note: 'mt-1 text-xs text-slate-300',
   regionalBox: {
     title: 'text-sm font-semibold text-slate-50 sm:text-base',
     text: 'mt-2 text-xs text-slate-300 sm:text-sm',
@@ -413,4 +413,10 @@ export const rtl = {
     3: 'pe-3',
     4: 'pe-4',
   },
+} as const;
+
+// Accessibility Styles
+export const accessibility = {
+  skipLink:
+    'absolute left-4 top-4 z-[9999] -translate-y-20 rounded-lg bg-sky-500 px-4 py-2 text-sm font-semibold text-white shadow-lg focus:translate-y-0 focus:outline-none focus:ring-4 focus:ring-sky-300',
 } as const;

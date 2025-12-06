@@ -334,6 +334,13 @@ export const en = {
       warning: 'Warning',
     },
   },
+
+  // Accessibility
+  accessibility: {
+    skipToContent: 'Skip to main content',
+    languageSwitcher: 'Select language. Current language:',
+    currencySwitcher: 'Select currency. Current currency:',
+  },
 };
 
 export type LocaleStrings = typeof en;

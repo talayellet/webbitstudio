@@ -340,4 +340,11 @@ export const fr: LocaleStrings = {
       warning: 'Avertissement',
     },
   },
+
+  // Accessibility
+  accessibility: {
+    skipToContent: 'Passer au contenu principal',
+    languageSwitcher: 'Sélectionner la langue. Langue actuelle:',
+    currencySwitcher: 'Sélectionner la devise. Devise actuelle:',
+  },
 };

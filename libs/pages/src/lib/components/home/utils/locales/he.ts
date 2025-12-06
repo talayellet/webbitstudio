@@ -326,10 +326,17 @@ export const he: LocaleStrings = {
 
   // Price Conversion Notice
   priceConversionNotice: {
-    error: 'המרת מטבע לא זמינה. המחירים מוצגים בדולרים.',
+    error: 'המרת מטבע לא זמינה. מחירים מוצגים בדולר.',
     loading: 'ממיר מחירים ל-{currency}...',
     ariaLabels: {
       warning: 'אזהרה',
     },
+  },
+
+  // Accessibility
+  accessibility: {
+    skipToContent: 'דלג לתוכן הראשי',
+    languageSwitcher: 'בחר שפה. שפה נוכחית:',
+    currencySwitcher: 'בחר מטבע. מטבע נוכחי:',
   },
 };

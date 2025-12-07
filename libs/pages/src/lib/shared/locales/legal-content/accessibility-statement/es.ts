@@ -20,7 +20,7 @@ export const accessibilityStatementEs: AccessibilityStatementContent = {
       standard: 'WCAG 2.1',
       standardLabel: 'Estándar:',
       level:
-        'Este sitio web es parcialmente conforme con WCAG 2.1 Nivel AA. Parcialmente conforme significa que algunas partes del contenido no cumplen completamente con el estándar de accesibilidad.',
+        'Este sitio web es parcialmente conforme con WCAG 2.1 Nivel AA. Parcialmente conforme significa que algunas partes del contenido no cumplen completamente con el estándar de accesibilidad. Las no conformidades específicas se detallan en la sección "No Conformidades Conocidas" a continuación. Como un equipo pequeño con recursos limitados, no podemos proporcionar fechas específicas de remediación para todos los problemas conocidos. Sin embargo, estamos comprometidos con la mejora continua y revisamos y priorizamos regularmente las mejoras de accesibilidad en función del impacto y los comentarios de los usuarios.',
     },
     features: {
       title: 'Características de Accesibilidad',
@@ -40,13 +40,15 @@ export const accessibilityStatementEs: AccessibilityStatementContent = {
       ],
     },
     knownIssues: {
-      title: 'Limitaciones Conocidas',
+      title: 'No Conformidades Conocidas',
       content:
-        'A pesar de nuestros mejores esfuerzos, pueden existir algunas limitaciones. Los problemas conocidos incluyen:',
+        'Somos transparentes sobre los problemas de accesibilidad que conocemos. Se conocen las siguientes no conformidades:',
       items: [
-        'Algún contenido integrado de terceros puede no ser completamente accesible',
-        'Las visualizaciones de datos complejas pueden requerir descripciones adicionales para lectores de pantalla',
-        'Algunas animaciones no se pueden deshabilitar (trabajando en soporte para prefers-reduced-motion)',
+        'Las animaciones y transiciones no respetan la configuración prefers-reduced-motion (WCAG 2.3.3) - Afecta a usuarios con trastornos vestibulares. Motivo: Requiere actualizaciones de arquitectura CSS. Solución: Contáctenos para obtener una versión estática del sitio.',
+        'Algunos mensajes de error de formularios no están asociados programáticamente con sus campos (WCAG 3.3.1) - Los usuarios de lectores de pantalla pueden no ser notificados inmediatamente de errores. Motivo: Arquitectura de componentes de formulario heredada. Solución: Los mensajes de error aparecen directamente debajo de los campos afectados.',
+        'Los iconos SVG decorativos pueden ser anunciados por algunos lectores de pantalla (WCAG 1.1.1) - Puede causar confusión menor pero no bloquea la funcionalidad. Motivo: Actualizaciones incrementales de la biblioteca de iconos en progreso.',
+        'Los cuadros de diálogo modales no atrapan el foco del teclado (WCAG 2.4.3) - Los usuarios de teclado pueden tabular al contenido detrás de los modales. Motivo: La gestión del foco requiere refactorización de JavaScript. Solución: Use la tecla ESC o el botón de cerrar.',
+        'Algunas combinaciones de colores pueden no cumplir con los requisitos mínimos de contraste (WCAG 1.4.3) - Afecta principalmente al texto de marcador de posición. Motivo: El sistema de diseño se está actualizando.',
       ],
     },
     feedback: {

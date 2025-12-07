@@ -20,7 +20,7 @@ export const accessibilityStatementDe: AccessibilityStatementContent = {
       standard: 'WCAG 2.1',
       standardLabel: 'Standard:',
       level:
-        'Diese Website ist teilweise konform mit WCAG 2.1 Level AA. Teilweise konform bedeutet, dass einige Teile des Inhalts nicht vollständig dem Barrierefreiheitsstandard entsprechen.',
+        'Diese Website ist teilweise konform mit WCAG 2.1 Level AA. Teilweise konform bedeutet, dass einige Teile des Inhalts nicht vollständig dem Barrierefreiheitsstandard entsprechen. Spezifische Nicht-Konformitäten sind im Abschnitt "Bekannte Nicht-Konformitäten" unten aufgeführt. Als kleines Team mit begrenzten Ressourcen können wir keine spezifischen Behebungstermine für alle bekannten Probleme angeben. Wir sind jedoch der kontinuierlichen Verbesserung verpflichtet und überprüfen und priorisieren regelmäßig Barrierefreiheitsverbesserungen basierend auf Benutzerauswirkungen und Feedback.',
     },
     features: {
       title: 'Barrierefreiheitsfunktionen',
@@ -40,13 +40,15 @@ export const accessibilityStatementDe: AccessibilityStatementContent = {
       ],
     },
     knownIssues: {
-      title: 'Bekannte Einschränkungen',
+      title: 'Bekannte Nicht-Konformitäten',
       content:
-        'Trotz unserer besten Bemühungen können einige Einschränkungen bestehen. Bekannte Probleme umfassen:',
+        'Wir sind transparent über Barrierefreiheitsprobleme, die uns bekannt sind. Folgende Nicht-Konformitäten sind bekannt:',
       items: [
-        'Einige eingebettete Inhalte von Drittanbietern sind möglicherweise nicht vollständig barrierefrei',
-        'Komplexe Datenvisualisierungen erfordern möglicherweise zusätzliche Screenreader-Beschreibungen',
-        'Einige Animationen können nicht deaktiviert werden (Arbeit an prefers-reduced-motion Unterstützung)',
+        'Animationen und Übergänge respektieren keine prefers-reduced-motion-Einstellungen (WCAG 2.3.3) - Betrifft Benutzer mit vestibulären Störungen. Grund: Erfordert CSS-Architektur-Updates. Workaround: Kontaktieren Sie uns für eine statische Version der Website.',
+        'Einige Formularfehlermeldungen sind nicht programmatisch mit ihren Feldern verknüpft (WCAG 3.3.1) - Screenreader-Benutzer werden möglicherweise nicht sofort über Fehler informiert. Grund: Legacy-Formularkomponenten-Architektur. Workaround: Fehlermeldungen erscheinen direkt unter den betroffenen Feldern.',
+        'Dekorative SVG-Icons können von einigen Screenreadern angekündigt werden (WCAG 1.1.1) - Kann zu geringfügiger Verwirrung führen, blockiert aber keine Funktionalität. Grund: Schrittweise Icon-Bibliothek-Updates in Arbeit.',
+        'Modale Dialoge fangen keinen Tastaturfokus ein (WCAG 2.4.3) - Tastaturbenutzer können zu Inhalten hinter Modalen tabben. Grund: Fokus-Management erfordert JavaScript-Refactoring. Workaround: Verwenden Sie die ESC-Taste oder die Schließen-Schaltfläche.',
+        'Einige Farbkombinationen erfüllen möglicherweise nicht die Mindestanforderungen an den Kontrast (WCAG 1.4.3) - Betrifft hauptsächlich Platzhaltertext. Grund: Design-System wird aktualisiert.',
       ],
     },
     feedback: {

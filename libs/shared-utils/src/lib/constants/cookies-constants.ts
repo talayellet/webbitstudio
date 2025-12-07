@@ -6,6 +6,12 @@ import type { CookiePreferences } from '../types';
 export const COOKIE_CONSENT_CHANGED_EVENT = 'cookieConsentChanged' as const;
 
 /**
+ * Custom event name dispatched to force banner to show (e.g., when manage preferences is clicked)
+ */
+export const COOKIE_CONSENT_SHOW_BANNER_EVENT =
+  'cookie-consent-show-banner' as const;
+
+/**
  * LocalStorage key for storing granular cookie preferences
  */
 export const COOKIE_PREFERENCES_STORAGE_KEY =

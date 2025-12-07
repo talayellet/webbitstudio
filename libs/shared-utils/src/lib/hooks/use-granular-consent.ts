@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
   COOKIE_CONSENT_CHANGED_EVENT,
+  COOKIE_CONSENT_SHOW_BANNER_EVENT,
   COOKIE_PREFERENCES_STORAGE_KEY,
   DEFAULT_PREFERENCES,
 } from '../constants';
@@ -166,6 +167,8 @@ export const useGranularConsent = (): UseGranularConsentResponse => {
       setPreferences(DEFAULT_PREFERENCES);
       setIsVisible(true);
       window.dispatchEvent(new Event(COOKIE_CONSENT_CHANGED_EVENT));
+      // Dispatch custom event to force banner to show even if temporarily dismissed
+      window.dispatchEvent(new Event(COOKIE_CONSENT_SHOW_BANNER_EVENT));
     }
   }, []);
 

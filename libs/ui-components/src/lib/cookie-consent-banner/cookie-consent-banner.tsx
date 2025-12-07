@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import { useGranularConsent } from '@webbitstudio/shared-utils';
+import {
+  useGranularConsent,
+  COOKIE_CONSENT_SHOW_BANNER_EVENT,
+} from '@webbitstudio/shared-utils';
 import { COOKIE_CONSENT_BANNER_STYLES, type CookieCategoryInfo } from './utils';
 import { ConsentButtons, CookiesPreferencesPanel } from './components';
 import { CloseIcon } from '../svg-icons';
@@ -95,12 +98,24 @@ export const CookieConsentBanner = ({
   const [showPreferences, setShowPreferences] = useState(false);
   const [temporarilyDismissed, setTemporarilyDismissed] = useState(false);
 
-  // Reset temporary dismissal and preferences panel when isVisible changes
+  // Listen for custom event to show banner
   useEffect(() => {
-    if (isVisible) {
+    const handleShowBanner = () => {
       setTemporarilyDismissed(false);
       setShowPreferences(false);
-    }
+    };
+
+    window.addEventListener(COOKIE_CONSENT_SHOW_BANNER_EVENT, handleShowBanner);
+    return () =>
+      window.removeEventListener(
+        COOKIE_CONSENT_SHOW_BANNER_EVENT,
+        handleShowBanner
+      );
+  }, []);
+
+  // Reset preferences panel when isVisible changes
+  useEffect(() => {
+    setShowPreferences(false);
   }, [isVisible]);
 
   if (!isVisible || temporarilyDismissed) {

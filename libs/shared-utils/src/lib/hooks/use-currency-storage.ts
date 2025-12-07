@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import {
-  CURRENCY_STORAGE_KEY,
-  CURRENCY_USER_SELECTED_KEY,
-  WEBBIT_CURRENCY,
-  type WebbitCurrency,
-} from '../types';
+import { CURRENCY_CODES, type CurrencyCode } from '../types';
+import { CURRENCY_STORAGE_KEY, CURRENCY_USER_SELECTED_KEY } from '../constants';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -16,22 +12,19 @@ const isBrowser = typeof window !== 'undefined';
  * @returns Object with currency state and setter function
  */
 export const useCurrencyStorage = () => {
-  const [currency, setCurrencyState] = useState<WebbitCurrency>(() => {
+  const [currency, setCurrencyState] = useState<CurrencyCode>(() => {
     if (isBrowser) {
       const stored = window.localStorage.getItem(
         CURRENCY_STORAGE_KEY
-      ) as WebbitCurrency | null;
-      if (stored && Object.values(WEBBIT_CURRENCY).includes(stored)) {
+      ) as CurrencyCode | null;
+      if (stored && Object.values(CURRENCY_CODES).includes(stored)) {
         return stored;
       }
     }
-    return WEBBIT_CURRENCY.USD;
+    return CURRENCY_CODES.USD;
   });
 
-  const setCurrency = (
-    newCurrency: WebbitCurrency,
-    isUserSelection = false
-  ) => {
+  const setCurrency = (newCurrency: CurrencyCode, isUserSelection = false) => {
     setCurrencyState(newCurrency);
 
     // Only persist to localStorage if it's a user selection

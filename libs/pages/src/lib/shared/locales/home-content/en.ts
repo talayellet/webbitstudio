@@ -353,10 +353,31 @@ export const en = {
   // Cookie Consent
   cookieConsent: {
     message:
-      'We use cookies to improve your experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies.',
+      'We use cookies to improve your experience and analyze site traffic. You can customize your preferences or accept/reject all cookies.',
     acceptButton: 'Accept',
     rejectButton: 'Reject',
+    customizeButton: 'Customize',
+    savePreferencesButton: 'Save',
+    preferencesTitle: 'Cookie Preferences',
+    categoriesGroupLabel: 'Cookie categories',
     privacyPolicyLink: 'Learn more',
+    categories: {
+      essential: {
+        label: 'Essential Cookies',
+        description:
+          'Required for the website to function. These cannot be disabled.',
+      },
+      analytics: {
+        label: 'Analytics Cookies',
+        description:
+          'Help us understand how visitors interact with our website.',
+      },
+      marketing: {
+        label: 'Marketing Cookies',
+        description:
+          'Used to deliver personalized advertisements relevant to you.',
+      },
+    },
   },
 };
 

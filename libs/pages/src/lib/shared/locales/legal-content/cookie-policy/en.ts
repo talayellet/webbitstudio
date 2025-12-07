@@ -29,11 +29,12 @@ export const cookiePolicyEn: CookiePolicyContent = {
       essential: {
         title: 'Essential Cookies',
         description:
-          'These cookies are strictly necessary to provide you with services available through our website and to use some of its features.',
+          'These cookies are strictly necessary to provide you with services available through our website and to use some of its features. We also use your approximate location (country-level only) to automatically suggest the most appropriate language and currency for you.',
         examples: [
           'Cookie consent preferences',
           'Language preferences',
           'Currency selection',
+          'Country detection for localization (IP-based, no tracking)',
         ],
       },
       analytics: {

@@ -27,13 +27,14 @@ export const cookiePolicyEs: CookiePolicyContent = {
     typesOfCookies: {
       title: '4. Tipos de Cookies que Utilizamos',
       essential: {
-        title: 'Cookies Esenciales',
+        title: 'Cookies esenciales',
         description:
-          'Estas cookies son estrictamente necesarias para proporcionarle servicios disponibles a través de nuestro sitio web y para utilizar algunas de sus funciones.',
+          'Estas cookies son estrictamente necesarias para proporcionarle servicios disponibles a través de nuestro sitio web y para utilizar algunas de sus funciones. También utilizamos su ubicación aproximada (solo a nivel de país) para sugerir automáticamente el idioma y la moneda más apropiados para usted.',
         examples: [
           'Preferencias de consentimiento de cookies',
           'Preferencias de idioma',
           'Selección de moneda',
+          'Detección de país para localización (basada en IP, sin seguimiento)',
         ],
       },
       analytics: {

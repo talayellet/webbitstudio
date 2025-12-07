@@ -1,7 +1,7 @@
 import * as packagesSectionStyles from '../utils/styles';
 import type { LocaleStrings } from '../../../shared';
 import { convertPriceRange, PACKAGES_SECTION } from '../utils';
-import { usePriceConverter } from '../hooks';
+import { usePriceConverter } from '@webbitstudio/data-access';
 
 interface PackagesSectionProps {
   content: LocaleStrings['packagesSection'];

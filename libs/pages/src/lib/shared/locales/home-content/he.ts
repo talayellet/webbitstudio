@@ -350,9 +350,27 @@ export const he: LocaleStrings = {
   // Cookie Consent
   cookieConsent: {
     message:
-      'אנו משתמשים בעוגיות כדי לשפר את החוויה שלך ולנתח את תנועת האתר. בלחיצה על "אישור", אתה מסכים לשימוש שלנו בעוגיות.',
+      'אנו משתמשים בעוגיות כדי לשפר את החוויה שלך ולנתח את תנועת האתר. תוכל להתאים אישית את ההעדפות שלך או לקבל/לדחות את כל העוגיות.',
     acceptButton: 'אישור',
     rejectButton: 'סירוב',
+    customizeButton: 'התאם',
+    savePreferencesButton: 'שמור',
+    preferencesTitle: 'העדפות עוגיות',
+    categoriesGroupLabel: 'קטגוריות עוגיות',
     privacyPolicyLink: 'מידע נוסף',
+    categories: {
+      essential: {
+        label: 'עוגיות חיוניות',
+        description: 'נדרשות לתפקוד האתר. לא ניתן לבטל אותן.',
+      },
+      analytics: {
+        label: 'עוגיות ניתוח',
+        description: 'עוזרות לנו להבין כיצד מבקרים מתקשרים עם האתר שלנו.',
+      },
+      marketing: {
+        label: 'עוגיות שיווק',
+        description: 'משמשות להצגת פרסומות מותאמות אישית רלוונטיות לך.',
+      },
+    },
   },
 };

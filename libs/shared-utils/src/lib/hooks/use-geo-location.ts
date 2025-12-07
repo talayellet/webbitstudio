@@ -16,6 +16,17 @@ import {
  * Custom hook to fetch and cache user's geolocation data
  * Uses TanStack Query for automatic caching, refetching, and request deduplication
  *
+ * This request is considered ESSENTIAL for website functionality as it enables:
+ * - Automatic language selection for better user experience
+ * - Appropriate currency display
+ * - Country-specific content and formatting
+ *
+ * No consent required under GDPR Article 6(1)(f) - Legitimate Interest:
+ * - Only country-level detection (not precise location)
+ * - No tracking or profiling of users
+ * - Documented in cookie/privacy policy
+ * - Essential for core website functionality
+ *
  * @returns Query result with user's country code or UNKNOWN_COUNTRY if detection fails
  *
  * @example

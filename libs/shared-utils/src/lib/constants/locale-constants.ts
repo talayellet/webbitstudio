@@ -1,7 +1,9 @@
 import {
   COUNTRY_CODES,
+  CURRENCY_CODES,
   ISO_COUNTRY_CODES,
   type CountryCode,
+  type CurrencyCode,
   type LanguageFilter,
 } from '../types';
 
@@ -73,3 +75,28 @@ export const LOCALE_STORAGE_KEY = 'webbit-locale' as const;
  * Languages that should render text and layout from right to left
  */
 export const RTL_LOCALES: readonly CountryCode[] = [COUNTRY_CODES.HE];
+
+/**
+ * Mapping of locale code variations to normalized locale codes
+ * Handles legacy codes (e.g., 'iw' for Hebrew) and common variations
+ */
+export const LOCALE_CODE_MAPPING: Record<string, CountryCode> = {
+  [COUNTRY_CODES.HE]: COUNTRY_CODES.HE, // Hebrew
+  iw: COUNTRY_CODES.HE, // Hebrew (legacy code)
+  [COUNTRY_CODES.EN]: COUNTRY_CODES.EN, // English
+  [COUNTRY_CODES.FR]: COUNTRY_CODES.FR, // French
+  [COUNTRY_CODES.DE]: COUNTRY_CODES.DE, // German
+  [COUNTRY_CODES.ES]: COUNTRY_CODES.ES, // Spanish
+};
+
+/**
+ * Default currency mapping by language code
+ * Used when geolocation is not available or user hasn't consented yet
+ */
+export const LANGUAGE_CURRENCY_MAP: Record<CountryCode, CurrencyCode> = {
+  [COUNTRY_CODES.HE]: CURRENCY_CODES.ILS, // Hebrew → Israeli Shekel
+  [COUNTRY_CODES.EN]: CURRENCY_CODES.USD, // English → US Dollar
+  [COUNTRY_CODES.FR]: CURRENCY_CODES.EUR, // French → Euro
+  [COUNTRY_CODES.DE]: CURRENCY_CODES.EUR, // German → Euro
+  [COUNTRY_CODES.ES]: CURRENCY_CODES.EUR, // Spanish → Euro
+};

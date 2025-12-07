@@ -360,9 +360,30 @@ export const es: LocaleStrings = {
   // Cookie Consent
   cookieConsent: {
     message:
-      'Utilizamos cookies para mejorar su experiencia y analizar el tráfico del sitio. Al hacer clic en "Aceptar", usted acepta nuestro uso de cookies.',
+      'Utilizamos cookies para mejorar su experiencia y analizar el tráfico del sitio. Puede personalizar sus preferencias o aceptar/rechazar todas las cookies.',
     acceptButton: 'Aceptar',
     rejectButton: 'Rechazar',
+    customizeButton: 'Personalizar',
+    savePreferencesButton: 'Guardar',
+    preferencesTitle: 'Preferencias de cookies',
+    categoriesGroupLabel: 'Categorías de cookies',
     privacyPolicyLink: 'Más información',
+    categories: {
+      essential: {
+        label: 'Cookies esenciales',
+        description:
+          'Necesarias para que el sitio web funcione. No se pueden desactivar.',
+      },
+      analytics: {
+        label: 'Cookies analíticas',
+        description:
+          'Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web.',
+      },
+      marketing: {
+        label: 'Cookies de marketing',
+        description:
+          'Utilizadas para mostrar publicidad personalizada relevante para usted.',
+      },
+    },
   },
 };

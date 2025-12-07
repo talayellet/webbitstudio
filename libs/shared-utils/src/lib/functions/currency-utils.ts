@@ -1,5 +1,5 @@
 import {
-  WEBBIT_CURRENCY,
+  CURRENCY_CODES,
   CurrencyConversionProps,
   PriceFormattingProps,
   PriceConversionProps,
@@ -21,11 +21,9 @@ export const convertCurrency = ({
 
   // If base is not USD, convert through USD
   const amountInBase =
-    fromCurrency === WEBBIT_CURRENCY.USD
-      ? amount
-      : amount / rates[fromCurrency];
+    fromCurrency === CURRENCY_CODES.USD ? amount : amount / rates[fromCurrency];
   const convertedAmount =
-    toCurrency === WEBBIT_CURRENCY.USD
+    toCurrency === CURRENCY_CODES.USD
       ? amountInBase
       : amountInBase * rates[toCurrency];
 
@@ -80,7 +78,7 @@ export const convertPriceString = ({
   // Assume source is USD (since that's our base currency in locale files)
   const convertedAmount = convertCurrency({
     amount: numericPrice,
-    fromCurrency: WEBBIT_CURRENCY.USD,
+    fromCurrency: CURRENCY_CODES.USD,
     toCurrency: targetCurrency,
     rates,
   });

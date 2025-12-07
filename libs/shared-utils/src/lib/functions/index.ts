@@ -4,3 +4,4 @@ export * from './sanitize-input-utils';
 export * from './get-default-currency-for-country';
 export * from './get-default-language-for-country';
 export * from './generate-unique-id';
+export * from './to-error';

@@ -7,4 +7,7 @@ export * from './use-currency-storage';
 export * from './use-geo-based-currency';
 export * from './use-scroll-to-top';
 export * from './use-scroll-into-view';
-export * from './use-local-storage-consent';
+export * from './use-granular-consent';
+export * from './use-has-consent-decision';
+export * from './use-browser-locale';
+export * from './use-locale-from-browser';

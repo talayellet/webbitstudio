@@ -1,4 +1,4 @@
-import { WEBBIT_CURRENCY } from '@webbitstudio/shared-utils';
+import { CURRENCY_CODES } from '@webbitstudio/shared-utils';
 import * as priceConversionNoticeStyles from '../utils/styles';
 import type { LocaleStrings } from '../../../shared';
 import clsx from 'clsx';
@@ -20,7 +20,7 @@ export const PriceConversionNotice = ({
   currency,
   content,
 }: PriceConversionNoticeProps) => {
-  if (currency === WEBBIT_CURRENCY.USD) {
+  if (currency === CURRENCY_CODES.USD) {
     return null;
   }
 

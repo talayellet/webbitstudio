@@ -13,14 +13,6 @@ export interface FAQ {
   answer: string;
 }
 
-export interface ConvertedPrice {
-  original: string;
-  converted: string;
-  isConverted: boolean;
-  isLoading: boolean;
-  error: Error | null;
-}
-
 export interface ContactFormData extends Record<string, string | undefined> {
   name: string;
   email: string;

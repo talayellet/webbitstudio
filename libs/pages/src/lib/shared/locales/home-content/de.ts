@@ -361,9 +361,30 @@ export const de: LocaleStrings = {
   // Cookie Consent
   cookieConsent: {
     message:
-      'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und den Website-Verkehr zu analysieren. Durch Klicken auf "Akzeptieren" stimmen Sie der Verwendung von Cookies zu.',
+      'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und den Website-Verkehr zu analysieren. Sie können Ihre Einstellungen anpassen oder alle Cookies akzeptieren/ablehnen.',
     acceptButton: 'Akzeptieren',
     rejectButton: 'Ablehnen',
+    customizeButton: 'Anpassen',
+    savePreferencesButton: 'Speichern',
+    preferencesTitle: 'Cookie-Einstellungen',
+    categoriesGroupLabel: 'Cookie-Kategorien',
     privacyPolicyLink: 'Mehr erfahren',
+    categories: {
+      essential: {
+        label: 'Notwendige Cookies',
+        description:
+          'Erforderlich für die Funktion der Website. Diese können nicht deaktiviert werden.',
+      },
+      analytics: {
+        label: 'Analyse-Cookies',
+        description:
+          'Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.',
+      },
+      marketing: {
+        label: 'Marketing-Cookies',
+        description:
+          'Werden verwendet, um personalisierte Werbung anzuzeigen, die für Sie relevant ist.',
+      },
+    },
   },
 };

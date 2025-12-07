@@ -8,7 +8,6 @@ import {
   useGeoFilteredCurrencies,
   DEFAULT_LANGUAGE_FILTERS,
   DEFAULT_CURRENCY_FILTERS,
-  COOKIE_CONSENT_STORAGE_KEY,
   type CountryCode,
 } from '@webbitstudio/shared-utils';
 import {
@@ -100,9 +99,13 @@ export const SinglePageLayout = ({ children }: SinglePageLayoutProps) => {
         message={content.cookieConsent.message}
         acceptButtonText={content.cookieConsent.acceptButton}
         rejectButtonText={content.cookieConsent.rejectButton}
+        customizeButtonText={content.cookieConsent.customizeButton}
+        savePreferencesButtonText={content.cookieConsent.savePreferencesButton}
+        preferencesTitle={content.cookieConsent.preferencesTitle}
+        categoriesGroupLabel={content.cookieConsent.categoriesGroupLabel}
+        categories={content.cookieConsent.categories}
         privacyPolicyText={content.cookieConsent.privacyPolicyLink}
         privacyPolicyLink="/privacy-policy"
-        storageKey={COOKIE_CONSENT_STORAGE_KEY}
       />
     </div>
   );

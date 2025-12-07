@@ -1,4 +1,4 @@
-import type { ConvertedPrice } from '../../../../shared';
+import type { ConvertedPrice } from '@webbitstudio/shared-utils';
 
 /**
  * Converts a price range string (e.g., "$249–$399") to the target currency

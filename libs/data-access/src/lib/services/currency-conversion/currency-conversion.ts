@@ -1,4 +1,4 @@
-import { WEBBIT_CURRENCY } from '@webbitstudio/shared-utils';
+import { CURRENCY_CODES } from '@webbitstudio/shared-utils';
 import { ENDPOINTS } from '../../utils';
 import { EXCHANGE_RATES_ERROR, ExchangeRateResponse } from './utils';
 
@@ -6,7 +6,7 @@ import { EXCHANGE_RATES_ERROR, ExchangeRateResponse } from './utils';
  * Fetch exchange rates from USD to all currencies
  */
 export const fetchExchangeRates = async (
-  baseCurrency = WEBBIT_CURRENCY.USD
+  baseCurrency = CURRENCY_CODES.USD
 ): Promise<ExchangeRateResponse> => {
   const response = await fetch(
     `${ENDPOINTS.EXCHANGE_API_BASE_URL}/${baseCurrency}`

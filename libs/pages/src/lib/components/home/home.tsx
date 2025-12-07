@@ -17,7 +17,6 @@ import {
   WEBBIT_STUDIO_LANG_OPTIONS,
   ROUTES,
 } from '../../shared';
-import { usePriceConverter } from './hooks';
 import {
   CurrencyProvider,
   useCurrencyContext,
@@ -31,9 +30,9 @@ import {
   SENTRY_TAGS,
   DEFAULT_LANGUAGE_FILTERS,
   DEFAULT_CURRENCY_FILTERS,
-  COOKIE_CONSENT_STORAGE_KEY,
   type CountryCode,
 } from '@webbitstudio/shared-utils';
+import { usePriceConverter } from '@webbitstudio/data-access';
 import {
   LanguageSwitcher,
   CurrencySwitcher,
@@ -153,9 +152,13 @@ const HomePageContent = ({ web3formsAccessKey }: WebbitStudioHomePageProps) => {
         message={content.cookieConsent.message}
         acceptButtonText={content.cookieConsent.acceptButton}
         rejectButtonText={content.cookieConsent.rejectButton}
+        customizeButtonText={content.cookieConsent.customizeButton}
+        savePreferencesButtonText={content.cookieConsent.savePreferencesButton}
+        preferencesTitle={content.cookieConsent.preferencesTitle}
+        categoriesGroupLabel={content.cookieConsent.categoriesGroupLabel}
+        categories={content.cookieConsent.categories}
         privacyPolicyText={content.cookieConsent.privacyPolicyLink}
         privacyPolicyLink={ROUTES.PRIVACY_POLICY}
-        storageKey={COOKIE_CONSENT_STORAGE_KEY}
       />
     </div>
   );

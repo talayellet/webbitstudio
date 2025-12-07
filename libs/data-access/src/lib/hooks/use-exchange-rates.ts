@@ -1,16 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
+import { fetchExchangeRates, type ExchangeRateResponse } from '../services';
 import {
-  fetchExchangeRates,
-  type ExchangeRateResponse,
-} from '@webbitstudio/data-access';
-import { WEBBIT_CURRENCY } from '@webbitstudio/shared-utils';
-import {
+  CURRENCY_CODES,
   EXCHANGE_RATE_STALE_TIME,
   EXCHANGE_RATE_CACHE_TIME,
   RETRY_BASE_DELAY,
   RETRY_MAX_DELAY,
   RETRY_BACKOFF_MULTIPLIER,
-} from '../../../shared';
+} from '@webbitstudio/shared-utils';
 
 /**
  * Hook to fetch exchange rates with caching
@@ -18,8 +15,8 @@ import {
  */
 export const useExchangeRates = () => {
   return useQuery<ExchangeRateResponse, Error>({
-    queryKey: ['exchangeRates', WEBBIT_CURRENCY.USD],
-    queryFn: () => fetchExchangeRates(WEBBIT_CURRENCY.USD),
+    queryKey: ['exchangeRates', CURRENCY_CODES.USD],
+    queryFn: () => fetchExchangeRates(CURRENCY_CODES.USD),
     staleTime: EXCHANGE_RATE_STALE_TIME,
     gcTime: EXCHANGE_RATE_CACHE_TIME,
     retry: 2,

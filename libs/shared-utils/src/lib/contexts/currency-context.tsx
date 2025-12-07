@@ -1,11 +1,11 @@
 import React, { createContext, useContext, ReactNode } from 'react';
-import { WebbitCurrency } from '../types';
+import { CurrencyCode } from '../types';
 import { CONTEXT_ERROR_MESSAGES } from '../constants';
 import { useCurrencyStorage, useGeoBasedCurrency } from '../hooks';
 
 interface CurrencyContextValue {
-  currency: WebbitCurrency;
-  setCurrency: (currency: WebbitCurrency, isUserSelection?: boolean) => void;
+  currency: CurrencyCode;
+  setCurrency: (currency: CurrencyCode, isUserSelection?: boolean) => void;
 }
 
 const CurrencyContext = createContext<CurrencyContextValue | undefined>(

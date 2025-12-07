@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { CURRENCY_USER_SELECTED_KEY, type WebbitCurrency } from '../types';
+import { type CurrencyCode } from '../types';
 import { useGeoLocation } from './use-geo-location';
 import { getDefaultCurrencyForCountry } from '../functions';
+import { CURRENCY_USER_SELECTED_KEY } from '../constants';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -12,7 +13,7 @@ const isBrowser = typeof window !== 'undefined';
  * @param setCurrency - Function to update currency state
  */
 export const useGeoBasedCurrency = (
-  setCurrency: (currency: WebbitCurrency) => void
+  setCurrency: (currency: CurrencyCode) => void
 ) => {
   const { data: userCountry } = useGeoLocation();
 

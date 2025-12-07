@@ -3,18 +3,11 @@ import { useExchangeRates } from './use-exchange-rates';
 import {
   useCurrencyContext,
   convertPriceString,
+  toError,
   CURRENCY_SYMBOLS,
-  WEBBIT_CURRENCY,
+  CURRENCY_CODES,
+  type ConvertedPrice,
 } from '@webbitstudio/shared-utils';
-import type { ConvertedPrice } from '../../../shared';
-
-/**
- * Convert unknown error to Error instance
- */
-const toError = (err: unknown): Error => {
-  if (err instanceof Error) return err;
-  return new Error(String(err));
-};
 
 /**
  * Hook to convert prices based on selected currency
@@ -31,7 +24,7 @@ export const usePriceConverter = () => {
   const convertPrice = useCallback(
     (priceString: string): ConvertedPrice => {
       // If USD or no conversion needed
-      if (currency === WEBBIT_CURRENCY.USD) {
+      if (currency === CURRENCY_CODES.USD) {
         return {
           original: priceString,
           converted: priceString,

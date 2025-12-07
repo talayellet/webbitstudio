@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
-  COOKIES_CONSENT_VALUE,
   COOKIE_CONSENT_CHANGED_EVENT,
-  COOKIE_CONSENT_STORAGE_KEY,
+  COOKIE_PREFERENCES_STORAGE_KEY,
+  type CookiePreferences,
 } from '@webbitstudio/shared-utils';
 
 interface UmamiEventData {
@@ -23,8 +23,17 @@ export const useAnalyticsConsent = () => {
 
   useEffect(() => {
     const checkConsent = () => {
-      const consent = localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY);
-      setHasConsent(consent === COOKIES_CONSENT_VALUE.ACCEPTED);
+      const stored = localStorage.getItem(COOKIE_PREFERENCES_STORAGE_KEY);
+      if (stored) {
+        try {
+          const preferences = JSON.parse(stored) as CookiePreferences;
+          setHasConsent(preferences.analytics === true);
+        } catch {
+          setHasConsent(false);
+        }
+      } else {
+        setHasConsent(false);
+      }
     };
 
     // Check initially

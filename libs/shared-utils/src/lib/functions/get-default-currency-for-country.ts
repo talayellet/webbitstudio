@@ -1,8 +1,4 @@
-import {
-  WEBBIT_CURRENCY,
-  type WebbitCurrency,
-  ISO_COUNTRY_CODES,
-} from '../types';
+import { CURRENCY_CODES, type CurrencyCode, ISO_COUNTRY_CODES } from '../types';
 import { EU_COUNTRY_CODES } from '../constants';
 
 /**
@@ -12,23 +8,23 @@ import { EU_COUNTRY_CODES } from '../constants';
  */
 export const getDefaultCurrencyForCountry = (
   countryCode: string | null | undefined
-): WebbitCurrency => {
+): CurrencyCode => {
   if (!countryCode) {
-    return WEBBIT_CURRENCY.USD;
+    return CURRENCY_CODES.USD;
   }
 
   // Israel -> ILS
   if (countryCode === ISO_COUNTRY_CODES.IL) {
-    return WEBBIT_CURRENCY.ILS;
+    return CURRENCY_CODES.ILS;
   }
 
   // EU countries -> EUR
   if (
     EU_COUNTRY_CODES.includes(countryCode as (typeof EU_COUNTRY_CODES)[number])
   ) {
-    return WEBBIT_CURRENCY.EUR;
+    return CURRENCY_CODES.EUR;
   }
 
   // Default -> USD
-  return WEBBIT_CURRENCY.USD;
+  return CURRENCY_CODES.USD;
 };

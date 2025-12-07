@@ -38,6 +38,10 @@ export interface UseGranularConsentResponse {
    * Reset consent decision and show banner again
    */
   resetConsent: () => void;
+  /**
+   * Show the banner (for managing preferences)
+   */
+  showBanner: () => void;
 }
 
 /**
@@ -172,6 +176,14 @@ export const useGranularConsent = (): UseGranularConsentResponse => {
     }
   }, []);
 
+  const showBanner = useCallback(() => {
+    if (isBrowser) {
+      setIsVisible(true);
+      // Dispatch event to clear temporary dismissal in banner component
+      window.dispatchEvent(new Event(COOKIE_CONSENT_SHOW_BANNER_EVENT));
+    }
+  }, []);
+
   return {
     preferences,
     isVisible,
@@ -180,5 +192,6 @@ export const useGranularConsent = (): UseGranularConsentResponse => {
     savePreferences,
     updatePreference,
     resetConsent,
+    showBanner,
   };
 };

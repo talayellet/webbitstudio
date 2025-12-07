@@ -34,7 +34,7 @@ export const CookiePolicyPage = ({
   const { locale } = useLocalizedContent();
   const content = getCookiePolicyContent(locale);
   const { sections } = content;
-  const { resetConsent } = useGranularConsent();
+  const { showBanner } = useGranularConsent();
 
   return (
     <div className={cookiePolicyPage}>
@@ -43,7 +43,7 @@ export const CookiePolicyPage = ({
         <p className={cookiePolicyLastUpdated}>{content.lastUpdated}</p>
 
         <button
-          onClick={resetConsent}
+          onClick={showBanner}
           className={cookiePolicyManageButton}
           type="button"
         >

@@ -97,12 +97,14 @@ export const CookieConsentBanner = ({
 
   const [showPreferences, setShowPreferences] = useState(false);
   const [temporarilyDismissed, setTemporarilyDismissed] = useState(false);
+  const [forceVisible, setForceVisible] = useState(false);
 
   // Listen for custom event to show banner
   useEffect(() => {
     const handleShowBanner = () => {
       setTemporarilyDismissed(false);
       setShowPreferences(false);
+      setForceVisible(true);
     };
 
     window.addEventListener(COOKIE_CONSENT_SHOW_BANNER_EVENT, handleShowBanner);
@@ -118,7 +120,9 @@ export const CookieConsentBanner = ({
     setShowPreferences(false);
   }, [isVisible]);
 
-  if (!isVisible || temporarilyDismissed) {
+  const shouldShow = (isVisible || forceVisible) && !temporarilyDismissed;
+
+  if (!shouldShow) {
     return null;
   }
 
@@ -139,6 +143,17 @@ export const CookieConsentBanner = ({
 
   const handleSavePreferences = () => {
     savePreferences(preferences);
+    setForceVisible(false);
+  };
+
+  const handleAcceptAll = () => {
+    acceptAll();
+    setForceVisible(false);
+  };
+
+  const handleRejectAll = () => {
+    rejectAll();
+    setForceVisible(false);
   };
 
   return (
@@ -180,8 +195,8 @@ export const CookieConsentBanner = ({
             acceptButtonText={acceptButtonText}
             rejectButtonText={rejectButtonText}
             customizeButtonText={customizeButtonText}
-            onAcceptAll={acceptAll}
-            onRejectAll={rejectAll}
+            onAcceptAll={handleAcceptAll}
+            onRejectAll={handleRejectAll}
             onCustomize={() => setShowPreferences(true)}
             styles={{
               buttonContainer: mergedStyles.buttonContainer,

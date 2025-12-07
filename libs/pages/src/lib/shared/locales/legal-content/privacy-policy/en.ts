@@ -49,8 +49,61 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
         'Third-Party Service Providers: We may share your information with third parties that perform services for us or on our behalf, such as payment processing, data analysis, email delivery, hosting services, and customer service.',
       ],
     },
+    thirdPartyProcessors: {
+      title: '6. Third-Party Data Processors',
+      content: [
+        'We work with the following third-party service providers who process personal data on our behalf. Each processor has been carefully selected and is contractually obligated to handle your data in accordance with applicable data protection laws:',
+      ],
+      labels: {
+        purpose: 'Purpose',
+        dataProcessed: 'Data Processed',
+        location: 'Location',
+        safeguards: 'Safeguards',
+      },
+      processors: [
+        {
+          name: 'Web3Forms',
+          purpose: 'Contact form submission processing and email delivery',
+          dataProcessed:
+            'Name, email address, message content, and submission timestamp from contact forms',
+          location: 'United States (Cloud infrastructure)',
+          safeguards:
+            'GDPR-compliant data processing agreement, secure data transmission via HTTPS, temporary data storage with automatic deletion after delivery',
+        },
+        {
+          name: 'Sentry',
+          purpose:
+            'Error tracking, performance monitoring, and application diagnostics',
+          dataProcessed:
+            'Error logs, stack traces, user agent information, IP addresses (automatically anonymized), and performance metrics',
+          location: 'United States (with EU data residency options available)',
+          safeguards:
+            'EU-US Data Privacy Framework certified, Standard Contractual Clauses (SCCs), data retention controls, IP anonymization enabled by default',
+        },
+        {
+          name: 'Umami Analytics',
+          purpose: 'Privacy-focused website analytics and visitor statistics',
+          dataProcessed:
+            'Page views, referrer information, browser type, device type, country-level location (no personally identifiable information)',
+          location:
+            'Self-hosted on our infrastructure or EU-based cloud providers',
+          safeguards:
+            'No cookies used, no personal data collection, GDPR-compliant by design, all data anonymized, IP addresses not stored',
+        },
+        {
+          name: 'IP Geolocation Services (ipapi.co / geojs.io)',
+          purpose:
+            'Determining visitor country for localization and regional content delivery',
+          dataProcessed:
+            'IP addresses (processed in real-time, not stored), country and region information',
+          location: 'Multiple global locations (API endpoints)',
+          safeguards:
+            'Real-time processing only with no data retention, IP addresses not logged or stored, HTTPS encryption for all requests, used solely for localization purposes',
+        },
+      ],
+    },
     yourRights: {
-      title: '6. Your Rights (GDPR)',
+      title: '7. Your Rights (GDPR)',
       content: [
         'If you are a resident of the European Economic Area (EEA), you have certain data protection rights:',
       ],
@@ -64,7 +117,7 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
       ],
     },
     dataRetention: {
-      title: '7. Data Retention',
+      title: '8. Data Retention',
       content: [
         'We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. Our retention periods are as follows:',
       ],
@@ -76,7 +129,7 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
       ],
     },
     dataBreachNotification: {
-      title: '8. Data Breach Notification',
+      title: '9. Data Breach Notification',
       content: [
         'In accordance with GDPR Articles 33-34, we have established procedures to respond to data breaches involving personal information:',
       ],
@@ -89,13 +142,13 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '9. Security of Your Information',
+      title: '10. Security of Your Information',
       content: [
         'We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.',
       ],
     },
     contact: {
-      title: '10. Contact Us',
+      title: '11. Contact Us',
       content: [
         'If you have questions or comments about this Privacy Policy, please contact us at:',
       ],

@@ -1,5 +1,10 @@
 import { useLocalizedContent, getPrivacyPolicyContent } from '../../shared';
 import * as privacyPolicyStyles from './utils/styles';
+import {
+  PrivacyPolicySection,
+  ThirdPartyProcessorsSection,
+  ContactSection,
+} from './components';
 
 export interface PrivacyPolicyPageProps {
   companyName: string;
@@ -24,188 +29,63 @@ export const PrivacyPolicyPage = ({
           {content.lastUpdated}
         </p>
 
-        {/* Introduction */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.introduction.title}
-          </h2>
-          {sections.introduction.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-        </section>
+        <PrivacyPolicySection
+          title={sections.introduction.title}
+          content={sections.introduction.content}
+        />
 
-        {/* Data Collection */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.dataCollection.title}
-          </h2>
-          {sections.dataCollection.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-          <ul className={privacyPolicyStyles.privacyPolicyList}>
-            {sections.dataCollection.items.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </section>
+        <PrivacyPolicySection
+          title={sections.dataCollection.title}
+          content={sections.dataCollection.content}
+          listItems={sections.dataCollection.items}
+        />
 
-        {/* Data Usage */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.dataUsage.title}
-          </h2>
-          {sections.dataUsage.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-        </section>
+        <PrivacyPolicySection
+          title={sections.dataUsage.title}
+          content={sections.dataUsage.content}
+        />
 
-        {/* Cookies */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.cookies.title}
-          </h2>
-          {sections.cookies.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-        </section>
+        <PrivacyPolicySection
+          title={sections.cookies.title}
+          content={sections.cookies.content}
+        />
 
-        {/* Data Sharing */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.dataSharing.title}
-          </h2>
-          {sections.dataSharing.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-        </section>
+        <PrivacyPolicySection
+          title={sections.dataSharing.title}
+          content={sections.dataSharing.content}
+        />
 
-        {/* Your Rights */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.yourRights.title}
-          </h2>
-          {sections.yourRights.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-          <ul className={privacyPolicyStyles.privacyPolicyList}>
-            {sections.yourRights.rights.map((right, index) => (
-              <li key={index}>{right}</li>
-            ))}
-          </ul>
-        </section>
+        <ThirdPartyProcessorsSection section={sections.thirdPartyProcessors} />
 
-        {/* Data Retention */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.dataRetention.title}
-          </h2>
-          {sections.dataRetention.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-          <ul className={privacyPolicyStyles.privacyPolicyList}>
-            {sections.dataRetention.periods.map((period, index) => (
-              <li key={index}>{period}</li>
-            ))}
-          </ul>
-        </section>
+        <PrivacyPolicySection
+          title={sections.yourRights.title}
+          content={sections.yourRights.content}
+          listItems={sections.yourRights.rights}
+        />
 
-        {/* Data Breach Notification */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.dataBreachNotification.title}
-          </h2>
-          {sections.dataBreachNotification.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-          <ul className={privacyPolicyStyles.privacyPolicyList}>
-            {sections.dataBreachNotification.procedures.map(
-              (procedure, index) => (
-                <li key={index}>{procedure}</li>
-              )
-            )}
-          </ul>
-        </section>
+        <PrivacyPolicySection
+          title={sections.dataRetention.title}
+          content={sections.dataRetention.content}
+          listItems={sections.dataRetention.periods}
+        />
 
-        {/* Data Security */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.dataSecurity.title}
-          </h2>
-          {sections.dataSecurity.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-        </section>
+        <PrivacyPolicySection
+          title={sections.dataBreachNotification.title}
+          content={sections.dataBreachNotification.content}
+          listItems={sections.dataBreachNotification.procedures}
+        />
 
-        {/* Contact */}
-        <section className={privacyPolicyStyles.privacyPolicySection}>
-          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
-            {sections.contact.title}
-          </h2>
-          {sections.contact.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className={privacyPolicyStyles.privacyPolicyParagraph}
-            >
-              {paragraph}
-            </p>
-          ))}
-          <p className={privacyPolicyStyles.privacyPolicyParagraph}>
-            <strong>{companyName}</strong>
-            <br />
-            Email:{' '}
-            <a
-              href={`mailto:${companyEmail}`}
-              className={privacyPolicyStyles.privacyPolicyEmailLink}
-            >
-              {companyEmail}
-            </a>
-          </p>
-        </section>
+        <PrivacyPolicySection
+          title={sections.dataSecurity.title}
+          content={sections.dataSecurity.content}
+        />
+
+        <ContactSection
+          title={sections.contact.title}
+          content={sections.contact.content}
+          companyName={companyName}
+          companyEmail={companyEmail}
+        />
       </div>
     </div>
   );

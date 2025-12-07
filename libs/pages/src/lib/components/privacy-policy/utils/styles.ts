@@ -12,6 +12,12 @@ export const privacyPolicySectionTitle = 'text-2xl font-semibold mb-4';
 
 export const privacyPolicyParagraph = 'text-slate-300 mb-4';
 
-export const privacyPolicyList = 'list-disc list-inside text-slate-300 space-y-2 ml-4';
+export const privacyPolicyList =
+  'list-disc list-inside text-slate-300 space-y-2 ml-4';
 
-export const privacyPolicyEmailLink = 'text-sky-400 hover:text-sky-300 underline';
+export const privacyPolicyProcessorItem = 'mb-6';
+
+export const privacyPolicyProcessorName = 'font-semibold mb-2';
+
+export const privacyPolicyEmailLink =
+  'text-sky-400 hover:text-sky-300 underline';

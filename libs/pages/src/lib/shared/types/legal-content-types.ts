@@ -23,6 +23,23 @@ export interface PrivacyPolicyContent {
       title: string;
       content: string[];
     };
+    thirdPartyProcessors: {
+      title: string;
+      content: string[];
+      labels: {
+        purpose: string;
+        dataProcessed: string;
+        location: string;
+        safeguards: string;
+      };
+      processors: Array<{
+        name: string;
+        purpose: string;
+        dataProcessed: string;
+        location: string;
+        safeguards: string;
+      }>;
+    };
     yourRights: {
       title: string;
       content: string[];

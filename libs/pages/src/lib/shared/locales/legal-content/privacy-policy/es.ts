@@ -49,8 +49,64 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
         'Proveedores de Servicios de Terceros: Podemos compartir su información con terceros que realizan servicios para nosotros o en nuestro nombre, como procesamiento de pagos, análisis de datos, entrega de correo electrónico, servicios de alojamiento y servicio al cliente.',
       ],
     },
+    thirdPartyProcessors: {
+      title: '6. Procesadores de Datos de Terceros',
+      content: [
+        'Trabajamos con los siguientes proveedores de servicios de terceros que procesan datos personales en nuestro nombre. Cada procesador ha sido cuidadosamente seleccionado y está contractualmente obligado a manejar sus datos de acuerdo con las leyes de protección de datos aplicables:',
+      ],
+      labels: {
+        purpose: 'Propósito',
+        dataProcessed: 'Datos Procesados',
+        location: 'Ubicación',
+        safeguards: 'Salvaguardias',
+      },
+      processors: [
+        {
+          name: 'Web3Forms',
+          purpose:
+            'Procesamiento de envíos de formularios de contacto y entrega de correo electrónico',
+          dataProcessed:
+            'Nombre, dirección de correo electrónico, contenido del mensaje y marca de tiempo del envío desde formularios de contacto',
+          location: 'Estados Unidos (Infraestructura en la nube)',
+          safeguards:
+            'Acuerdo de procesamiento de datos conforme al RGPD, transmisión segura de datos a través de HTTPS, almacenamiento temporal de datos con eliminación automática después de la entrega',
+        },
+        {
+          name: 'Sentry',
+          purpose:
+            'Seguimiento de errores, monitoreo de rendimiento y diagnóstico de aplicaciones',
+          dataProcessed:
+            'Registros de errores, seguimientos de pila, información del agente de usuario, direcciones IP (anonimizadas automáticamente) y métricas de rendimiento',
+          location:
+            'Estados Unidos (con opciones de residencia de datos en la UE disponibles)',
+          safeguards:
+            'Certificado por el Marco de Privacidad de Datos UE-EE.UU., Cláusulas Contractuales Estándar (CCE), controles de retención de datos, anonimización de IP habilitada por defecto',
+        },
+        {
+          name: 'Umami Analytics',
+          purpose:
+            'Análisis web centrado en la privacidad y estadísticas de visitantes',
+          dataProcessed:
+            'Vistas de página, información de referencia, tipo de navegador, tipo de dispositivo, ubicación a nivel de país (sin información de identificación personal)',
+          location:
+            'Autoalojado en nuestra infraestructura o proveedores de nube con sede en la UE',
+          safeguards:
+            'Sin cookies utilizadas, sin recopilación de datos personales, conforme al RGPD por diseño, todos los datos anonimizados, las direcciones IP no se almacenan',
+        },
+        {
+          name: 'Servicios de Geolocalización IP (ipapi.co / geojs.io)',
+          purpose:
+            'Determinación del país del visitante para localización y entrega de contenido regional',
+          dataProcessed:
+            'Direcciones IP (procesadas en tiempo real, no almacenadas), información del país y región',
+          location: 'Múltiples ubicaciones globales (puntos finales de API)',
+          safeguards:
+            'Solo procesamiento en tiempo real sin retención de datos, las direcciones IP no se registran ni almacenan, cifrado HTTPS para todas las solicitudes, utilizado únicamente para fines de localización',
+        },
+      ],
+    },
     yourRights: {
-      title: '6. Sus Derechos (RGPD)',
+      title: '7. Sus Derechos (RGPD)',
       content: [
         'Si es residente del Espacio Económico Europeo (EEE), tiene ciertos derechos de protección de datos:',
       ],
@@ -64,7 +120,7 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
       ],
     },
     dataRetention: {
-      title: '7. Retención de Datos',
+      title: '8. Retención de Datos',
       content: [
         'Retenemos su información personal solo durante el tiempo necesario para cumplir con los propósitos descritos en esta Política de Privacidad, a menos que la ley requiera o permita un período de retención más largo. Nuestros períodos de retención son los siguientes:',
       ],
@@ -76,7 +132,7 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
       ],
     },
     dataBreachNotification: {
-      title: '8. Notificación de Violación de Datos',
+      title: '9. Notificación de Violación de Datos',
       content: [
         'De acuerdo con los Artículos 33-34 del RGPD, hemos establecido procedimientos para responder a violaciones de datos que involucren información personal:',
       ],
@@ -89,13 +145,13 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '9. Seguridad de Su Información',
+      title: '10. Seguridad de Su Información',
       content: [
         'Usamos medidas de seguridad administrativas, técnicas y físicas para ayudar a proteger su información personal. Si bien hemos tomado medidas razonables para asegurar la información personal que nos proporciona, tenga en cuenta que, a pesar de nuestros esfuerzos, ninguna medida de seguridad es perfecta o impenetrable, y ningún método de transmisión de datos puede garantizarse contra cualquier intercepción u otro tipo de uso indebido.',
       ],
     },
     contact: {
-      title: '10. Contáctenos',
+      title: '11. Contáctenos',
       content: [
         'Si tiene preguntas o comentarios sobre esta Política de Privacidad, contáctenos en:',
       ],

@@ -49,8 +49,64 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
         'Drittanbieter-Dienstleister: Wir können Ihre Informationen mit Dritten teilen, die Dienstleistungen für uns oder in unserem Namen erbringen, wie z. B. Zahlungsabwicklung, Datenanalyse, E-Mail-Zustellung, Hosting-Dienste und Kundenservice.',
       ],
     },
+    thirdPartyProcessors: {
+      title: '6. Drittanbieter-Datenverarbeiter',
+      content: [
+        'Wir arbeiten mit den folgenden Drittanbieter-Dienstleistern zusammen, die personenbezogene Daten in unserem Auftrag verarbeiten. Jeder Verarbeiter wurde sorgfältig ausgewählt und ist vertraglich verpflichtet, Ihre Daten in Übereinstimmung mit den geltenden Datenschutzgesetzen zu handhaben:',
+      ],
+      labels: {
+        purpose: 'Zweck',
+        dataProcessed: 'Verarbeitete Daten',
+        location: 'Standort',
+        safeguards: 'Schutzmaßnahmen',
+      },
+      processors: [
+        {
+          name: 'Web3Forms',
+          purpose:
+            'Verarbeitung von Kontaktformular-Übermittlungen und E-Mail-Zustellung',
+          dataProcessed:
+            'Name, E-Mail-Adresse, Nachrichteninhalt und Übermittlungszeitstempel aus Kontaktformularen',
+          location: 'Vereinigte Staaten (Cloud-Infrastruktur)',
+          safeguards:
+            'DSGVO-konformer Datenverarbeitungsvertrag, sichere Datenübertragung über HTTPS, temporäre Datenspeicherung mit automatischer Löschung nach Zustellung',
+        },
+        {
+          name: 'Sentry',
+          purpose:
+            'Fehlerprotokollierung, Leistungsüberwachung und Anwendungsdiagnose',
+          dataProcessed:
+            'Fehlerprotokolle, Stack-Traces, User-Agent-Informationen, IP-Adressen (automatisch anonymisiert) und Leistungsmetriken',
+          location:
+            'Vereinigte Staaten (mit EU-Datenresidenzoptionen verfügbar)',
+          safeguards:
+            'EU-US Data Privacy Framework zertifiziert, Standardvertragsklauseln (SCCs), Datenspeicherungskontrollen, IP-Anonymisierung standardmäßig aktiviert',
+        },
+        {
+          name: 'Umami Analytics',
+          purpose:
+            'Datenschutzorientierte Website-Analyse und Besucherstatistiken',
+          dataProcessed:
+            'Seitenaufrufe, Referrer-Informationen, Browsertyp, Gerätetyp, Standort auf Länderebene (keine personenbezogenen Daten)',
+          location:
+            'Selbst gehostet auf unserer Infrastruktur oder EU-basierten Cloud-Anbietern',
+          safeguards:
+            'Keine verwendeten Cookies, keine Erfassung personenbezogener Daten, DSGVO-konform by Design, alle Daten anonymisiert, IP-Adressen werden nicht gespeichert',
+        },
+        {
+          name: 'IP-Geolokalisierungsdienste (ipapi.co / geojs.io)',
+          purpose:
+            'Bestimmung des Besucherlandes für Lokalisierung und regionale Inhaltsbereitstellung',
+          dataProcessed:
+            'IP-Adressen (in Echtzeit verarbeitet, nicht gespeichert), Länder- und Regionsinformationen',
+          location: 'Mehrere globale Standorte (API-Endpunkte)',
+          safeguards:
+            'Nur Echtzeitverarbeitung ohne Datenspeicherung, IP-Adressen werden nicht protokolliert oder gespeichert, HTTPS-Verschlüsselung für alle Anfragen, ausschließlich für Lokalisierungszwecke verwendet',
+        },
+      ],
+    },
     yourRights: {
-      title: '6. Ihre Rechte (DSGVO)',
+      title: '7. Ihre Rechte (DSGVO)',
       content: [
         'Wenn Sie im Europäischen Wirtschaftsraum (EWR) ansässig sind, haben Sie bestimmte Datenschutzrechte:',
       ],
@@ -64,7 +120,7 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
       ],
     },
     dataRetention: {
-      title: '7. Datenspeicherung',
+      title: '8. Datenspeicherung',
       content: [
         'Wir bewahren Ihre persönlichen Daten nur so lange auf, wie es notwendig ist, um die in dieser Datenschutzrichtlinie beschriebenen Zwecke zu erfüllen, es sei denn, eine längere Aufbewahrungsfrist ist gesetzlich erforderlich oder zulässig. Unsere Aufbewahrungsfristen sind wie folgt:',
       ],
@@ -76,7 +132,7 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
       ],
     },
     dataBreachNotification: {
-      title: '8. Benachrichtigung bei Datenschutzverletzungen',
+      title: '9. Benachrichtigung bei Datenschutzverletzungen',
       content: [
         'In Übereinstimmung mit den Artikeln 33-34 der DSGVO haben wir Verfahren eingerichtet, um auf Datenschutzverletzungen mit personenbezogenen Daten zu reagieren:',
       ],
@@ -89,13 +145,13 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '9. Sicherheit Ihrer Informationen',
+      title: '10. Sicherheit Ihrer Informationen',
       content: [
         'Wir verwenden administrative, technische und physische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten zu schützen. Obwohl wir angemessene Schritte unternommen haben, um die personenbezogenen Daten, die Sie uns zur Verfügung stellen, zu sichern, beachten Sie bitte, dass trotz unserer Bemühungen keine Sicherheitsmaßnahmen perfekt oder undurchdringlich sind und keine Methode der Datenübertragung gegen jede Abfangung oder andere Art von Missbrauch garantiert werden kann.',
       ],
     },
     contact: {
-      title: '10. Kontaktieren Sie Uns',
+      title: '11. Kontaktieren Sie Uns',
       content: [
         'Wenn Sie Fragen oder Kommentare zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter:',
       ],

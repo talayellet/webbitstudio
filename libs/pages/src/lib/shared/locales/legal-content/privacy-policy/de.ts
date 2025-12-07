@@ -64,13 +64,13 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '7. Sicherheit Ihrer Informationen',
+      title: '8. Sicherheit Ihrer Informationen',
       content: [
-        'Wir verwenden administrative, technische und physische Sicherheitsmaßnahmen, um Ihre persönlichen Informationen zu schützen. Obwohl wir angemessene Schritte unternommen haben, um die persönlichen Informationen, die Sie uns zur Verfügung stellen, zu sichern, beachten Sie bitte, dass trotz unserer Bemühungen keine Sicherheitsmaßnahmen perfekt oder undurchdringlich sind und keine Methode der Datenübertragung gegen jede Abfangung oder andere Art von Missbrauch garantiert werden kann.',
+        'Wir verwenden administrative, technische und physische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten zu schützen. Obwohl wir angemessene Schritte unternommen haben, um die personenbezogenen Daten, die Sie uns zur Verfügung stellen, zu sichern, beachten Sie bitte, dass trotz unserer Bemühungen keine Sicherheitsmaßnahmen perfekt oder undurchdringlich sind und keine Methode der Datenübertragung gegen jede Abfangung oder andere Art von Missbrauch garantiert werden kann.',
       ],
     },
     contact: {
-      title: '8. Kontaktieren Sie Uns',
+      title: '9. Kontaktieren Sie Uns',
       content: [
         'Wenn Sie Fragen oder Kommentare zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter:',
       ],

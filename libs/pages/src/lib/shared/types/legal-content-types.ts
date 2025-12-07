@@ -28,6 +28,11 @@ export interface PrivacyPolicyContent {
       content: string[];
       rights: string[];
     };
+    dataRetention: {
+      title: string;
+      content: string[];
+      periods: string[];
+    };
     dataSecurity: {
       title: string;
       content: string[];

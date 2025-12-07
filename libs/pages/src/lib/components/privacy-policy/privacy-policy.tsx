@@ -124,6 +124,26 @@ export const PrivacyPolicyPage = ({
           </ul>
         </section>
 
+        {/* Data Retention */}
+        <section className={privacyPolicyStyles.privacyPolicySection}>
+          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
+            {sections.dataRetention.title}
+          </h2>
+          {sections.dataRetention.content.map((paragraph, index) => (
+            <p
+              key={index}
+              className={privacyPolicyStyles.privacyPolicyParagraph}
+            >
+              {paragraph}
+            </p>
+          ))}
+          <ul className={privacyPolicyStyles.privacyPolicyList}>
+            {sections.dataRetention.periods.map((period, index) => (
+              <li key={index}>{period}</li>
+            ))}
+          </ul>
+        </section>
+
         {/* Data Security */}
         <section className={privacyPolicyStyles.privacyPolicySection}>
           <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>

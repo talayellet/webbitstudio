@@ -64,13 +64,13 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
       ],
     },
     dataSecurity: {
-      title: '7. Seguridad de Su Información',
+      title: '8. Seguridad de Su Información',
       content: [
         'Usamos medidas de seguridad administrativas, técnicas y físicas para ayudar a proteger su información personal. Si bien hemos tomado medidas razonables para asegurar la información personal que nos proporciona, tenga en cuenta que, a pesar de nuestros esfuerzos, ninguna medida de seguridad es perfecta o impenetrable, y ningún método de transmisión de datos puede garantizarse contra cualquier intercepción u otro tipo de uso indebido.',
       ],
     },
     contact: {
-      title: '8. Contáctenos',
+      title: '9. Contáctenos',
       content: [
         'Si tiene preguntas o comentarios sobre esta Política de Privacidad, contáctenos en:',
       ],

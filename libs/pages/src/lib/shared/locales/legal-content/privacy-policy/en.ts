@@ -63,14 +63,26 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
         'The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions',
       ],
     },
+    dataRetention: {
+      title: '7. Data Retention',
+      content: [
+        'We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. Our retention periods are as follows:',
+      ],
+      periods: [
+        'Contact Form Data: We retain contact form submissions (name, email, message) for up to 2 years from the date of submission to allow us to respond to your inquiry and maintain a record of our communication',
+        'Server Logs and Analytics Data: Technical data such as IP addresses, browser types, and access times are retained for up to 12 months for security, troubleshooting, and website improvement purposes',
+        'Financial and Transaction Data: If you engage our services, payment records and related information are retained for up to 7 years to comply with tax and accounting regulations',
+        'Marketing Communications: If you consent to receive marketing communications, we will retain your contact information until you withdraw your consent or unsubscribe',
+      ],
+    },
     dataSecurity: {
-      title: '7. Security of Your Information',
+      title: '8. Security of Your Information',
       content: [
         'We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.',
       ],
     },
     contact: {
-      title: '8. Contact Us',
+      title: '9. Contact Us',
       content: [
         'If you have questions or comments about this Privacy Policy, please contact us at:',
       ],

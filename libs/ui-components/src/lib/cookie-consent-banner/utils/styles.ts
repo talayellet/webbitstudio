@@ -1,6 +1,6 @@
 export const COOKIE_CONSENT_BANNER_STYLES = {
   container:
-    'fixed bottom-0 left-0 right-0 z-50 bg-slate-900 border-t border-slate-800 p-4 shadow-lg',
+    'fixed bottom-0 left-0 right-0 z-[1000] bg-slate-900 border-t border-slate-800 p-4 shadow-lg',
   content: 'container mx-auto max-w-7xl',
   contentInner: 'flex flex-col md:flex-row md:items-center md:justify-between',
   message: 'text-sm text-slate-300 mb-4 md:mb-0',

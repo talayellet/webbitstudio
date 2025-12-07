@@ -75,6 +75,7 @@ export const de: LocaleStrings = {
     pricing: {
       startingFrom: 'Ab',
       typicalRange: 'Typische Spanne:',
+      plusTax: '+ MwSt.',
       priceNote:
         'Endgültiges Angebot hängt vom Projektumfang und der Komplexität ab.',
       cta: 'Angebot erhalten',
@@ -206,6 +207,7 @@ export const de: LocaleStrings = {
     labels: {
       startingFrom: 'Ab',
       typicalRange: 'typische Spanne:',
+      plusTax: '+ MwSt.',
     },
     packages: [
       {

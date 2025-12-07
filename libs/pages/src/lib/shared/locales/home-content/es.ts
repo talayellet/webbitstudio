@@ -75,6 +75,7 @@ export const es: LocaleStrings = {
     pricing: {
       startingFrom: 'Desde',
       typicalRange: 'Rango típico:',
+      plusTax: '+ impuestos',
       priceNote:
         'La cotización final depende del alcance y la complejidad del proyecto.',
       cta: 'Obtener una cotización',
@@ -206,6 +207,7 @@ export const es: LocaleStrings = {
     labels: {
       startingFrom: 'Desde',
       typicalRange: 'rango típico:',
+      plusTax: '+ impuestos',
     },
     packages: [
       {

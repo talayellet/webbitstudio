@@ -74,6 +74,7 @@ export const he: LocaleStrings = {
     pricing: {
       startingFrom: 'החל מ-',
       typicalRange: 'טווח מחירים:',
+      plusTax: '+ מע״מ',
       priceNote:
         'המחירים מתייחסים לתבניות מוכנות (OOTB). עיצוב ופיתוח בהתאמה אישית מתומחרים בנפרד.',
       cta: 'קבלת הצעת מחיר',
@@ -202,6 +203,7 @@ export const he: LocaleStrings = {
     labels: {
       startingFrom: 'החל מ-',
       typicalRange: 'טווח מחירים:',
+      plusTax: '+ מע״מ',
     },
     packages: [
       {

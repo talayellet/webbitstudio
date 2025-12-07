@@ -84,7 +84,10 @@ export const PackagesSection = ({ content }: PackagesSectionProps) => {
                     className={packagesSectionStyles.packageCard.priceAmount}
                   >
                     {startingPrice.converted}
-                  </data>
+                  </data>{' '}
+                  <span className={packagesSectionStyles.typography.bodySmall}>
+                    {content.pricing.plusTax}
+                  </span>
                 </p>
                 <p className={packagesSectionStyles.packageCard.priceRange}>
                   {content.pricing.typicalRange} {typicalRange}

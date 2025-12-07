@@ -73,6 +73,7 @@ export const en = {
     pricing: {
       startingFrom: 'Starting from',
       typicalRange: 'Typical range:',
+      plusTax: '+ tax',
       priceNote: 'Final quote depends on project scope and complexity.',
       cta: 'Get a quote',
     },
@@ -202,6 +203,7 @@ export const en = {
     labels: {
       startingFrom: 'Starting from',
       typicalRange: 'typical range:',
+      plusTax: '+ tax',
     },
     packages: [
       {

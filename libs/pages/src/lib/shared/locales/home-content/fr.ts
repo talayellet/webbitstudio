@@ -74,6 +74,7 @@ export const fr: LocaleStrings = {
     pricing: {
       startingFrom: 'À partir de',
       typicalRange: 'Fourchette typique :',
+      plusTax: '+ taxes',
       priceNote:
         'Le devis final dépend de la portée et de la complexité du projet.',
       cta: 'Obtenir un devis',
@@ -206,6 +207,7 @@ export const fr: LocaleStrings = {
     labels: {
       startingFrom: 'À partir de',
       typicalRange: 'fourchette typique :',
+      plusTax: '+ taxes',
     },
     packages: [
       {

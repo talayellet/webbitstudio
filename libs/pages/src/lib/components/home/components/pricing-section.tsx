@@ -53,6 +53,9 @@ export const PricingSection = ({ content }: PricingSectionProps) => {
                 >
                   {startingPrice.converted}
                 </data>{' '}
+                <span className={pricingSectionStyles.typography.bodySmall}>
+                  {content.labels.plusTax}
+                </span>{' '}
                 <span
                   className={pricingSectionStyles.typography.bodyExtraSmall}
                 >

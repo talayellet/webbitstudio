@@ -9,7 +9,7 @@ export const he: LocaleStrings = {
   header: {
     logo: {
       title: 'Webbit Studio',
-      subtitle: 'אתרים לעסקים מודרניים',
+      subtitle: 'אתרים חכמים לעסקים',
     },
     nav: {
       packages: 'חבילות',
@@ -32,7 +32,7 @@ export const he: LocaleStrings = {
     title: 'אתרי תדמית ודפי נחיתה לעסקים קטנים - פשוט, מקצועי ובמחיר נגיש',
     description:
       'Webbit Studio מספקת דפי נחיתה, אתרי תדמית ופתרונות אירוח ופריסה, לצד ממשקי ניהול תוכן נוחים ויעילים. ניתן לבחור בין תבניות מוכנות המוזילות את העלות, לבין עיצוב ופיתוח מותאמים אישית לצרכי העסק.',
-    primaryCta: 'התחילו את הפרויקט',
+    primaryCta: 'להצעת מחיר',
     secondaryCta: 'לחבילות',
     visual: {
       mockCards: [
@@ -42,7 +42,7 @@ export const he: LocaleStrings = {
         },
         {
           title: 'אתר Pro',
-          subtitle: 'רב-עמודים + אחסון.',
+          subtitle: 'עד 5 עמודים + אחסון.',
         },
         {
           title: 'CMS מתקדם',

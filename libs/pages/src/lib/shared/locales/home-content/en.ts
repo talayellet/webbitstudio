@@ -8,7 +8,7 @@ export const en = {
   header: {
     logo: {
       title: 'Webbit Studio',
-      subtitle: 'Websites for modern businesses',
+      subtitle: 'Smart business websites',
     },
     nav: {
       packages: 'Packages',

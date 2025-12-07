@@ -81,6 +81,14 @@ export interface TermsOfServiceContent {
       title: string;
       content: string[];
     };
+    governingLaw: {
+      title: string;
+      content: string[];
+    };
+    jurisdiction: {
+      title: string;
+      content: string[];
+    };
     contact: {
       title: string;
       content: string[];

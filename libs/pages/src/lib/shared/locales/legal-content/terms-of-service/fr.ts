@@ -73,8 +73,25 @@ export const termsOfServiceFr: TermsOfServiceContent = {
         "Votre utilisation continue de nos services après tout changement constitue l'acceptation des nouvelles Conditions.",
       ],
     },
+    governingLaw: {
+      title: '10. Loi Applicable',
+      content: [
+        "Ces Conditions seront régies et interprétées conformément aux lois de l'Angleterre et du Pays de Galles, sans égard à ses dispositions relatives aux conflits de lois.",
+        'Notre non-exercice de tout droit ou disposition de ces Conditions ne sera pas considéré comme une renonciation à ces droits.',
+      ],
+    },
+    jurisdiction: {
+      title: '11. Résolution des Litiges',
+      content: [
+        'Tout litige découlant de ou lié à ces Conditions ou à nos services sera résolu comme suit :',
+        "Résolution Informelle : Les parties conviennent de tenter d'abord de résoudre tout litige par une négociation de bonne foi pendant une période de 30 jours.",
+        'Médiation : Si la résolution informelle échoue, les litiges peuvent être renvoyés à une médiation avant de procéder à une action en justice formelle.',
+        "Procédures Judiciaires : Pour les litiges qui ne peuvent être résolus par négociation ou médiation, les parties acceptent de se soumettre à la juridiction exclusive des tribunaux de l'Angleterre et du Pays de Galles.",
+        "Option d'Arbitrage : En alternative aux procédures judiciaires, l'une ou l'autre partie peut choisir un arbitrage contraignant conformément aux règles de la Chambre de Commerce Internationale (CCI), les procédures étant menées en anglais à Londres, Royaume-Uni.",
+      ],
+    },
     contact: {
-      title: '10. Coordonnées',
+      title: '12. Coordonnées',
       content: [
         "Si vous avez des questions concernant ces Conditions Générales d'Utilisation, veuillez nous contacter à :",
       ],

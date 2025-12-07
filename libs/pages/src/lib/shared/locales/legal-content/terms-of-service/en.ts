@@ -73,8 +73,25 @@ export const termsOfServiceEn: TermsOfServiceContent = {
         'Your continued use of our services after any changes constitutes acceptance of the new Terms.',
       ],
     },
+    governingLaw: {
+      title: '10. Governing Law',
+      content: [
+        'These Terms shall be governed by and construed in accordance with the laws of England and Wales, without regard to its conflict of law provisions.',
+        'Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.',
+      ],
+    },
+    jurisdiction: {
+      title: '11. Dispute Resolution',
+      content: [
+        'Any disputes arising out of or relating to these Terms or our services shall be resolved as follows:',
+        'Informal Resolution: The parties agree to first attempt to resolve any dispute through good faith negotiation for a period of 30 days.',
+        'Mediation: If informal resolution is unsuccessful, disputes may be referred to mediation before proceeding to formal legal action.',
+        'Legal Proceedings: For disputes that cannot be resolved through negotiation or mediation, the parties agree to submit to the exclusive jurisdiction of the courts of England and Wales.',
+        'Arbitration Option: As an alternative to court proceedings, either party may elect binding arbitration in accordance with the rules of the International Chamber of Commerce (ICC), with proceedings conducted in English in London, United Kingdom.',
+      ],
+    },
     contact: {
-      title: '10. Contact Information',
+      title: '12. Contact Information',
       content: [
         'If you have any questions about these Terms of Service, please contact us at:',
       ],

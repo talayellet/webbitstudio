@@ -73,8 +73,25 @@ export const termsOfServiceEs: TermsOfServiceContent = {
         'Su uso continuado de nuestros servicios después de cualquier cambio constituye la aceptación de los nuevos Términos.',
       ],
     },
+    governingLaw: {
+      title: '10. Ley Aplicable',
+      content: [
+        'Estos Términos se regirán e interpretarán de acuerdo con las leyes de Inglaterra y Gales, sin tener en cuenta sus disposiciones sobre conflictos de leyes.',
+        'Nuestro incumplimiento en hacer cumplir cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos.',
+      ],
+    },
+    jurisdiction: {
+      title: '11. Resolución de Disputas',
+      content: [
+        'Cualquier disputa que surja de o esté relacionada con estos Términos o nuestros servicios se resolverá de la siguiente manera:',
+        'Resolución Informal: Las partes acuerdan intentar primero resolver cualquier disputa mediante negociación de buena fe durante un período de 30 días.',
+        'Mediación: Si la resolución informal no tiene éxito, las disputas pueden remitirse a mediación antes de proceder con acciones legales formales.',
+        'Procedimientos Legales: Para disputas que no puedan resolverse mediante negociación o mediación, las partes acuerdan someterse a la jurisdicción exclusiva de los tribunales de Inglaterra y Gales.',
+        'Opción de Arbitraje: Como alternativa a los procedimientos judiciales, cualquiera de las partes puede optar por un arbitraje vinculante de acuerdo con las reglas de la Cámara de Comercio Internacional (ICC), con procedimientos realizados en inglés en Londres, Reino Unido.',
+      ],
+    },
     contact: {
-      title: '10. Información de Contacto',
+      title: '12. Información de Contacto',
       content: [
         'Si tiene alguna pregunta sobre estos Términos de Servicio, comuníquese con nosotros en:',
       ],

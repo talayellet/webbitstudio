@@ -73,8 +73,25 @@ export const termsOfServiceDe: TermsOfServiceContent = {
         'Ihre fortgesetzte Nutzung unserer Dienste nach Änderungen stellt die Annahme der neuen Bedingungen dar.',
       ],
     },
+    governingLaw: {
+      title: '10. Anwendbares Recht',
+      content: [
+        'Diese Bedingungen unterliegen den Gesetzen von England und Wales und sind nach diesen auszulegen, ohne Rücksicht auf deren Kollisionsnormen.',
+        'Unsere Nichtdurchsetzung eines Rechts oder einer Bestimmung dieser Bedingungen wird nicht als Verzicht auf diese Rechte betrachtet.',
+      ],
+    },
+    jurisdiction: {
+      title: '11. Streitbeilegung',
+      content: [
+        'Alle Streitigkeiten, die sich aus diesen Bedingungen oder unseren Dienstleistungen ergeben, werden wie folgt beigelegt:',
+        'Informelle Lösung: Die Parteien vereinbaren, zunächst für einen Zeitraum von 30 Tagen zu versuchen, Streitigkeiten durch Verhandlungen in gutem Glauben beizulegen.',
+        'Mediation: Wenn eine informelle Lösung nicht erfolgreich ist, können Streitigkeiten vor formellen rechtlichen Schritten an eine Mediation verwiesen werden.',
+        'Gerichtsverfahren: Für Streitigkeiten, die nicht durch Verhandlung oder Mediation beigelegt werden können, stimmen die Parteien zu, sich der ausschließlichen Zuständigkeit der Gerichte von England und Wales zu unterwerfen.',
+        'Schiedsgerichtsoption: Als Alternative zu Gerichtsverfahren kann jede Partei ein verbindliches Schiedsverfahren gemäß den Regeln der Internationalen Handelskammer (ICC) wählen, wobei die Verfahren auf Englisch in London, Vereinigtes Königreich, durchgeführt werden.',
+      ],
+    },
     contact: {
-      title: '10. Kontaktinformationen',
+      title: '12. Kontaktinformationen',
       content: [
         'Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter:',
       ],

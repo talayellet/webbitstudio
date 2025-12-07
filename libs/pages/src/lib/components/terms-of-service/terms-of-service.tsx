@@ -141,6 +141,30 @@ export const TermsOfServicePage = ({
           ))}
         </section>
 
+        {/* Governing Law */}
+        <section className={TERMS_OF_SERVICE_STYLES.section}>
+          <h2 className={TERMS_OF_SERVICE_STYLES.sectionTitle}>
+            {sections.governingLaw.title}
+          </h2>
+          {sections.governingLaw.content.map((paragraph, index) => (
+            <p key={index} className={TERMS_OF_SERVICE_STYLES.paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </section>
+
+        {/* Jurisdiction */}
+        <section className={TERMS_OF_SERVICE_STYLES.section}>
+          <h2 className={TERMS_OF_SERVICE_STYLES.sectionTitle}>
+            {sections.jurisdiction.title}
+          </h2>
+          {sections.jurisdiction.content.map((paragraph, index) => (
+            <p key={index} className={TERMS_OF_SERVICE_STYLES.paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </section>
+
         {/* Contact */}
         <section className={TERMS_OF_SERVICE_STYLES.section}>
           <h2 className={TERMS_OF_SERVICE_STYLES.sectionTitle}>

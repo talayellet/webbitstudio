@@ -5,8 +5,10 @@ import {
   LocaleStrings,
   ContactFormData,
   CONTACT_FORM_IDS,
+  WEBBIT_STUDIO_EMAIL,
+  WEBBIT_STUDIO_NAME,
 } from '../../../../shared';
-import { CustomSelect, Toast } from '@webbitstudio/ui-components';
+import { CustomSelect, Toast, Modal } from '@webbitstudio/ui-components';
 import { useContactFormSubmit, useGeoBasedPhone } from '../../hooks';
 import {
   DEFAULT_INPUT_MAX_LENGTH,
@@ -19,6 +21,7 @@ import {
   ConsentField,
   ContactFallback,
 } from './components';
+import { PrivacyPolicyPage } from '../../../privacy-policy';
 
 interface ContactSectionProps {
   content: LocaleStrings['contactSection'];
@@ -44,6 +47,7 @@ export const ContactSection = ({
   onSubmit,
 }: ContactSectionProps) => {
   const [showToast, setShowToast] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const phoneNumber = useGeoBasedPhone();
 
   const {
@@ -183,6 +187,7 @@ export const ContactSection = ({
               consentLabel={content.form.consent.label}
               privacyPolicyText={content.form.consent.privacyPolicy}
               errorMessage={content.form.errors.consentRequired}
+              onPrivacyPolicyClick={() => setShowPrivacyModal(true)}
             />
 
             {submitError && (
@@ -218,6 +223,18 @@ export const ContactSection = ({
         isVisible={showToast}
         onDismiss={() => setShowToast(false)}
       />
+
+      <Modal
+        isOpen={showPrivacyModal}
+        onClose={() => setShowPrivacyModal(false)}
+        ariaLabel={content.form.modal.ariaLabel}
+        closeButtonAriaLabel={content.form.modal.closeButtonAriaLabel}
+      >
+        <PrivacyPolicyPage
+          companyName={WEBBIT_STUDIO_NAME}
+          companyEmail={WEBBIT_STUDIO_EMAIL}
+        />
+      </Modal>
     </section>
   );
 };

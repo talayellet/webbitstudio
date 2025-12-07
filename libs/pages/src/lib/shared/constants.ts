@@ -1,23 +1,5 @@
 import { LanguageOption, type CountryCode } from '@webbitstudio/shared-utils';
 import { en, es, fr, de, he, type LocaleStrings } from './locales';
-import {
-  WEBBIT_STUDIO_EMAIL,
-  WEBBIT_STUDIO_PHONE,
-  WEBBIT_STUDIO_PHONE_IL,
-  WEBBIT_STUDIO_PHONE_IL_DIALABLE,
-  WEBBIT_STUDIO_VAT_IL,
-  WEBBIT_STUDIO_VAT_UK,
-} from './company-info';
-
-// Re-export company info constants
-export {
-  WEBBIT_STUDIO_EMAIL,
-  WEBBIT_STUDIO_PHONE,
-  WEBBIT_STUDIO_PHONE_IL,
-  WEBBIT_STUDIO_PHONE_IL_DIALABLE,
-  WEBBIT_STUDIO_VAT_IL,
-  WEBBIT_STUDIO_VAT_UK,
-};
 
 export const CONTACT_FORM_IDS = {
   NAME: 'contact-name',

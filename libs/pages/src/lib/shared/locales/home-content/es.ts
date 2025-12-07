@@ -304,8 +304,12 @@ export const es: LocaleStrings = {
       },
       consent: {
         label:
-          'Acepto el procesamiento de mis datos personales de acuerdo con la',
+          'Acepto el tratamiento de mis datos personales de acuerdo con la',
         privacyPolicy: 'Política de Privacidad',
+      },
+      modal: {
+        ariaLabel: 'Política de Privacidad',
+        closeButtonAriaLabel: 'Cerrar política de privacidad',
       },
       privacyNotice:
         'Recopilamos su nombre, correo electrónico y cualquier detalle que proporcione para responder a su consulta. Sus datos se procesarán de acuerdo con nuestra Política de Privacidad y se conservarán hasta por 2 años. Tiene derecho a acceder, corregir o eliminar sus datos en cualquier momento.',

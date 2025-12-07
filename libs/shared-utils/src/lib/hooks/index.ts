@@ -11,3 +11,5 @@ export * from './use-granular-consent';
 export * from './use-has-consent-decision';
 export * from './use-browser-locale';
 export * from './use-locale-from-browser';
+export * from './use-escape-key';
+export * from './use-focus-trap';

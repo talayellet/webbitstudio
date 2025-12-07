@@ -303,6 +303,10 @@ export const en = {
           'I agree to the processing of my personal data in accordance with the',
         privacyPolicy: 'Privacy Policy',
       },
+      modal: {
+        ariaLabel: 'Privacy Policy',
+        closeButtonAriaLabel: 'Close privacy policy',
+      },
       privacyNotice:
         'We collect your name, email, and any details you provide to respond to your inquiry. Your data will be processed according to our Privacy Policy and retained for up to 2 years. You have the right to access, correct, or delete your data at any time.',
       submit: 'Submit inquiry',

@@ -8,6 +8,7 @@ interface ConsentFieldProps {
   consentLabel: string;
   privacyPolicyText: string;
   errorMessage: string;
+  onPrivacyPolicyClick: () => void;
 }
 
 /**
@@ -19,6 +20,7 @@ export const ConsentField = ({
   consentLabel,
   privacyPolicyText,
   errorMessage,
+  onPrivacyPolicyClick,
 }: ConsentFieldProps) => {
   return (
     <div className={contactSectionStyles.form.fieldContainer}>
@@ -35,14 +37,13 @@ export const ConsentField = ({
         />
         <span>
           {consentLabel}{' '}
-          <a
-            href={CONTACT_SECTION.PRIVACY_POLICY_HREF}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={onPrivacyPolicyClick}
             className={contactSectionStyles.form.consentLink}
           >
             {privacyPolicyText}
-          </a>
+          </button>
         </span>
       </label>
       {error && (

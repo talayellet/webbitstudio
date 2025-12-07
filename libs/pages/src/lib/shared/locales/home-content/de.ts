@@ -304,8 +304,12 @@ export const de: LocaleStrings = {
       },
       consent: {
         label:
-          'Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der',
+          'Ich stimme der Verarbeitung meiner persönlichen Daten gemäß der',
         privacyPolicy: 'Datenschutzerklärung',
+      },
+      modal: {
+        ariaLabel: 'Datenschutzerklärung',
+        closeButtonAriaLabel: 'Datenschutzerklärung schließen',
       },
       privacyNotice:
         'Wir erfassen Ihren Namen, Ihre E-Mail-Adresse und alle von Ihnen angegebenen Details, um auf Ihre Anfrage zu antworten. Ihre Daten werden gemäß unserer Datenschutzerklärung verarbeitet und bis zu 2 Jahre lang gespeichert. Sie haben jederzeit das Recht, auf Ihre Daten zuzugreifen, sie zu korrigieren oder zu löschen.',

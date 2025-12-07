@@ -1,0 +1,48 @@
+# Security Headers for webbitstudio.com
+
+# This file is used by Cloudflare Pages to set HTTP headers
+
+/\*
+
+# Prevent clickjacking attacks
+
+X-Frame-Options: DENY
+
+# Prevent MIME type sniffing
+
+X-Content-Type-Options: nosniff
+
+# Enable XSS protection (legacy browsers)
+
+X-XSS-Protection: 1; mode=block
+
+# Referrer policy - control information sent in Referer header
+
+Referrer-Policy: strict-origin-when-cross-origin
+
+# Permissions policy - control browser features
+
+Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Content Security Policy - prevent XSS and data injection attacks
+
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://web3forms.com https://api.web3forms.com https://ipapi.co https://_.sentry.io https://browser.sentry-cdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://web3forms.com https://api.web3forms.com https://ipapi.co https://_.sentry.io https://ipinfo.io; frame-src https://web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self' https://web3forms.com https://api.web3forms.com; upgrade-insecure-requests;
+
+# Strict Transport Security - enforce HTTPS
+
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Cache control for static assets
+
+/assets/\*
+Cache-Control: public, max-age=31536000, immutable
+
+# Cache control for service worker
+
+/sw.js
+Cache-Control: public, max-age=0, must-revalidate
+
+# No cache for HTML files
+
+/\*.html
+Cache-Control: public, max-age=0, must-revalidate

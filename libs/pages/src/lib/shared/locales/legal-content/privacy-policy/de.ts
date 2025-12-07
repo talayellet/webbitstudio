@@ -63,14 +63,39 @@ export const privacyPolicyDe: PrivacyPolicyContent = {
         'Das Recht auf Datenübertragbarkeit – Sie haben das Recht zu verlangen, dass wir die von uns gesammelten Daten an eine andere Organisation oder direkt an Sie übertragen, unter bestimmten Bedingungen',
       ],
     },
+    dataRetention: {
+      title: '7. Datenspeicherung',
+      content: [
+        'Wir bewahren Ihre persönlichen Daten nur so lange auf, wie es notwendig ist, um die in dieser Datenschutzrichtlinie beschriebenen Zwecke zu erfüllen, es sei denn, eine längere Aufbewahrungsfrist ist gesetzlich erforderlich oder zulässig. Unsere Aufbewahrungsfristen sind wie folgt:',
+      ],
+      periods: [
+        'Kontaktformulardaten: Wir bewahren Kontaktformular-Einreichungen (Name, E-Mail, Nachricht) bis zu 2 Jahre ab dem Datum der Einreichung auf, um auf Ihre Anfrage antworten und eine Aufzeichnung unserer Kommunikation führen zu können',
+        'Server-Protokolle und Analysedaten: Technische Daten wie IP-Adressen, Browsertypen und Zugriffszeiten werden bis zu 12 Monate für Sicherheit, Fehlerbehebung und Website-Verbesserungszwecke aufbewahrt',
+        'Finanz- und Transaktionsdaten: Wenn Sie unsere Dienste in Anspruch nehmen, werden Zahlungsaufzeichnungen und zugehörige Informationen bis zu 7 Jahre aufbewahrt, um Steuer- und Buchhaltungsvorschriften einzuhalten',
+        'Marketing-Kommunikation: Wenn Sie der Erhalt von Marketing-Kommunikation zustimmen, bewahren wir Ihre Kontaktinformationen auf, bis Sie Ihre Zustimmung widerrufen oder sich abmelden',
+      ],
+    },
+    dataBreachNotification: {
+      title: '8. Benachrichtigung bei Datenschutzverletzungen',
+      content: [
+        'In Übereinstimmung mit den Artikeln 33-34 der DSGVO haben wir Verfahren eingerichtet, um auf Datenschutzverletzungen mit personenbezogenen Daten zu reagieren:',
+      ],
+      procedures: [
+        'Interne Erkennung und Bewertung: Wir unterhalten Systeme zur Erkennung und Bewertung potenzieller Datenschutzverletzungen. Bei Entdeckung einer Verletzung werden wir sofort untersuchen, um Art, Umfang und potenzielle Auswirkungen des Vorfalls zu bestimmen',
+        "Benachrichtigung der Aufsichtsbehörde: Wenn eine Verletzung wahrscheinlich zu einem Risiko für Ihre Rechte und Freiheiten führt, werden wir die zuständige Aufsichtsbehörde (Information Commissioner's Office für Großbritannien oder Ihre lokale Datenschutzbehörde) innerhalb von 72 Stunden nach Kenntnisnahme der Verletzung benachrichtigen",
+        'Benachrichtigung von Einzelpersonen: Wenn eine Verletzung wahrscheinlich zu einem hohen Risiko für Ihre Rechte und Freiheiten führt, werden wir Sie unverzüglich direkt benachrichtigen. Unsere Benachrichtigung wird eine Beschreibung der Verletzung, die wahrscheinlichen Folgen und die Maßnahmen enthalten, die wir ergreifen, um sie zu beheben',
+        'Dokumentation: Wir führen Aufzeichnungen über alle Datenschutzverletzungen, einschließlich ihrer Auswirkungen und der ergriffenen Abhilfemaßnahmen, auch wenn keine Benachrichtigung erforderlich ist',
+        'Behebung: Wir werden sofortige Schritte unternehmen, um jede Verletzung einzudämmen und zu beheben, einschließlich der Zusammenarbeit mit Cybersicherheitsexperten, Strafverfolgungsbehörden und anderen relevanten Parteien nach Bedarf',
+      ],
+    },
     dataSecurity: {
-      title: '8. Sicherheit Ihrer Informationen',
+      title: '9. Sicherheit Ihrer Informationen',
       content: [
         'Wir verwenden administrative, technische und physische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten zu schützen. Obwohl wir angemessene Schritte unternommen haben, um die personenbezogenen Daten, die Sie uns zur Verfügung stellen, zu sichern, beachten Sie bitte, dass trotz unserer Bemühungen keine Sicherheitsmaßnahmen perfekt oder undurchdringlich sind und keine Methode der Datenübertragung gegen jede Abfangung oder andere Art von Missbrauch garantiert werden kann.',
       ],
     },
     contact: {
-      title: '9. Kontaktieren Sie Uns',
+      title: '10. Kontaktieren Sie Uns',
       content: [
         'Wenn Sie Fragen oder Kommentare zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter:',
       ],

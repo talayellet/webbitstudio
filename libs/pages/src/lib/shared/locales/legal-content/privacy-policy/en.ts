@@ -75,14 +75,27 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
         'Marketing Communications: If you consent to receive marketing communications, we will retain your contact information until you withdraw your consent or unsubscribe',
       ],
     },
+    dataBreachNotification: {
+      title: '8. Data Breach Notification',
+      content: [
+        'In accordance with GDPR Articles 33-34, we have established procedures to respond to data breaches involving personal information:',
+      ],
+      procedures: [
+        'Internal Detection and Assessment: We maintain systems to detect and assess potential data breaches. Upon discovering a breach, we will immediately investigate to determine the nature, scope, and potential impact of the incident',
+        "Supervisory Authority Notification: If a breach is likely to result in a risk to your rights and freedoms, we will notify the relevant supervisory authority (Information Commissioner's Office for UK, or your local data protection authority) within 72 hours of becoming aware of the breach",
+        'Individual Notification: If a breach is likely to result in a high risk to your rights and freedoms, we will notify you directly without undue delay. Our notification will include a description of the breach, the likely consequences, and the measures we are taking to address it',
+        'Documentation: We maintain records of all data breaches, including their effects and the remedial action taken, even if notification is not required',
+        'Remediation: We will take immediate steps to contain and remediate any breach, including working with cybersecurity experts, law enforcement, and other relevant parties as necessary',
+      ],
+    },
     dataSecurity: {
-      title: '8. Security of Your Information',
+      title: '9. Security of Your Information',
       content: [
         'We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.',
       ],
     },
     contact: {
-      title: '9. Contact Us',
+      title: '10. Contact Us',
       content: [
         'If you have questions or comments about this Privacy Policy, please contact us at:',
       ],

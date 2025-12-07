@@ -33,6 +33,11 @@ export interface PrivacyPolicyContent {
       content: string[];
       periods: string[];
     };
+    dataBreachNotification: {
+      title: string;
+      content: string[];
+      procedures: string[];
+    };
     dataSecurity: {
       title: string;
       content: string[];

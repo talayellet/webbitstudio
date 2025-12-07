@@ -63,14 +63,39 @@ export const privacyPolicyEs: PrivacyPolicyContent = {
         'El derecho a la portabilidad de datos: tiene derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a usted, bajo ciertas condiciones',
       ],
     },
+    dataRetention: {
+      title: '7. Retención de Datos',
+      content: [
+        'Retenemos su información personal solo durante el tiempo necesario para cumplir con los propósitos descritos en esta Política de Privacidad, a menos que la ley requiera o permita un período de retención más largo. Nuestros períodos de retención son los siguientes:',
+      ],
+      periods: [
+        'Datos de Formulario de Contacto: Retenemos las presentaciones de formularios de contacto (nombre, correo electrónico, mensaje) hasta 2 años desde la fecha de presentación para permitirnos responder a su consulta y mantener un registro de nuestra comunicación',
+        'Registros del Servidor y Datos de Análisis: Los datos técnicos como direcciones IP, tipos de navegadores y tiempos de acceso se retienen hasta 12 meses para seguridad, solución de problemas y propósitos de mejora del sitio web',
+        'Datos Financieros y de Transacciones: Si contrata nuestros servicios, los registros de pago e información relacionada se retienen hasta 7 años para cumplir con las regulaciones fiscales y contables',
+        'Comunicaciones de Marketing: Si consiente recibir comunicaciones de marketing, retendremos su información de contacto hasta que retire su consentimiento o se dé de baja',
+      ],
+    },
+    dataBreachNotification: {
+      title: '8. Notificación de Violación de Datos',
+      content: [
+        'De acuerdo con los Artículos 33-34 del RGPD, hemos establecido procedimientos para responder a violaciones de datos que involucren información personal:',
+      ],
+      procedures: [
+        'Detección y Evaluación Interna: Mantenemos sistemas para detectar y evaluar posibles violaciones de datos. Al descubrir una violación, investigaremos inmediatamente para determinar la naturaleza, el alcance y el impacto potencial del incidente',
+        "Notificación a la Autoridad Supervisora: Si una violación es probable que resulte en un riesgo para sus derechos y libertades, notificaremos a la autoridad supervisora relevante (Information Commissioner's Office para el Reino Unido, o su autoridad local de protección de datos) dentro de las 72 horas de conocer la violación",
+        'Notificación Individual: Si una violación es probable que resulte en un alto riesgo para sus derechos y libertades, le notificaremos directamente sin demora indebida. Nuestra notificación incluirá una descripción de la violación, las consecuencias probables y las medidas que estamos tomando para abordarla',
+        'Documentación: Mantenemos registros de todas las violaciones de datos, incluidos sus efectos y las medidas correctivas tomadas, incluso si no se requiere notificación',
+        'Remediación: Tomaremos medidas inmediatas para contener y remediar cualquier violación, incluido trabajar con expertos en ciberseguridad, fuerzas del orden y otras partes relevantes según sea necesario',
+      ],
+    },
     dataSecurity: {
-      title: '8. Seguridad de Su Información',
+      title: '9. Seguridad de Su Información',
       content: [
         'Usamos medidas de seguridad administrativas, técnicas y físicas para ayudar a proteger su información personal. Si bien hemos tomado medidas razonables para asegurar la información personal que nos proporciona, tenga en cuenta que, a pesar de nuestros esfuerzos, ninguna medida de seguridad es perfecta o impenetrable, y ningún método de transmisión de datos puede garantizarse contra cualquier intercepción u otro tipo de uso indebido.',
       ],
     },
     contact: {
-      title: '9. Contáctenos',
+      title: '10. Contáctenos',
       content: [
         'Si tiene preguntas o comentarios sobre esta Política de Privacidad, contáctenos en:',
       ],

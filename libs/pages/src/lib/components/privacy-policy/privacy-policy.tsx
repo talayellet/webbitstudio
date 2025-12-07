@@ -144,6 +144,28 @@ export const PrivacyPolicyPage = ({
           </ul>
         </section>
 
+        {/* Data Breach Notification */}
+        <section className={privacyPolicyStyles.privacyPolicySection}>
+          <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>
+            {sections.dataBreachNotification.title}
+          </h2>
+          {sections.dataBreachNotification.content.map((paragraph, index) => (
+            <p
+              key={index}
+              className={privacyPolicyStyles.privacyPolicyParagraph}
+            >
+              {paragraph}
+            </p>
+          ))}
+          <ul className={privacyPolicyStyles.privacyPolicyList}>
+            {sections.dataBreachNotification.procedures.map(
+              (procedure, index) => (
+                <li key={index}>{procedure}</li>
+              )
+            )}
+          </ul>
+        </section>
+
         {/* Data Security */}
         <section className={privacyPolicyStyles.privacyPolicySection}>
           <h2 className={privacyPolicyStyles.privacyPolicySectionTitle}>

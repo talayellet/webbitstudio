@@ -63,14 +63,39 @@ export const privacyPolicyFr: PrivacyPolicyContent = {
         'Le droit à la portabilité des données : vous avez le droit de demander que nous transférions les données que nous avons collectées à une autre organisation, ou directement à vous, sous certaines conditions',
       ],
     },
+    dataRetention: {
+      title: '7. Conservation des Données',
+      content: [
+        "Nous conservons vos informations personnelles uniquement aussi longtemps que nécessaire pour remplir les objectifs décrits dans cette Politique de Confidentialité, à moins qu'une période de conservation plus longue ne soit requise ou permise par la loi. Nos périodes de conservation sont les suivantes :",
+      ],
+      periods: [
+        "Données de Formulaire de Contact : Nous conservons les soumissions de formulaires de contact (nom, e-mail, message) jusqu'à 2 ans à compter de la date de soumission pour nous permettre de répondre à votre demande et de conserver un enregistrement de notre communication",
+        "Journaux de Serveur et Données Analytiques : Les données techniques telles que les adresses IP, les types de navigateurs et les heures d'accès sont conservées jusqu'à 12 mois à des fins de sécurité, de dépannage et d'amélioration du site web",
+        "Données Financières et Transactionnelles : Si vous utilisez nos services, les enregistrements de paiement et les informations connexes sont conservés jusqu'à 7 ans pour se conformer aux réglementations fiscales et comptables",
+        "Communications Marketing : Si vous consentez à recevoir des communications marketing, nous conserverons vos informations de contact jusqu'à ce que vous retiriez votre consentement ou vous désabonniez",
+      ],
+    },
+    dataBreachNotification: {
+      title: '8. Notification de Violation de Données',
+      content: [
+        'Conformément aux articles 33-34 du RGPD, nous avons établi des procédures pour répondre aux violations de données impliquant des informations personnelles :',
+      ],
+      procedures: [
+        "Détection et Évaluation Internes : Nous maintenons des systèmes pour détecter et évaluer les violations potentielles de données. Lors de la découverte d'une violation, nous enquêterons immédiatement pour déterminer la nature, l'étendue et l'impact potentiel de l'incident",
+        "Notification à l'Autorité de Surveillance : Si une violation est susceptible d'entraîner un risque pour vos droits et libertés, nous informerons l'autorité de surveillance compétente (Information Commissioner's Office pour le Royaume-Uni, ou votre autorité locale de protection des données) dans les 72 heures suivant la prise de connaissance de la violation",
+        "Notification Individuelle : Si une violation est susceptible d'entraîner un risque élevé pour vos droits et libertés, nous vous informerons directement sans délai indu. Notre notification comprendra une description de la violation, les conséquences probables et les mesures que nous prenons pour y remédier",
+        "Documentation : Nous conservons des enregistrements de toutes les violations de données, y compris leurs effets et les mesures correctives prises, même si la notification n'est pas requise",
+        "Remédiation : Nous prendrons des mesures immédiates pour contenir et remédier à toute violation, y compris travailler avec des experts en cybersécurité, les forces de l'ordre et d'autres parties pertinentes si nécessaire",
+      ],
+    },
     dataSecurity: {
-      title: '8. Sécurité de Vos Informations',
+      title: '9. Sécurité de Vos Informations',
       content: [
         "Nous utilisons des mesures de sécurité administratives, techniques et physiques pour aider à protéger vos informations personnelles. Bien que nous ayons pris des mesures raisonnables pour sécuriser les informations personnelles que vous nous fournissez, veuillez noter que malgré nos efforts, aucune mesure de sécurité n'est parfaite ou impénétrable, et aucune méthode de transmission de données ne peut être garantie contre toute interception ou autre type d'utilisation abusive.",
       ],
     },
     contact: {
-      title: '9. Nous Contacter',
+      title: '10. Nous Contacter',
       content: [
         'Si vous avez des questions ou des commentaires sur cette Politique de Confidentialité, veuillez nous contacter à :',
       ],

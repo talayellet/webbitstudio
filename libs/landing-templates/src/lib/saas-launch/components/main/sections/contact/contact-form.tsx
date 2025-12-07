@@ -1,6 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { STYLES, LocaleStrings, ContactFormData } from '../../../../utils';
+import {
+  STYLES,
+  LocaleStrings,
+  ContactFormData,
+  CONTACT_FORM,
+} from '../../../../utils';
 import { cx, EMAIL_REG } from '../../../../../shared';
 import { API_ENDPOINTS } from '@webbitstudio/shared';
 import { useContactFormSubmit } from '../../../../hooks';
@@ -72,10 +77,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             {...register('name', { required: true })}
             className={cx(STYLES.CONTACT_FORM_INPUT)}
             placeholder={localeStrings.contact.form.name.placeholder}
+            aria-required="true"
+            aria-invalid={errors.name ? 'true' : 'false'}
+            aria-describedby={
+              errors.name ? CONTACT_FORM.ERROR_IDS.NAME : undefined
+            }
           />
           <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
             {errors.name && (
-              <span className={STYLES.CONTACT_FORM_ERROR}>
+              <span
+                id={CONTACT_FORM.ERROR_IDS.NAME}
+                role="alert"
+                className={STYLES.CONTACT_FORM_ERROR}
+              >
                 {localeStrings.contact.form.errors.nameRequired}
               </span>
             )}
@@ -96,10 +110,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             })}
             className={cx(STYLES.CONTACT_FORM_INPUT)}
             placeholder={localeStrings.contact.form.email.placeholder}
+            aria-required="true"
+            aria-invalid={errors.email ? 'true' : 'false'}
+            aria-describedby={
+              errors.email ? CONTACT_FORM.ERROR_IDS.EMAIL : undefined
+            }
           />
           <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
             {errors.email && (
-              <span className={STYLES.CONTACT_FORM_ERROR}>
+              <span
+                id={CONTACT_FORM.ERROR_IDS.EMAIL}
+                role="alert"
+                className={STYLES.CONTACT_FORM_ERROR}
+              >
                 {errors.email.type === 'required'
                   ? localeStrings.contact.form.errors.emailRequired
                   : localeStrings.contact.form.errors.emailInvalid}
@@ -119,10 +142,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             rows={5}
             className={cx(STYLES.CONTACT_FORM_TEXTAREA)}
             placeholder={localeStrings.contact.form.message.placeholder}
+            aria-required="true"
+            aria-invalid={errors.message ? 'true' : 'false'}
+            aria-describedby={
+              errors.message ? CONTACT_FORM.ERROR_IDS.MESSAGE : undefined
+            }
           />
           <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
             {errors.message && (
-              <span className={STYLES.CONTACT_FORM_ERROR}>
+              <span
+                id={CONTACT_FORM.ERROR_IDS.MESSAGE}
+                role="alert"
+                className={STYLES.CONTACT_FORM_ERROR}
+              >
                 {errors.message.type === 'maxLength'
                   ? localeStrings.contact.form.errors.messageTooLong
                   : localeStrings.contact.form.errors.messageRequired}
@@ -143,11 +175,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               type="checkbox"
               {...register('consent', { required: true })}
               className={cx(STYLES.CONTACT_FORM_CONSENT_CHECKBOX)}
+              aria-required="true"
+              aria-invalid={errors.consent ? 'true' : 'false'}
+              aria-describedby={
+                errors.consent ? CONTACT_FORM.ERROR_IDS.CONSENT : undefined
+              }
             />
             <span>
               {localeStrings.contact.form.consent.label}{' '}
               <a
-                href="/privacy-policy"
+                href={CONTACT_FORM.PRIVACY_POLICY_PATH}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cx(STYLES.CONTACT_FORM_CONSENT_LINK)}
@@ -158,41 +195,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           </label>
           <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
             {errors.consent && (
-              <span className={STYLES.CONTACT_FORM_ERROR}>
-                {localeStrings.contact.form.errors.consentRequired}
-              </span>
-            )}
-          </div>
-        </div>
-
-        <div className={cx(STYLES.CONTACT_FORM_PRIVACY_NOTICE_CONTAINER)}>
-          <p className={STYLES.CONTACT_FORM_PRIVACY_NOTICE}>
-            {localeStrings.contact.form.privacyNotice}
-          </p>
-        </div>
-
-        <div>
-          <label className={STYLES.CONTACT_FORM_CONSENT_LABEL}>
-            <input
-              type="checkbox"
-              {...register('consent', { required: true })}
-              className={cx(STYLES.CONTACT_FORM_CONSENT_CHECKBOX)}
-            />
-            <span>
-              {localeStrings.contact.form.consent.label}{' '}
-              <a
-                href="/privacy-policy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cx(STYLES.CONTACT_FORM_CONSENT_LINK)}
+              <span
+                id={CONTACT_FORM.ERROR_IDS.CONSENT}
+                role="alert"
+                className={STYLES.CONTACT_FORM_ERROR}
               >
-                {localeStrings.contact.form.consent.privacyPolicy}
-              </a>
-            </span>
-          </label>
-          <div className={STYLES.CONTACT_FORM_ERROR_CONTAINER}>
-            {errors.consent && (
-              <span className={STYLES.CONTACT_FORM_ERROR}>
                 {localeStrings.contact.form.errors.consentRequired}
               </span>
             )}

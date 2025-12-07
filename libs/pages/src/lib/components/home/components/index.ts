@@ -1,4 +1,3 @@
-export * from './contact-section';
 export * from './faq-section';
 export * from './footer';
 export * from './header';
@@ -9,7 +8,6 @@ export * from './process-section';
 export * from './why-section';
 export * from './pricing-section';
 export * from './faq-section';
-export * from './contact-section';
 export * from './footer';
 export * from './price-conversion-notice';
 export * from './hero';

@@ -1,24 +1,24 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import * as contactSectionStyles from '../utils/styles';
+import * as contactSectionStyles from '../../utils/styles';
 import {
   LocaleStrings,
   ContactFormData,
   CONTACT_FORM_IDS,
-  WEBBIT_STUDIO_EMAIL,
-} from '../../../shared';
-import {
-  CustomSelect,
-  EnvelopeIcon,
-  PhoneIcon,
-  Toast,
-} from '@webbitstudio/ui-components';
-import { useContactFormSubmit, useGeoBasedPhone } from '../hooks';
+} from '../../../../shared';
+import { CustomSelect, Toast } from '@webbitstudio/ui-components';
+import { useContactFormSubmit, useGeoBasedPhone } from '../../hooks';
 import {
   DEFAULT_INPUT_MAX_LENGTH,
   EMAIL_REG,
 } from '@webbitstudio/shared-utils';
-import { CONTACT_SECTION } from '../utils';
+import { CONTACT_SECTION } from '../../utils';
+import {
+  ContactIntro,
+  FormField,
+  ConsentField,
+  ContactFallback,
+} from './components';
 
 interface ContactSectionProps {
   content: LocaleStrings['contactSection'];
@@ -84,77 +84,40 @@ export const ContactSection = ({
     >
       <div className={contactSectionStyles.card.contact}>
         <div className={contactSectionStyles.contact.grid}>
-          <div>
-            <h2
-              id={CONTACT_SECTION.HEADING_ID}
-              className={contactSectionStyles.typography.h2}
-            >
-              {content.title}
-            </h2>
-            <p className={contactSectionStyles.contact.intro}>
-              {content.intro}
-            </p>
-            <ul className={contactSectionStyles.list.contactPoints}>
-              {content.contactPoints.map((point, index) => (
-                <li key={index}>• {point}</li>
-              ))}
-            </ul>
-          </div>
+          <ContactIntro content={content} />
 
           <form
             onSubmit={handleSubmit(onFormSubmit)}
             className={contactSectionStyles.form.root}
           >
             <div className={contactSectionStyles.form.grid}>
-              <div className={contactSectionStyles.form.fieldContainer}>
-                <label
-                  htmlFor={CONTACT_FORM_IDS.NAME}
-                  className={contactSectionStyles.typography.label}
-                >
-                  {content.form.name.label}
-                </label>
-                <input
-                  type="text"
-                  id={CONTACT_FORM_IDS.NAME}
-                  {...register('name', { required: true })}
-                  placeholder={content.form.name.placeholder}
-                  className={contactSectionStyles.form.input}
-                  aria-required="true"
-                  aria-invalid={errors.name ? 'true' : 'false'}
-                />
-                {errors.name && (
-                  <p className={contactSectionStyles.form.error}>
-                    {content.form.errors.nameRequired}
-                  </p>
-                )}
-              </div>
-              <div className={contactSectionStyles.form.fieldContainer}>
-                <label
-                  htmlFor={CONTACT_FORM_IDS.EMAIL}
-                  className={contactSectionStyles.typography.label}
-                >
-                  {content.form.email.label}
-                </label>
-                <input
-                  type="email"
-                  id={CONTACT_FORM_IDS.EMAIL}
-                  {...register('email', {
-                    required: true,
-                    pattern: EMAIL_REG,
-                  })}
-                  placeholder={content.form.email.placeholder}
-                  className={contactSectionStyles.form.input}
-                  aria-required="true"
-                  aria-invalid={errors.email ? 'true' : 'false'}
-                />
-                {errors.email && (
-                  <p className={contactSectionStyles.form.error}>
-                    {errors.email.type === 'required'
-                      ? content.form.errors.emailRequired
-                      : content.form.errors.emailInvalid}
-                  </p>
-                )}
-              </div>
+              <FormField
+                id={CONTACT_FORM_IDS.NAME}
+                label={content.form.name.label}
+                type="text"
+                placeholder={content.form.name.placeholder}
+                register={register('name', { required: true })}
+                error={errors.name}
+                errorMessage={content.form.errors.nameRequired}
+                required
+              />
+              <FormField
+                id={CONTACT_FORM_IDS.EMAIL}
+                label={content.form.email.label}
+                type="email"
+                placeholder={content.form.email.placeholder}
+                register={register('email', {
+                  required: true,
+                  pattern: EMAIL_REG,
+                })}
+                error={errors.email}
+                errorMessage={
+                  errors.email?.type === 'required'
+                    ? content.form.errors.emailRequired
+                    : content.form.errors.emailInvalid
+                }
+                required
+              />
             </div>
 
             <div className={contactSectionStyles.form.fieldContainer}>
@@ -214,33 +177,13 @@ export const ContactSection = ({
               </p>
             </div>
 
-            <div className={contactSectionStyles.form.fieldContainer}>
-              <label className={contactSectionStyles.form.consentLabel}>
-                <input
-                  type="checkbox"
-                  {...register('consent', { required: true })}
-                  className={contactSectionStyles.form.consentCheckbox}
-                  aria-required="true"
-                  aria-invalid={errors.consent ? 'true' : 'false'}
-                />
-                <span>
-                  {content.form.consent.label}{' '}
-                  <a
-                    href={CONTACT_SECTION.PRIVACY_POLICY_HREF}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={contactSectionStyles.form.consentLink}
-                  >
-                    {content.form.consent.privacyPolicy}
-                  </a>
-                </span>
-              </label>
-              {errors.consent && (
-                <p className={contactSectionStyles.form.error}>
-                  {content.form.errors.consentRequired}
-                </p>
-              )}
-            </div>
+            <ConsentField
+              register={register('consent', { required: true })}
+              error={errors.consent}
+              consentLabel={content.form.consent.label}
+              privacyPolicyText={content.form.consent.privacyPolicy}
+              errorMessage={content.form.errors.consentRequired}
+            />
 
             {submitError && (
               <div className={contactSectionStyles.form.error}>
@@ -259,34 +202,12 @@ export const ContactSection = ({
             <p className={contactSectionStyles.form.note}>
               {content.form.note}
             </p>
-            <div className={contactSectionStyles.form.emailFallback}>
-              <EnvelopeIcon
-                className={contactSectionStyles.form.emailFallbackIcon}
-              />
-              <span>
-                {content.form.emailFallback}{' '}
-                <a
-                  href={`mailto:${WEBBIT_STUDIO_EMAIL}`}
-                  className={contactSectionStyles.form.emailFallbackLink}
-                >
-                  {WEBBIT_STUDIO_EMAIL}
-                </a>
-              </span>
-            </div>
-            <div className={contactSectionStyles.form.emailFallback}>
-              <PhoneIcon
-                className={contactSectionStyles.form.emailFallbackIcon}
-              />
-              <span>
-                {content.form.phoneFallback}{' '}
-                <a
-                  href={`tel:${phoneNumber.dialable}`}
-                  className={contactSectionStyles.form.emailFallbackLink}
-                >
-                  {phoneNumber.display}
-                </a>
-              </span>
-            </div>
+
+            <ContactFallback
+              emailText={content.form.emailFallback}
+              phoneText={content.form.phoneFallback}
+              phoneNumber={phoneNumber}
+            />
           </form>
         </div>
       </div>

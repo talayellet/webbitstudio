@@ -55,6 +55,16 @@ export const DEFAULT_CONTACT_SECTION_SUBTITLE =
   "Have a question or want to work together? We'd love to hear from you.";
 export const DEFAULT_CONTACT_FORM_TITLE = 'Send us a message';
 
+export const CONTACT_FORM = {
+  ERROR_IDS: {
+    NAME: 'name-error',
+    EMAIL: 'email-error',
+    MESSAGE: 'message-error',
+    CONSENT: 'consent-error',
+  },
+  PRIVACY_POLICY_PATH: '/privacy-policy',
+} as const;
+
 // ============================================================================
 // About Section
 // ============================================================================

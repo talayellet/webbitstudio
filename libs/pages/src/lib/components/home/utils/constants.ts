@@ -57,4 +57,5 @@ export const CONTACT_SECTION = {
   ID: 'contact',
   HEADING_ID: 'contact-heading',
   PRIVACY_POLICY_HREF: ROUTES.PRIVACY_POLICY,
+  CONSENT_ERROR_ID: 'consent-error',
 } as const;

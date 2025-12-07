@@ -338,6 +338,7 @@ export const de: LocaleStrings = {
       privacy: 'Datenschutz',
       terms: 'Nutzungsbedingungen',
       cookies: 'Cookie-Richtlinie',
+      accessibility: 'Barrierefreiheit',
     },
   },
 

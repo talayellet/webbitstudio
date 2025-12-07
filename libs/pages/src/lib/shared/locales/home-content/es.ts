@@ -337,6 +337,7 @@ export const es: LocaleStrings = {
       privacy: 'Política de Privacidad',
       terms: 'Términos de Servicio',
       cookies: 'Política de Cookies',
+      accessibility: 'Accesibilidad',
     },
   },
 

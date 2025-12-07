@@ -337,6 +337,7 @@ export const fr: LocaleStrings = {
       privacy: 'Politique de Confidentialité',
       terms: 'Conditions d’Utilisation',
       cookies: 'Politique des Cookies',
+      accessibility: 'Accessibilité',
     },
   },
 

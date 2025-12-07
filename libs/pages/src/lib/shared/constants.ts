@@ -1,10 +1,19 @@
 import { LanguageOption, type CountryCode } from '@webbitstudio/shared-utils';
 import { en, es, fr, de, he, type LocaleStrings } from './locales';
+import {
+  WEBBIT_STUDIO_EMAIL,
+  WEBBIT_STUDIO_PHONE,
+  WEBBIT_STUDIO_PHONE_IL,
+  WEBBIT_STUDIO_PHONE_IL_DIALABLE,
+} from './company-info';
 
-export const WEBBIT_STUDIO_EMAIL = 'info@webbitstudio.com';
-export const WEBBIT_STUDIO_PHONE = '+44 (0)7414 902208';
-export const WEBBIT_STUDIO_PHONE_IL = '054-227-9572';
-export const WEBBIT_STUDIO_PHONE_IL_DIALABLE = '+972542279572';
+// Re-export company info constants
+export {
+  WEBBIT_STUDIO_EMAIL,
+  WEBBIT_STUDIO_PHONE,
+  WEBBIT_STUDIO_PHONE_IL,
+  WEBBIT_STUDIO_PHONE_IL_DIALABLE,
+};
 
 export const CONTACT_FORM_IDS = {
   NAME: 'contact-name',
@@ -53,6 +62,7 @@ export const ROUTES = {
   PRIVACY_POLICY: '/privacy-policy',
   TERMS_OF_SERVICE: '/terms-of-service',
   COOKIE_POLICY: '/cookie-policy',
+  ACCESSIBILITY_STATEMENT: '/accessibility-statement',
 } as const;
 
 // Locale mapping

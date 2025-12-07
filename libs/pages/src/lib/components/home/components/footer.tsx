@@ -41,6 +41,13 @@ export const Footer = ({ content }: FooterProps) => {
             {content.links.cookies}
           </a>
           <span className={footerStyles.footer.separator} />
+          <a
+            href={FOOTER.ACCESSIBILITY_STATEMENT_HREF}
+            className={footerStyles.footer.link}
+          >
+            {content.links.accessibility}
+          </a>
+          <span className={footerStyles.footer.separator} />
           <button
             type="button"
             className={footerStyles.footer.link}

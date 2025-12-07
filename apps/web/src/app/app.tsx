@@ -5,13 +5,14 @@ import {
   PrivacyPolicyPage,
   TermsOfServicePage,
   CookiePolicyPage,
+  AccessibilityStatementPage,
+  WEBBIT_STUDIO_EMAIL,
 } from '@webbitstudio/pages';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
 import { AnalyticsScript } from '../components';
 import { useAnalyticsConsent } from '../hooks';
 
 const COMPANY_NAME = 'Webbit Studio';
-const COMPANY_EMAIL = 'privacy@webbitstudio.com';
 
 export function App() {
   const hasAnalyticsConsent = useAnalyticsConsent();
@@ -38,7 +39,7 @@ export function App() {
             <SinglePageLayout>
               <PrivacyPolicyPage
                 companyName={COMPANY_NAME}
-                companyEmail={COMPANY_EMAIL}
+                companyEmail={WEBBIT_STUDIO_EMAIL}
               />
             </SinglePageLayout>
           }
@@ -49,7 +50,7 @@ export function App() {
             <SinglePageLayout>
               <TermsOfServicePage
                 companyName={COMPANY_NAME}
-                companyEmail={COMPANY_EMAIL}
+                companyEmail={WEBBIT_STUDIO_EMAIL}
               />
             </SinglePageLayout>
           }
@@ -60,8 +61,16 @@ export function App() {
             <SinglePageLayout>
               <CookiePolicyPage
                 companyName={COMPANY_NAME}
-                companyEmail={COMPANY_EMAIL}
+                companyEmail={WEBBIT_STUDIO_EMAIL}
               />
+            </SinglePageLayout>
+          }
+        />
+        <Route
+          path="/accessibility-statement"
+          element={
+            <SinglePageLayout>
+              <AccessibilityStatementPage />
             </SinglePageLayout>
           }
         />

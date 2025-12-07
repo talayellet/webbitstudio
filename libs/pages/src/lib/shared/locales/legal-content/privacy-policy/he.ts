@@ -1,4 +1,5 @@
 import type { PrivacyPolicyContent } from '../../../types';
+import { WEBBIT_STUDIO_EMAIL } from '../../../company-info';
 
 export const privacyPolicyHe: PrivacyPolicyContent = {
   title: 'מדיניות פרטיות',
@@ -73,7 +74,7 @@ export const privacyPolicyHe: PrivacyPolicyContent = {
       content: [
         'אם יש לך שאלות או הערות לגבי מדיניות פרטיות זו, אנא צור איתנו קשר בכתובת:',
       ],
-      email: 'privacy@webbitstudio.com',
+      email: WEBBIT_STUDIO_EMAIL,
     },
   },
 };

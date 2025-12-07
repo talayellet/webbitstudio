@@ -327,6 +327,7 @@ export const he: LocaleStrings = {
       privacy: 'מדיניות פרטיות',
       terms: 'תנאי שימוש',
       cookies: 'מדיניות עוגיות',
+      accessibility: 'נגישות',
     },
   },
 

@@ -1,4 +1,5 @@
 import type { PrivacyPolicyContent } from '../../../types';
+import { WEBBIT_STUDIO_EMAIL } from '../../../company-info';
 
 export const privacyPolicyEn: PrivacyPolicyContent = {
   title: 'Privacy Policy',
@@ -73,7 +74,7 @@ export const privacyPolicyEn: PrivacyPolicyContent = {
       content: [
         'If you have questions or comments about this Privacy Policy, please contact us at:',
       ],
-      email: 'privacy@webbitstudio.com',
+      email: WEBBIT_STUDIO_EMAIL,
     },
   },
 };

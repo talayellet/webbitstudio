@@ -73,7 +73,10 @@ export const TemplatesCatalog = ({
         isRTL={isRTL}
       />
 
-      <div className={TEMPLATES_CATALOG_STYLES.header.container}>
+      <div
+        className={TEMPLATES_CATALOG_STYLES.header.container}
+        dir={isRTL ? 'rtl' : 'ltr'}
+      >
         <TemplatesSearchBar
           value={searchQuery}
           onChange={setSearchQuery}

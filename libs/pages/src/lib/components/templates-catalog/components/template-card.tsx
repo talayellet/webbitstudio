@@ -36,7 +36,11 @@ export const TemplateCard = ({
   return (
     <button
       onClick={() => onClick(template)}
-      className={TEMPLATES_CATALOG_STYLES.card.button}
+      className={clsx(
+        TEMPLATES_CATALOG_STYLES.card.button,
+        isRTL ? 'text-right' : 'text-left'
+      )}
+      dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* Thumbnail */}
       <div className={TEMPLATES_CATALOG_STYLES.card.thumbnail.wrapper}>
@@ -49,7 +53,12 @@ export const TemplateCard = ({
         </div>
         {/* Hover overlay */}
         <div className={TEMPLATES_CATALOG_STYLES.card.thumbnail.overlay}>
-          <span className={TEMPLATES_CATALOG_STYLES.card.thumbnail.badge}>
+          <span
+            className={clsx(
+              TEMPLATES_CATALOG_STYLES.card.thumbnail.badge,
+              isRTL && 'flex-row-reverse'
+            )}
+          >
             {previewLabel}
             <ExternalLinkIcon
               className={TEMPLATES_CATALOG_STYLES.card.thumbnail.badgeIcon}
@@ -59,10 +68,7 @@ export const TemplateCard = ({
       </div>
 
       {/* Content */}
-      <div
-        className={TEMPLATES_CATALOG_STYLES.card.content.wrapper}
-        dir={isRTL ? 'rtl' : 'ltr'}
-      >
+      <div className={TEMPLATES_CATALOG_STYLES.card.content.wrapper}>
         <h3
           className={clsx(
             TEMPLATES_CATALOG_STYLES.card.content.title,

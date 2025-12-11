@@ -35,7 +35,10 @@ export const TemplatesGrid = ({
   isRTL,
 }: TemplatesGridProps) => {
   return (
-    <div className={TEMPLATES_CATALOG_STYLES.templates.container}>
+    <div
+      className={TEMPLATES_CATALOG_STYLES.templates.container}
+      dir={isRTL ? 'rtl' : 'ltr'}
+    >
       {templates.length === 0 ? (
         <div className={TEMPLATES_CATALOG_STYLES.templates.emptyState}>
           <p className={TEMPLATES_CATALOG_STYLES.templates.emptyText}>

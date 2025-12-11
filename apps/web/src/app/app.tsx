@@ -9,7 +9,7 @@ import {
   TemplatesCatalog,
   WEBBIT_STUDIO_EMAIL,
 } from '@webbitstudio/pages';
-import { SaasLaunch } from '@webbitstudio/landing-templates';
+import { SaasLaunchRouter } from '@webbitstudio/landing-templates';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
 import { AnalyticsScript } from '../components';
 import { useAnalyticsConsent } from '../hooks';
@@ -36,7 +36,7 @@ export function App() {
           }
         />
         <Route path="/templates" element={<TemplatesCatalog />} />
-        <Route path="/templates/saas-launch" element={<SaasLaunch />} />
+        <Route path="/templates/saas-launch/*" element={<SaasLaunchRouter />} />
         <Route
           path="/privacy-policy"
           element={

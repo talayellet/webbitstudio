@@ -22,7 +22,11 @@ export const useSaasLaunchRouting = (
   const handleFeatureClick = useCallback(
     (feature: Feature) => {
       if (feature.routePath) {
-        navigate(feature.routePath);
+        // Use relative path for nested routing
+        const relativePath = feature.routePath.startsWith('/')
+          ? feature.routePath.substring(1)
+          : feature.routePath;
+        navigate(relativePath);
       }
     },
     [navigate]

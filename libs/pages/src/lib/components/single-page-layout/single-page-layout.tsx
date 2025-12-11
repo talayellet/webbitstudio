@@ -47,6 +47,7 @@ export const SinglePageLayout = ({ children }: SinglePageLayoutProps) => {
 
       <Header
         content={content.header}
+        isRTL={isRTL}
         languageSwitcher={
           <LanguageSwitcher
             currentLanguage={locale}

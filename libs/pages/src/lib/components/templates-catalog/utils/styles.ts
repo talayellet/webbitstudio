@@ -33,14 +33,14 @@ export const TEMPLATES_CATALOG_STYLES = {
     container: 'mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8',
     emptyState: 'py-16 text-center',
     emptyText: 'text-lg text-slate-400',
-    grid: 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3',
+    grid: 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start',
   },
 
   card: {
     button:
-      'group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-0 text-left transition-all hover:border-sky-500/70 hover:bg-slate-900 hover:shadow-xl hover:shadow-sky-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950',
+      'group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-0 transition-all hover:border-sky-500/70 hover:bg-slate-900 hover:shadow-xl hover:shadow-sky-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 block w-full',
     thumbnail: {
-      wrapper: 'relative aspect-[16/10] overflow-hidden bg-slate-800',
+      wrapper: 'relative aspect-[16/10] overflow-hidden bg-slate-800 block',
       gradient:
         'absolute inset-0 bg-gradient-to-br from-sky-500/20 via-violet-500/10 to-emerald-400/10',
       placeholder: 'flex h-full items-center justify-center',

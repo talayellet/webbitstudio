@@ -36,6 +36,16 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
           >
             {content.secondaryCta}
           </a>
+          {content.tertiaryCta && content.tertiaryCtaHref && (
+            <a
+              href={content.tertiaryCtaHref}
+              className={heroStyles.button.secondary}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {content.tertiaryCta}
+            </a>
+          )}
         </div>
       </div>
 

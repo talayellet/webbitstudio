@@ -33,6 +33,8 @@ export const en = {
       'Webbit Studio builds landing pages, business websites, hosting setups, deployments, and custom admin panels so you can manage your content with ease. Designed for small businesses worldwide.',
     primaryCta: 'Start your project',
     secondaryCta: 'See packages',
+    tertiaryCta: 'Browse templates',
+    tertiaryCtaHref: '/templates',
     visual: {
       mockCards: [
         {

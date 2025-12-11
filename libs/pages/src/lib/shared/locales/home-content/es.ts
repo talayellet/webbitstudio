@@ -35,6 +35,8 @@ export const es: LocaleStrings = {
       'Webbit Studio construye páginas de destino, sitios web empresariales, configuraciones de alojamiento, implementaciones y paneles de administración personalizados para que puedas gestionar tu contenido con facilidad. Diseñado para pequeñas empresas en todo el mundo.',
     primaryCta: 'Comienza tu proyecto',
     secondaryCta: 'Ver paquetes',
+    tertiaryCta: 'Ver plantillas',
+    tertiaryCtaHref: '/templates',
     visual: {
       mockCards: [
         {

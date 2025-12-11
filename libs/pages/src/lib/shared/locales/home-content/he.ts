@@ -34,6 +34,8 @@ export const he: LocaleStrings = {
       'Webbit Studio מספקת דפי נחיתה, אתרי תדמית ופתרונות אירוח ופריסה, לצד ממשקי ניהול תוכן נוחים ויעילים. ניתן לבחור בין תבניות מוכנות המוזילות את העלות, לבין עיצוב ופיתוח מותאמים אישית לצרכי העסק.',
     primaryCta: 'להצעת מחיר',
     secondaryCta: 'לחבילות',
+    tertiaryCta: 'לתבניות דפי הנחיתה',
+    tertiaryCtaHref: '/templates',
     visual: {
       mockCards: [
         {

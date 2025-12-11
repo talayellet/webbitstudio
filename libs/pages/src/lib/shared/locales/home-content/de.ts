@@ -35,6 +35,8 @@ export const de: LocaleStrings = {
       'Webbit Studio erstellt Landing Pages, Unternehmenswebsites, Hosting-Setups, Deployments und maßgeschneiderte Admin-Panels, damit Sie Ihre Inhalte einfach verwalten können. Entwickelt für kleine Unternehmen weltweit.',
     primaryCta: 'Projekt starten',
     secondaryCta: 'Pakete ansehen',
+    tertiaryCta: 'Vorlagen durchsuchen',
+    tertiaryCtaHref: '/templates',
     visual: {
       mockCards: [
         {

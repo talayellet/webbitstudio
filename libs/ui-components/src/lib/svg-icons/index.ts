@@ -6,3 +6,5 @@ export { CheckCircleIcon } from './check-circle-icon';
 export { CheckIcon } from './check-icon';
 export { ChevronDownIcon } from './chevron-down-icon';
 export { WhatsAppIcon } from './whatsapp-icon';
+export { ImagePlaceholderIcon } from './image-placeholder-icon';
+export { ExternalLinkIcon } from './external-link-icon';

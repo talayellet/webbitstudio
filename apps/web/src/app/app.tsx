@@ -6,6 +6,7 @@ import {
   TermsOfServicePage,
   CookiePolicyPage,
   AccessibilityStatementPage,
+  TemplatesCatalog,
   WEBBIT_STUDIO_EMAIL,
 } from '@webbitstudio/pages';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
@@ -33,6 +34,7 @@ export function App() {
             />
           }
         />
+        <Route path="/templates" element={<TemplatesCatalog />} />
         <Route
           path="/privacy-policy"
           element={

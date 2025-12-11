@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
     "outDir": "dist",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "types": [
@@ -44,6 +43,9 @@
   "references": [
     {
       "path": "../shared-utils/tsconfig.lib.json"
+    },
+    {
+      "path": "../data-access/tsconfig.lib.json"
     }
   ]
 }

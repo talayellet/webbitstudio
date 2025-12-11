@@ -6,3 +6,4 @@ export * from './svg-icons';
 export * from './toast';
 export * from './cookie-consent-banner';
 export * from './modal';
+export * from './page-under-construction';

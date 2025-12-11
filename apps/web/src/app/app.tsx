@@ -11,6 +11,7 @@ import {
 } from '@webbitstudio/pages';
 import { SaasLaunchRouter } from '@webbitstudio/landing-templates';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
+import { PageUnderConstruction } from '@webbitstudio/ui-components';
 import { AnalyticsScript } from '../components';
 import { useAnalyticsConsent } from '../hooks';
 
@@ -37,6 +38,14 @@ export function App() {
         />
         <Route path="/templates" element={<TemplatesCatalog />} />
         <Route path="/templates/saas-launch/*" element={<SaasLaunchRouter />} />
+        <Route
+          path="/templates/portfolio-creative"
+          element={<PageUnderConstruction backUrl="/templates" />}
+        />
+        <Route
+          path="/templates/business-pro"
+          element={<PageUnderConstruction backUrl="/templates" />}
+        />
         <Route
           path="/privacy-policy"
           element={

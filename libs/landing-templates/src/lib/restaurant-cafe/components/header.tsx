@@ -1,25 +1,27 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
+import { useScrollBehavior } from '@webbitstudio/shared-utils';
 import { STYLES, NavLink } from '../utils';
 
 interface HeaderProps {
   restaurantName: string;
   logo: ReactNode;
   navLinks: NavLink[];
+  ariaMainNavigation: string;
+  ariaReturnToTop: string;
 }
 
 /**
  * Header component for restaurant-cafe template
  */
-export const Header = ({ restaurantName, logo, navLinks }: HeaderProps) => {
-  // Check user's motion preference for smooth scrolling (WCAG 2.3.3)
-  const prefersReducedMotion =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const scrollBehavior: ScrollBehavior = prefersReducedMotion
-    ? 'auto'
-    : 'smooth';
+export const Header = ({
+  restaurantName,
+  logo,
+  navLinks,
+  ariaMainNavigation,
+  ariaReturnToTop,
+}: HeaderProps) => {
+  const scrollBehavior = useScrollBehavior();
 
   return (
     <header className={STYLES.HEADER}>
@@ -27,7 +29,7 @@ export const Header = ({ restaurantName, logo, navLinks }: HeaderProps) => {
         <nav
           className={STYLES.NAV}
           role="navigation"
-          aria-label="Main navigation"
+          aria-label={ariaMainNavigation}
         >
           {logo ? (
             <div className={STYLES.LOGO}>{logo}</div>
@@ -35,7 +37,7 @@ export const Header = ({ restaurantName, logo, navLinks }: HeaderProps) => {
             <a
               href="#top"
               className={STYLES.LOGO}
-              aria-label={`${restaurantName} - Return to top`}
+              aria-label={`${restaurantName} - ${ariaReturnToTop}`}
               onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: scrollBehavior });

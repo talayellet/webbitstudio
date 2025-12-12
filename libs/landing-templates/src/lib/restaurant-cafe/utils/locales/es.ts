@@ -12,6 +12,10 @@ export const es = {
       menu: 'Menú',
       contact: 'Contacto',
     },
+    aria: {
+      mainNavigation: 'Navegación principal',
+      returnToTop: 'Volver arriba',
+    },
   },
 
   // Hero Section

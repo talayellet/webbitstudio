@@ -148,6 +148,10 @@ export interface LocaleStrings {
       menu: string;
       contact: string;
     };
+    aria: {
+      mainNavigation: string;
+      returnToTop: string;
+    };
   };
   hero: {
     subtitle: string;

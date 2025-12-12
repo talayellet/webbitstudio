@@ -166,7 +166,13 @@ export const RestaurantLayout = ({
         />
       )}
 
-      <Header restaurantName={restaurantName} logo={logo} navLinks={navLinks} />
+      <Header
+        restaurantName={restaurantName}
+        logo={logo}
+        navLinks={navLinks}
+        ariaMainNavigation={localeStrings.header.aria.mainNavigation}
+        ariaReturnToTop={localeStrings.header.aria.returnToTop}
+      />
 
       {children}
 

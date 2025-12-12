@@ -13,6 +13,10 @@ export const he = {
       menu: 'תפריט',
       contact: 'צור קשר',
     },
+    aria: {
+      mainNavigation: 'ניווט ראשי',
+      returnToTop: 'חזרה למעלה',
+    },
   },
 
   // Hero Section

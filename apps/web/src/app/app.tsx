@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import {
   WebbitStudioHomePage,
   SinglePageLayout,
@@ -11,55 +10,15 @@ import {
   WEBBIT_STUDIO_EMAIL,
 } from '@webbitstudio/pages';
 import { SaasLaunchRouter } from '@webbitstudio/landing-templates';
-import {
-  CurrencyProvider,
-  LOCALE_STORAGE_KEY,
-  DEFAULT_LANGUAGE,
-} from '@webbitstudio/shared-utils';
+import { CurrencyProvider } from '@webbitstudio/shared-utils';
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 import { AnalyticsScript } from '../components';
-import { useAnalyticsConsent } from '../hooks';
-import { ROUTES } from '../utils';
-
-const COMPANY_NAME = 'Webbit Studio';
+import { useAnalyticsConsent, useLocale } from '../hooks';
+import { COMPANY_NAME, ROUTES } from '../utils';
 
 export function App() {
   const hasAnalyticsConsent = useAnalyticsConsent();
-  const [locale, setLocale] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      return (
-        window.localStorage.getItem(LOCALE_STORAGE_KEY) || DEFAULT_LANGUAGE
-      );
-    }
-    return DEFAULT_LANGUAGE;
-  });
-
-  // Listen for locale changes in localStorage
-  useEffect(() => {
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === LOCALE_STORAGE_KEY && e.newValue) {
-        setLocale(e.newValue);
-      }
-    };
-
-    // Also check localStorage periodically in case changes happen in same tab
-    const checkLocale = () => {
-      if (typeof window !== 'undefined') {
-        const storedLocale = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-        if (storedLocale && storedLocale !== locale) {
-          setLocale(storedLocale);
-        }
-      }
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    const interval = setInterval(checkLocale, 1000);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      clearInterval(interval);
-    };
-  }, [locale]);
+  const locale = useLocale();
 
   return (
     <CurrencyProvider>

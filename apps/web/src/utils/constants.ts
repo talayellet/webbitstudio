@@ -12,3 +12,5 @@ export const ROUTES = {
   COOKIE_POLICY: '/cookie-policy',
   ACCESSIBILITY_STATEMENT: '/accessibility-statement',
 } as const;
+
+export const COMPANY_NAME = 'Webbit Studio';

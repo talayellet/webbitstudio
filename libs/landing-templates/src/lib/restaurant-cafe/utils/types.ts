@@ -66,14 +66,10 @@ export interface FooterSection {
 }
 
 // ============================================================================
-// Language
+// Language Options
 // ============================================================================
 
-export interface LanguageOption {
-  code: Locale;
-  flag: string;
-  label: string;
-}
+// Using LanguageOption from @webbitstudio/shared-utils
 
 // ============================================================================
 // Content Overrides
@@ -200,5 +196,12 @@ export interface LocaleStrings {
     title: string;
     message: string;
     backButton: string;
+  };
+  themes: {
+    warm: string;
+    elegant: string;
+    modern: string;
+    rustic: string;
+    coastal: string;
   };
 }

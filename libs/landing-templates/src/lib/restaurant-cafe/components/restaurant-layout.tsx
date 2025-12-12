@@ -10,6 +10,7 @@ import {
   type ThemeName,
   type ColorOverrides,
   THEME_NAMES,
+  DEFAULT_THEMES,
   Locale,
 } from '../../shared';
 import {
@@ -18,9 +19,9 @@ import {
   DEFAULT_LANGUAGE_OPTIONS,
   getLocaleStrings,
   getDefaultFooterSections,
-  type LanguageOption,
   type FooterSection,
 } from '../utils';
+import { type LanguageOption } from '@webbitstudio/shared-utils';
 import { RTL_LOCALES } from '@webbitstudio/shared-utils';
 
 interface RestaurantLayoutProps {
@@ -119,33 +120,19 @@ export const RestaurantLayout = ({
 
   // Generate localized theme options
   const localizedThemes = useMemo(() => {
-    return [
-      {
-        name: THEME_NAMES.WARM,
-        label: localeStrings.themes.warm,
-        icon: '☕',
-      },
-      {
-        name: THEME_NAMES.ELEGANT,
-        label: localeStrings.themes.elegant,
-        icon: '🍷',
-      },
-      {
-        name: THEME_NAMES.MODERN,
-        label: localeStrings.themes.modern,
-        icon: '🥗',
-      },
-      {
-        name: THEME_NAMES.RUSTIC,
-        label: localeStrings.themes.rustic,
-        icon: '🌾',
-      },
-      {
-        name: THEME_NAMES.COASTAL,
-        label: localeStrings.themes.coastal,
-        icon: '🐚',
-      },
-    ];
+    return DEFAULT_THEMES.map((theme) => ({
+      ...theme,
+      label:
+        theme.name === THEME_NAMES.WARM
+          ? localeStrings.themes.warm
+          : theme.name === THEME_NAMES.ELEGANT
+          ? localeStrings.themes.elegant
+          : theme.name === THEME_NAMES.MODERN
+          ? localeStrings.themes.modern
+          : theme.name === THEME_NAMES.RUSTIC
+          ? localeStrings.themes.rustic
+          : localeStrings.themes.coastal,
+    }));
   }, [localeStrings]);
 
   return (
@@ -158,7 +145,13 @@ export const RestaurantLayout = ({
       {showLanguageSwitcher && (
         <LanguageSwitcher
           currentLanguage={currentLocale}
-          languages={languageOptions}
+          languages={
+            languageOptions as Array<{
+              code: Locale;
+              flag: string;
+              label: string;
+            }>
+          }
           onLanguageChange={handleLocaleChange}
         />
       )}

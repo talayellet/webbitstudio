@@ -1,14 +1,18 @@
 import { DEFAULT_COLORS } from './styles';
-import { ShowSections, LanguageOption } from './types';
+import { ShowSections } from './types';
 import { en } from './locales';
 import { LOCALES } from '../../shared';
 import {
   type LanguageFilter,
+  type LanguageOption,
   ISO_COUNTRY_CODES,
   COUNTRY_CODES,
+  COUNTRY_FLAGS,
+  COUNTRY_LABELS,
 } from '@webbitstudio/shared-utils';
 
 export * from './locales';
+export type { LanguageOption } from '@webbitstudio/shared-utils';
 
 // ============================================================================
 // Default Locale Strings
@@ -21,11 +25,11 @@ export const DEFAULT_LOCALE_STRINGS = en;
 // ============================================================================
 
 export const DEFAULT_LANGUAGE_OPTIONS: LanguageOption[] = [
-  { code: LOCALES.EN, flag: '🇺🇸', label: 'English' },
-  { code: LOCALES.ES, flag: '🇪🇸', label: 'Español' },
-  { code: LOCALES.FR, flag: '🇫🇷', label: 'Français' },
-  { code: LOCALES.HE, flag: '🇮🇱', label: 'עברית' },
-] as const;
+  { code: COUNTRY_CODES.EN, flag: COUNTRY_FLAGS.EN, label: COUNTRY_LABELS.EN },
+  { code: COUNTRY_CODES.ES, flag: COUNTRY_FLAGS.ES, label: COUNTRY_LABELS.ES },
+  { code: COUNTRY_CODES.FR, flag: COUNTRY_FLAGS.FR, label: COUNTRY_LABELS.FR },
+  { code: COUNTRY_CODES.HE, flag: COUNTRY_FLAGS.HE, label: COUNTRY_LABELS.HE },
+];
 
 // ============================================================================
 // Language Filters (Geo-based)

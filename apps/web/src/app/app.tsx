@@ -1,4 +1,4 @@
-import { Routes, Route, useSearchParams } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {
   WebbitStudioHomePage,
   SinglePageLayout,
@@ -12,21 +12,12 @@ import {
 import {
   SaasLaunchRouter,
   RestaurantCafe,
-  type Locale,
 } from '@webbitstudio/landing-templates';
 import { CurrencyProvider } from '@webbitstudio/shared-utils';
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 import { AnalyticsScript } from '../components';
 import { useAnalyticsConsent, useLocale } from '../hooks';
 import { COMPANY_NAME, ROUTES } from '../utils';
-
-// Wrapper to handle locale from URL query params
-function RestaurantCafeWrapper() {
-  const [searchParams] = useSearchParams();
-  const localeParam = searchParams.get('locale') as Locale | null;
-
-  return <RestaurantCafe locale={localeParam || undefined} />;
-}
 
 export function App() {
   const hasAnalyticsConsent = useAnalyticsConsent();
@@ -55,7 +46,7 @@ export function App() {
         />
         <Route
           path={ROUTES.TEMPLATES_RESTAURANT_CAFE}
-          element={<RestaurantCafeWrapper />}
+          element={<RestaurantCafe />}
         />
         <Route
           path={ROUTES.TEMPLATES_PORTFOLIO_CREATIVE}

@@ -8,9 +8,13 @@ import {
   ContentOverrides,
   ColorScheme,
   FooterSection,
-  LanguageOption,
 } from './utils';
-import { useScrollReveal, useLocalizedContent } from './hooks';
+import { type LanguageOption } from '@webbitstudio/shared-utils';
+import {
+  useScrollReveal,
+  useLocalizedContent,
+  useTemplateLocale,
+} from './hooks';
 import { Main, RestaurantLayout } from './components';
 import {
   type Locale,
@@ -76,23 +80,18 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
   // State to track current page
   const [currentPage, setCurrentPage] = useState<string | null>(null);
 
-  // Manage locale internally if not controlled
-  const [internalLocale, setInternalLocale] = useState<Locale>(locale);
-  const currentLocale = locale !== DEFAULT_LOCALE ? locale : internalLocale;
+  // Manage locale state (reads from URL params, handles controlled/uncontrolled)
+  const { currentLocale, handleLocaleChange } = useTemplateLocale({
+    locale,
+    defaultLocale: DEFAULT_LOCALE,
+    onLocaleChange,
+  });
 
   // Filter languages based on user's geographic location
   const { languages: filteredLanguages } = useGeoFilteredLanguages({
     languages: languageOptions,
     filters: languageFilters,
   });
-
-  // Handle locale changes from LanguageSwitcher
-  const handleLocaleChange = (newLocale: Locale) => {
-    if (locale === DEFAULT_LOCALE) {
-      setInternalLocale(newLocale);
-    }
-    onLocaleChange?.(newLocale);
-  };
 
   // Get locale strings based on current locale
   const localeStrings = useMemo(

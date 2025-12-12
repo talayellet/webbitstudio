@@ -109,8 +109,17 @@ export const fr = {
 
   // Page Under Construction
   pageUnderConstruction: {
-    title: 'Bientôt Disponible',
+    title: 'Bientôt disponible',
     message: 'Cette page est en construction. Veuillez revenir plus tard.',
-    backButton: "Retour à l'Accueil",
+    backButton: "Retour à l'accueil",
+  },
+
+  // Theme Names
+  themes: {
+    warm: 'Chaleureux',
+    elegant: 'Élégant',
+    modern: 'Moderne',
+    rustic: 'Rustique',
+    coastal: 'Côtier',
   },
 } as const;

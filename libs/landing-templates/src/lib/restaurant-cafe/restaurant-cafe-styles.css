@@ -67,6 +67,16 @@
   font-weight: 600;
 }
 
+/* Hebrew font override - use Montserrat for consistency */
+[dir='rtl'] .rc-template-wrapper h1,
+[dir='rtl'] .rc-template-wrapper h2,
+[dir='rtl'] .rc-template-wrapper h3,
+[dir='rtl'] .rc-template-wrapper h4 {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  font-weight: 700;
+}
+
 /* Container */
 .rc-container {
   max-width: 1400px;
@@ -574,4 +584,75 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================================================
+   RTL (Right-to-Left) Support for Hebrew and other RTL languages
+   ============================================================================ */
+
+[dir='rtl'] .rc-template-wrapper {
+  direction: rtl;
+}
+
+/* RTL: Flip navigation alignment */
+[dir='rtl'] .rc-nav {
+  direction: rtl;
+}
+
+[dir='rtl'] .rc-nav-menu {
+  flex-direction: row-reverse;
+}
+
+/* RTL: Flip text alignment for headers and content */
+[dir='rtl'] .rc-hero-content,
+[dir='rtl'] .rc-about-content,
+[dir='rtl'] .rc-menu-header,
+[dir='rtl'] .rc-reservation-content {
+  text-align: right;
+}
+
+/* RTL: Flip menu item layout */
+[dir='rtl'] .rc-menu-item {
+  text-align: right;
+}
+
+[dir='rtl'] .rc-menu-item-icon {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+/* RTL: Flip info grid items */
+[dir='rtl'] .rc-info-item {
+  text-align: right;
+}
+
+/* RTL: Flip footer sections */
+[dir='rtl'] .rc-footer-section {
+  text-align: right;
+}
+
+/* RTL: Adjust ornament gradients for better visual flow */
+[dir='rtl'] .rc-ornament {
+  background: linear-gradient(270deg, transparent, var(--accent), transparent);
+}
+
+/* RTL: Override all Cormorant Garamond fonts to use Montserrat */
+[dir='rtl'] .rc-logo {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+}
+
+[dir='rtl'] .rc-about-image::after {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+}
+
+[dir='rtl'] .rc-menu-item-price {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+}
+
+[dir='rtl'] .rc-footer-brand {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
 }

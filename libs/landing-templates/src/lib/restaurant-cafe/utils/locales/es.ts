@@ -113,4 +113,13 @@ export const es = {
     message: 'Esta página está en construcción. Por favor, vuelva más tarde.',
     backButton: 'Volver al Inicio',
   },
+
+  // Theme Names
+  themes: {
+    warm: 'Cálido',
+    elegant: 'Elegante',
+    modern: 'Moderno',
+    rustic: 'Rústico',
+    coastal: 'Costero',
+  },
 } as const;

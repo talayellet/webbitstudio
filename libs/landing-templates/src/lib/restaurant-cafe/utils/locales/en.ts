@@ -111,4 +111,13 @@ export const en = {
     message: 'This page is under construction. Please check back later.',
     backButton: 'Back to Home',
   },
+
+  // Theme Names
+  themes: {
+    warm: 'Warm',
+    elegant: 'Elegant',
+    modern: 'Modern',
+    rustic: 'Rustic',
+    coastal: 'Coastal',
+  },
 } as const;

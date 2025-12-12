@@ -2,6 +2,11 @@ import { DEFAULT_COLORS } from './styles';
 import { ShowSections, LanguageOption } from './types';
 import { en } from './locales';
 import { LOCALES } from '../../shared';
+import {
+  type LanguageFilter,
+  ISO_COUNTRY_CODES,
+  COUNTRY_CODES,
+} from '@webbitstudio/shared-utils';
 
 export * from './locales';
 
@@ -19,7 +24,23 @@ export const DEFAULT_LANGUAGE_OPTIONS: LanguageOption[] = [
   { code: LOCALES.EN, flag: '🇺🇸', label: 'English' },
   { code: LOCALES.ES, flag: '🇪🇸', label: 'Español' },
   { code: LOCALES.FR, flag: '🇫🇷', label: 'Français' },
+  { code: LOCALES.HE, flag: '🇮🇱', label: 'עברית' },
 ] as const;
+
+// ============================================================================
+// Language Filters (Geo-based)
+// ============================================================================
+
+/**
+ * Language filters for geo-based language availability
+ * Hebrew is restricted to Israel only
+ */
+export const DEFAULT_LANGUAGE_FILTERS: LanguageFilter[] = [
+  {
+    languageCode: COUNTRY_CODES.HE,
+    allowedCountries: [ISO_COUNTRY_CODES.IL],
+  },
+];
 
 // ============================================================================
 // Default Locale

@@ -4,6 +4,7 @@ import {
   getLocaleStrings,
   DEFAULT_LOCALE,
   DEFAULT_LANGUAGE_OPTIONS,
+  DEFAULT_LANGUAGE_FILTERS,
   ContentOverrides,
   ColorScheme,
   FooterSection,
@@ -17,6 +18,10 @@ import {
   ThemeName,
   PageUnderConstruction,
 } from '../shared';
+import {
+  useGeoFilteredLanguages,
+  type LanguageFilter,
+} from '@webbitstudio/shared-utils';
 
 export interface RestaurantCafeProps {
   // Brand/Company
@@ -37,6 +42,7 @@ export interface RestaurantCafeProps {
   locale?: Locale;
   onLocaleChange?: (locale: Locale) => void;
   languageOptions?: LanguageOption[];
+  languageFilters?: LanguageFilter[];
 
   // Theme switcher
   showThemeSwitcher?: boolean;
@@ -56,6 +62,7 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
   content,
   footerSections,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,
+  languageFilters = DEFAULT_LANGUAGE_FILTERS,
   locale = DEFAULT_LOCALE,
   logo = DEFAULT_TEMPLATE.logo,
   onLocaleChange,
@@ -72,6 +79,12 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
   // Manage locale internally if not controlled
   const [internalLocale, setInternalLocale] = useState<Locale>(locale);
   const currentLocale = locale !== DEFAULT_LOCALE ? locale : internalLocale;
+
+  // Filter languages based on user's geographic location
+  const { languages: filteredLanguages } = useGeoFilteredLanguages({
+    languages: languageOptions,
+    filters: languageFilters,
+  });
 
   // Handle locale changes from LanguageSwitcher
   const handleLocaleChange = (newLocale: Locale) => {
@@ -102,7 +115,7 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
       theme={theme}
       locale={currentLocale}
       onLocaleChange={handleLocaleChange}
-      languageOptions={languageOptions}
+      languageOptions={filteredLanguages}
       showLanguageSwitcher={showLanguageSwitcher}
       showThemeSwitcher={showThemeSwitcher}
       showFooter={showFooter}

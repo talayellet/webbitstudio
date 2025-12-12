@@ -21,6 +21,7 @@ import {
   type LanguageOption,
   type FooterSection,
 } from '../utils';
+import { RTL_LOCALES } from '@webbitstudio/shared-utils';
 
 interface RestaurantLayoutProps {
   children: ReactNode;
@@ -81,16 +82,24 @@ export const RestaurantLayout = ({
     [currentLocale]
   );
 
+  // Determine if current locale is RTL
+  const isRTL = useMemo(
+    () => RTL_LOCALES.includes(currentLocale as never),
+    [currentLocale]
+  );
+
   /**
-   * Update HTML lang attribute for accessibility (WCAG 3.1.1)
-   * Sets document.documentElement.lang to current locale (e.g., 'en', 'es', 'fr')
+   * Update HTML lang and dir attributes for accessibility (WCAG 3.1.1)
+   * Sets document.documentElement.lang to current locale (e.g., 'en', 'es', 'fr', 'he')
+   * Sets document.documentElement.dir to 'rtl' for Hebrew and other RTL languages
    * This ensures screen readers use the correct pronunciation and language rules
    */
   useEffect(() => {
     if (typeof document !== 'undefined') {
       document.documentElement.lang = currentLocale;
+      document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
     }
-  }, [currentLocale]);
+  }, [currentLocale, isRTL]);
 
   // Create nav links from locale strings
   const navLinks = useMemo(
@@ -108,8 +117,43 @@ export const RestaurantLayout = ({
     [footerSections, localeStrings]
   );
 
+  // Generate localized theme options
+  const localizedThemes = useMemo(() => {
+    return [
+      {
+        name: THEME_NAMES.WARM,
+        label: localeStrings.themes.warm,
+        icon: '☕',
+      },
+      {
+        name: THEME_NAMES.ELEGANT,
+        label: localeStrings.themes.elegant,
+        icon: '🍷',
+      },
+      {
+        name: THEME_NAMES.MODERN,
+        label: localeStrings.themes.modern,
+        icon: '🥗',
+      },
+      {
+        name: THEME_NAMES.RUSTIC,
+        label: localeStrings.themes.rustic,
+        icon: '🌾',
+      },
+      {
+        name: THEME_NAMES.COASTAL,
+        label: localeStrings.themes.coastal,
+        icon: '🐚',
+      },
+    ];
+  }, [localeStrings]);
+
   return (
-    <div className="rc-template-wrapper" style={colorStyles}>
+    <div
+      className="rc-template-wrapper"
+      style={colorStyles}
+      dir={isRTL ? 'rtl' : 'ltr'}
+    >
       {/* Language Switcher */}
       {showLanguageSwitcher && (
         <LanguageSwitcher
@@ -125,6 +169,7 @@ export const RestaurantLayout = ({
           currentTheme={currentTheme}
           onThemeChange={setTheme}
           position={THEME_POSITIONS.TOP_LEFT}
+          themes={localizedThemes}
         />
       )}
 

@@ -145,6 +145,7 @@ export interface ShowSections {
 // ============================================================================
 
 export interface LocaleStrings {
+  defaultRestaurantName: string;
   header: {
     nav: {
       about: string;

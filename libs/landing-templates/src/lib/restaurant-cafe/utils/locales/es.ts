@@ -2,6 +2,9 @@
  * Spanish (ES) locale strings for Restaurant Cafe template
  */
 export const es = {
+  // Default Restaurant Name
+  defaultRestaurantName: 'Nombre del Restaurante',
+
   // Header/Navigation
   header: {
     nav: {

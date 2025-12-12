@@ -52,7 +52,7 @@ export interface RestaurantCafeProps {
  */
 export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
   colors,
-  restaurantName = DEFAULT_TEMPLATE.restaurantName,
+  restaurantName,
   content,
   footerSections,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,
@@ -87,12 +87,16 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
     [currentLocale]
   );
 
+  // Use localized default restaurant name if not provided
+  const displayRestaurantName =
+    restaurantName ?? localeStrings.defaultRestaurantName;
+
   // Get localized content with overrides
   const displayContent = useLocalizedContent(localeStrings, content);
 
   return (
     <RestaurantLayout
-      restaurantName={restaurantName}
+      restaurantName={displayRestaurantName}
       logo={logo}
       colors={colors}
       theme={theme}
@@ -124,7 +128,7 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
           aboutTitle={displayContent.aboutTitle}
           aboutParagraph1={displayContent.aboutParagraph1}
           aboutParagraph2={displayContent.aboutParagraph2}
-          restaurantName={restaurantName}
+          restaurantName={displayRestaurantName}
           menuTitle={displayContent.menuTitle}
           menuDescription={displayContent.menuDescription}
           menuItems={displayContent.menuItems}

@@ -2,6 +2,9 @@
  * French (FR) locale strings for Restaurant Cafe template
  */
 export const fr = {
+  // Default Restaurant Name
+  defaultRestaurantName: 'Nom du Restaurant',
+
   // Header/Navigation
   header: {
     nav: {

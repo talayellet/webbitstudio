@@ -19,7 +19,14 @@ export const Header = ({ restaurantName, logo, navLinks }: HeaderProps) => {
           {logo ? (
             <div className={STYLES.LOGO}>{logo}</div>
           ) : (
-            <a href="#" className={STYLES.LOGO}>
+            <a
+              href="#top"
+              className={STYLES.LOGO}
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
               {restaurantName}
             </a>
           )}
@@ -28,7 +35,18 @@ export const Header = ({ restaurantName, logo, navLinks }: HeaderProps) => {
               <li key={index}>
                 <a
                   href={link.href}
-                  onClick={link.onClick}
+                  onClick={(e) => {
+                    if (link.href.startsWith('#')) {
+                      e.preventDefault();
+                      const element = document.getElementById(
+                        link.href.substring(1)
+                      );
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                    link.onClick?.(e);
+                  }}
                   className={clsx(STYLES.NAV_LINK)}
                 >
                   {link.label}

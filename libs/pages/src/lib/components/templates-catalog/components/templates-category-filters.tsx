@@ -1,16 +1,9 @@
 import clsx from 'clsx';
-import { TEMPLATES_CATALOG_STYLES, TemplateCategoryId } from '../utils';
-
-export interface CategoryOption {
-  /**
-   * Unique identifier for the category
-   */
-  id: TemplateCategoryId;
-  /**
-   * Display label for the category
-   */
-  label: string;
-}
+import {
+  CategoryOption,
+  TEMPLATES_CATALOG_STYLES,
+  TemplateCategoryId,
+} from '../utils';
 
 export interface TemplatesCategoryFiltersProps {
   /**

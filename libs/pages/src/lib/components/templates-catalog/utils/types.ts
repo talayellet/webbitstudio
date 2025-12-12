@@ -18,3 +18,14 @@ export interface LandingPageTemplate {
   previewUrl: string;
   tags: string[];
 }
+
+export interface CategoryOption {
+  /**
+   * Unique identifier for the category
+   */
+  id: TemplateCategoryId;
+  /**
+   * Display label for the category
+   */
+  label: string;
+}

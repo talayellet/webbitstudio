@@ -186,6 +186,14 @@ export interface LocaleStrings {
     quickLinks: string;
     followUs: string;
     copyright: string;
+    links: {
+      about: string;
+      menu: string;
+      contact: string;
+      instagram: string;
+      facebook: string;
+      twitter: string;
+    };
   };
   pageUnderConstruction: {
     title: string;

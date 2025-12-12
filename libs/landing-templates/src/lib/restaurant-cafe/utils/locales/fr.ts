@@ -94,6 +94,14 @@ export const fr = {
     quickLinks: 'Liens Rapides',
     followUs: 'Suivez-Nous',
     copyright: 'Tous droits réservés.',
+    links: {
+      about: 'À Propos',
+      menu: 'Menu',
+      contact: 'Contact',
+      instagram: 'Instagram',
+      facebook: 'Facebook',
+      twitter: 'Twitter',
+    },
   },
 
   // Page Under Construction

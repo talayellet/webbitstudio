@@ -17,6 +17,7 @@ import {
   DEFAULT_LOCALE,
   DEFAULT_LANGUAGE_OPTIONS,
   getLocaleStrings,
+  getDefaultFooterSections,
   type LanguageOption,
   type FooterSection,
 } from '../utils';
@@ -51,7 +52,7 @@ export const RestaurantLayout = ({
   showLanguageSwitcher = true,
   showThemeSwitcher = true,
   showFooter = true,
-  footerSections = DEFAULT_TEMPLATE.footerSections,
+  footerSections,
 }: RestaurantLayoutProps) => {
   // Theme management
   const { currentTheme, setTheme, colorStyles } = useTheme({
@@ -97,6 +98,12 @@ export const RestaurantLayout = ({
     [localeStrings]
   );
 
+  // Generate localized footer sections (or use provided override)
+  const localizedFooterSections = useMemo(
+    () => footerSections ?? getDefaultFooterSections(localeStrings),
+    [footerSections, localeStrings]
+  );
+
   return (
     <div className="rc-template-wrapper" style={colorStyles}>
       {/* Language Switcher */}
@@ -125,7 +132,7 @@ export const RestaurantLayout = ({
         <Footer
           restaurantName={restaurantName}
           tagline={localeStrings.footer.tagline}
-          footerSections={footerSections}
+          footerSections={localizedFooterSections}
           copyright={localeStrings.footer.copyright}
         />
       )}

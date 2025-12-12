@@ -12,7 +12,7 @@ import {
 import { useScrollReveal, useLocalizedContent } from './hooks';
 import { Main, RestaurantLayout } from './components';
 import {
-  Locale,
+  type Locale,
   THEME_NAMES,
   ThemeName,
   PageUnderConstruction,
@@ -54,7 +54,7 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
   colors,
   restaurantName = DEFAULT_TEMPLATE.restaurantName,
   content,
-  footerSections = DEFAULT_TEMPLATE.footerSections,
+  footerSections,
   languageOptions = DEFAULT_LANGUAGE_OPTIONS,
   locale = DEFAULT_LOCALE,
   logo = DEFAULT_TEMPLATE.logo,
@@ -69,8 +69,23 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
   // State to track current page
   const [currentPage, setCurrentPage] = useState<string | null>(null);
 
-  // Get locale strings
-  const localeStrings = useMemo(() => getLocaleStrings(locale), [locale]);
+  // Manage locale internally if not controlled
+  const [internalLocale, setInternalLocale] = useState<Locale>(locale);
+  const currentLocale = locale !== DEFAULT_LOCALE ? locale : internalLocale;
+
+  // Handle locale changes from LanguageSwitcher
+  const handleLocaleChange = (newLocale: Locale) => {
+    if (locale === DEFAULT_LOCALE) {
+      setInternalLocale(newLocale);
+    }
+    onLocaleChange?.(newLocale);
+  };
+
+  // Get locale strings based on current locale
+  const localeStrings = useMemo(
+    () => getLocaleStrings(currentLocale),
+    [currentLocale]
+  );
 
   // Get localized content with overrides
   const displayContent = useLocalizedContent(localeStrings, content);
@@ -81,8 +96,8 @@ export const RestaurantCafe: React.FC<RestaurantCafeProps> = ({
       logo={logo}
       colors={colors}
       theme={theme}
-      locale={locale}
-      onLocaleChange={onLocaleChange}
+      locale={currentLocale}
+      onLocaleChange={handleLocaleChange}
       languageOptions={languageOptions}
       showLanguageSwitcher={showLanguageSwitcher}
       showThemeSwitcher={showThemeSwitcher}

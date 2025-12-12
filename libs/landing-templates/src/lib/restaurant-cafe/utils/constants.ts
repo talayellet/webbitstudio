@@ -1,5 +1,5 @@
 import { DEFAULT_COLORS } from './styles';
-import { ShowSections, LanguageOption, FooterSection } from './types';
+import { ShowSections, LanguageOption } from './types';
 import { en } from './locales';
 import { LOCALES } from '../../shared';
 
@@ -60,22 +60,4 @@ export const DEFAULT_TEMPLATE = {
   restaurantName: 'Restaurant Name',
   logo: null,
   colors: DEFAULT_COLORS,
-  footerSections: [
-    {
-      title: 'Quick Links',
-      links: [
-        { label: 'About', href: FOOTER_PATHS.ABOUT },
-        { label: 'Menu', href: FOOTER_PATHS.MENU },
-        { label: 'Contact', href: FOOTER_PATHS.CONTACT },
-      ],
-    },
-    {
-      title: 'Follow Us',
-      links: [
-        { label: 'Instagram', href: FOOTER_PATHS.INSTAGRAM },
-        { label: 'Facebook', href: FOOTER_PATHS.FACEBOOK },
-        { label: 'Twitter', href: FOOTER_PATHS.TWITTER },
-      ],
-    },
-  ] as FooterSection[],
 } as const;

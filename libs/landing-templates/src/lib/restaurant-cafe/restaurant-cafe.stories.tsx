@@ -19,6 +19,15 @@ const StorybookWrapper = ({ children, ...props }: any) => {
 // Storybook decorator to handle hash navigation and home link
 const HashNavigationDecorator = (Story: React.ComponentType) => {
   useEffect(() => {
+    // Check user's motion preference for smooth scrolling (WCAG 2.3.3)
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const scrollBehavior: ScrollBehavior = prefersReducedMotion
+      ? 'auto'
+      : 'smooth';
+
     // Handle navigation in Storybook
     const handleNavigation = (e: Event) => {
       const target = e.target as any;
@@ -31,7 +40,10 @@ const HashNavigationDecorator = (Story: React.ComponentType) => {
         // Handle home link - scroll to top
         if (href === '/') {
           e.preventDefault();
-          (globalThis as any).window?.scrollTo({ top: 0, behavior: 'smooth' });
+          (globalThis as any).window?.scrollTo({
+            top: 0,
+            behavior: scrollBehavior,
+          });
           return;
         }
 
@@ -43,7 +55,7 @@ const HashNavigationDecorator = (Story: React.ComponentType) => {
             : href.substring(1);
           const element = (globalThis as any).document?.getElementById(hash);
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: scrollBehavior });
           }
         }
       }

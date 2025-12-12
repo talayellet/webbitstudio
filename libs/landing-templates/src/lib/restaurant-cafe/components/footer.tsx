@@ -45,6 +45,11 @@ export const Footer = ({
                           ? 'noopener noreferrer'
                           : undefined
                       }
+                      aria-label={
+                        link.href.startsWith('http')
+                          ? `${link.label} (opens in new window)`
+                          : undefined
+                      }
                     >
                       {link.label}
                     </a>

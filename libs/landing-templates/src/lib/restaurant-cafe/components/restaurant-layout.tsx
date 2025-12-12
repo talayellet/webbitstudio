@@ -81,7 +81,11 @@ export const RestaurantLayout = ({
     [currentLocale]
   );
 
-  // Update HTML lang attribute for accessibility
+  /**
+   * Update HTML lang attribute for accessibility (WCAG 3.1.1)
+   * Sets document.documentElement.lang to current locale (e.g., 'en', 'es', 'fr')
+   * This ensures screen readers use the correct pronunciation and language rules
+   */
   useEffect(() => {
     if (typeof document !== 'undefined') {
       document.documentElement.lang = currentLocale;

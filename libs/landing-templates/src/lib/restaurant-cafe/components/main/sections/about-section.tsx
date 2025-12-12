@@ -39,6 +39,7 @@ export const AboutSection = ({
             className={`${STYLES.ABOUT_IMAGE} ${STYLES.FADE_IN}`}
             ref={addToRefs}
             data-restaurant-name={restaurantName}
+            aria-hidden="true"
           ></div>
         </div>
       </div>

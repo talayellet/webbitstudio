@@ -19,12 +19,17 @@ export const ReservationSection = ({
   buttonOnClick,
 }: ReservationSectionProps) => {
   return (
-    <section className={STYLES.CTA_SECTION}>
+    <section className={STYLES.CTA_SECTION} aria-label="Make a reservation">
       <div className={STYLES.CONTAINER}>
         <h2 className={STYLES.CTA_TITLE}>{title}</h2>
         <div className={STYLES.ORNAMENT} aria-hidden="true"></div>
         <p className={STYLES.CTA_DESCRIPTION}>{description}</p>
-        <a href={buttonHref} className={STYLES.BTN} onClick={buttonOnClick}>
+        <a
+          href={buttonHref}
+          className={STYLES.BTN}
+          onClick={buttonOnClick}
+          aria-label={`${buttonText} - ${title}`}
+        >
           {buttonText}
         </a>
       </div>

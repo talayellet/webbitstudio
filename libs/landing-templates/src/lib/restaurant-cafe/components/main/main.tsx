@@ -89,7 +89,7 @@ export const Main = ({
   showSections = DEFAULT_SHOW_SECTIONS,
 }: MainProps) => {
   return (
-    <main>
+    <main id="main-content" aria-label="Main content">
       {showSections.hero !== false && (
         <HeroSection
           subtitle={heroSubtitle}

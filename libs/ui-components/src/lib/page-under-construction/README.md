@@ -19,9 +19,9 @@ A generic "Page Under Construction" component with a back button that navigates 
 ```tsx
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 
-function UnderConstructionPage() {
+const UnderConstructionPage = () => {
   return <PageUnderConstruction />;
-}
+};
 ```
 
 ### Custom Content
@@ -29,9 +29,9 @@ function UnderConstructionPage() {
 ```tsx
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 
-function UnderConstructionPage() {
+const UnderConstructionPage = () => {
   return <PageUnderConstruction heading="Coming Soon" message="We're building something amazing. Stay tuned!" backButtonText="Return Home" />;
-}
+};
 ```
 
 ### Custom Back Handler
@@ -40,11 +40,11 @@ function UnderConstructionPage() {
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 import { useNavigate } from 'react-router-dom';
 
-function UnderConstructionPage() {
+const UnderConstructionPage = () => {
   const navigate = useNavigate();
 
   return <PageUnderConstruction onBack={() => navigate('/home')} />;
-}
+};
 ```
 
 ### Localization
@@ -52,9 +52,9 @@ function UnderConstructionPage() {
 ```tsx
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 
-function UnderConstructionPage() {
+const UnderConstructionPage = () => {
   return <PageUnderConstruction locale="es" />;
-}
+};
 ```
 
 ### Custom Styles
@@ -62,7 +62,7 @@ function UnderConstructionPage() {
 ```tsx
 import { PageUnderConstruction } from '@webbitstudio/ui-components';
 
-function UnderConstructionPage() {
+const UnderConstructionPage = () => {
   return (
     <PageUnderConstruction
       styles={{
@@ -72,7 +72,7 @@ function UnderConstructionPage() {
       }}
     />
   );
-}
+};
 ```
 
 ## Props

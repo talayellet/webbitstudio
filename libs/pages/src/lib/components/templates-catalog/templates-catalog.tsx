@@ -2,7 +2,7 @@ import { useTemplatesCatalogLocale } from '../../shared';
 import {
   LandingPageTemplate,
   TEMPLATES_CATALOG_STYLES,
-  PLACEHOLDER_TEMPLATES,
+  DEFAULT_TEMPLATES,
   TEMPLATE_CATEGORY_IDS,
   CategoryOption,
 } from './utils';
@@ -27,7 +27,7 @@ export interface TemplatesCatalogProps {
 }
 
 export const TemplatesCatalog = ({
-  templates = PLACEHOLDER_TEMPLATES,
+  templates = DEFAULT_TEMPLATES,
   onTemplateClick,
 }: TemplatesCatalogProps) => {
   const { content, isRTL } = useTemplatesCatalogLocale();

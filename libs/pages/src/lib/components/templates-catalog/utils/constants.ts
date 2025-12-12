@@ -3,7 +3,7 @@ import { LandingPageTemplate } from './types';
 /**
  * Mock template data - replace with actual templates
  */
-export const PLACEHOLDER_TEMPLATES: LandingPageTemplate[] = [
+export const DEFAULT_TEMPLATES: LandingPageTemplate[] = [
   {
     id: 'saas-launch',
     name: 'SaaS Launch',

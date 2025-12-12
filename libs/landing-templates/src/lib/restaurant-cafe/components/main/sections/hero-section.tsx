@@ -27,7 +27,7 @@ export const HeroSection = ({
       <div className={STYLES.HERO_CONTENT} ref={addToRefs}>
         <div className={STYLES.HERO_SUBTITLE}>{subtitle}</div>
         <h1 className={STYLES.HERO_TITLE}>{title}</h1>
-        <div className={STYLES.ORNAMENT}></div>
+        <div className={STYLES.ORNAMENT} aria-hidden="true"></div>
         <p className={STYLES.HERO_DESCRIPTION}>{description}</p>
         <a href={ctaHref} className={STYLES.BTN} onClick={ctaOnClick}>
           {ctaText}

@@ -27,7 +27,11 @@ export const AboutSection = ({
             ref={addToRefs}
           >
             <h2>{title}</h2>
-            <div className={STYLES.ORNAMENT} style={{ marginLeft: 0 }}></div>
+            <div
+              className={STYLES.ORNAMENT}
+              style={{ marginLeft: 0 }}
+              aria-hidden="true"
+            ></div>
             <p>{paragraph1}</p>
             <p>{paragraph2}</p>
           </div>

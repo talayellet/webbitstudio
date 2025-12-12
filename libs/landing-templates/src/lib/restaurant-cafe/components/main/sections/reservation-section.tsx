@@ -22,7 +22,7 @@ export const ReservationSection = ({
     <section className={STYLES.CTA_SECTION}>
       <div className={STYLES.CONTAINER}>
         <h2 className={STYLES.CTA_TITLE}>{title}</h2>
-        <div className={STYLES.ORNAMENT}></div>
+        <div className={STYLES.ORNAMENT} aria-hidden="true"></div>
         <p className={STYLES.CTA_DESCRIPTION}>{description}</p>
         <a href={buttonHref} className={STYLES.BTN} onClick={buttonOnClick}>
           {buttonText}

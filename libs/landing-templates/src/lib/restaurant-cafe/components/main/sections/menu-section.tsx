@@ -24,7 +24,7 @@ export const MenuSection = ({
           ref={addToRefs}
         >
           <h2>{title}</h2>
-          <div className={STYLES.ORNAMENT}></div>
+          <div className={STYLES.ORNAMENT} aria-hidden="true"></div>
           <p>{description}</p>
         </div>
         <div className={STYLES.MENU_GRID}>

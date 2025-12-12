@@ -12,19 +12,33 @@ interface HeaderProps {
  * Header component for restaurant-cafe template
  */
 export const Header = ({ restaurantName, logo, navLinks }: HeaderProps) => {
+  // Check user's motion preference for smooth scrolling (WCAG 2.3.3)
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const scrollBehavior: ScrollBehavior = prefersReducedMotion
+    ? 'auto'
+    : 'smooth';
+
   return (
     <header className={STYLES.HEADER}>
       <div className={STYLES.CONTAINER}>
-        <nav className={STYLES.NAV}>
+        <nav
+          className={STYLES.NAV}
+          role="navigation"
+          aria-label="Main navigation"
+        >
           {logo ? (
             <div className={STYLES.LOGO}>{logo}</div>
           ) : (
             <a
               href="#top"
               className={STYLES.LOGO}
+              aria-label={`${restaurantName} - Return to top`}
               onClick={(e) => {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: scrollBehavior });
               }}
             >
               {restaurantName}
@@ -42,7 +56,7 @@ export const Header = ({ restaurantName, logo, navLinks }: HeaderProps) => {
                         link.href.substring(1)
                       );
                       if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
+                        element.scrollIntoView({ behavior: scrollBehavior });
                       }
                     }
                     link.onClick?.(e);

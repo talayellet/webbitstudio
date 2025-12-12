@@ -30,7 +30,7 @@ export const TemplatesCatalog = ({
   templates = DEFAULT_TEMPLATES,
   onTemplateClick,
 }: TemplatesCatalogProps) => {
-  const { content, isRTL } = useTemplatesCatalogLocale();
+  const { content, isRTL, locale } = useTemplatesCatalogLocale();
   const {
     selectedCategory,
     setSelectedCategory,
@@ -58,8 +58,10 @@ export const TemplatesCatalog = ({
       onTemplateClick(template.id);
     }
 
-    // Open template in new tab
-    window.open(template.previewUrl, '_blank', 'noopener,noreferrer');
+    // Open template in new tab with current locale
+    const url = new URL(template.previewUrl, window.location.origin);
+    url.searchParams.set('locale', locale);
+    window.open(url.toString(), '_blank', 'noopener,noreferrer');
   };
 
   return (

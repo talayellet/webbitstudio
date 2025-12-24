@@ -1,6 +1,13 @@
 import { useMemo } from 'react';
-import { HOME_PAGE_STYLES, DEFAULT_LOCALE } from './utils';
-import type { HomePageProps } from './utils';
+import {
+  HOME_PAGE_STYLES,
+  DEFAULT_LOCALE,
+  User,
+  ShoppingCategory,
+  Language,
+  Location,
+} from './utils';
+import { ShoppingCartIcon } from '../../icons';
 
 /**
  * eCommerce Home Page Component
@@ -22,6 +29,51 @@ import type { HomePageProps } from './utils';
  * />
  * ```
  */
+export interface HomePageProps {
+  /** Store logo URL */
+  logoUrl?: string;
+  /** Store name (fallback if no logo) */
+  storeName?: string;
+  /** Currently signed-in user */
+  user?: User;
+  /** Number of items in shopping cart */
+  cartItemCount: number;
+  /** Available shopping categories */
+  categories: ShoppingCategory[];
+  /** Current selected location */
+  currentLocation?: Location;
+  /** Available locations */
+  locations?: Location[];
+  /** Current selected language */
+  currentLanguage?: Language;
+  /** Available languages */
+  languages?: Language[];
+  /** Custom styles override */
+  styles?: Partial<typeof import('./utils/styles').HOME_PAGE_STYLES>;
+  /** Localized text content */
+  locale?: Partial<typeof import('./utils/constants').DEFAULT_LOCALE>;
+  /** Callback when login is clicked */
+  onLogin?: () => void;
+  /** Callback when signup is clicked */
+  onSignup?: () => void;
+  /** Callback when cart is clicked */
+  onCartClick?: () => void;
+  /** Callback when category is clicked */
+  onCategoryClick?: (categoryId: string) => void;
+  /** Callback when location changes */
+  onLocationChange?: (locationCode: string) => void;
+  /** Callback when language changes */
+  onLanguageChange?: (languageCode: string) => void;
+  /** Callback for privacy policy link */
+  onPrivacyPolicyClick?: () => void;
+  /** Callback for terms of service link */
+  onTermsClick?: () => void;
+  /** Callback for cookie policy link */
+  onCookiePolicyClick?: () => void;
+  /** Callback for contact us link */
+  onContactClick?: () => void;
+}
+
 export const ECommerceHomePage = ({
   logoUrl,
   storeName = 'Store',
@@ -112,20 +164,7 @@ export const ECommerceHomePage = ({
                 aria-label={`${mergedLocale.HEADER.CART_ARIA_LABEL} - ${cartItemCount} ${mergedLocale.HEADER.ITEMS_IN_CART}`}
                 type="button"
               >
-                <svg
-                  className={mergedStyles.CART_ICON}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
+                <ShoppingCartIcon className={mergedStyles.CART_ICON} />
                 {cartItemCount > 0 && (
                   <span className={mergedStyles.CART_BADGE}>
                     {cartItemCount}

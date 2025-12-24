@@ -6397,6 +6397,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@webbitstudio/e-commerce@workspace:libs/e-commerce":
+  version: 0.0.0-use.local
+  resolution: "@webbitstudio/e-commerce@workspace:libs/e-commerce"
+  languageName: unknown
+  linkType: soft
+
 "@webbitstudio/landing-templates@workspace:libs/landing-templates":
   version: 0.0.0-use.local
   resolution: "@webbitstudio/landing-templates@workspace:libs/landing-templates"

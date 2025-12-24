@@ -6,6 +6,7 @@ import {
   ShoppingCategory,
   Language,
   Location,
+  LocaleType,
 } from './utils';
 import { ShoppingCartIcon } from '../../icons';
 
@@ -51,7 +52,7 @@ export interface HomePageProps {
   /** Custom styles override */
   styles?: Partial<typeof import('./utils/styles').HOME_PAGE_STYLES>;
   /** Localized text content */
-  locale?: Partial<typeof import('./utils/constants').DEFAULT_LOCALE>;
+  locale?: Partial<LocaleType>;
   /** Callback when login is clicked */
   onLogin?: () => void;
   /** Callback when signup is clicked */
@@ -76,7 +77,7 @@ export interface HomePageProps {
 
 export const ECommerceHomePage = ({
   logoUrl,
-  storeName = 'Store',
+  storeName,
   user,
   cartItemCount,
   categories,
@@ -100,6 +101,10 @@ export const ECommerceHomePage = ({
   const mergedStyles = { ...HOME_PAGE_STYLES, ...styles };
   const mergedLocale = useMemo(
     () => ({
+      DEFAULT_STORE_NAME:
+        locale.DEFAULT_STORE_NAME ?? DEFAULT_LOCALE.DEFAULT_STORE_NAME,
+      SHOP_BY_CATEGORY:
+        locale.SHOP_BY_CATEGORY ?? DEFAULT_LOCALE.SHOP_BY_CATEGORY,
       HEADER: { ...DEFAULT_LOCALE.HEADER, ...locale.HEADER },
       FOOTER: { ...DEFAULT_LOCALE.FOOTER, ...locale.FOOTER },
       CATEGORIES: { ...DEFAULT_LOCALE.CATEGORIES, ...locale.CATEGORIES },
@@ -127,7 +132,9 @@ export const ECommerceHomePage = ({
                   className={mergedStyles.LOGO_IMAGE}
                 />
               ) : (
-                <span className={mergedStyles.LOGO_TEXT}>{storeName}</span>
+                <span className={mergedStyles.LOGO_TEXT}>
+                  {storeName || mergedLocale.DEFAULT_STORE_NAME}
+                </span>
               )}
             </div>
 
@@ -226,7 +233,9 @@ export const ECommerceHomePage = ({
       <main className={mergedStyles.MAIN_CONTENT}>
         {/* Categories Section */}
         <section className={mergedStyles.CATEGORIES_SECTION}>
-          <h1 className={mergedStyles.CATEGORIES_TITLE}>Shop by Category</h1>
+          <h1 className={mergedStyles.CATEGORIES_TITLE}>
+            {mergedLocale.SHOP_BY_CATEGORY}
+          </h1>
           <div className={mergedStyles.CATEGORIES_GRID}>
             {categories.map((category) => (
               <div

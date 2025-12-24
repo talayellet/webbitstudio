@@ -35,6 +35,9 @@
     },
     {
       "path": "./libs/e-commerce"
+    },
+    {
+      "path": "./apps/dev"
     }
   ]
 }

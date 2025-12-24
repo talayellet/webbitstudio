@@ -6,11 +6,7 @@
 import { useState, useMemo } from 'react';
 import { ECommerceHomePage } from './e-commerce-home-page';
 import type { ShoppingCategory, User, Location, Language } from './utils';
-import {
-  DEFAULT_LOCALE,
-  HEBREW_LOCALE,
-  SPANISH_LOCALE,
-} from './utils/constants';
+import { ENGLISH_LOCALE, HEBREW_LOCALE, SPANISH_LOCALE } from '../../locale';
 
 /**
  * Sample data for demonstration purposes
@@ -346,7 +342,7 @@ export const ECommerceHomePageGuestExample = () => {
       case 'he':
         return HEBREW_LOCALE;
       default:
-        return DEFAULT_LOCALE;
+        return ENGLISH_LOCALE;
     }
   }, [currentLanguage.code]);
 

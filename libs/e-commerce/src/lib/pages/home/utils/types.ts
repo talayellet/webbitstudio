@@ -28,3 +28,27 @@ export interface Language {
   name: string;
   nativeName: string;
 }
+
+export interface Locale {
+  DEFAULT_STORE_NAME: string;
+  SHOP_BY_CATEGORY: string;
+  HEADER: {
+    LOGIN: string;
+    SIGNUP: string;
+    CART_ARIA_LABEL: string;
+    ITEMS_IN_CART: string;
+    LOCATION_ARIA_LABEL: string;
+    LANGUAGE_ARIA_LABEL: string;
+    LOGO_ALT: string;
+  };
+  FOOTER: {
+    PRIVACY_POLICY: string;
+    TERMS_OF_SERVICE: string;
+    COOKIE_POLICY: string;
+    CONTACT_US: string;
+    BACK_TO_TOP: string;
+  };
+  CATEGORIES: {
+    VIEW_ALL: string;
+  };
+}

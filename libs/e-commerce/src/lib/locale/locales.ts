@@ -1,8 +1,10 @@
 /**
- * Constants for the eCommerce home page
+ * Locale definitions for eCommerce
  */
 
-export const DEFAULT_LOCALE = {
+import type { Locale } from '../pages/home/utils/types';
+
+export const ENGLISH_LOCALE = {
   DEFAULT_STORE_NAME: 'Store',
   SHOP_BY_CATEGORY: 'Shop by Category',
   HEADER: {
@@ -26,34 +28,10 @@ export const DEFAULT_LOCALE = {
   },
 } as const;
 
-export type LocaleType = {
-  DEFAULT_STORE_NAME: string;
-  SHOP_BY_CATEGORY: string;
-  HEADER: {
-    LOGIN: string;
-    SIGNUP: string;
-    CART_ARIA_LABEL: string;
-    ITEMS_IN_CART: string;
-    LOCATION_ARIA_LABEL: string;
-    LANGUAGE_ARIA_LABEL: string;
-    LOGO_ALT: string;
-  };
-  FOOTER: {
-    PRIVACY_POLICY: string;
-    TERMS_OF_SERVICE: string;
-    COOKIE_POLICY: string;
-    CONTACT_US: string;
-    BACK_TO_TOP: string;
-  };
-  CATEGORIES: {
-    VIEW_ALL: string;
-  };
-};
-
 /**
  * Hebrew locale
  */
-export const HEBREW_LOCALE: LocaleType = {
+export const HEBREW_LOCALE: Locale = {
   DEFAULT_STORE_NAME: 'חנות',
   SHOP_BY_CATEGORY: 'קנו לפי קטגוריה',
   HEADER: {
@@ -80,7 +58,7 @@ export const HEBREW_LOCALE: LocaleType = {
 /**
  * Spanish locale
  */
-export const SPANISH_LOCALE: LocaleType = {
+export const SPANISH_LOCALE: Locale = {
   DEFAULT_STORE_NAME: 'Tienda',
   SHOP_BY_CATEGORY: 'Comprar por Categoría',
   HEADER: {

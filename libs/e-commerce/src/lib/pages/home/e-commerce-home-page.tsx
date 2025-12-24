@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 import {
   HOME_PAGE_STYLES,
-  DEFAULT_LOCALE,
   User,
   ShoppingCategory,
   Language,
   Location,
-  LocaleType,
+  Locale,
 } from './utils';
 import { ShoppingCartIcon } from '../../icons';
+import { ENGLISH_LOCALE } from '../../locale';
 
 /**
  * eCommerce Home Page Component
@@ -52,7 +52,7 @@ export interface HomePageProps {
   /** Custom styles override */
   styles?: Partial<typeof import('./utils/styles').HOME_PAGE_STYLES>;
   /** Localized text content */
-  locale?: Partial<LocaleType>;
+  locale?: Partial<Locale>;
   /** Callback when login is clicked */
   onLogin?: () => void;
   /** Callback when signup is clicked */
@@ -102,12 +102,12 @@ export const ECommerceHomePage = ({
   const mergedLocale = useMemo(
     () => ({
       DEFAULT_STORE_NAME:
-        locale.DEFAULT_STORE_NAME ?? DEFAULT_LOCALE.DEFAULT_STORE_NAME,
+        locale.DEFAULT_STORE_NAME ?? ENGLISH_LOCALE.DEFAULT_STORE_NAME,
       SHOP_BY_CATEGORY:
-        locale.SHOP_BY_CATEGORY ?? DEFAULT_LOCALE.SHOP_BY_CATEGORY,
-      HEADER: { ...DEFAULT_LOCALE.HEADER, ...locale.HEADER },
-      FOOTER: { ...DEFAULT_LOCALE.FOOTER, ...locale.FOOTER },
-      CATEGORIES: { ...DEFAULT_LOCALE.CATEGORIES, ...locale.CATEGORIES },
+        locale.SHOP_BY_CATEGORY ?? ENGLISH_LOCALE.SHOP_BY_CATEGORY,
+      HEADER: { ...ENGLISH_LOCALE.HEADER, ...locale.HEADER },
+      FOOTER: { ...ENGLISH_LOCALE.FOOTER, ...locale.FOOTER },
+      CATEGORIES: { ...ENGLISH_LOCALE.CATEGORIES, ...locale.CATEGORIES },
     }),
     [locale]
   );
@@ -116,8 +116,10 @@ export const ECommerceHomePage = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const isRtl = currentLanguage?.code === 'he';
+
   return (
-    <div className={mergedStyles.PAGE_CONTAINER}>
+    <div className={mergedStyles.PAGE_CONTAINER} dir={isRtl ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className={mergedStyles.HEADER}>
         <div className={mergedStyles.HEADER_CONTAINER}>

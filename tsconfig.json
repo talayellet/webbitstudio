@@ -32,6 +32,12 @@
     },
     {
       "path": "./libs/data-access"
+    },
+    {
+      "path": "./libs/e-commerce"
+    },
+    {
+      "path": "./apps/dev"
     }
   ]
 }

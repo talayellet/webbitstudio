@@ -11,10 +11,8 @@ export const HOME_PAGE_STYLES = {
   HEADER:
     'fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm',
   HEADER_CONTAINER: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
-  HEADER_TOP: 'flex items-center justify-between py-4 border-b border-gray-100',
-  HEADER_BOTTOM: 'flex items-center justify-between py-3',
-  HEADER_LEFT: 'flex items-center gap-6',
-  HEADER_RIGHT: 'flex items-center gap-4',
+  HEADER_CONTENT: 'flex items-center justify-between py-4 gap-4',
+  HEADER_LEFT: 'flex items-center gap-4',
 
   // Logo
   LOGO_CONTAINER: 'flex items-center',

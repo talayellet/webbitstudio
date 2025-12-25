@@ -1,4 +1,4 @@
-import { ShoppingCartIcon } from '../../../../icons';
+import { ShoppingCartIcon, WebbitLogo } from '../../../../icons';
 import { User, Language, Location, Locale } from '../../utils';
 import { HOME_PAGE_STYLES } from '../../utils/styles';
 
@@ -85,10 +85,9 @@ export const Header = ({
   return (
     <header className={mergedStyles.HEADER}>
       <div className={mergedStyles.HEADER_CONTAINER}>
-        {/* Top Header Row */}
-        <div className={mergedStyles.HEADER_TOP}>
+        <div className={mergedStyles.HEADER_CONTENT}>
           {/* Logo */}
-          <div className={mergedStyles.LOGO_CONTAINER}>
+          <div className={mergedStyles.LOGO_CONTAINER} dir="ltr">
             {logoUrl ? (
               <img
                 src={logoUrl}
@@ -96,55 +95,11 @@ export const Header = ({
                 className={mergedStyles.LOGO_IMAGE}
               />
             ) : (
-              <span className={mergedStyles.LOGO_TEXT}>
-                {storeName || locale?.DEFAULT_STORE_NAME}
-              </span>
+              <WebbitLogo />
             )}
           </div>
 
-          {/* User Section */}
-          <div className={mergedStyles.USER_SECTION}>
-            {user ? (
-              <div className={mergedStyles.USER_GREETING}>
-                Welcome,{' '}
-                <span className={mergedStyles.USER_NAME}>{user.name}</span>
-              </div>
-            ) : (
-              <>
-                <button
-                  onClick={onLogin}
-                  className={mergedStyles.AUTH_BUTTON}
-                  type="button"
-                >
-                  {locale?.HEADER.LOGIN}
-                </button>
-                <button
-                  onClick={onSignup}
-                  className={mergedStyles.AUTH_BUTTON_PRIMARY}
-                  type="button"
-                >
-                  {locale?.HEADER.SIGNUP}
-                </button>
-              </>
-            )}
-
-            {/* Cart */}
-            <button
-              onClick={onCartClick}
-              className={mergedStyles.CART_BUTTON}
-              aria-label={`${locale?.HEADER.CART_ARIA_LABEL} - ${cartItemCount} ${locale?.HEADER.ITEMS_IN_CART}`}
-              type="button"
-            >
-              <ShoppingCartIcon className={mergedStyles.CART_ICON} />
-              {cartItemCount > 0 && (
-                <span className={mergedStyles.CART_BADGE}>{cartItemCount}</span>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom Header Row */}
-        <div className={mergedStyles.HEADER_BOTTOM}>
+          {/* Location & Language Selectors */}
           <div className={mergedStyles.HEADER_LEFT}>
             {/* Location Selector */}
             {currentLocation && locations.length > 0 && (
@@ -186,6 +141,46 @@ export const Header = ({
                 </select>
               </div>
             )}
+          </div>
+
+          {/* User Section */}
+          <div className={mergedStyles.USER_SECTION}>
+            {user ? (
+              <div className={mergedStyles.USER_GREETING}>
+                Welcome,{' '}
+                <span className={mergedStyles.USER_NAME}>{user.name}</span>
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={onLogin}
+                  className={mergedStyles.AUTH_BUTTON}
+                  type="button"
+                >
+                  {locale?.HEADER.LOGIN}
+                </button>
+                <button
+                  onClick={onSignup}
+                  className={mergedStyles.AUTH_BUTTON_PRIMARY}
+                  type="button"
+                >
+                  {locale?.HEADER.SIGNUP}
+                </button>
+              </>
+            )}
+
+            {/* Cart */}
+            <button
+              onClick={onCartClick}
+              className={mergedStyles.CART_BUTTON}
+              aria-label={`${locale?.HEADER.CART_ARIA_LABEL} - ${cartItemCount} ${locale?.HEADER.ITEMS_IN_CART}`}
+              type="button"
+            >
+              <ShoppingCartIcon className={mergedStyles.CART_ICON} />
+              {cartItemCount > 0 && (
+                <span className={mergedStyles.CART_BADGE}>{cartItemCount}</span>
+              )}
+            </button>
           </div>
         </div>
       </div>

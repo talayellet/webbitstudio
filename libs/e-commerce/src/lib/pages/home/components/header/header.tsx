@@ -38,8 +38,6 @@ export interface HeaderProps {
   languages?: Language[];
   /** Whether to use RTL layout */
   isRtl?: boolean;
-  /** Custom styles override */
-  styles?: Partial<typeof HOME_PAGE_STYLES>;
   /** Localized text content */
   locale?: {
     DEFAULT_STORE_NAME: string;
@@ -62,15 +60,12 @@ export const Header = ({
   currentLanguage,
   languages = [],
   isRtl = false,
-  styles = {},
   locale,
   onLogin,
   onSignup,
   onCartClick,
   onLanguageChange,
 }: HeaderProps) => {
-  const mergedStyles = { ...HOME_PAGE_STYLES, ...styles };
-
   // Map languages to display strings
   const languageOptions = useMemo(
     () => languages.map((lang) => lang.nativeName || lang.name),
@@ -90,19 +85,19 @@ export const Header = ({
   };
 
   return (
-    <header className={mergedStyles.HEADER}>
-      <div className={mergedStyles.HEADER_CONTAINER}>
-        <div className={mergedStyles.HEADER_CONTENT}>
+    <header className={HOME_PAGE_STYLES.HEADER}>
+      <div className={HOME_PAGE_STYLES.HEADER_CONTAINER}>
+        <div className={HOME_PAGE_STYLES.HEADER_CONTENT}>
           {/* Logo */}
-          <div className={mergedStyles.LOGO_CONTAINER} dir="ltr">
+          <div className={HOME_PAGE_STYLES.LOGO_CONTAINER} dir="ltr">
             {logo ?? <WebbitLogo />}
           </div>
 
           {/* User Section */}
-          <div className={mergedStyles.USER_SECTION}>
+          <div className={HOME_PAGE_STYLES.USER_SECTION}>
             {/* Language Selector */}
             {currentLanguage && languages.length > 0 && (
-              <div className={isRtl ? mergedStyles.SELECT_WRAPPER_RTL : ''}>
+              <div className={isRtl ? HOME_PAGE_STYLES.SELECT_WRAPPER_RTL : ''}>
                 <CustomSelect
                   value={currentLanguageDisplay}
                   onChange={handleLanguageSelect}
@@ -111,31 +106,33 @@ export const Header = ({
                     ENGLISH_LOCALE.HEADER.LANGUAGE_PLACEHOLDER
                   }
                   options={languageOptions}
-                  triggerClassName={mergedStyles.SELECT_BUTTON}
-                  menuClassName={mergedStyles.SELECT_MENU}
-                  optionClassName={mergedStyles.SELECT_OPTION}
-                  optionSelectedClassName={mergedStyles.SELECT_OPTION_SELECTED}
+                  triggerClassName={HOME_PAGE_STYLES.SELECT_BUTTON}
+                  menuClassName={HOME_PAGE_STYLES.SELECT_MENU}
+                  optionClassName={HOME_PAGE_STYLES.SELECT_OPTION}
+                  optionSelectedClassName={
+                    HOME_PAGE_STYLES.SELECT_OPTION_SELECTED
+                  }
                 />
               </div>
             )}
 
             {user ? (
-              <div className={mergedStyles.USER_GREETING}>
+              <div className={HOME_PAGE_STYLES.USER_GREETING}>
                 {locale?.HEADER.WELCOME ?? ENGLISH_LOCALE.HEADER.WELCOME},{' '}
-                <span className={mergedStyles.USER_NAME}>{user.name}</span>
+                <span className={HOME_PAGE_STYLES.USER_NAME}>{user.name}</span>
               </div>
             ) : (
               <>
                 <button
                   onClick={onLogin}
-                  className={mergedStyles.AUTH_BUTTON}
+                  className={HOME_PAGE_STYLES.AUTH_BUTTON}
                   type="button"
                 >
                   {locale?.HEADER.LOGIN ?? ENGLISH_LOCALE.HEADER.LOGIN}
                 </button>
                 <button
                   onClick={onSignup}
-                  className={mergedStyles.AUTH_BUTTON_PRIMARY}
+                  className={HOME_PAGE_STYLES.AUTH_BUTTON_PRIMARY}
                   type="button"
                 >
                   {locale?.HEADER.SIGNUP ?? ENGLISH_LOCALE.HEADER.SIGNUP}
@@ -146,7 +143,7 @@ export const Header = ({
             {/* Cart */}
             <button
               onClick={onCartClick}
-              className={mergedStyles.CART_BUTTON}
+              className={HOME_PAGE_STYLES.CART_BUTTON}
               aria-label={`${
                 locale?.HEADER.CART_ARIA_LABEL ??
                 ENGLISH_LOCALE.HEADER.CART_ARIA_LABEL
@@ -156,9 +153,11 @@ export const Header = ({
               }`}
               type="button"
             >
-              <ShoppingCartIcon className={mergedStyles.CART_ICON} />
+              <ShoppingCartIcon className={HOME_PAGE_STYLES.CART_ICON} />
               {cartItemCount > 0 && (
-                <span className={mergedStyles.CART_BADGE}>{cartItemCount}</span>
+                <span className={HOME_PAGE_STYLES.CART_BADGE}>
+                  {cartItemCount}
+                </span>
               )}
             </button>
           </div>

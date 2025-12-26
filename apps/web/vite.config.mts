@@ -3,6 +3,16 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
+// Security headers applied to dev server and preview
+const SECURITY_HEADERS = {
+  'X-Frame-Options': 'DENY',
+  'X-Content-Type-Options': 'nosniff',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy':
+    'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+};
+
 export default defineConfig(() => ({
   base: '/',
   cacheDir: '../../node_modules/.vite/apps/web',
@@ -16,26 +26,12 @@ export default defineConfig(() => ({
         secure: false,
       },
     },
-    headers: {
-      'X-Frame-Options': 'DENY',
-      'X-Content-Type-Options': 'nosniff',
-      'X-XSS-Protection': '1; mode=block',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-      'Permissions-Policy':
-        'camera=(), microphone=(), geolocation=(), interest-cohort=()',
-    },
+    headers: SECURITY_HEADERS,
   },
   preview: {
     port: 4300,
     host: 'localhost',
-    headers: {
-      'X-Frame-Options': 'DENY',
-      'X-Content-Type-Options': 'nosniff',
-      'X-XSS-Protection': '1; mode=block',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-      'Permissions-Policy':
-        'camera=(), microphone=(), geolocation=(), interest-cohort=()',
-    },
+    headers: SECURITY_HEADERS,
   },
   resolve: {
     conditions: ['@webbitstudio/source'],

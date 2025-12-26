@@ -38,4 +38,15 @@ export const LOGIN_PAGE_STYLES = {
   SIGNUP_TEXT: 'text-sm text-gray-600',
   SIGNUP_LINK:
     'text-blue-600 hover:text-blue-700 hover:underline font-medium ml-1 transition-colors',
+
+  // Language Selector
+  CONTAINER: 'relative',
+  LANGUAGE_SELECTOR_WRAPPER: 'fixed top-5 right-5 z-[100]',
+  LANGUAGE_SELECT_BUTTON:
+    'flex items-center gap-2 px-3 py-1.5 text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors',
+  LANGUAGE_SELECT_MENU:
+    'absolute mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-1 max-h-60 overflow-auto z-50',
+  LANGUAGE_SELECT_OPTION:
+    'px-4 py-2 text-sm text-gray-700 !bg-white hover:!bg-gray-100 cursor-pointer flex items-center justify-between',
+  LANGUAGE_SELECT_OPTION_SELECTED: '!bg-blue-50 !text-blue-700',
 } as const;

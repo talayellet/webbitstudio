@@ -1,4 +1,5 @@
 import './global.css';
+import { SessionProvider } from './providers';
 
 export const metadata = {
   title: 'Welcome to backend',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SessionProvider>{children}</SessionProvider>
+      </body>
     </html>
   );
 }

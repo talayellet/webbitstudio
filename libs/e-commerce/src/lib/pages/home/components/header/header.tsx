@@ -1,8 +1,10 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
+import clsx from 'clsx';
 import { CustomSelect } from '@webbitstudio/ui-components';
 import { ShoppingCartIcon, WebbitLogo } from '../../../../icons';
 import { ENGLISH_LOCALE } from '../../../../locale';
-import { User, Language, Locale, HOME_PAGE_STYLES } from '../../utils';
+import { User, Language, HOME_PAGE_STYLES } from '../../utils';
+import { HeaderLocale } from './utils';
 
 /**
  * eCommerce Header Component
@@ -39,14 +41,13 @@ export interface HeaderProps {
   /** Whether to use RTL layout */
   isRtl?: boolean;
   /** Localized text content */
-  locale?: {
-    DEFAULT_STORE_NAME: string;
-    HEADER: Locale['HEADER'];
-  };
+  locale?: HeaderLocale;
   /** Callback when login is clicked */
   onLogin?: () => void;
   /** Callback when signup is clicked */
   onSignup?: () => void;
+  /** Callback when logout is clicked */
+  onLogout?: () => void;
   /** Callback when cart is clicked */
   onCartClick?: () => void;
   /** Callback when language changes */
@@ -60,9 +61,12 @@ export const Header = ({
   currentLanguage,
   languages = [],
   isRtl = false,
-  locale,
+  locale = {
+    HEADER: ENGLISH_LOCALE.HEADER,
+  },
   onLogin,
   onSignup,
+  onLogout,
   onCartClick,
   onLanguageChange,
 }: HeaderProps) => {
@@ -75,14 +79,17 @@ export const Header = ({
     ? currentLanguage.nativeName || currentLanguage.name
     : '';
 
-  const handleLanguageSelect = (displayValue: string) => {
-    const selectedLanguage = languages.find(
-      (lang) => (lang.nativeName || lang.name) === displayValue
-    );
-    if (selectedLanguage) {
-      onLanguageChange?.(selectedLanguage.code);
-    }
-  };
+  const handleLanguageSelect = useCallback(
+    (displayValue: string) => {
+      const selectedLanguage = languages.find(
+        (lang) => (lang.nativeName || lang.name) === displayValue
+      );
+      if (selectedLanguage) {
+        onLanguageChange?.(selectedLanguage.code);
+      }
+    },
+    [languages, onLanguageChange]
+  );
 
   return (
     <header className={HOME_PAGE_STYLES.HEADER}>
@@ -97,14 +104,13 @@ export const Header = ({
           <div className={HOME_PAGE_STYLES.USER_SECTION}>
             {/* Language Selector */}
             {currentLanguage && languages.length > 0 && (
-              <div className={isRtl ? HOME_PAGE_STYLES.SELECT_WRAPPER_RTL : ''}>
+              <div
+                className={clsx(isRtl && HOME_PAGE_STYLES.SELECT_WRAPPER_RTL)}
+              >
                 <CustomSelect
                   value={currentLanguageDisplay}
                   onChange={handleLanguageSelect}
-                  placeholder={
-                    locale?.HEADER.LANGUAGE_PLACEHOLDER ??
-                    ENGLISH_LOCALE.HEADER.LANGUAGE_PLACEHOLDER
-                  }
+                  placeholder={locale.HEADER.LANGUAGE_PLACEHOLDER}
                   options={languageOptions}
                   triggerClassName={HOME_PAGE_STYLES.SELECT_BUTTON}
                   menuClassName={HOME_PAGE_STYLES.SELECT_MENU}
@@ -117,10 +123,23 @@ export const Header = ({
             )}
 
             {user ? (
-              <div className={HOME_PAGE_STYLES.USER_GREETING}>
-                {locale?.HEADER.WELCOME ?? ENGLISH_LOCALE.HEADER.WELCOME},{' '}
-                <span className={HOME_PAGE_STYLES.USER_NAME}>{user.name}</span>
-              </div>
+              <>
+                <div className={HOME_PAGE_STYLES.USER_GREETING}>
+                  {locale.HEADER.WELCOME},{' '}
+                  <span className={HOME_PAGE_STYLES.USER_NAME}>
+                    {user.name}
+                  </span>
+                </div>
+                {onLogout && (
+                  <button
+                    onClick={onLogout}
+                    className={HOME_PAGE_STYLES.AUTH_BUTTON}
+                    type="button"
+                  >
+                    {locale.HEADER.LOGOUT}
+                  </button>
+                )}
+              </>
             ) : (
               <>
                 <button
@@ -128,14 +147,14 @@ export const Header = ({
                   className={HOME_PAGE_STYLES.AUTH_BUTTON}
                   type="button"
                 >
-                  {locale?.HEADER.LOGIN ?? ENGLISH_LOCALE.HEADER.LOGIN}
+                  {locale.HEADER.LOGIN}
                 </button>
                 <button
                   onClick={onSignup}
                   className={HOME_PAGE_STYLES.AUTH_BUTTON_PRIMARY}
                   type="button"
                 >
-                  {locale?.HEADER.SIGNUP ?? ENGLISH_LOCALE.HEADER.SIGNUP}
+                  {locale.HEADER.SIGNUP}
                 </button>
               </>
             )}
@@ -144,13 +163,7 @@ export const Header = ({
             <button
               onClick={onCartClick}
               className={HOME_PAGE_STYLES.CART_BUTTON}
-              aria-label={`${
-                locale?.HEADER.CART_ARIA_LABEL ??
-                ENGLISH_LOCALE.HEADER.CART_ARIA_LABEL
-              } - ${cartItemCount} ${
-                locale?.HEADER.ITEMS_IN_CART ??
-                ENGLISH_LOCALE.HEADER.ITEMS_IN_CART
-              }`}
+              aria-label={`${locale.HEADER.CART_ARIA_LABEL} - ${cartItemCount} ${locale.HEADER.ITEMS_IN_CART}`}
               type="button"
             >
               <ShoppingCartIcon className={HOME_PAGE_STYLES.CART_ICON} />

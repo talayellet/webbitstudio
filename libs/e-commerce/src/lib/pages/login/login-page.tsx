@@ -4,6 +4,7 @@ import { LOGIN_PAGE_STYLES } from './utils';
 import { LoginPageLocale } from '../../shared';
 import { useLoginForm } from './hooks';
 import { SocialLoginButtons } from './components';
+import { CustomSelect } from '@webbitstudio/ui-components';
 
 /**
  * eCommerce Login Page Component
@@ -47,6 +48,14 @@ export interface LoginPageProps {
   onAppleLogin?: () => void;
   /** Show social login buttons */
   showSocialLogin?: boolean;
+  /** Show language selector */
+  showLanguageSelector?: boolean;
+  /** Current language native name */
+  currentLanguage?: string;
+  /** Available language options (native names) */
+  languageOptions?: string[];
+  /** Callback when language is changed */
+  onLanguageChange?: (nativeName: string) => void;
 }
 
 export const LoginPage = ({
@@ -60,6 +69,10 @@ export const LoginPage = ({
   onFacebookLogin,
   onAppleLogin,
   showSocialLogin = false,
+  showLanguageSelector = false,
+  currentLanguage,
+  languageOptions = [],
+  onLanguageChange,
 }: LoginPageProps) => {
   const {
     email,
@@ -79,10 +92,33 @@ export const LoginPage = ({
       className={LOGIN_PAGE_STYLES.PAGE_CONTAINER}
       dir={isRtl ? 'rtl' : 'ltr'}
     >
+      {/* Language Selector */}
+      {showLanguageSelector && (
+        <div className={LOGIN_PAGE_STYLES.LANGUAGE_SELECTOR_WRAPPER}>
+          <CustomSelect
+            value={currentLanguage ?? ''}
+            onChange={
+              onLanguageChange ??
+              (() => {
+                /** NOOP */
+              })
+            }
+            placeholder={locale.LANGUAGE_PLACEHOLDER}
+            options={languageOptions}
+            triggerClassName={LOGIN_PAGE_STYLES.LANGUAGE_SELECT_BUTTON}
+            menuClassName={LOGIN_PAGE_STYLES.LANGUAGE_SELECT_MENU}
+            optionClassName={LOGIN_PAGE_STYLES.LANGUAGE_SELECT_OPTION}
+            optionSelectedClassName={
+              LOGIN_PAGE_STYLES.LANGUAGE_SELECT_OPTION_SELECTED
+            }
+          />
+        </div>
+      )}
+
       <div className={LOGIN_PAGE_STYLES.FORM_WRAPPER}>
         <div className={LOGIN_PAGE_STYLES.CARD}>
           {/* Logo */}
-          <div className={LOGIN_PAGE_STYLES.LOGO_CONTAINER}>
+          <div className={LOGIN_PAGE_STYLES.LOGO_CONTAINER} dir="ltr">
             {logo ?? <WebbitLogo />}
           </div>
 
@@ -112,9 +148,18 @@ export const LoginPage = ({
                 }
                 disabled={isLoading}
                 autoComplete="email"
+                aria-invalid={!!emailError}
+                aria-describedby={emailError ? 'email-error' : undefined}
               />
               {emailError && (
-                <p className={LOGIN_PAGE_STYLES.ERROR_MESSAGE}>{emailError}</p>
+                <p
+                  id="email-error"
+                  className={LOGIN_PAGE_STYLES.ERROR_MESSAGE}
+                  role="alert"
+                  aria-live="polite"
+                >
+                  {emailError}
+                </p>
               )}
             </div>
 
@@ -137,9 +182,16 @@ export const LoginPage = ({
                 }
                 disabled={isLoading}
                 autoComplete="current-password"
+                aria-invalid={!!passwordError}
+                aria-describedby={passwordError ? 'password-error' : undefined}
               />
               {passwordError && (
-                <p className={LOGIN_PAGE_STYLES.ERROR_MESSAGE}>
+                <p
+                  id="password-error"
+                  className={LOGIN_PAGE_STYLES.ERROR_MESSAGE}
+                  role="alert"
+                  aria-live="polite"
+                >
                   {passwordError}
                 </p>
               )}

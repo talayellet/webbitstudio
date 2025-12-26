@@ -1,12 +1,14 @@
 import {
   HOME_PAGE_STYLES,
-  User,
-  ShoppingCategory,
   Language,
-  Locale,
-} from './utils';
-import { Footer, Header, Main } from './components';
-import { HEBREW } from '../../locale';
+  ShoppingCategory,
+  User,
+} from '../../utils';
+import { HEBREW } from '../../../../locale';
+import { Header } from '../header';
+import { Main } from '../main';
+import { Footer } from '../footer';
+import { HomePageLocale } from '../../../../shared';
 
 /**
  * eCommerce Home Page Component
@@ -43,11 +45,13 @@ export interface HomePageProps {
   /** Available languages */
   languages?: Language[];
   /** Localized text content */
-  locale: Locale;
+  locale: HomePageLocale;
   /** Callback when login is clicked */
   onLogin?: () => void;
   /** Callback when signup is clicked */
   onSignup?: () => void;
+  /** Callback when logout is clicked */
+  onLogout?: () => void;
   /** Callback when cart is clicked */
   onCartClick?: () => void;
   /** Callback when category is clicked */
@@ -74,6 +78,7 @@ export const ECommerceHomePage = ({
   locale,
   onLogin,
   onSignup,
+  onLogout,
   onCartClick,
   onCategoryClick,
   onLanguageChange,
@@ -98,11 +103,11 @@ export const ECommerceHomePage = ({
         languages={languages}
         isRtl={isRtl}
         locale={{
-          DEFAULT_STORE_NAME: locale.DEFAULT_STORE_NAME,
           HEADER: locale.HEADER,
         }}
         onLogin={onLogin}
         onSignup={onSignup}
+        onLogout={onLogout}
         onCartClick={onCartClick}
         onLanguageChange={onLanguageChange}
       />

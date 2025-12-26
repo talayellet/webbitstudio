@@ -1,6 +1,7 @@
 import { useCallback, memo } from 'react';
 import { KEYBOARD_KEYS } from '@webbitstudio/shared-utils';
-import { HOME_PAGE_STYLES, ShoppingCategory } from '../../utils';
+import { ShoppingCategory } from '../../../../shared';
+import { HOME_PAGE_STYLES } from '../../utils';
 
 /**
  * Category Card Component

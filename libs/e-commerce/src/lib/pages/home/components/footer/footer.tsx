@@ -1,5 +1,6 @@
 import { useCallback, memo } from 'react';
-import { HOME_PAGE_STYLES, Locale } from '../../utils';
+import { HOME_PAGE_STYLES } from '../../utils';
+import { HomePageLocale } from '../../../../shared';
 
 /**
  * eCommerce Footer Component
@@ -21,7 +22,7 @@ import { HOME_PAGE_STYLES, Locale } from '../../utils';
  */
 export interface FooterProps {
   /** Localized text content */
-  locale: Locale['FOOTER'];
+  locale: HomePageLocale['FOOTER'];
   /** Callback for privacy policy link */
   onPrivacyPolicyClick?: () => void;
   /** Callback for terms of service link */

@@ -1,5 +1,6 @@
-import { HOME_PAGE_STYLES, ShoppingCategory, Locale } from '../../utils';
+import { HOME_PAGE_STYLES } from '../../utils';
 import { CategoryCard } from './category-card';
+import { HomePageLocale, ShoppingCategory } from '../../../../shared';
 
 /**
  * Main content section for the eCommerce home page
@@ -10,7 +11,7 @@ export interface MainProps {
   /** Available shopping categories */
   categories: ShoppingCategory[];
   /** Localized text content */
-  locale: Pick<Locale, 'SHOP_BY_CATEGORY'>;
+  locale: Pick<HomePageLocale, 'SHOP_BY_CATEGORY'>;
   /** Callback when category is clicked */
   onCategoryClick?: (categoryId: string) => void;
 }

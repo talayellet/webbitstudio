@@ -3,6 +3,7 @@
   "compilerOptions": {
     "jsx": "preserve",
     "noEmit": true,
+    "declaration": true,
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -21,8 +22,9 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "composite": false,
+    "rootDir": "../..",
     "outDir": "dist",
-    "rootDir": "src",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
@@ -46,5 +48,16 @@
     "eslint.config.js",
     "eslint.config.cjs",
     "eslint.config.mjs"
+  ],
+  "references": [
+    {
+      "path": "../../libs/data-access"
+    },
+    {
+      "path": "../../libs/shared-utils"
+    },
+    {
+      "path": "../../libs/ui-components"
+    }
   ]
 }

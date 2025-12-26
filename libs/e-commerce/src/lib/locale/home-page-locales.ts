@@ -1,10 +1,10 @@
 /**
- * Locale definitions for eCommerce
+ * Locale definitions for the eCommerce Home Page
  */
 
 import type { Locale } from '../pages/home/utils/types';
 
-export const ENGLISH_LOCALE = {
+export const ENGLISH_LOCALE: Locale = {
   DEFAULT_STORE_NAME: 'Store',
   SHOP_BY_CATEGORY: 'Shop by Category',
   HEADER: {
@@ -29,11 +29,8 @@ export const ENGLISH_LOCALE = {
   CATEGORIES: {
     VIEW_ALL: 'View all',
   },
-} as const;
+};
 
-/**
- * Hebrew locale
- */
 export const HEBREW_LOCALE: Locale = {
   DEFAULT_STORE_NAME: 'חנות',
   SHOP_BY_CATEGORY: 'קנו לפי קטגוריה',
@@ -61,9 +58,6 @@ export const HEBREW_LOCALE: Locale = {
   },
 };
 
-/**
- * Spanish locale
- */
 export const SPANISH_LOCALE: Locale = {
   DEFAULT_STORE_NAME: 'Tienda',
   SHOP_BY_CATEGORY: 'Comprar por Categoría',

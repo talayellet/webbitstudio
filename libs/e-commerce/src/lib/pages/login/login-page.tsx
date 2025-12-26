@@ -1,0 +1,199 @@
+import { WebbitLogo } from '../../icons';
+import { ENGLISH_LOGIN_LOCALE } from '../../locale';
+import { LOGIN_PAGE_STYLES } from './utils';
+import { LoginPageLocale } from '../../shared';
+import { useLoginForm } from './hooks';
+import { SocialLoginButtons } from './components';
+
+/**
+ * eCommerce Login Page Component
+ *
+ * A professional login page featuring:
+ * - Email and password input fields with validation
+ * - Forgot password link
+ * - Sign up redirect link
+ * - Optional social login buttons (Google, Facebook, Apple)
+ * - Localization support
+ * - RTL support
+ *
+ * @example
+ * ```tsx
+ * <LoginPage
+ *   logo={<img src="logo.png" alt="My Store" />}
+ *   onLogin={(email, password) => handleLogin(email, password)}
+ *   onSignup={() => router.push('/signup')}
+ *   onForgotPassword={() => router.push('/forgot-password')}
+ * />
+ * ```
+ */
+export interface LoginPageProps {
+  /** Custom logo element (defaults to WebbitLogo if not provided) */
+  logo?: React.ReactNode;
+  /** Whether to use RTL layout */
+  isRtl?: boolean;
+  /** Localized text content */
+  locale?: LoginPageLocale;
+  /** Callback when login form is submitted */
+  onLogin?: (email: string, password: string) => void | Promise<void>;
+  /** Callback when signup link is clicked */
+  onSignup?: () => void;
+  /** Callback when forgot password link is clicked */
+  onForgotPassword?: () => void;
+  /** Callback when Google login is clicked */
+  onGoogleLogin?: () => void;
+  /** Callback when Facebook login is clicked */
+  onFacebookLogin?: () => void;
+  /** Callback when Apple login is clicked */
+  onAppleLogin?: () => void;
+  /** Show social login buttons */
+  showSocialLogin?: boolean;
+}
+
+export const LoginPage = ({
+  logo,
+  isRtl = false,
+  locale = ENGLISH_LOGIN_LOCALE,
+  onLogin,
+  onSignup,
+  onForgotPassword,
+  onGoogleLogin,
+  onFacebookLogin,
+  onAppleLogin,
+  showSocialLogin = false,
+}: LoginPageProps) => {
+  const {
+    email,
+    password,
+    emailError,
+    passwordError,
+    isLoading,
+    handleEmailChange,
+    handlePasswordChange,
+    handleEmailBlur,
+    handlePasswordBlur,
+    handleSubmit,
+  } = useLoginForm({ locale, onLogin });
+
+  return (
+    <div
+      className={LOGIN_PAGE_STYLES.PAGE_CONTAINER}
+      dir={isRtl ? 'rtl' : 'ltr'}
+    >
+      <div className={LOGIN_PAGE_STYLES.FORM_WRAPPER}>
+        <div className={LOGIN_PAGE_STYLES.CARD}>
+          {/* Logo */}
+          <div className={LOGIN_PAGE_STYLES.LOGO_CONTAINER}>
+            {logo ?? <WebbitLogo />}
+          </div>
+
+          {/* Header */}
+          <div className={LOGIN_PAGE_STYLES.HEADER}>
+            <h1 className={LOGIN_PAGE_STYLES.TITLE}>{locale.PAGE_TITLE}</h1>
+          </div>
+
+          {/* Login Form */}
+          <form onSubmit={handleSubmit} className={LOGIN_PAGE_STYLES.FORM}>
+            {/* Email Field */}
+            <div className={LOGIN_PAGE_STYLES.FIELD_GROUP}>
+              <label htmlFor="email" className={LOGIN_PAGE_STYLES.LABEL}>
+                {locale.EMAIL_LABEL}
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                onBlur={handleEmailBlur}
+                placeholder={locale.EMAIL_PLACEHOLDER}
+                className={
+                  emailError
+                    ? LOGIN_PAGE_STYLES.INPUT_ERROR
+                    : LOGIN_PAGE_STYLES.INPUT
+                }
+                disabled={isLoading}
+                autoComplete="email"
+              />
+              {emailError && (
+                <p className={LOGIN_PAGE_STYLES.ERROR_MESSAGE}>{emailError}</p>
+              )}
+            </div>
+
+            {/* Password Field */}
+            <div className={LOGIN_PAGE_STYLES.FIELD_GROUP}>
+              <label htmlFor="password" className={LOGIN_PAGE_STYLES.LABEL}>
+                {locale.PASSWORD_LABEL}
+              </label>
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+                onBlur={handlePasswordBlur}
+                placeholder={locale.PASSWORD_PLACEHOLDER}
+                className={
+                  passwordError
+                    ? LOGIN_PAGE_STYLES.INPUT_ERROR
+                    : LOGIN_PAGE_STYLES.INPUT
+                }
+                disabled={isLoading}
+                autoComplete="current-password"
+              />
+              {passwordError && (
+                <p className={LOGIN_PAGE_STYLES.ERROR_MESSAGE}>
+                  {passwordError}
+                </p>
+              )}
+            </div>
+
+            {/* Forgot Password */}
+            <div className={LOGIN_PAGE_STYLES.FORGOT_PASSWORD_CONTAINER}>
+              <button
+                type="button"
+                onClick={onForgotPassword}
+                className={LOGIN_PAGE_STYLES.FORGOT_PASSWORD_BUTTON}
+                disabled={isLoading}
+              >
+                {locale.FORGOT_PASSWORD}
+              </button>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className={LOGIN_PAGE_STYLES.SUBMIT_BUTTON}
+              disabled={isLoading}
+            >
+              {isLoading ? locale.LOGGING_IN : locale.LOGIN_BUTTON}
+            </button>
+          </form>
+
+          {/* Social Login */}
+          {showSocialLogin && (
+            <SocialLoginButtons
+              locale={locale}
+              isLoading={isLoading}
+              onGoogleLogin={onGoogleLogin}
+              onFacebookLogin={onFacebookLogin}
+              onAppleLogin={onAppleLogin}
+            />
+          )}
+
+          {/* Sign Up Link */}
+          <div className={LOGIN_PAGE_STYLES.SIGNUP_CONTAINER}>
+            <span className={LOGIN_PAGE_STYLES.SIGNUP_TEXT}>
+              {locale.NO_ACCOUNT}
+              <button
+                type="button"
+                onClick={onSignup}
+                className={LOGIN_PAGE_STYLES.SIGNUP_LINK}
+                disabled={isLoading}
+              >
+                {locale.SIGNUP_LINK}
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

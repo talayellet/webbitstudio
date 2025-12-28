@@ -1,6 +1,6 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import { ENDPOINTS } from '@webbitstudio/data-access';
+import { ENDPOINTS } from '@webbitstudio/data-access/server';
 import { SESSION_MAX_AGE } from '../../../utils';
 
 /**

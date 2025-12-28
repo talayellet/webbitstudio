@@ -11,8 +11,8 @@ export const ENDPOINTS = {
       SIGNOUT_PAGE: 'http://localhost:3000/auth/signout',
     },
     CALLBACK: {
-      DEVELOPMENT: 'http://localhost:4300/',
-      PRODUCTION: 'https://your-production-url.com/',
+      DEVELOPMENT: 'http://localhost:4300',
+      PRODUCTION: 'https://your-production-url.com',
     },
   },
 } as const;

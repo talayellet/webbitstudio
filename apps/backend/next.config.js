@@ -11,10 +11,8 @@ const nextConfig = {
 
   // Security headers
   async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
+    const corsHeaders = process.env.ALLOWED_ORIGIN
+      ? [
           {
             key: 'Access-Control-Allow-Origin',
             value: process.env.ALLOWED_ORIGIN,
@@ -31,6 +29,14 @@ const nextConfig = {
             key: 'Access-Control-Allow-Credentials',
             value: 'true',
           },
+        ]
+      : [];
+
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          ...corsHeaders,
           {
             key: 'X-Frame-Options',
             value: 'DENY',

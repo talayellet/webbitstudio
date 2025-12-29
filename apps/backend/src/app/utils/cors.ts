@@ -8,7 +8,7 @@ const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '';
 /**
  * Get CORS headers for API responses
  */
-export const getCorsHeaders = () => {
+export const getCorsHeaders = (): Record<string, string> => {
   if (!ALLOWED_ORIGIN) {
     return {};
   }

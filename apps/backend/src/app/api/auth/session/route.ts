@@ -2,10 +2,15 @@ import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../[...nextauth]/route';
 import { DEFAULT_USER_ID } from '../../../utils';
-import {
-  getCorsHeaders,
-  handleCorsPreflightRequest,
-} from '../../../utils/cors';
+
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:4300';
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Credentials': 'true',
+};
 
 /**
  * API endpoint to check if user is logged in
@@ -31,7 +36,7 @@ export async function GET() {
         : null,
     },
     {
-      headers: getCorsHeaders(),
+      headers: corsHeaders,
     }
   );
 }
@@ -40,5 +45,8 @@ export async function GET() {
  * Handle CORS preflight requests
  */
 export async function OPTIONS() {
-  return handleCorsPreflightRequest();
+  return new NextResponse(null, {
+    status: 200,
+    headers: corsHeaders,
+  });
 }

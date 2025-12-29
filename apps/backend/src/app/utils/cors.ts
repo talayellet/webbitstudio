@@ -3,16 +3,12 @@ import { NextResponse } from 'next/server';
 /**
  * CORS configuration for API routes
  */
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '';
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'http://localhost:4300';
 
 /**
  * Get CORS headers for API responses
  */
 export const getCorsHeaders = (): Record<string, string> => {
-  if (!ALLOWED_ORIGIN) {
-    return {};
-  }
-
   return {
     'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',

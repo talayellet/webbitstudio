@@ -23,6 +23,8 @@ export const ENGLISH_LOGIN_LOCALE: LoginPageLocale = {
   PASSWORD_REQUIRED: 'Password is required',
   PASSWORD_MIN_LENGTH: 'Password must be at least 8 characters',
   LOGGING_IN: 'Logging in...',
+  LOGIN_ERROR_GENERIC: 'Login failed. Please try again.',
+  LANGUAGE_PLACEHOLDER: 'Select language',
 };
 
 export const HEBREW_LOGIN_LOCALE: LoginPageLocale = {
@@ -44,6 +46,8 @@ export const HEBREW_LOGIN_LOCALE: LoginPageLocale = {
   PASSWORD_REQUIRED: 'נדרשת סיסמה',
   PASSWORD_MIN_LENGTH: 'הסיסמה חייבת להכיל לפחות 8 תווים',
   LOGGING_IN: 'מתחבר...',
+  LOGIN_ERROR_GENERIC: 'ההתחברות נכשלה. אנא נסה שוב.',
+  LANGUAGE_PLACEHOLDER: 'בחר שפה',
 };
 
 export const SPANISH_LOGIN_LOCALE: LoginPageLocale = {
@@ -65,4 +69,7 @@ export const SPANISH_LOGIN_LOCALE: LoginPageLocale = {
   PASSWORD_REQUIRED: 'La contraseña es obligatoria',
   PASSWORD_MIN_LENGTH: 'La contraseña debe tener al menos 8 caracteres',
   LOGGING_IN: 'Iniciando sesión...',
+  LOGIN_ERROR_GENERIC:
+    'Inicio de sesión fallido. Por favor, inténtalo de nuevo.',
+  LANGUAGE_PLACEHOLDER: 'Selecciona idioma',
 };

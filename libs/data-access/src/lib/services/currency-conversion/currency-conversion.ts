@@ -9,7 +9,7 @@ export const fetchExchangeRates = async (
   baseCurrency = CURRENCY_CODES.USD
 ): Promise<ExchangeRateResponse> => {
   const response = await fetch(
-    `${ENDPOINTS.EXCHANGE_API_BASE_URL}/${baseCurrency}`
+    `${ENDPOINTS.EXCHANGE.API_BASE_URL}/${baseCurrency}`
   );
 
   if (!response.ok) {

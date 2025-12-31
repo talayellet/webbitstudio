@@ -12,12 +12,7 @@ export interface User {
  * Session response from the auth API
  */
 export interface SessionResponse {
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    avatar?: string;
-  } | null;
+  user: User | null;
 }
 
 /**

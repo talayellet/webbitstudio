@@ -8,7 +8,8 @@ export {
   CORS_ALLOWED_HEADERS,
   HTTP_HEADERS,
   CONTENT_TYPES,
-  getCorsHeaders,
 } from './lib/utils/headers';
+
+export { getCorsHeaders } from './lib/utils/functions';
 
 export { ENDPOINTS } from './lib/utils/endpoint-urls';

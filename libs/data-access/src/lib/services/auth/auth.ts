@@ -73,6 +73,6 @@ export const initiateOAuthLogin = (
   callbackUrl: string
 ): void => {
   const encodedCallback = encodeURIComponent(callbackUrl);
-  const authUrl = `${ENDPOINTS.AUTH.OAUTH.GOOGLE}?callbackUrl=${encodedCallback}`;
+  const authUrl = `${ENDPOINTS.AUTH.OAUTH.SIGNIN}?callbackUrl=${encodedCallback}`;
   window.location.href = authUrl;
 };

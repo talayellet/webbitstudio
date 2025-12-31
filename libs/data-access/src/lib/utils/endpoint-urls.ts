@@ -11,7 +11,7 @@ export const ENDPOINTS = {
     SIGNOUT: `${BACKEND_URL}/api/auth/signout`,
     LOGIN: `${BACKEND_URL}/api/auth/login`,
     OAUTH: {
-      GOOGLE: `${BACKEND_URL}/auth/signin`,
+      SIGNIN: `${BACKEND_URL}/auth/signin`,
       SIGNOUT_PAGE: `${BACKEND_URL}/auth/signout`,
     },
     CALLBACK: {

@@ -2,17 +2,46 @@
 
 This document explains the security headers implemented for webbitstudio.com.
 
-## Production (Cloudflare Pages)
+## Configuration Files
 
-Security headers are configured in `/apps/web/public/_headers`. Cloudflare Pages automatically reads this file and applies the headers to all responses.
+Security headers are defined in **three places** (this duplication is acceptable):
 
-## Development & Preview (Vite)
+1. **`config/security-headers.config.js`** - Shared constants for Vite and Next.js build configs
+2. **`apps/web/public/_headers`** - Cloudflare Pages static file (manually maintained)
+3. **`libs/data-access/src/lib/utils/headers.ts`** - CORS constants for runtime application code
 
-Security headers are configured in `/apps/web/vite.config.mts` for the dev server and preview mode.
+### Why the duplication?
 
-## Backend (Next.js)
+- **Build configs** (Vite/Next.js) can import from `config/security-headers.config.js`
+- **Cloudflare Pages** requires a static `_headers` file - no imports allowed
+- **Runtime code** in libs cannot import from config folder (violates Nx module boundaries)
 
-Security headers are configured in `/apps/backend/next.config.js`.
+## Updating Headers
+
+### To update security headers:
+
+1. Edit `config/security-headers.config.js`
+2. Manually update `apps/web/public/_headers` to match
+3. Restart dev servers
+
+### To update CORS constants:
+
+1. Edit `config/security-headers.config.js` (for build configs)
+2. Edit `libs/data-access/src/lib/utils/headers.ts` (for runtime code)
+
+## Platform-Specific Details
+
+### Cloudflare Pages (Production)
+
+Headers configured in `/apps/web/public/_headers`. Cloudflare reads this static file at deployment.
+
+### Vite (Development)
+
+Headers configured in `/apps/web/vite.config.mts`, importing `SECURITY_HEADERS` from config.
+
+### Next.js (Backend)
+
+Headers configured in `/apps/backend/next.config.js`, importing `SECURITY_HEADERS` from config.
 
 ## Implemented Headers
 
@@ -22,87 +51,32 @@ Prevents the site from being embedded in iframes, protecting against clickjackin
 
 ### X-Content-Type-Options: nosniff
 
-Prevents browsers from MIME-sniffing responses, reducing exposure to drive-by download attacks.
+Prevents browsers from MIME-sniffing responses.
 
 ### X-XSS-Protection: 1; mode=block
 
-Enables the browser's XSS filter (legacy support for older browsers).
+Enables the browser's XSS filter (legacy support).
 
 ### Referrer-Policy: strict-origin-when-cross-origin
 
-Controls how much referrer information is sent with requests:
-
-- Same origin: full URL
-- Cross-origin HTTPS→HTTPS: origin only
-- Cross-origin HTTPS→HTTP: no referrer
+Controls referrer information sent with requests.
 
 ### Permissions-Policy
 
-Disables unnecessary browser features:
-
-- `camera=()` - Blocks camera access
-- `microphone=()` - Blocks microphone access
-- `geolocation=()` - Blocks geolocation (note: your app uses ipapi.co for country detection, which is server-side)
-- `interest-cohort=()` - Blocks FLoC tracking
+Disables unnecessary browser features (camera, microphone, geolocation, FLoC).
 
 ### Strict-Transport-Security (HSTS)
 
-Forces HTTPS connections:
-
-- `max-age=63072000` - 2 years
-- `includeSubDomains` - Applies to all subdomains
-- `preload` - Eligible for browser preload lists
+Forces HTTPS connections (2 year max-age, includeSubDomains, preload eligible).
 
 ### Content-Security-Policy (CSP)
 
-Comprehensive policy to prevent XSS and data injection attacks:
-
-**Allowed sources:**
-
-- `default-src 'self'` - Only load resources from same origin by default
-- `script-src` - Scripts from self, inline scripts (needed for React), and trusted domains:
-  - web3forms.com (contact form)
-  - ipapi.co (geolocation)
-  - sentry.io (error tracking)
-- `style-src 'self' 'unsafe-inline'` - Styles from self and inline (Tailwind CSS)
-- `img-src 'self' data: https:` - Images from self, data URIs, and any HTTPS source
-- `font-src 'self' data:` - Fonts from self and data URIs
-- `connect-src` - API calls to trusted domains
-- `frame-src https://web3forms.com` - Only allow iframes from Web3Forms
-- `object-src 'none'` - Block plugins
-- `base-uri 'self'` - Prevent base tag injection
-- `form-action 'self' https://web3forms.com` - Forms can only submit to self or Web3Forms
-- `upgrade-insecure-requests` - Automatically upgrade HTTP to HTTPS
+See `apps/web/public/_headers` for the full policy. Prevents XSS and data injection attacks.
 
 ## Testing Headers
 
-After deployment, test your headers using:
+Test your headers after deployment:
 
 1. [SecurityHeaders.com](https://securityheaders.com/?q=webbitstudio.com)
 2. [Mozilla Observatory](https://observatory.mozilla.org/analyze/webbitstudio.com)
-3. Browser DevTools → Network tab → Response Headers
-
-## Deployment Notes
-
-### Cloudflare Pages
-
-The `_headers` file is automatically deployed with your site. Changes take effect immediately after deployment.
-
-### Updating CSP
-
-If you add new third-party services, update the `Content-Security-Policy` in `/apps/web/public/_headers`:
-
-1. Add the domain to the appropriate directive (script-src, connect-src, etc.)
-2. Test locally first
-3. Deploy and verify with browser console (CSP violations are logged)
-
-## HSTS Preload
-
-To submit your domain to the HSTS preload list:
-
-1. Ensure HSTS header is active for at least 30 days
-2. Visit [hstspreload.org](https://hstspreload.org/)
-3. Submit webbitstudio.com
-4. Wait for approval (can take months)
-
-⚠️ **Warning**: HSTS preload is permanent and cannot be easily undone. Only enable if you're certain you'll always use HTTPS.
+3. Browser DevTools → Network tab

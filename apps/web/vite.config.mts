@@ -2,16 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-
-// Security headers applied to dev server and preview
-const SECURITY_HEADERS = {
-  'X-Frame-Options': 'DENY',
-  'X-Content-Type-Options': 'nosniff',
-  'X-XSS-Protection': '1; mode=block',
-  'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy':
-    'camera=(), microphone=(), geolocation=(), interest-cohort=()',
-};
+import { SECURITY_HEADERS } from '../../config/security-headers.config.js';
 
 export default defineConfig(() => ({
   base: '/',

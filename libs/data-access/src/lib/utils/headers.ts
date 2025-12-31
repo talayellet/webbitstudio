@@ -10,11 +10,17 @@ export const CORS_HEADERS = {
 
 /**
  * CORS methods allowed
+ * NOTE: This is also defined in config/security-headers.config.ts for build-time configs.
+ * These are separate because:
+ * - This file is for RUNTIME application code
+ * - The config file is for BUILD-TIME configuration (Next.js, Vite)
+ * - Importing from config would violate Nx module boundaries
  */
 export const CORS_METHODS = 'GET, POST, PUT, DELETE, OPTIONS' as const;
 
 /**
  * CORS headers allowed
+ * NOTE: Also defined in config/security-headers.config.ts (see CORS_METHODS comment above)
  */
 export const CORS_ALLOWED_HEADERS = 'Content-Type, Authorization' as const;
 

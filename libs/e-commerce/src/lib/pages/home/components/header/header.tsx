@@ -1,4 +1,3 @@
-import { useMemo, useCallback } from 'react';
 import clsx from 'clsx';
 import { CustomSelect } from '@webbitstudio/ui-components';
 import { ShoppingCartIcon, WebbitLogo } from '../../../../icons';
@@ -71,25 +70,19 @@ export const Header = ({
   onLanguageChange,
 }: HeaderProps) => {
   // Map languages to display strings
-  const languageOptions = useMemo(
-    () => languages.map((lang) => lang.nativeName || lang.name),
-    [languages]
-  );
+  const languageOptions = languages.map((lang) => lang.nativeName || lang.name);
   const currentLanguageDisplay = currentLanguage
     ? currentLanguage.nativeName || currentLanguage.name
     : '';
 
-  const handleLanguageSelect = useCallback(
-    (displayValue: string) => {
-      const selectedLanguage = languages.find(
-        (lang) => (lang.nativeName || lang.name) === displayValue
-      );
-      if (selectedLanguage) {
-        onLanguageChange?.(selectedLanguage.code);
-      }
-    },
-    [languages, onLanguageChange]
-  );
+  const handleLanguageSelect = (displayValue: string) => {
+    const selectedLanguage = languages.find(
+      (lang) => (lang.nativeName || lang.name) === displayValue
+    );
+    if (selectedLanguage) {
+      onLanguageChange?.(selectedLanguage.code);
+    }
+  };
 
   return (
     <header className={HOME_PAGE_STYLES.HEADER}>

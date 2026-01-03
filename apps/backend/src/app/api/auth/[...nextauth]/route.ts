@@ -1,6 +1,7 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import type { NextRequest } from 'next/server';
 import GoogleProvider from 'next-auth/providers/google';
+import FacebookProvider from 'next-auth/providers/facebook';
 import { ENDPOINTS } from '@webbitstudio/data-access/server';
 import { SESSION_MAX_AGE } from '../../../utils';
 import {
@@ -9,11 +10,12 @@ import {
 } from '../../../utils/cors';
 
 /**
- * NextAuth Configuration for Google OAuth
+ * NextAuth Configuration for Google and Facebook OAuth
  *
- * This provides secure authentication using Google OAuth 2.0.
+ * This provides secure authentication using Google and Facebook OAuth 2.0.
  * The configuration handles:
  * - Google sign-in flow
+ * - Facebook sign-in flow
  * - Session management with JWT
  * - Secure token handling
  */
@@ -28,6 +30,10 @@ export const authOptions: NextAuthOptions = {
           prompt: 'select_account', // Forces Google to show account picker
         },
       },
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID ?? '',
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET ?? '',
     }),
   ],
   session: {

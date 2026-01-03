@@ -1,10 +1,6 @@
 import { SOCIAL_LOGIN_BUTTONS_STYLES } from './utils/social-login-buttons.styles';
 import { LoginPageLocale } from '../../../../shared';
-import {
-  GoogleIcon,
-  FacebookIcon,
-  AppleIcon,
-} from '@webbitstudio/ui-components';
+import { GoogleIcon, FacebookIcon } from '@webbitstudio/ui-components';
 
 /**
  * Social Login Buttons Component
@@ -21,8 +17,6 @@ export interface SocialLoginButtonsProps {
   onGoogleLogin?: () => void;
   /** Callback when Facebook login is clicked */
   onFacebookLogin?: () => void;
-  /** Callback when Apple login is clicked */
-  onAppleLogin?: () => void;
 }
 
 export const SocialLoginButtons = ({
@@ -30,7 +24,6 @@ export const SocialLoginButtons = ({
   isLoading = false,
   onGoogleLogin,
   onFacebookLogin,
-  onAppleLogin,
 }: SocialLoginButtonsProps) => {
   return (
     <>
@@ -70,20 +63,6 @@ export const SocialLoginButtons = ({
             <FacebookIcon className={SOCIAL_LOGIN_BUTTONS_STYLES.SOCIAL_ICON} />
             <span className={SOCIAL_LOGIN_BUTTONS_STYLES.SOCIAL_BUTTON_TEXT}>
               {locale.CONTINUE_WITH_FACEBOOK}
-            </span>
-          </button>
-        )}
-
-        {onAppleLogin && (
-          <button
-            type="button"
-            onClick={onAppleLogin}
-            className={SOCIAL_LOGIN_BUTTONS_STYLES.SOCIAL_BUTTON}
-            disabled={isLoading}
-          >
-            <AppleIcon className={SOCIAL_LOGIN_BUTTONS_STYLES.SOCIAL_ICON} />
-            <span className={SOCIAL_LOGIN_BUTTONS_STYLES.SOCIAL_BUTTON_TEXT}>
-              {locale.CONTINUE_WITH_APPLE}
             </span>
           </button>
         )}

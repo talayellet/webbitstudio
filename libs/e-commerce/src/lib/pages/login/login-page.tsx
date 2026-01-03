@@ -13,7 +13,7 @@ import { CustomSelect } from '@webbitstudio/ui-components';
  * - Email and password input fields with validation
  * - Forgot password link
  * - Sign up redirect link
- * - Optional social login buttons (Google, Facebook, Apple)
+ * - Optional social login buttons (Google, Facebook)
  * - Localization support
  * - RTL support
  *
@@ -44,8 +44,6 @@ export interface LoginPageProps {
   onGoogleLogin?: () => void;
   /** Callback when Facebook login is clicked */
   onFacebookLogin?: () => void;
-  /** Callback when Apple login is clicked */
-  onAppleLogin?: () => void;
   /** Show social login buttons */
   showSocialLogin?: boolean;
   /** Show language selector */
@@ -67,7 +65,6 @@ export const LoginPage = ({
   onForgotPassword,
   onGoogleLogin,
   onFacebookLogin,
-  onAppleLogin,
   showSocialLogin = false,
   showLanguageSelector = false,
   currentLanguage,
@@ -226,7 +223,6 @@ export const LoginPage = ({
               isLoading={isLoading}
               onGoogleLogin={onGoogleLogin}
               onFacebookLogin={onFacebookLogin}
-              onAppleLogin={onAppleLogin}
             />
           )}
 

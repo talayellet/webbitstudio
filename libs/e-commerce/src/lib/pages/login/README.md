@@ -24,7 +24,6 @@ A professional, accessible login page component for eCommerce applications with 
 
   - Google login
   - Facebook login
-  - Apple login
 
 - **Accessibility**
 
@@ -71,7 +70,7 @@ const App = () => {
 import { LoginPage } from '@webbitstudio/e-commerce';
 
 const App = () => {
-  return <LoginPage onLogin={(email, password) => handleEmailLogin(email, password)} onSignup={() => router.push('/signup')} onForgotPassword={() => router.push('/forgot-password')} onGoogleLogin={() => handleGoogleLogin()} onFacebookLogin={() => handleFacebookLogin()} onAppleLogin={() => handleAppleLogin()} showSocialLogin={true} />;
+  return <LoginPage onLogin={(email, password) => handleEmailLogin(email, password)} onSignup={() => router.push('/signup')} onForgotPassword={() => router.push('/forgot-password')} onGoogleLogin={() => handleGoogleLogin()} onFacebookLogin={() => handleFacebookLogin()} showSocialLogin={true} />;
 };
 ```
 
@@ -119,7 +118,6 @@ const App = () => {
 | `onForgotPassword` | `() => void`                                                 | No       | Callback when forgot password is clicked     |
 | `onGoogleLogin`    | `() => void`                                                 | No       | Callback for Google login                    |
 | `onFacebookLogin`  | `() => void`                                                 | No       | Callback for Facebook login                  |
-| `onAppleLogin`     | `() => void`                                                 | No       | Callback for Apple login                     |
 | `showSocialLogin`  | `boolean`                                                    | No       | Show social login buttons (default: `false`) |
 
 ### Types
@@ -140,7 +138,6 @@ interface LoginPageLocale {
   OR_DIVIDER: string;
   CONTINUE_WITH_GOOGLE: string;
   CONTINUE_WITH_FACEBOOK: string;
-  CONTINUE_WITH_APPLE: string;
   EMAIL_REQUIRED: string;
   EMAIL_INVALID: string;
   PASSWORD_REQUIRED: string;

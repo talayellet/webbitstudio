@@ -27,7 +27,7 @@ export interface LoginPageContainerProps {
  * Reusable container component that handles:
  * - Authentication logic
  * - Navigation handlers via useECommerceNavigation hook
- * - OAuth integrations (Google, Facebook, Apple)
+ * - OAuth integrations (Google, Facebook)
  * - Clean separation of concerns
  *
  * @example
@@ -84,10 +84,6 @@ export const LoginPageContainer = ({
     handleOAuthLogin(OAUTH_PROVIDERS.FACEBOOK);
   };
 
-  const handleAppleLogin = () => {
-    handleOAuthLogin(OAUTH_PROVIDERS.APPLE);
-  };
-
   const handleLanguageChange = (nativeName: string) => {
     const selectedLanguage = E_COMMERCE_DEFAULT_LANGUAGES.find(
       (lang) => lang.nativeName === nativeName
@@ -108,7 +104,6 @@ export const LoginPageContainer = ({
         onForgotPassword={handleForgotPassword}
         onGoogleLogin={handleGoogleLogin}
         onFacebookLogin={handleFacebookLogin}
-        onAppleLogin={handleAppleLogin}
         showSocialLogin={true}
         showLanguageSelector={true}
         currentLanguage={currentLanguage.nativeName}

@@ -60,7 +60,6 @@ export interface LoginPageLocale {
   OR_DIVIDER: string;
   CONTINUE_WITH_GOOGLE: string;
   CONTINUE_WITH_FACEBOOK: string;
-  CONTINUE_WITH_APPLE: string;
   EMAIL_REQUIRED: string;
   EMAIL_INVALID: string;
   PASSWORD_REQUIRED: string;

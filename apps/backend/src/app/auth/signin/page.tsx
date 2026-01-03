@@ -12,20 +12,30 @@ import { SIGNIN_STYLES } from './utils/styles';
 /**
  * Custom NextAuth Signin Page
  *
- * This page immediately redirects to the Google OAuth flow
+ * This page immediately redirects to the specified OAuth provider flow
  * without showing an intermediate screen.
- * Supports localization through URL parameter (e.g., ?locale=es)
+ *
+ * Supports:
+ * - Multiple OAuth providers (google, facebook, apple)
+ * - Localization through URL parameter (e.g., ?locale=es)
+ * - Custom callback URLs
+ *
+ * URL Parameters:
+ * - provider: The OAuth provider to use (default: 'google')
+ * - callbackUrl: Where to redirect after successful login
+ * - locale: Language code for localization
  */
 function SignInContent() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/';
+  const provider = searchParams.get('provider') || 'google';
   const locale = searchParams.get('locale') || DEFAULT_LANGUAGE;
   const localeStrings = getAuthLocaleStrings(locale);
 
   useEffect(() => {
-    // Immediately trigger Google signin
-    signIn('google', { callbackUrl });
-  }, [callbackUrl]);
+    // Trigger OAuth signin with the specified provider
+    signIn(provider, { callbackUrl });
+  }, [callbackUrl, provider]);
 
   return (
     <div className={SIGNIN_STYLES.CONTAINER}>
